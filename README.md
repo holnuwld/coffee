@@ -2,8 +2,9 @@
 
 UAE(두바이/샤르자) 현지 아처스 커피(Archers Coffee) 로스터리 매장 방문 구매를 위한 **3대 핵심 컬렉션 117개 원두 전수 수집 및 기계 검증(Machine Quote Verification) 프로젝트**입니다.
 
-> **최종 인터랙티브 대시보드**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html)  
-> (양방향 헤더 정렬, 컬렉션별 탭 필터링, 실시간 통합 검색, 16개 메타데이터 및 현지 구매 메리트 완비)
+> 📱 **스마트폰 추천 모바일 뷰**: [`mobile.html`](mobile.html) (터치 최적화 카드 뷰, 아코디언 상세 스펙, 원터치 칩 필터)  
+> 🖥️ **PC 추천 데스크톱 뷰**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html) (18개 전수 지표 양방향 정렬 테이블)  
+> 🌐 **디바이스 허브 포털**: [`index.html`](index.html) (접속 환경 자동 감지 및 버전 선택 허브)
 
 ---
 
