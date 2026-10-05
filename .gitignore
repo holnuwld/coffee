@@ -14,6 +14,9 @@ __pycache__/
 debug_item_*.html
 sample_product.html
 auromar.html
+espresso_lab_pipeline/products/
+espresso_lab_pipeline/catalog*.html
+espresso_lab_pipeline/sample_product.html
 
 # IDE & OS
 .DS_Store

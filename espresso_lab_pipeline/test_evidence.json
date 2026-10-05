@@ -1,0 +1,20 @@
+[
+  {
+    "item": "Auromar Firestone",
+    "field": "price",
+    "value": "175",
+    "source_url": "https://theespressolab.com/products-details/auromar-firestone-7",
+    "quote": "175.00",
+    "retrieved_at": "2026-10-06T00:20:00Z",
+    "condition": "In stock"
+  },
+  {
+    "item": "Auromar Firestone",
+    "field": "tasting_notes",
+    "value": "Jasmine",
+    "source_url": "https://theespressolab.com/products-details/auromar-firestone-7",
+    "quote": "Jasmine, Longan & Yuzu",
+    "retrieved_at": "2026-10-06T00:20:00Z",
+    "condition": "In stock"
+  }
+]

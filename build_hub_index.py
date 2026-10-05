@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+import os
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+INDEX_HTML = r'c:\cowork\coffee\index.html'
+
+content = """<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -396,3 +403,9 @@
 
 </body>
 </html>
+"""
+
+with open(INDEX_HTML, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print(f"Generated Hub Index: {INDEX_HTML} ({len(content)} bytes)")

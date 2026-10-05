@@ -1,65 +1,75 @@
-# ☕ UAE 아처스 커피 (Archers Coffee) 공식 전수 검증 리포트 & 현지 구매 가이드
+# ☕ UAE 2대 명문 스페셜티 커피 (아처스 커피 & 에스프레소 커피랩) 통합 전수 검증 리포트 & 현지 구매 허브
 
-UAE(두바이/샤르자) 현지 아처스 커피(Archers Coffee) 로스터리 매장 방문 구매를 위한 **3대 핵심 컬렉션 117개 원두 전수 수집 및 기계 검증(Machine Quote Verification) 프로젝트**입니다.
+UAE(두바이/샤르자) 현지 스페셜티 커피 양대 명문인 **아처스 커피(Archers Coffee)**와 **에스프레소 커피랩(The Espresso Lab)**의 **전수 171종 원두 데이터 수집 및 기계 검증(Machine Quote Verification) 프로젝트**입니다.
 
-> 📱 **스마트폰 추천 모바일 뷰**: [`mobile.html`](mobile.html) (터치 최적화 카드 뷰, 아코디언 상세 스펙, 원터치 칩 필터)  
-> 🖥️ **PC 추천 데스크톱 뷰**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html) (18개 전수 지표 양방향 정렬 테이블)  
-> 🌐 **디바이스 허브 포털**: [`index.html`](index.html) (접속 환경 자동 감지 및 버전 선택 허브)
+> 🌐 **통합 허브 포털**: [`index.html`](index.html) (양대 로스터리 데스크톱/모바일 전체 선택 허브)  
+> 
+> ### 1. The Espresso Lab (에스프레소 커피랩 - 54종 전수 + 실물 패키지 사진)
+> * 🖥️ **데스크톱 대시보드**: [`theespressolab_verified.html`](theespressolab_verified.html) (패키지 사진 썸네일, 18개 컬럼 양방향 정렬, 6대 추천 원두)
+> * 📱 **모바일 퀵 가이드**: [`theespressolab_mobile.html`](theespressolab_mobile.html) (패키지 실물 카드, 원터치 필터, 터치 최적화 아코디언)
+> 
+> ### 2. Archers Coffee (아처스 커피 - 117종 전수 3대 컬렉션)
+> * 🖥️ **데스크톱 대시보드**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html) (18개 전수 지표 양방향 정렬 테이블)
+> * 📱 **모바일 퀵 가이드**: [`mobile.html`](mobile.html) (터치 최적화 카드 뷰, 아코디언 상세 스펙, 원터치 칩 필터)
 
 ---
 
 ## 📌 1. 프로젝트 개요
 
-* **대상 컬렉션**:
-  1. `Competition Series 2025` (85종)
-  2. `Microlot Reserve 2025` (20종)
-  3. `Microlot Selection 2026` (12종)
-  * **총 117종 전수 조사 완료**
-* **핵심 기능 & 데이터 무결성**:
-  * **상세 메타데이터 100% 완전 파싱**: 웹페이지 Accordion("Description", "The Farm and Producer")에서 농부(Producer), 농장(Farm), 지역(Location), 품종(Variety), 가공(Process), 고도(Altitude), 배전도(Roast)를 1건의 누락도 없이 완전 복원
-  * **원화 환산 가격 병기**: 현지 통화(AED) 및 원화 환산 가격(1 AED ≈ 380 KRW, 현지 매장 방문 구매 기준 무관세) 병기
-  * **국내 유통 이력 및 가격 대조**: 국내 수입사(엠아이커피, 커피리브레, 모모스커피 등)의 유사 랏 시세 대조 및 가격 차이/프로세스 코멘트 제공
-  * **순수 코드 기계 검증 (`verify_quotes.py`)**: 인용문 및 가격·노트 팩트 체크 **351건 전수 PASS (100.0%)** 달성
+| 구분 | Archers Coffee (아처스 커피) | The Espresso Lab (에스프레소 커피랩) |
+| :--- | :--- | :--- |
+| **위치** | 샤르자 본점 & 두바이 | 두바이 D3 (디자인 디스트릭트) & 알 사르칼 에비뉴 |
+| **수집 원두** | **117종 전수** (Competition 85종, Reserve 20종, Selection 12종) | **54종 전수** (Filter Profile 전체 라인업) |
+| **특징** | 전 세계 바리스타 대회용 옥션 랏 및 글로벌 직거래 마이크로랏 | 파나마 게이샤 25종 집중 라인업 및 **실물 패키지 사진 전수 탑재** |
+| **기계 검증 결과** | 351건 인용문 100% PASS (`verify_quotes.py`) | 162건 인용문 100% PASS (`verify_quotes.py`) |
+| **환율 기준** | 1 AED ≈ 380 KRW (현지 매장 방문 구매 기준 무관세) | 1 AED ≈ 380 KRW (현지 매장 방문 구매 기준 무관세) |
 
 ---
 
-## 🎯 2. 취향 맞춤 Best 3 & 컬렉션별 추천 원두 Top 3 (총 9종)
+## 🎯 2. The Espresso Lab (에스프레소 커피랩) 큐레이션 하이라이트
 
 > **사용자 선호 프로파일**: 워시드(Washed) · 티라이크(Tea-like) · 파나마/에티오피아 최우선 · 라이트로스트(Light Roast) · 푸어오버(Pour-over)  
-> **선정 원칙**: 국내에서 쉽게 구할 수 있는 품목(엘 파라이소, 세로 아줄 등)은 배제하고, **"한국에서 구할 수 없는 독점 랏"** 또는 **"국내 시세 대비 35~50% 반값 혜택"**인 원두만 엄선.
+> **선정 원칙**: 국내 수입이 전무한 **독점 랏** 또는 **국내 시세 대비 30~50% 반값 혜택** 원두 엄선.
 
-### 👑 사용자 취향 맞춤 Best 3
-1. **Panama - Finca Auromar Geisha Washed Peaberry** (AED 98 / 약 37,240원)
-   - BOP 챔피언 농장 독점 피베리 나노랏, 국내 일반 플랫빈 시세(7~8만원)의 50% 반값
-2. **Ethiopia - Hamasho Village Washed Archers Lot 2025** (AED 33 / 약 12,540원)
-   - COE 2위 다예 벤사 아처스 독점 워시드, 국내 유사 내추럴 랏(2.4만원) 대비 50% 반값
-3. **Panama - Elida Geisha Washed Plano 2801** (AED 143 / 약 54,340원)
-   - 세계 최고가 옥션 명문 엘리다 에스테이트, 국내 시세(8~9만원) 대비 35% 할인
+### 👑 사용자 맞춤 추천 TOP 3
+1. **Panama Auromar Firestone** (Geisha Washed Anaerobic | 100g / AED 175, 약 66,500원)
+   - 2022 Best of Panama(BOP) 1위 챔피언 Firestone 랏! 샴페인 스파클링 산미와 백차/자스민의 극상 티라이크 질감. 국내 일반 오로마르 시세(9~10만원) 대비 35% 할인.
+2. **Ethiopia Bombe Washed** (74158 Washed | 200g / AED 80, 100g당 약 15,200원)
+   - 2021 에티오피아 COE 1위 타미루 타데세(Alo Coffee)의 해발 2,100m 정통 워시드. 레몬그라스와 얼그레이 홍차 뉘앙스. 국내 시세(100g 3만원선)의 정확히 50% 반값 종결 원두.
+3. **Panama SL28 Santa Isabel** (SL28 Washed | 100g / AED 75.5, 약 28,690원)
+   - 파나마 보케테 1,500m 화산 토양에서 자란 희귀 SL28 워시드. 케냐 명품 품종의 크리스탈 구연산과 파나마의 화사한 꽃향이 결합된 2.8만원대 극가성비 국내 미수입 랏.
 
-### 🌟 전문가 추천 Best 3 (독점 나노랏 & 극가성비)
-1. **Panama - Finca Los Cenizos Geisha Washed GW-208** (AED 210 / 약 79,800원)
-   - 해발 2,050m 바루 화산 최고봉 테루아, 국내 미수입 100% 독점 복숭아 아이스티 톤
-2. **Ecuador - Finca Del Putushio Typica Mejorado RT** (AED 83 / 약 31,540원)
-   - 에콰도르 최고봉 희귀 메호라도, 국내 시세(6만원대) 대비 50% 저렴한 자스민/라임 허브티 톤
-3. **Ethiopia - Elto Coffee Sama Washed** (AED 28 / 약 10,640원)
-   - 해발 2,350m 단일 품종(74158) 워시드, 1만원대 데일리 푸어오버 종결자
-
-### 🏆 3대 컬렉션별 Top 3 상세 요약
-| 컬렉션 | 순위 | 원두명 | 용량/가격 (원화) | 핵심 큐레이션 사유 |
-| :--- | :---: | :--- | :--- | :--- |
-| **Competition Series 2025** | 🥇 1 | Panama Auromar Peaberry Washed | 100g / AED 98 (약 37,240원) | BOP 1위 오로마르 독점 피베리, 국내 반값 |
-| | 🥈 2 | Panama Elida Plano 2801 Washed | 100g / AED 143 (약 54,340원) | 세계 신기록 엘리다, 백차/라벤더 톤, 35% 할인 |
-| | 🥉 3 | Panama Finca Los Cenizos GW-208 | 100g / AED 210 (약 79,800원) | 2,050m 바루 화산 최고봉, 국내 미수입 독점 |
-| **Microlot Reserve 2025** | 🥇 1 | Ethiopia Hamasho Village Washed | 100g / AED 33 (약 12,540원) | 다예 벤사 독점 워시드 랏, 국내 시세 50% 반값 |
-| | 🥈 2 | Ethiopia Elto Elora Station Washed | 100g / AED 33 (약 12,540원) | 2,400m 초고고도 워시드, 진저에일/허브티 톤 |
-| | 🥉 3 | Ecuador Finca Del Putushio Typica Mejorado | 100g / AED 83 (약 31,540원) | 게이샤 능가하는 화사함, 국내 6만원대 대비 반값 |
-| **Microlot Selection 2026** | 🥇 1 | Ethiopia Elto Sama Washed | 100g / AED 28 (약 10,640원) | 2,350m 싱글 버라이어티, 1만원대 데일리 종결 |
-| | 🥈 2 | Ethiopia Benti Nenka Guji Hambela | 100g / AED 33 (약 12,540원) | 구지 고지대 열대과일 티 톤, 국내 시세 40% 할인 |
-| | 🥉 3 | Costa Rica Cafe Rivense Black Honey | 100g / AED 30 (약 11,400원) | 2019 COE 1위 농장 블랙허니, 1.1만원 극가성비 |
+### 🌟 큐레이터 스페셜 추천 TOP 3
+1. **Colombia El Rubi Parainema Anaerobic Washed Lot A** (Parainema | 100g / AED 60, 약 22,800원)
+   - 희귀 품종 파라이네마의 섬세한 화이트 티(White Tea) & 리치 텍스처, 100g 2.2만원대 놀라운 가성비.
+2. **Kenya Kamavindi Giakanja AB Washed** (SL28/34 Washed | 200g / AED 99.99, 100g당 약 19,000원)
+   - 케냐 스페셜티의 성지 니에리(Nyeri) 1,750m Giakanja 팩토리 정통 더블 워시드. 자몽, 히비스커스, 블랙티 톤.
+3. **Panama Kotowa Las Brujas Ethiopian Natural Lot 4219** (Ethiopian Heirloom | 100g / AED 60, 약 22,800원)
+   - 100년 명문 코토와 농장의 파나마 화산 에티오피아 토착종 나노랏. 카모마일 꽃차와 살구의 우아한 질감.
 
 ---
 
-## 🤖 3. 멀티에이전트 아키텍처
+## 🎯 3. Archers Coffee (아처스 커피) 큐레이션 하이라이트
+
+### 👑 사용자 맞춤 Best 3
+1. **Panama Auromar Geisha Washed Peaberry** (100g / AED 98, 약 37,240원)
+   - BOP 챔피언 농장 아처스 독점 피베리 나노랏, 국내 플랫빈 시세(7~8만원)의 50% 반값.
+2. **Ethiopia Hamasho Village Washed Archers Lot 2025** (100g / AED 33, 약 12,540원)
+   - COE 2위 다예 벤사 아처스 독점 워시드, 국내 유사 내추럴 랏(2.4만원) 대비 50% 반값.
+3. **Panama Elida Geisha Washed Plano 2801** (100g / AED 143, 약 54,340원)
+   - 세계 최고가 옥션 명문 엘리다 에스테이트, 국내 시세(8~9만원) 대비 35% 할인.
+
+### 🌟 전문가 추천 Best 3
+1. **Panama Finca Los Cenizos Geisha Washed GW-208** (100g / AED 210, 약 79,800원)
+   - 해발 2,050m 바루 화산 최고봉 테루아, 국내 미수입 100% 독점 복숭아 아이스티 톤.
+2. **Ecuador Finca Del Putushio Typica Mejorado RT** (100g / AED 83, 약 31,540원)
+   - 에콰도르 최고봉 희귀 메호라도, 국내 시세(6만원대) 대비 50% 저렴한 자스민/라임 허브티 톤.
+3. **Ethiopia Elto Coffee Sama Washed** (100g / AED 28, 약 10,640원)
+   - 해발 2,350m 단일 품종(74158) 워시드, 1만원대 데일리 푸어오버 종결자.
+
+---
+
+## 🤖 4. 멀티에이전트 아키텍처 및 무결성 검증
 
 본 프로젝트는 LLM의 환각을 방지하고 데이터 무결성을 보장하기 위해 4단계 에이전트 구조로 운영됩니다:
 
@@ -82,55 +92,31 @@ UAE(두바이/샤르자) 현지 아처스 커피(Archers Coffee) 로스터리 �
 [4. 리포터 (Reporter)] ── 최종 인터랙티브 HTML 대시보드 및 리포트 빌드
 ```
 
----
-
-## 🛠️ 4. `verify_quotes.py` 기계 검증 CLI 도구
-
-수집된 증거 레코드(`evidence_records.json`)의 `quote`와 `value`가 실제 웹페이지 본문에 존재하는지 정규화 기반 순수 코드로 전수 검증합니다.
-
-```bash
-# 검증 실행
-python verify_quotes.py new_pipeline/evidence_records.json -o new_pipeline/verified_output.json --workers 5
-```
-
-### 정규화 및 검증 규칙
-* 유니코드 NFKC 표준화 및 Zero-width 문자(`\u200b`, `\ufeff`) 제거
-* 스마트 따옴표, 대시 종류 통일 및 영문 대소문자 무시
-* 천 단위 쉼표 차이(`3,200` = `3200`)만 허용하며 퍼지 매칭 금지
+### `verify_quotes.py` 검증 수행 내역
+* **Archers Coffee**: 총 351건 증거 레코드 검증 → **351건 PASS (100.0%)**
+* **The Espresso Lab**: 총 162건 증거 레코드 검증 → **162건 PASS (100.0%)**
+* **통합 검증 성공률**: **513건 전수 100.0% PASS 완료** (단 1건의 인용 오류나 가격 불일치 없음)
 
 ---
 
-## 📂 5. 디렉토리 구조
+## 📦 5. 레포지토리 구조
 
 ```
-├── archers_coffee_clean_verified.html  # 최종 인터랙티브 대시보드 (117개 전수 수록)
-├── verify_quotes.py                    # 기계 검증 CLI 스크립트
-├── requirements.txt                    # Python 의존성 목록
-├── .gitignore                          # Git 제외 설정
-├── new_pipeline/                       # 데이터 파이프라인
-│   ├── raw_collected_coffees.json      # 117개 커피 완전 파싱 데이터셋
-│   ├── evidence_records.json           # 351건 증거 레코드
-│   ├── verified_output.json            # 351건 기계 검증 PASS 결과
-│   ├── generate_final_html.py          # HTML 빌드 스크립트
-│   ├── extract_all_complete_metadata.py# 메타데이터 수집 스크립트
-│   └── verify_audit.py                 # 전수 데이터 감사 스크립트
-└── tests/
-    └── test_verify_quotes.py           # 검증 스크립트 단위 테스트 (pytest)
-```
-
----
-
-## 🚀 6. 실행 방법
-
-```bash
-# 가상환경 활성화 및 패키지 설치
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-# 테스트 실행
-pytest tests/
-
-# 최신 HTML 대시보드 재생성
-python new_pipeline/generate_final_html.py
+coffee/
+├── index.html                           # UAE 2대 명문 로스터리 통합 허브 포털
+├── theespressolab_verified.html         # 에스프레소 커피랩 데스크톱 대시보드 (실물 패키지 사진 포함)
+├── theespressolab_mobile.html           # 에스프레소 커피랩 모바일 퀵 가이드
+├── archers_coffee_clean_verified.html   # 아처스 커피 데스크톱 대시보드
+├── mobile.html                          # 아처스 커피 모바일 퀵 가이드
+├── verify_quotes.py                     # 순수 코드 기계 검증 CLI 엔진
+├── espresso_lab_pipeline/               # 에스프레소 커피랩 수집 및 검증 파이프라인
+│   ├── enriched_coffees.json            # 54종 원두 원본 파싱 데이터 + 이미지 URL
+│   ├── coffees_full_dataset.json        # 국내 시세 비교 및 센서리 리뷰 보강 데이터
+│   ├── evidence_records.json            # 162건 증거 인용 레코드
+│   └── verified_output.json             # 162건 PASS 검증 결과 리포트
+├── new_pipeline/                        # 아처스 커피 수집 및 검증 파이프라인
+│   ├── raw_collected_coffees.json       # 117종 원두 원본 데이터
+│   ├── evidence_records.json            # 351건 증거 인용 레코드
+│   └── verified_output.json             # 351건 PASS 검증 결과 리포트
+└── requirements.txt                     # 의존성 패키지 (beautifulsoup4, requests, pytest)
 ```
