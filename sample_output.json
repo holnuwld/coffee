@@ -1,0 +1,27 @@
+[
+  {
+    "item": "Panama - Finca Los Cenizos Geisha Washed GW 208",
+    "field": "tasting_notes",
+    "value": "peach tea",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208",
+    "quote": "Panama - Finca Los Cenizos - Geisha Washed GW 208 by Estela Pitti. For filter & espresso, with tasting notes of coffee flower, peach tea, pear, bergamot, papaya.",
+    "retrieved_at": "2026-10-05T20:38:00Z",
+    "condition": {
+      "process": "Washed",
+      "currency": "AED"
+    },
+    "status": "UNREACHABLE",
+    "reason": "HTTP 429 Too Many Requests"
+  },
+  {
+    "item": "Fake Product Test",
+    "field": "price",
+    "value": "999 AED",
+    "source_url": "https://archerscoffee.com/products/non-existent-coffee-page-404-test",
+    "quote": "This is a fake quote that does not exist.",
+    "retrieved_at": "2026-10-05T20:38:00Z",
+    "condition": {},
+    "status": "UNREACHABLE",
+    "reason": "HTTP 429 Too Many Requests"
+  }
+]

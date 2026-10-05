@@ -1,0 +1,4916 @@
+[
+  {
+    "item": "Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed",
+    "quote": "Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed",
+    "quote": "white florals, nectarine, apricot, orange, sparkling white wine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed",
+    "field": "price_aed",
+    "value": "265.00",
+    "source_url": "https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed",
+    "quote": "265.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 100700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Caturra Chiroso, Finca El Paraiso",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso",
+    "quote": "Colombia - Caturra Chiroso, Finca El Paraiso",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Caturra Chiroso, Finca El Paraiso",
+    "field": "tasting_notes",
+    "value": "sweet spices",
+    "source_url": "https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso",
+    "quote": "sweet spices, star anise, clove, lavender, black liqourice",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▫▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Caturra Chiroso, Finca El Paraiso",
+    "field": "price_aed",
+    "value": "215.00",
+    "source_url": "https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso",
+    "quote": "215.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 81700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Honey DRD",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd",
+    "quote": "Colombia - Finca El Porvenir Geisha Honey DRD",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Honey DRD",
+    "field": "tasting_notes",
+    "value": "complex florals",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd",
+    "quote": "complex florals, coffee flower, yuzu, lanzones, cantaloupe",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Honey DRD",
+    "field": "price_aed",
+    "value": "305.00",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd",
+    "quote": "305.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 115900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Washed",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed",
+    "quote": "Colombia - Finca El Porvenir Geisha Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Washed",
+    "field": "tasting_notes",
+    "value": "orange blossom",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed",
+    "quote": "orange blossom, sprite, yuzu, white grapes, champagne",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Porvenir Geisha Washed",
+    "field": "price_aed",
+    "value": "265.00",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed",
+    "quote": "265.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 100700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895",
+    "quote": "Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895",
+    "field": "tasting_notes",
+    "value": "nectarine",
+    "source_url": "https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895",
+    "quote": "nectarine, kiwi, red grapes, apricot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895",
+    "field": "price_aed",
+    "value": "235.00",
+    "source_url": "https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895",
+    "quote": "235.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 89300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Las Margaritas, Geisha Hybrid Washed",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed",
+    "quote": "Colombia - Las Margaritas, Geisha Hybrid Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Las Margaritas, Geisha Hybrid Washed",
+    "field": "tasting_notes",
+    "value": "jasmine tea",
+    "source_url": "https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed",
+    "quote": "jasmine tea, pear, floral honey, cherry, mandarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Las Margaritas, Geisha Hybrid Washed",
+    "field": "price_aed",
+    "value": "210.00",
+    "source_url": "https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed",
+    "quote": "210.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 79800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Letty, Finca El Paraiso",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-letty-finca-el-paraiso",
+    "quote": "Colombia - Letty, Finca El Paraiso",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Letty, Finca El Paraiso",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/colombia-letty-finca-el-paraiso",
+    "quote": "peach, apricot, dried mango, milky oolong tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Letty, Finca El Paraiso",
+    "field": "price_aed",
+    "value": "205.00",
+    "source_url": "https://archerscoffee.com/products/colombia-letty-finca-el-paraiso",
+    "quote": "205.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 77900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Luna, Finca El Paraiso",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-luna-finca-el-paraiso",
+    "quote": "Colombia - Luna, Finca El Paraiso",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Luna, Finca El Paraiso",
+    "field": "tasting_notes",
+    "value": "red grapes",
+    "source_url": "https://archerscoffee.com/products/colombia-luna-finca-el-paraiso",
+    "quote": "red grapes, cherry candy, dark plum, honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Luna, Finca El Paraiso",
+    "field": "price_aed",
+    "value": "205.00",
+    "source_url": "https://archerscoffee.com/products/colombia-luna-finca-el-paraiso",
+    "quote": "205.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 77900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Don KS Geisha lot 131",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131",
+    "quote": "Costa Rica - Hacienda Copey Don KS Geisha lot 131",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Don KS Geisha lot 131",
+    "field": "tasting_notes",
+    "value": "mandarine",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131",
+    "quote": "mandarine, peach, honey, white flower, mangosteen",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Don KS Geisha lot 131",
+    "field": "price_aed",
+    "value": "270.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131",
+    "quote": "270.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 102600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182",
+    "quote": "Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182",
+    "quote": "white florals, yuzu, white grapes, apricot, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182",
+    "field": "price_aed",
+    "value": "285.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182",
+    "quote": "285.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 108300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Lot 111",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111",
+    "quote": "Costa Rica - Hacienda Copey Itadaki Geisha Lot 111",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Lot 111",
+    "field": "tasting_notes",
+    "value": "lavender",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111",
+    "quote": "lavender, pear, nectarine, white grapes, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Lot 111",
+    "field": "price_aed",
+    "value": "270.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111",
+    "quote": "270.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 102600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177",
+    "quote": "Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177",
+    "field": "tasting_notes",
+    "value": "orange blossom",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177",
+    "quote": "orange blossom, bergamot, pear, white grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177",
+    "field": "price_aed",
+    "value": "150.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177",
+    "quote": "150.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 57000
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Sidra Wave Washed, Finca Soledad",
+    "field": "title",
+    "value": "Ecuador",
+    "source_url": "https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad",
+    "quote": "Ecuador - Sidra Wave Washed, Finca Soledad",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Sidra Wave Washed, Finca Soledad",
+    "field": "tasting_notes",
+    "value": "coconut",
+    "source_url": "https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad",
+    "quote": "coconut, plum, white florals, matcha",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Sidra Wave Washed, Finca Soledad",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Typica Mejorado Wave Natural, Finca Soledad",
+    "field": "title",
+    "value": "Ecuador",
+    "source_url": "https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad",
+    "quote": "Ecuador - Typica Mejorado Wave Natural, Finca Soledad",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Typica Mejorado Wave Natural, Finca Soledad",
+    "field": "tasting_notes",
+    "value": "caramelized dates",
+    "source_url": "https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad",
+    "quote": "caramelized dates, honey, apricot, chamomile tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Typica Mejorado Wave Natural, Finca Soledad",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural",
+    "quote": "Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural",
+    "field": "tasting_notes",
+    "value": "mandarine",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural",
+    "quote": "mandarine, peach candy, lychee, mango, strawberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural",
+    "field": "price_aed",
+    "value": "175.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural",
+    "quote": "175.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 66500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed",
+    "quote": "Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed",
+    "field": "tasting_notes",
+    "value": "lemongrass",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed",
+    "quote": "lemongrass, ginger ale, white florals, peach, lychee",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed",
+    "field": "price_aed",
+    "value": "175.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed",
+    "quote": "175.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 66500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 1 - SFW",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw",
+    "quote": "Ethiopia - Alo Village Archers Lot 1 - SFW",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 1 - SFW",
+    "field": "tasting_notes",
+    "value": "ginger ale",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw",
+    "quote": "ginger ale, yuzu, apricot, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 1 - SFW",
+    "field": "price_aed",
+    "value": "125.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw",
+    "quote": "125.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 47500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 2 - DFW",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw",
+    "quote": "Ethiopia - Alo Village Archers Lot 2 - DFW",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 2 - DFW",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw",
+    "quote": "peach, lychee, papaya, cantaloupe, white grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village Archers Lot 2 - DFW",
+    "field": "price_aed",
+    "value": "125.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw",
+    "quote": "125.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 47500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Natural Peaberry",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry",
+    "quote": "Ethiopia - Alo Village, Natural Peaberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Natural Peaberry",
+    "field": "tasting_notes",
+    "value": "fresh strawberry",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry",
+    "quote": "fresh strawberry, mango, mandarine, white peach",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "미디엄 (Espresso | Milk | Filter) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Natural Peaberry",
+    "field": "price_aed",
+    "value": "120.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry",
+    "quote": "120.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 45600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Washed Peaberry",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry",
+    "quote": "Ethiopia - Alo Village, Washed Peaberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Washed Peaberry",
+    "field": "tasting_notes",
+    "value": "lemongrass",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry",
+    "quote": "lemongrass, mandarine orange, berries, melon, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "미디엄 (Espresso | Milk | Filter) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Alo Village, Washed Peaberry",
+    "field": "price_aed",
+    "value": "120.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry",
+    "quote": "120.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 45600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep",
+    "quote": "Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep",
+    "quote": "yuzu, peach, ginger ale, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP",
+    "field": "price_aed",
+    "value": "110.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep",
+    "quote": "110.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 41800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep",
+    "quote": "Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP",
+    "field": "tasting_notes",
+    "value": "starfruit",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep",
+    "quote": "starfruit, peach, lychee, guava, lemongrass",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP",
+    "field": "price_aed",
+    "value": "110.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep",
+    "quote": "110.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 41800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep",
+    "quote": "Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP",
+    "field": "tasting_notes",
+    "value": "blueberry",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep",
+    "quote": "blueberry, peach cobbler, mango, lychee",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP",
+    "field": "price_aed",
+    "value": "110.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep",
+    "quote": "110.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 41800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Natural Cold Ferment Archers EP",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep",
+    "quote": "Ethiopia - Elora Station Natural Cold Ferment Archers EP",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Natural Cold Ferment Archers EP",
+    "field": "tasting_notes",
+    "value": "rambutan",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep",
+    "quote": "rambutan, blueberry, peach, floral honey, ginger ale",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Natural Cold Ferment Archers EP",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Washed Cold Ferment Archers EP",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep",
+    "quote": "Ethiopia - Elora Station Washed Cold Ferment Archers EP",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Washed Cold Ferment Archers EP",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep",
+    "quote": "white florals, nectarine, honeydew, peach, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elora Station Washed Cold Ferment Archers EP",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8",
+    "quote": "Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8",
+    "field": "tasting_notes",
+    "value": "lychee",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8",
+    "quote": "lychee, rose, mandarine, cantaloupe, peach iced tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8",
+    "field": "price_aed",
+    "value": "82.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8",
+    "quote": "82.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 31160
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd",
+    "quote": "Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD",
+    "field": "tasting_notes",
+    "value": "pear",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd",
+    "quote": "pear, mango, white grapes, cotton fruit, cantaloupe, white florals",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD",
+    "field": "price_aed",
+    "value": "82.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd",
+    "quote": "82.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 31160
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Honey CF5",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5",
+    "quote": "Ethiopia - Elto - Elora Station River Flow Honey CF5",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Honey CF5",
+    "field": "tasting_notes",
+    "value": "ginger ale",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5",
+    "quote": "ginger ale, white grapes, jasmine, honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Honey CF5",
+    "field": "price_aed",
+    "value": "65.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5",
+    "quote": "65.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 24700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural CF8",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8",
+    "quote": "Ethiopia - Elto - Elora Station River Flow Natural CF8",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural CF8",
+    "field": "tasting_notes",
+    "value": "peach cobbler",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8",
+    "quote": "peach cobbler, blueberry, lychee, strawberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural CF8",
+    "field": "price_aed",
+    "value": "65.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8",
+    "quote": "65.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 24700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural RF10",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10",
+    "quote": "Ethiopia - Elto - Elora Station River Flow Natural RF10",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural RF10",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10",
+    "quote": "mango, peach, red grapes, lychee, blueberry, bubblegum",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Natural RF10",
+    "field": "price_aed",
+    "value": "82.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10",
+    "quote": "82.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 31160
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed CF10",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10",
+    "quote": "Ethiopia - Elto - Elora Station River Flow Washed CF10",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed CF10",
+    "field": "tasting_notes",
+    "value": "white peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10",
+    "quote": "white peach, lychee, papaya, mandarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed CF10",
+    "field": "price_aed",
+    "value": "65.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10",
+    "quote": "65.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 24700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed WRF8",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8",
+    "quote": "Ethiopia - Elto - Elora Station River Flow Washed WRF8",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed WRF8",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8",
+    "quote": "jasmine, kumquat, papaya, apricot, sugarcane, ginger ale",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto - Elora Station River Flow Washed WRF8",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Natural Anaerobic Archers Lot",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1",
+    "quote": "Ethiopia - Hamasho Village Natural Anaerobic Archers Lot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Natural Anaerobic Archers Lot",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1",
+    "quote": "mango, lychee, blueberry, maple syrup",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Natural Anaerobic Archers Lot",
+    "field": "price_aed",
+    "value": "48.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1",
+    "quote": "48.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 18240
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic",
+    "quote": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic",
+    "field": "tasting_notes",
+    "value": "peach cobbler",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic",
+    "quote": "peach cobbler, mango, blueberry, pineapple, cantaloupe",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic",
+    "field": "price_aed",
+    "value": "90.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic",
+    "quote": "90.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 34200
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26",
+    "quote": "Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "200g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26",
+    "field": "tasting_notes",
+    "value": "strawberry",
+    "source_url": "https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26",
+    "quote": "strawberry, peach iced tea, mango, pineapple, red grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26",
+    "field": "price_aed",
+    "value": "110.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26",
+    "quote": "110.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "200g",
+      "price_krw": 41800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Finca Auromar, Geisha Washed Peaberry",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry",
+    "quote": "Panama  - Finca Auromar, Geisha Washed Peaberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Finca Auromar, Geisha Washed Peaberry",
+    "field": "tasting_notes",
+    "value": "white grape",
+    "source_url": "https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry",
+    "quote": "white grape, coffee blossom, yuzu, champagne",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Finca Auromar, Geisha Washed Peaberry",
+    "field": "price_aed",
+    "value": "98.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry",
+    "quote": "98.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 37240
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Mil Cumbres CLAUS GN Lot 2702",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702",
+    "quote": "Panama  - Mil Cumbres CLAUS GN Lot 2702",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Mil Cumbres CLAUS GN Lot 2702",
+    "field": "tasting_notes",
+    "value": "mandarine",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702",
+    "quote": "mandarine, white flower, peach, nectarine, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama  - Mil Cumbres CLAUS GN Lot 2702",
+    "field": "price_aed",
+    "value": "153.00",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702",
+    "quote": "153.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58140
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee - Geisha Washed lot 2690",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690",
+    "quote": "Panama - Abu Coffee - Geisha Washed lot 2690",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee - Geisha Washed lot 2690",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690",
+    "quote": "yuzu, honeysuckle, papaya, white grapes, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee - Geisha Washed lot 2690",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee Geisha Washed Lot 3365",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365",
+    "quote": "Panama - Abu Coffee Geisha Washed Lot 3365",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee Geisha Washed Lot 3365",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365",
+    "quote": "white florals, apricot, nectarine, pear",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Abu Coffee Geisha Washed Lot 3365",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Finca Lorayne Geisha Washed",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed",
+    "quote": "Panama - Adaura Coffee Finca Lorayne Geisha Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Finca Lorayne Geisha Washed",
+    "field": "tasting_notes",
+    "value": "orange blossom",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed",
+    "quote": "orange blossom, mandarine, pear, peach, honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Finca Lorayne Geisha Washed",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Geisha Washed Jer DRD",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd",
+    "quote": "Panama - Adaura Coffee Geisha Washed Jer DRD",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Geisha Washed Jer DRD",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd",
+    "quote": "jasmine, honeydew, papaya, white tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Geisha Washed Jer DRD",
+    "field": "price_aed",
+    "value": "120.00",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd",
+    "quote": "120.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 45600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee, Washed Ferment Mosto",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025",
+    "quote": "Panama - Adaura Coffee, Washed Ferment Mosto",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee, Washed Ferment Mosto",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025",
+    "quote": "white florals, yuzu, peach, white grapes, kiwi",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee, Washed Ferment Mosto",
+    "field": "price_aed",
+    "value": "183.00",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025",
+    "quote": "183.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 69540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Altieri Coffee Chombi 080425 River Flow 7",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7",
+    "quote": "Panama - Altieri Coffee Chombi 080425 River Flow 7",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Altieri Coffee Chombi 080425 River Flow 7",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7",
+    "quote": "peach, mandarine, rambutan, strawberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Altieri Coffee Chombi 080425 River Flow 7",
+    "field": "price_aed",
+    "value": "150.00",
+    "source_url": "https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7",
+    "quote": "150.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 57000
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Chevas Limited  El Choclo GW Venus",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus",
+    "quote": "Panama - Chevas Limited  El Choclo GW Venus",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Chevas Limited  El Choclo GW Venus",
+    "field": "tasting_notes",
+    "value": "coffee flower",
+    "source_url": "https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus",
+    "quote": "coffee flower, papaya, white tea, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Chevas Limited  El Choclo GW Venus",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Cuatro Caminos H2 Geisha Natural",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural",
+    "quote": "Panama - Cuatro Caminos H2 Geisha Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Cuatro Caminos H2 Geisha Natural",
+    "field": "tasting_notes",
+    "value": "tangerine",
+    "source_url": "https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural",
+    "quote": "tangerine, jasmine, white peach, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Cuatro Caminos H2 Geisha Natural",
+    "field": "price_aed",
+    "value": "125.00",
+    "source_url": "https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural",
+    "quote": "125.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 47500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Honey Loma 2501",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501",
+    "quote": "Panama - Elida Geisha Honey Loma 2501",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Honey Loma 2501",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501",
+    "quote": "jasmine, apple, peach, mangosteen",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Honey Loma 2501",
+    "field": "price_aed",
+    "value": "143.00",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501",
+    "quote": "143.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 54340
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Washed Plano 2801",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801",
+    "quote": "Panama - Elida Geisha Washed Plano 2801",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Washed Plano 2801",
+    "field": "tasting_notes",
+    "value": "lavender",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801",
+    "quote": "lavender, white grapes, honey, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Elida Geisha Washed Plano 2801",
+    "field": "price_aed",
+    "value": "143.00",
+    "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801",
+    "quote": "143.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 54340
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Natural Lot 2425",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425",
+    "quote": "Panama - Finca El Pergamino Geisha Natural Lot 2425",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Natural Lot 2425",
+    "field": "tasting_notes",
+    "value": "rambutan",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425",
+    "quote": "rambutan, raspberry, peach, red grapes, strawberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Natural Lot 2425",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Washed Lot 31325",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325",
+    "quote": "Panama - Finca El Pergamino Geisha Washed Lot 31325",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Washed Lot 31325",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325",
+    "quote": "white florals, bergamot, pear, nectarine, earlgrey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca El Pergamino Geisha Washed Lot 31325",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos  - Geisha Washed GW 208",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208",
+    "quote": "Panama - Finca Los Cenizos  - Geisha Washed GW 208",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos  - Geisha Washed GW 208",
+    "field": "tasting_notes",
+    "value": "coffee flower",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208",
+    "quote": "coffee flower, peach tea, pear, bergamot, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos  - Geisha Washed GW 208",
+    "field": "price_aed",
+    "value": "210.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208",
+    "quote": "210.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 79800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos GN 060 - Planta lot 10",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10",
+    "quote": "Panama - Finca Los Cenizos GN 060 - Planta lot 10",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos GN 060 - Planta lot 10",
+    "field": "tasting_notes",
+    "value": "mandarine",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10",
+    "quote": "mandarine, rose, floral honey, lanzones",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Los Cenizos GN 060 - Planta lot 10",
+    "field": "price_aed",
+    "value": "208.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10",
+    "quote": "208.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 79040
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Nuguo Geisha Washed Lot 841",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841",
+    "quote": "Panama - Finca Nuguo Geisha Washed Lot 841",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "50g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Nuguo Geisha Washed Lot 841",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841",
+    "quote": "jasmine, white grapes, bergamot, honeydew, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Finca Nuguo Geisha Washed Lot 841",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "50g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande  Cold Ferment Washed Lot 5",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5",
+    "quote": "Panama - Gato Grande  Cold Ferment Washed Lot 5",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande  Cold Ferment Washed Lot 5",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5",
+    "quote": "yuzu, white florals, apricot, white grapes, pear",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande  Cold Ferment Washed Lot 5",
+    "field": "price_aed",
+    "value": "180.00",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5",
+    "quote": "180.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 68400
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande Cold Ferment Natural",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural",
+    "quote": "Panama - Gato Grande Cold Ferment Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande Cold Ferment Natural",
+    "field": "tasting_notes",
+    "value": "mandarine",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural",
+    "quote": "mandarine, white peach, jasmine, apricot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Gato Grande Cold Ferment Natural",
+    "field": "price_aed",
+    "value": "170.00",
+    "source_url": "https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural",
+    "quote": "170.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 64600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Guarumo Coffee Farm Geisha Natural Lot 17125",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125",
+    "quote": "Panama - Guarumo Coffee Farm Geisha Natural Lot 17125",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Guarumo Coffee Farm Geisha Natural Lot 17125",
+    "field": "tasting_notes",
+    "value": "pineapple",
+    "source_url": "https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125",
+    "quote": "pineapple, mandarine, peach, kiwi, nectarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Guarumo Coffee Farm Geisha Natural Lot 17125",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda  Mario Arriba 4 NB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb",
+    "quote": "Panama - Hacienda La Esmeralda  Mario Arriba 4 NB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda  Mario Arriba 4 NB",
+    "field": "tasting_notes",
+    "value": "coffee flower",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb",
+    "quote": "coffee flower, papaya, lanzones, cantaloupe, muscovado",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda  Mario Arriba 4 NB",
+    "field": "price_aed",
+    "value": "225.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb",
+    "quote": "225.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 85500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Buenos Aires 4NC",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc",
+    "quote": "Panama - Hacienda La Esmeralda Buenos Aires 4NC",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Buenos Aires 4NC",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc",
+    "quote": "peach, mandarine, blackberry, red grapes, white floral",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Buenos Aires 4NC",
+    "field": "price_aed",
+    "value": "195.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc",
+    "quote": "195.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 74100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb",
+    "quote": "Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB",
+    "field": "tasting_notes",
+    "value": "pear",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb",
+    "quote": "pear, strawberry, mandarine, white flower, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB",
+    "field": "price_aed",
+    "value": "225.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb",
+    "quote": "225.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 85500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb",
+    "quote": "Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb",
+    "quote": "white florals, nectarine, pear, sugarcane, papaya, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB",
+    "field": "price_aed",
+    "value": "225.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb",
+    "quote": "225.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 85500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Fundador 8 NB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb",
+    "quote": "Panama - Hacienda La Esmeralda Fundador 8 NB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Fundador 8 NB",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb",
+    "quote": "mango, lychee, mandarine, starfruit, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Fundador 8 NB",
+    "field": "price_aed",
+    "value": "225.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb",
+    "quote": "225.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 85500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Montana 6 FC",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy",
+    "quote": "Panama - Hacienda La Esmeralda Montana 6 FC",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Montana 6 FC",
+    "field": "tasting_notes",
+    "value": "white flowers",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy",
+    "quote": "white flowers, bergamot, apricot, peach, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Montana 6 FC",
+    "field": "price_aed",
+    "value": "188.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy",
+    "quote": "188.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 71440
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Portón 5 ANB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb",
+    "quote": "Panama - Hacienda La Esmeralda Portón 5 ANB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Portón 5 ANB",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb",
+    "quote": "mango, blueberry, lychee, mandarine, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Hacienda La Esmeralda Portón 5 ANB",
+    "field": "price_aed",
+    "value": "225.00",
+    "source_url": "https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb",
+    "quote": "225.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 85500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Kotowa Coffee Las Brujas Lot 6934",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934",
+    "quote": "Panama - Kotowa Coffee Las Brujas Lot 6934",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Kotowa Coffee Las Brujas Lot 6934",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934",
+    "quote": "white florals, papaya, honeydew, peach",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Kotowa Coffee Las Brujas Lot 6934",
+    "field": "price_aed",
+    "value": "125.00",
+    "source_url": "https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934",
+    "quote": "125.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 47500
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325",
+    "quote": "Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325",
+    "field": "tasting_notes",
+    "value": "sweet orange",
+    "source_url": "https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325",
+    "quote": "sweet orange, jasmine, white grapes, apricot, lanzones",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325",
+    "field": "price_aed",
+    "value": "170.00",
+    "source_url": "https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325",
+    "quote": "170.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 64600
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690",
+    "quote": "Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690",
+    "field": "tasting_notes",
+    "value": "orange candy",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690",
+    "quote": "orange candy, yuzu, pineapple, mango, hibiscus, blackberries",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying",
+    "quote": "Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying",
+    "quote": "yuzu, white florals, bergamot, lanzones, mandarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying",
+    "field": "price_aed",
+    "value": "153.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying",
+    "quote": "153.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58140
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying",
+    "quote": "Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying",
+    "field": "tasting_notes",
+    "value": "pear",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying",
+    "quote": "pear, apricot, peach, mango, white flowers, cantaloupe",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486",
+    "quote": "Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486",
+    "field": "tasting_notes",
+    "value": "clementine",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486",
+    "quote": "clementine, yuzu, mango, lanzones, strawberry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying",
+    "quote": "Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying",
+    "field": "tasting_notes",
+    "value": "coffee flower",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying",
+    "quote": "coffee flower, papaya, sugarcane, pear, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying",
+    "field": "price_aed",
+    "value": "153.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying",
+    "quote": "153.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58140
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate GW Cold Room Lot 0368",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391",
+    "quote": "Panama - Lerida Coffee Estate GW Cold Room Lot 0368",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate GW Cold Room Lot 0368",
+    "field": "tasting_notes",
+    "value": "orange blossom",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391",
+    "quote": "orange blossom, yuzu, pear, papaya, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lerida Coffee Estate GW Cold Room Lot 0368",
+    "field": "price_aed",
+    "value": "155.00",
+    "source_url": "https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391",
+    "quote": "155.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 20C",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c",
+    "quote": "Panama - Los Lajones Bambu Geisha Washed Lot 20C",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 20C",
+    "field": "tasting_notes",
+    "value": "lemongrass",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c",
+    "quote": "lemongrass, bergamot, jasmine, blueberry, honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 20C",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 26C",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c",
+    "quote": "Panama - Los Lajones Bambu Geisha Washed Lot 26C",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 26C",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c",
+    "quote": "jasmine, grapefruit, peach, nectarine, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambu Geisha Washed Lot 26C",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambú Geisha Washed lot 8 AB",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab",
+    "quote": "Panama - Los Lajones Bambú Geisha Washed lot 8 AB",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambú Geisha Washed lot 8 AB",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab",
+    "quote": "jasmine, sweet lemon, apricot, pear, white grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Los Lajones Bambú Geisha Washed lot 8 AB",
+    "field": "price_aed",
+    "value": "150.00",
+    "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab",
+    "quote": "150.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 57000
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lost Origin La Estrella Yeast Inoculation",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release",
+    "quote": "Panama - Lost Origin La Estrella Yeast Inoculation",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lost Origin La Estrella Yeast Inoculation",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release",
+    "quote": "white florals, honeydew, pear, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Lost Origin La Estrella Yeast Inoculation",
+    "field": "price_aed",
+    "value": "173.00",
+    "source_url": "https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release",
+    "quote": "173.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 65740
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325",
+    "quote": "Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325",
+    "field": "tasting_notes",
+    "value": "strawberry",
+    "source_url": "https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325",
+    "quote": "strawberry, floral honey, mandarine, red grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325",
+    "field": "price_aed",
+    "value": "205.00",
+    "source_url": "https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325",
+    "quote": "205.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 77900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres GIL GW lot 2",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2",
+    "quote": "Panama - Mil Cumbres GIL GW lot 2",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres GIL GW lot 2",
+    "field": "tasting_notes",
+    "value": "orange blossom",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2",
+    "quote": "orange blossom, white grapes, bergamot, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres GIL GW lot 2",
+    "field": "price_aed",
+    "value": "143.00",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2",
+    "quote": "143.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 54340
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres OMO GN Lot 1201",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201",
+    "quote": "Panama - Mil Cumbres OMO GN Lot 1201",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres OMO GN Lot 1201",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201",
+    "quote": "mango, mandarine, orange blossom, peach, lychee",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Mil Cumbres OMO GN Lot 1201",
+    "field": "price_aed",
+    "value": "153.00",
+    "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201",
+    "quote": "153.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 58140
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate  Geisha DF Washed",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed",
+    "quote": "Panama - Santamaria Estate  Geisha DF Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate  Geisha DF Washed",
+    "field": "tasting_notes",
+    "value": "white flower",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed",
+    "quote": "white flower, orange, pear, apricot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate  Geisha DF Washed",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Honey",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey",
+    "quote": "Panama - Santamaria Estate - Geisha Honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Honey",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey",
+    "quote": "yuzu, white flower, foral honey, nectarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Honey",
+    "field": "price_aed",
+    "value": "133.00",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey",
+    "quote": "133.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 50540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Washed Lot 7",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7",
+    "quote": "Panama - Santamaria Estate - Geisha Washed Lot 7",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Washed Lot 7",
+    "field": "tasting_notes",
+    "value": "yuzu",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7",
+    "quote": "yuzu, white florals, floral honey, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate - Geisha Washed Lot 7",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate Geisha Natural Lot 11",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11",
+    "quote": "Panama - Santamaria Estate Geisha Natural Lot 11",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate Geisha Natural Lot 11",
+    "field": "tasting_notes",
+    "value": "apricot",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11",
+    "quote": "apricot, mandarine, strawberry, white peach",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Santamaria Estate Geisha Natural Lot 11",
+    "field": "price_aed",
+    "value": "135.00",
+    "source_url": "https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11",
+    "quote": "135.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 51300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Spectrum, Savage Coffees",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-spectrum",
+    "quote": "Panama - Spectrum, Savage Coffees",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Spectrum, Savage Coffees",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/panama-spectrum",
+    "quote": "white florals, peach, papaya, honey, sugarcane",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Spectrum, Savage Coffees",
+    "field": "price_aed",
+    "value": "143.00",
+    "source_url": "https://archerscoffee.com/products/panama-spectrum",
+    "quote": "143.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 54340
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symbiosis, Iris Estate",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-symbiosis",
+    "quote": "Panama - Symbiosis, Iris Estate",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symbiosis, Iris Estate",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-symbiosis",
+    "quote": "jasmine, strawberry, dried mango, clementine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symbiosis, Iris Estate",
+    "field": "price_aed",
+    "value": "178.00",
+    "source_url": "https://archerscoffee.com/products/panama-symbiosis",
+    "quote": "178.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 67640
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symmetry, Iris Estate",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-symmetry",
+    "quote": "Panama - Symmetry, Iris Estate",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symmetry, Iris Estate",
+    "field": "tasting_notes",
+    "value": "white grapes",
+    "source_url": "https://archerscoffee.com/products/panama-symmetry",
+    "quote": "white grapes, tropical fruit, mandarine, raspberry candy",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Symmetry, Iris Estate",
+    "field": "price_aed",
+    "value": "178.00",
+    "source_url": "https://archerscoffee.com/products/panama-symmetry",
+    "quote": "178.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 67640
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Tierra Blanca C5 Geisha Washed",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed",
+    "quote": "Panama - Tierra Blanca C5 Geisha Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Competition Series 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Tierra Blanca C5 Geisha Washed",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed",
+    "quote": "jasmine, papaya, pear, white grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Tierra Blanca C5 Geisha Washed",
+    "field": "price_aed",
+    "value": "145.00",
+    "source_url": "https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed",
+    "quote": "145.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 55100
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289",
+    "quote": "Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289",
+    "field": "tasting_notes",
+    "value": "mango",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289",
+    "quote": "mango, lychee, peach, blood orange, passion fruit, IPA",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289",
+    "field": "price_aed",
+    "value": "60.00",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289",
+    "quote": "60.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 22800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396",
+    "quote": "Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396",
+    "field": "tasting_notes",
+    "value": "grapefruit",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396",
+    "quote": "grapefruit, mango, honey, lychee, botanical",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396",
+    "field": "price_aed",
+    "value": "60.00",
+    "source_url": "https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396",
+    "quote": "60.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 22800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf",
+    "quote": "Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF",
+    "field": "tasting_notes",
+    "value": "lychee candy",
+    "source_url": "https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf",
+    "quote": "lychee candy, rose water, sugarcane",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF",
+    "field": "price_aed",
+    "value": "65.00",
+    "source_url": "https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf",
+    "quote": "65.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 24700
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Kodu Coconut CF",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf",
+    "quote": "Colombia - Cota Coffee Finca Kodu Coconut CF",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Kodu Coconut CF",
+    "field": "tasting_notes",
+    "value": "bounty chocolate",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf",
+    "quote": "bounty chocolate, caramelized coconut, pecan nuts",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Kodu Coconut CF",
+    "field": "price_aed",
+    "value": "55.00",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf",
+    "quote": "55.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 20900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life",
+    "quote": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life",
+    "field": "tasting_notes",
+    "value": "white florals",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life",
+    "quote": "white florals, lemongrass, bergamot, peach, orange",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life",
+    "field": "price_aed",
+    "value": "53.00",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life",
+    "quote": "53.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 20140
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle",
+    "quote": "Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle",
+    "field": "tasting_notes",
+    "value": "orange soda",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle",
+    "quote": "orange soda, red grapes, dried mango, honey dew",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle",
+    "field": "price_aed",
+    "value": "60.00",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle",
+    "quote": "60.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 22800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Paraiso Villa Rosita",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita",
+    "quote": "Colombia - Finca El Paraiso Villa Rosita",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Paraiso Villa Rosita",
+    "field": "tasting_notes",
+    "value": "peach ice tea",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita",
+    "quote": "peach ice tea, nectarine, starfruit, cantaloupe, vanilla",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Finca El Paraiso Villa Rosita",
+    "field": "price_aed",
+    "value": "60.00",
+    "source_url": "https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita",
+    "quote": "60.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 22800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Fincas Del Putushio, Typica Mejorado",
+    "field": "title",
+    "value": "Ecuador",
+    "source_url": "https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt",
+    "quote": "Ecuador - Fincas Del Putushio, Typica Mejorado",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Fincas Del Putushio, Typica Mejorado",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt",
+    "quote": "jasmine, lemongrass, clementine, kiwi",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ecuador - Fincas Del Putushio, Typica Mejorado",
+    "field": "price_aed",
+    "value": "83.00",
+    "source_url": "https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt",
+    "quote": "83.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 31540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126",
+    "quote": "Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126",
+    "quote": "peach, cantaloupe, lychee, white grapes, mandarine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126",
+    "field": "price_aed",
+    "value": "38.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126",
+    "quote": "38.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 14440
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini",
+    "quote": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini",
+    "quote": "peach, white grapes, honey dew, apricot, lemon tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini",
+    "field": "price_aed",
+    "value": "50.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini",
+    "quote": "50.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 19000
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot",
+    "quote": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot",
+    "field": "tasting_notes",
+    "value": "white peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot",
+    "quote": "white peach, sugarcane, honeydew, lychee",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot",
+    "field": "price_aed",
+    "value": "52.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot",
+    "quote": "52.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 19760
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Elora Station Classic Washed",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed",
+    "quote": "Ethiopia - Elto Coffee Elora Station Classic Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Elora Station Classic Washed",
+    "field": "tasting_notes",
+    "value": "ginger ale",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed",
+    "quote": "ginger ale, white florals, bergamot, white grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Elora Station Classic Washed",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Kokose Natural Lot 2",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural",
+    "quote": "Ethiopia - Elto Coffee Kokose Natural Lot 2",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Kokose Natural Lot 2",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural",
+    "quote": "peach, blueberry, lychee, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Kokose Natural Lot 2",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot",
+    "quote": "Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot",
+    "field": "tasting_notes",
+    "value": "white grapes",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot",
+    "quote": "white grapes, nectarine, jasmine, yuzu, floral honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025",
+    "quote": "Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025",
+    "quote": "peach, mandarine, strawberry, lychee, red grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025",
+    "quote": "Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot",
+    "field": "tasting_notes",
+    "value": "lemon grass",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025",
+    "quote": "lemon grass, pear, white florals, sugarcane, papaya",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural",
+    "quote": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural",
+    "field": "tasting_notes",
+    "value": "apricot",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural",
+    "quote": "apricot, white grapes, honey dew, peach, ginger ale",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural",
+    "field": "price_aed",
+    "value": "36.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural",
+    "quote": "36.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 13680
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca El Injerto, Malawi Geisha",
+    "field": "title",
+    "value": "Guatemala",
+    "source_url": "https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy",
+    "quote": "Guatemala - Finca El Injerto, Malawi Geisha",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca El Injerto, Malawi Geisha",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy",
+    "quote": "jasmine, pear, mandarine, sugarcane",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca El Injerto, Malawi Geisha",
+    "field": "price_aed",
+    "value": "60.00",
+    "source_url": "https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy",
+    "quote": "60.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 22800
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Catuai Natural",
+    "field": "title",
+    "value": "Panama",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural",
+    "quote": "Panama - Adaura Coffee Catuai Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Catuai Natural",
+    "field": "tasting_notes",
+    "value": "blueberry",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural",
+    "quote": "blueberry, dark plum, mango, red grapes",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Panama - Adaura Coffee Catuai Natural",
+    "field": "price_aed",
+    "value": "50.00",
+    "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural",
+    "quote": "50.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 19000
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Yemen - East Haraz Wadi Al Sallol",
+    "field": "title",
+    "value": "Yemen",
+    "source_url": "https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon",
+    "quote": "Yemen - East Haraz Wadi Al Sallol",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Reserve 2025",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Yemen - East Haraz Wadi Al Sallol",
+    "field": "tasting_notes",
+    "value": "caramelized dates",
+    "source_url": "https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon",
+    "quote": "caramelized dates, raisins, dried fig, amaretto cherry",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Yemen - East Haraz Wadi Al Sallol",
+    "field": "price_aed",
+    "value": "85.00",
+    "source_url": "https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon",
+    "quote": "85.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 32300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Brazil - Fazenda Um Supreme Pulp Natural",
+    "field": "title",
+    "value": "Brazil",
+    "source_url": "https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural",
+    "quote": "Brazil - Fazenda Um Supreme Pulp Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Brazil - Fazenda Um Supreme Pulp Natural",
+    "field": "tasting_notes",
+    "value": "apple",
+    "source_url": "https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural",
+    "quote": "apple, raisin, plum, toffee, oolong tea",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Brazil - Fazenda Um Supreme Pulp Natural",
+    "field": "price_aed",
+    "value": "35.00",
+    "source_url": "https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural",
+    "quote": "35.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 13300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Anaya - Watermelon CF",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf",
+    "quote": "Colombia - Cota Coffee Finca Anaya - Watermelon CF",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Anaya - Watermelon CF",
+    "field": "tasting_notes",
+    "value": "fresh watermelon",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf",
+    "quote": "fresh watermelon, honeydew, lychee, rosewater",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Cota Coffee Finca Anaya - Watermelon CF",
+    "field": "price_aed",
+    "value": "55.00",
+    "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf",
+    "quote": "55.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 20900
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Nogales Coffee Farm Typica Low Caffeine",
+    "field": "title",
+    "value": "Colombia",
+    "source_url": "https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine",
+    "quote": "Colombia - Nogales Coffee Farm Typica Low Caffeine",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Nogales Coffee Farm Typica Low Caffeine",
+    "field": "tasting_notes",
+    "value": "bubblegum",
+    "source_url": "https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine",
+    "quote": "bubblegum, starfruit, cantaloupe, lotus biscuit",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Colombia - Nogales Coffee Farm Typica Low Caffeine",
+    "field": "price_aed",
+    "value": "48.00",
+    "source_url": "https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine",
+    "quote": "48.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 18240
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Cafe Rivense Black Honey",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey",
+    "quote": "Costa Rica - Cafe Rivense Black Honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Cafe Rivense Black Honey",
+    "field": "tasting_notes",
+    "value": "plum",
+    "source_url": "https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey",
+    "quote": "plum, molasses, cherry, bakers chocolate",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - Cafe Rivense Black Honey",
+    "field": "price_aed",
+    "value": "30.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey",
+    "quote": "30.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 11400
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - El Jardin, Anaerobic",
+    "field": "title",
+    "value": "Costa Rica",
+    "source_url": "https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic",
+    "quote": "Costa Rica - El Jardin, Anaerobic",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - El Jardin, Anaerobic",
+    "field": "tasting_notes",
+    "value": "purple grapes",
+    "source_url": "https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic",
+    "quote": "purple grapes, dark plums, cherry, liquorice candy",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Costa Rica - El Jardin, Anaerobic",
+    "field": "price_aed",
+    "value": "30.00",
+    "source_url": "https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic",
+    "quote": "30.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 11400
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Benti Nenka Guji Hambela",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela",
+    "quote": "Ethiopia - Benti Nenka Guji Hambela",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Benti Nenka Guji Hambela",
+    "field": "tasting_notes",
+    "value": "pineapple",
+    "source_url": "https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela",
+    "quote": "pineapple, mango, blackberry, peach, dried fig",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Benti Nenka Guji Hambela",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Honey",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey",
+    "quote": "Ethiopia - Elto Coffee Sama Honey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Honey",
+    "field": "tasting_notes",
+    "value": "apricot",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey",
+    "quote": "apricot, white florals, cantaloupe, peach",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Honey",
+    "field": "price_aed",
+    "value": "28.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey",
+    "quote": "28.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 10640
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Washed",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed",
+    "quote": "Ethiopia - Elto Coffee Sama Washed",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Washed",
+    "field": "tasting_notes",
+    "value": "jasmine",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed",
+    "quote": "jasmine, lemongrass, pear, earl grey",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Elto Coffee Sama Washed",
+    "field": "price_aed",
+    "value": "28.00",
+    "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed",
+    "quote": "28.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 10640
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2",
+    "field": "title",
+    "value": "Ethiopia",
+    "source_url": "https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2",
+    "quote": "Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2",
+    "field": "tasting_notes",
+    "value": "peach",
+    "source_url": "https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2",
+    "quote": "peach, nectarine, lychee, toffee, golden raisins",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2",
+    "field": "price_aed",
+    "value": "32.00",
+    "source_url": "https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2",
+    "quote": "32.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12160
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca La Serrania Kimono Natural",
+    "field": "title",
+    "value": "Guatemala",
+    "source_url": "https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural",
+    "quote": "Guatemala - Finca La Serrania Kimono Natural",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca La Serrania Kimono Natural",
+    "field": "tasting_notes",
+    "value": "cherry",
+    "source_url": "https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural",
+    "quote": "cherry, plums, prune, bakers chocolate",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Guatemala - Finca La Serrania Kimono Natural",
+    "field": "price_aed",
+    "value": "35.00",
+    "source_url": "https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural",
+    "quote": "35.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 13300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "India - Pearl Mountain Lot RM 59",
+    "field": "title",
+    "value": "India",
+    "source_url": "https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59",
+    "quote": "India - Pearl Mountain Lot RM 59",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "India - Pearl Mountain Lot RM 59",
+    "field": "tasting_notes",
+    "value": "purple grapes",
+    "source_url": "https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59",
+    "quote": "purple grapes, black plum, caramelized dates, chocolate",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "India - Pearl Mountain Lot RM 59",
+    "field": "price_aed",
+    "value": "33.00",
+    "source_url": "https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59",
+    "quote": "33.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 12540
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Kenya - Rui Ruiru AA Natural Anaerobic",
+    "field": "title",
+    "value": "Kenya",
+    "source_url": "https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic",
+    "quote": "Kenya - Rui Ruiru AA Natural Anaerobic",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "collection": "Microlot Selection 2026",
+      "weight": "100g"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Kenya - Rui Ruiru AA Natural Anaerobic",
+    "field": "tasting_notes",
+    "value": "strawberry",
+    "source_url": "https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic",
+    "quote": "strawberry, red grapes, cranberry, dried fig, fruit florals",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]"
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  },
+  {
+    "item": "Kenya - Rui Ruiru AA Natural Anaerobic",
+    "field": "price_aed",
+    "value": "35.00",
+    "source_url": "https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic",
+    "quote": "35.00",
+    "retrieved_at": "2026-10-05T13:08:31.603384+00:00",
+    "condition": {
+      "currency": "AED",
+      "weight": "100g",
+      "price_krw": 13300
+    },
+    "status": "PASS",
+    "reason": "페이지 본문에서 인용문 및 값을 성공적으로 검증함"
+  }
+]
