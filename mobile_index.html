@@ -53,19 +53,52 @@
     --danger: #dc2626;
   }
 
-  /* Mobile Light Theme Adjustments */
+  /* ========================================================
+     MOBILE LIGHT THEME (HIGH-CONTRAST & CRISP READABILITY)
+     ======================================================== */
+  [data-theme="light"] {
+    --bg-main: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-inner: #f8fafc;
+    --border-color: #e2e8f0;
+    --border-light: #cbd5e1;
+    --accent: #b45309;
+    --accent-gold: #b45309;
+    --accent-glow: rgba(180, 83, 9, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --success: #15803d;
+    --blue: #0284c7;
+    --purple: #7e22ce;
+    --danger: #dc2626;
+  }
+
+  /* 1. Header & Brand */
   [data-theme="light"] .m-header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     border-bottom-color: #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
   [data-theme="light"] .m-brand-title {
     color: #0f172a;
   }
   [data-theme="light"] .m-top-btn {
-    background: #f1f5f9;
+    background: #f8fafc;
     border-color: #cbd5e1;
+    color: #334155;
+  }
+  [data-theme="light"] .m-top-btn:hover {
+    background: #e2e8f0;
     color: #0f172a;
   }
+  [data-theme="light"] .m-top-btn.cart-link {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #b45309;
+  }
+
+  /* 2. Hero & 3 Criteria */
   [data-theme="light"] .m-hero {
     background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     border-bottom-color: #e2e8f0;
@@ -75,95 +108,245 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  [data-theme="light"] .m-stat-pill {
-    background: #f1f5f9;
-    border-color: #e2e8f0;
-  }
-  [data-theme="light"] .m-roastery-card {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-  }
-  [data-theme="light"] .m-roastery-title {
-    color: #0f172a;
-  }
-  [data-theme="light"] .m-roastery-bullet {
+  [data-theme="light"] .m-hero-desc {
     color: #475569;
   }
-  [data-theme="light"] .m-criteria-card {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  [data-theme="light"] .m-crit-chip {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   }
-  [data-theme="light"] .m-guide-banner {
-    background: #eff6ff;
-    border-color: #bfdbfe;
-    color: #1e3a8a;
+  [data-theme="light"] .m-crit-title {
+    color: #b45309;
+  }
+  [data-theme="light"] .m-crit-val {
+    color: #0f172a;
+  }
+
+  /* 3. Sticky Search & Filter Bar */
+  [data-theme="light"] .m-sticky-controls {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom-color: #e2e8f0 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .m-search-input {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+  }
+  [data-theme="light"] .m-search-input:focus {
+    border-color: #b45309 !important;
+    box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.15) !important;
   }
   [data-theme="light"] .m-chip {
-    background: #f1f5f9;
-    border-color: #e2e8f0;
-    color: #475569;
+    background: #f1f5f9 !important;
+    border-color: #e2e8f0 !important;
+    color: #475569 !important;
   }
   [data-theme="light"] .m-chip.active {
-    background: #d97706;
-    color: #ffffff;
-    border-color: #d97706;
+    background: #b45309 !important;
+    color: #ffffff !important;
+    border-color: #b45309 !important;
   }
-  [data-theme="light"] .m-sort-bar {
-    background: #ffffff;
-    border-bottom-color: #e2e8f0;
+  [data-theme="light"] .m-ctrl-row {
+    color: #64748b;
   }
-  [data-theme="light"] .m-select {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    color: #0f172a;
+  [data-theme="light"] .m-sort-select {
+    background: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
   }
   [data-theme="light"] .btn-select-all {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    color: #0f172a;
+    color: #0284c7;
   }
-  [data-theme="light"] .m-coffee-card {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+
+  /* 4. Single Coffee Card (.m-card) - White Background & High Contrast */
+  [data-theme="light"] .m-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   }
-  [data-theme="light"] .m-coffee-card.dimmed {
-    background: #f8fafc;
-    border-color: #e2e8f0;
+  [data-theme="light"] .m-card.active-pick {
+    background: #ffffff !important;
+    border: 1.5px solid #f59e0b !important;
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.12);
   }
-  [data-theme="light"] .m-coffee-card.checked {
+  [data-theme="light"] .m-card.dimmed-pick {
+    opacity: 0.82;
+    background: #f8fafc !important;
+    border: 1px dashed #cbd5e1 !important;
+    box-shadow: none;
+  }
+  [data-theme="light"] .m-card.checked {
+    border-color: #d97706 !important;
+    box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25), 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  /* 5. Card Header, Badges, Title & Price */
+  [data-theme="light"] .m-rank-active {
+    background: #fef3c7;
+    color: #b45309;
     border-color: #f59e0b;
-    background: #ffffff;
+  }
+  [data-theme="light"] .m-rank-dimmed {
+    background: #e2e8f0;
+    color: #64748b;
+    border-color: #cbd5e1;
+  }
+  [data-theme="light"] .badge-archers {
+    background: #eff6ff;
+    color: #0284c7;
+    border-color: #bae6fd;
+  }
+  [data-theme="light"] .badge-espressolab {
+    background: #fef3c7;
+    color: #b45309;
+    border-color: #fde68a;
+  }
+  [data-theme="light"] .m-score-val {
+    color: #b45309;
+  }
+  [data-theme="light"] .m-score-sub {
+    color: #64748b;
+  }
+
+  [data-theme="light"] .m-coffee-title {
+    color: #0f172a !important;
   }
   [data-theme="light"] .m-coffee-title a {
-    color: #0f172a;
+    color: #0f172a !important;
   }
-  [data-theme="light"] .m-notes-box {
-    background: #f8fafc;
-    border-color: #e2e8f0;
-    color: #334155;
+  [data-theme="light"] .m-coffee-title a:hover {
+    color: #b45309 !important;
   }
-  [data-theme="light"] .m-toggle-btn {
+  [data-theme="light"] .m-out-link {
+    color: #0284c7;
+  }
+
+  [data-theme="light"] .m-price-row {
+    border-bottom-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-price-aed {
+    color: #0284c7;
+  }
+  [data-theme="light"] .m-price-krw {
+    color: #475569;
+  }
+  [data-theme="light"] .m-weight-pill {
     background: #f1f5f9;
     border-color: #e2e8f0;
     color: #475569;
   }
-  [data-theme="light"] .m-toggle-btn.open {
-    background: #e2e8f0;
-    color: #0f172a;
-  }
-  [data-theme="light"] .m-drawdown-content {
-    background: #f8fafc;
-    border-top-color: #e2e8f0;
-  }
-  [data-theme="light"] .m-review-box {
-    background: #ffffff;
+
+  /* 6. Spec Chips & Tasting Notes Box */
+  [data-theme="light"] .m-spec-chip {
+    background: #f1f5f9;
     border-color: #e2e8f0;
     color: #334155;
   }
-  [data-theme="light"] .m-bottom-cart-bar {
-    background: rgba(255, 255, 255, 0.96);
+  [data-theme="light"] .m-spec-chip.variety {
+    background: #faf5ff;
+    border-color: #e9d5ff;
+    color: #7e22ce;
+  }
+  [data-theme="light"] .m-spec-chip.process {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+    color: #0369a1;
+  }
+
+  [data-theme="light"] .m-notes-box {
+    background: #fffbeb !important;
+    border: 1px solid #fde68a !important;
+    color: #92400e !important;
+  }
+
+  [data-theme="light"] .m-sim-preview {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-sim-text {
+    color: #475569;
+  }
+
+  /* 7. Drawdown Accordion */
+  [data-theme="light"] .m-toggle-btn {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #334155 !important;
+  }
+  [data-theme="light"] .m-toggle-btn:active,
+  [data-theme="light"] .m-toggle-btn.open {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  [data-theme="light"] .m-drawdown-content {
     border-top-color: #e2e8f0;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  }
+  [data-theme="light"] .m-block-title {
+    color: #b45309;
+  }
+
+  [data-theme="light"] .m-sc-item {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+  }
+  [data-theme="light"] .m-sc-lbl {
+    color: #64748b !important;
+  }
+  [data-theme="light"] .m-sc-num {
+    color: #0f172a !important;
+  }
+
+  [data-theme="light"] .m-specs-table {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+  }
+  [data-theme="light"] .m-spec-row {
+    border-bottom-color: #e2e8f0 !important;
+  }
+  [data-theme="light"] .m-spec-k {
+    color: #64748b !important;
+  }
+  [data-theme="light"] .m-spec-v {
+    color: #0f172a !important;
+  }
+
+  [data-theme="light"] .m-sim-grid {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #334155 !important;
+  }
+  [data-theme="light"] .m-sim-item strong {
+    color: #0f172a !important;
+  }
+
+  [data-theme="light"] .m-review-box {
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 3px solid #0284c7 !important;
+    color: #334155 !important;
+  }
+  [data-theme="light"] .m-review-box strong {
+    color: #0f172a !important;
+  }
+
+  /* 8. Fixed Bottom Cart Bar */
+  [data-theme="light"] .m-bottom-cart-bar {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-top: 1px solid #e2e8f0 !important;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08) !important;
   }
   [data-theme="light"] .m-cart-count-txt {
-    color: #0f172a;
+    color: #64748b !important;
+  }
+  [data-theme="light"] .m-cart-count-txt strong {
+    color: #0f172a !important;
+  }
+  [data-theme="light"] .m-cart-price-txt {
+    color: #0f172a !important;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
