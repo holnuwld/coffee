@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAE 2대 명문 스페셜티 커피 통합 검증 & 구매 가이드</title>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #090d13;
@@ -21,6 +21,7 @@
     --success: #3fb950;
     --blue: #58a6ff;
     --purple: #bc8cff;
+    --danger: #f85149;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,14 +35,14 @@
   }
 
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
   /* Header Section */
   .hub-header {
     text-align: center;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
   .hub-badge {
     display: inline-block;
@@ -72,8 +73,8 @@
   .hub-desc {
     color: var(--text-secondary);
     font-size: 16px;
-    max-width: 760px;
-    margin: 0 auto 28px auto;
+    max-width: 800px;
+    margin: 0 auto 24px auto;
     line-height: 1.7;
   }
 
@@ -82,7 +83,7 @@
     justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
   .summary-badge {
     background: #111722;
@@ -99,11 +100,41 @@
   .summary-badge.green { border-color: rgba(63, 185, 80, 0.4); color: var(--success); }
   .summary-badge.gold { border-color: var(--accent); color: var(--accent-gold); }
 
+  /* User Preference Note Card */
+  .pref-note-card {
+    background: rgba(19, 26, 38, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 28px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  @media (max-width: 680px) {
+    .pref-note-card { flex-direction: column; align-items: flex-start; }
+  }
+  .pref-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+  }
+  .pref-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+  }
+  .pref-content p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
   /* Roastery Showcase Grid */
   .roastery-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
     margin-bottom: 56px;
   }
   @media (max-width: 860px) {
@@ -114,7 +145,7 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 36px 30px;
+    padding: 32px 28px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -144,38 +175,38 @@
     letter-spacing: 1px;
     padding: 4px 10px;
     border-radius: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .tag-gold { background: var(--accent-glow); color: var(--accent-gold); border: 1px solid var(--accent); }
   .tag-blue { background: rgba(88, 166, 255, 0.15); color: var(--blue); border: 1px solid var(--blue); }
 
   .r-name {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: -0.5px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #fff;
   }
   .r-subtitle {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .r-highlights {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
-    font-size: 13.5px;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 13px;
     color: #c9d1d9;
   }
   .r-highlights li {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: 8px;
     line-height: 1.5;
   }
   .r-highlights li span {
@@ -187,11 +218,10 @@
     color: var(--blue);
   }
 
-  /* Version Buttons for each roastery */
   .r-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
     margin-top: auto;
   }
   .r-btn {
@@ -199,21 +229,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 14px 12px;
-    border-radius: 12px;
+    padding: 12px 10px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.2s ease;
     text-align: center;
   }
   .r-btn .btn-title {
-    font-size: 14px;
+    font-size: 13.5px;
     display: flex;
     align-items: center;
     gap: 6px;
   }
   .r-btn .btn-sub {
-    font-size: 11px;
+    font-size: 10.5px;
     opacity: 0.8;
     margin-top: 2px;
     font-weight: 500;
@@ -245,34 +275,283 @@
   }
   .btn-mobile-blue:hover { border-color: var(--blue); background: #223047; }
 
-  /* User Preference Note Card */
-  .pref-note-card {
-    background: rgba(19, 26, 38, 0.6);
+  /* ========================================================
+     TOP 20 RANKED 100g CURATION SECTION (NEW)
+     ======================================================== */
+  .top20-section {
+    margin-top: 60px;
+    border-top: 2px solid var(--border);
+    padding-top: 48px;
+  }
+  .top20-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .top20-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #d29922, #b8860b);
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .top20-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+  .top20-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 860px;
+    margin: 0 auto 24px auto;
+    line-height: 1.65;
+  }
+
+  /* Score Criteria Legend Box */
+  .criteria-box {
+    background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px 28px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-  @media (max-width: 680px) {
-    .pref-note-card { flex-direction: column; align-items: flex-start; }
+  @media (max-width: 768px) {
+    .criteria-box { grid-template-columns: 1fr; gap: 12px; }
   }
-  .pref-icon {
-    font-size: 36px;
-    flex-shrink: 0;
+  .criterion-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
-  .pref-content h3 {
-    font-size: 16px;
+  .crit-name {
+    font-size: 13px;
     font-weight: 700;
     color: var(--accent-gold);
-    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .pref-content p {
-    font-size: 13.5px;
+  .crit-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Filter Controls */
+  .top20-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .filter-btns {
+    display: flex;
+    gap: 8px;
+  }
+  .f-btn {
+    background: #111722;
+    border: 1px solid var(--border);
     color: var(--text-secondary);
-    line-height: 1.6;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .f-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-light);
+  }
+  .f-btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+  .legend-note {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  /* Table Design */
+  .table-box {
+    overflow-x: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+  .top20-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+    white-space: normal;
+  }
+  .top20-table th {
+    background: #0f1622;
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+  }
+  .top20-table td {
+    padding: 16px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  /* Active vs Overlap Styling */
+  .active-pick-row {
+    background: rgba(19, 26, 38, 0.7);
+    transition: background 0.15s ease;
+  }
+  .active-pick-row:hover {
+    background: rgba(24, 35, 51, 0.95);
+  }
+  .overlap-pick-row {
+    background: rgba(10, 14, 20, 0.6);
+    opacity: 0.55;
+    transition: all 0.2s ease;
+  }
+  .overlap-pick-row:hover {
+    opacity: 0.95;
+    background: rgba(16, 22, 32, 0.9);
+  }
+
+  /* Cell Details */
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .active-rank {
+    background: linear-gradient(135deg, #d29922, #b8860b);
+    color: #000;
+  }
+  .active-rank .rank-num {
+    font-size: 10.5px;
+    opacity: 0.85;
+    font-weight: 600;
+  }
+  .dimmed-rank {
+    background: #1c2430;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .roastery-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .archers-badge { background: rgba(88, 166, 255, 0.15); color: var(--blue); border: 1px solid rgba(88, 166, 255, 0.3); }
+  .espressolab-badge { background: var(--accent-glow); color: var(--accent-gold); border: 1px solid var(--accent); }
+
+  .coffee-name-cell {
+    min-width: 240px;
+  }
+  .c-title-link {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .c-title-link:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+  }
+  .c-spec-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .price-col {
+    min-width: 105px;
+  }
+  .aed-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--accent-gold);
+  }
+  .krw-price {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  .score-col {
+    min-width: 130px;
+  }
+  .score-breakdown {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .total-score-box {
+    display: inline-block;
+    background: #0d131c;
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .total-score {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--success);
+  }
+  .total-max {
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .analysis-cell {
+    min-width: 280px;
+  }
+  .review-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .overlap-reason {
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .act-reason {
+    background: rgba(63, 185, 80, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(63, 185, 80, 0.25);
+  }
+  .dim-reason {
+    background: rgba(248, 81, 73, 0.1);
+    color: #ff7b72;
+    border: 1px solid rgba(248, 81, 73, 0.25);
   }
 
   /* Footer */
@@ -282,6 +561,7 @@
     color: var(--text-muted);
     border-top: 1px solid var(--border);
     padding-top: 24px;
+    margin-top: 60px;
   }
   footer a { color: var(--blue); text-decoration: none; }
 </style>
@@ -384,6 +664,826 @@
 
   </div>
 
+  <!-- ========================================================
+       TOP 20 RANKED 100g CURATION SECTION
+       ======================================================== -->
+  <section class="top20-section" id="top20Section">
+    <div class="top20-header">
+      <div class="top20-badge">Integrated 100g Master Curation</div>
+      <h2 class="top20-title">🏆 2대 로스터리 통합 100g 원두 랭킹 TOP 20<br>& 최종 엄선 10선 (Active Picks)</h2>
+      <p class="top20-desc">
+        두 로스터리의 100g 패키지 원두 131종 전체를 3대 기준(맛 40점 + 가격 합리성 30점 + 한국 희소성 30점 = 총 100점 만점)으로 정밀 평가했습니다.<br>
+        상위 20개 중 <strong>순위권 내 다른 원두와 농장 또는 컵노트가 중복되는 하위 10종은 음영(톤다운) 처리</strong>하여, 현지에서 겹치지 않고 다채롭게 구매할 수 있는 <strong>최종 10개(Active Pick)</strong>를 완성했습니다.
+      </p>
+    </div>
+
+    <!-- Criteria Breakdown Box -->
+    <div class="criteria-box">
+      <div class="criterion-item">
+        <div class="crit-name">☕ 1. 맛이 좋은가 (40점 만점)</div>
+        <div class="crit-desc">워시드 가공, 자스민·백차·복숭아 티라이크 텍스처, 파나마/에티오피아 테루아, 푸어오버 라이트로스트 클린컵 및 BOP/COE 챔피언급 위상 평가.</div>
+      </div>
+      <div class="criterion-item">
+        <div class="crit-name">💰 2. 가격이 합리적인가 (30점 만점)</div>
+        <div class="crit-desc">100g당 절대 가격(AED/원화) 및 국내 유통 시세(7~10만원) 대비 할인율(30~50% 반값 혜택)을 정량 산정하여 가성비 반영.</div>
+      </div>
+      <div class="criterion-item">
+        <div class="crit-name">🇰🇷 3. 한국에서 구하기 어려운가 (30점 만점)</div>
+        <div class="crit-desc">국내 공식 수입 전무 여부, 현지 로스터리 단독 직거래 랏, 나노랏 및 국내 대체 불가성을 평가하여 현지 방문 구매 가치 극대화.</div>
+      </div>
+    </div>
+
+    <!-- Filter Buttons & Legend -->
+    <div class="top20-filters">
+      <div class="filter-btns">
+        <button class="f-btn active" onclick="filterRanked('all', this)">전체 20개 보기 (중복 음영 포함)</button>
+        <button class="f-btn" onclick="filterRanked('active', this)">🎯 최종 추천 10선만 모아보기</button>
+        <button class="f-btn" onclick="filterRanked('overlap', this)">🚫 중복 제외 10종 보기</button>
+      </div>
+      <div class="legend-note">
+        💡 <strong>팁:</strong> 음영 처리된 행은 상위 추천 원두와 농장/맛 프로필이 겹쳐 제외된 품목입니다.
+      </div>
+    </div>
+
+    <!-- Table Responsive Box -->
+    <div class="table-box">
+      <table class="top20-table" id="top20Table">
+        <thead>
+          <tr>
+            <th class="text-center">선정 / 순위</th>
+            <th>로스터리</th>
+            <th>커피 이름 (클릭 시 공식 링크) & 스펙</th>
+            <th class="text-right">100g 가격</th>
+            <th class="text-center">종합 점수 (100점)</th>
+            <th>검토 내용 & 선발 / 중복 사유</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #1 <span class="rank-num">(1위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Finca Auromar, Geisha Washed Peaberry ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Finca Auromar (Roberto Brenes) • Geisha (Peaberry) (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">98.0 AED</div>
+            <div class="krw-price">약 37,240원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 40</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 28</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 30</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">98</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">BOP 챔피언 오로마르 농장의 전체 수확량 3~5% 미만 희귀 피베리(Peaberry) 독점 랏. 국내 일반 플랫빈(8~10만원) 대비 정확히 50% 반값 수준. 백호은침 백차와 샴페인의 영롱한 티라이크 정점.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (파나마 게이샤 피베리 워시드 최고봉)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #2 <span class="rank-num">(2위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Elto Coffee Sama Washed ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Sama Village (Elto Coffee) • 74158 (Single Variety) (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">28.0 AED</div>
+            <div class="krw-price">약 10,640원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 30</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 29</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">97</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">해발 2,350m 초고고도 단일 품종(74158) 정통 워시드. 100g 10,640원이라는 경이로운 가성비로 복숭아 아이스티와 자스민, 레몬그라스의 맑은 티 텍스처를 뿜어내는 데일리 종결 원두.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (에티오피아 2,350m 단일품종 워시드 극가성비)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #3 <span class="rank-num">(3위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Hamasho Village Washed Archers Lot 2025 ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Hamasho Village (Daye Bensa / Asefa Dukamo) • 74158 (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">33.0 AED</div>
+            <div class="krw-price">약 12,540원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 39</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 29</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">96</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">에티오피아 COE 2위 명문 다예 벤사(Daye Bensa)의 아처스 독점 하마쇼 워시드 랏. 국내 유사 랏(2.5~3만원) 대비 반값 이하이며 얼그레이 홍차와 오렌지 블라썸의 우아한 클린컵.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (에티오피아 시다마 벤사 2,300m COE 명문 워시드)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #4 <span class="rank-num">(4위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag espressolab-badge">☕ The Espresso Lab</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              SL28 Santa Isabel ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Finca Santa Isabel • SL28 (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">75.5 AED</div>
+            <div class="krw-price">약 28,690원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 28</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 29</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">95</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">파나마 보케테 화산 테루아에서 재배된 극희귀 SL28 워시드 랏. 케냐 품종 특유의 보석 같은 구연산 산미와 파나마의 화사한 꽃향이 결합. 2.8만원대 파나마 극가성비 국내 미수입 랏.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (파나마 보케테 희귀 SL28 품종 워시드)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #5 <span class="rank-num">(5위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Elida Geisha Plano 2801 Washed ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Elida Estate (Wilford Lamastus Family) • Geisha (Plano) (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">143.0 AED</div>
+            <div class="krw-price">약 54,340원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 40</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 24</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 30</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">94</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">세계 최고가 옥션 명문 엘리다 에스테이트(파운드당 $4,541 신기록)의 Plano 2801 워시드 나노랏. 자극적인 발효취가 전무하며 라벤더와 백차의 극도로 우아한 질감. 국내 시세 대비 35% 할인.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (파나마 보케테 엘리다 옥션 명문 화이트티 워시드)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #6 <span class="rank-num">(6위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag espressolab-badge">☕ The Espresso Lab</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              El Rubi Parainema Anaerobic Washed Lot A ↗
+            </a>
+            <div class="c-spec-sub">
+              Colombia • Finca El Rubi (Heber Sarria) • Parainema (Anaerobic Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">60.0 AED</div>
+            <div class="krw-price">약 22,800원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 37</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 28</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">93</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">온두라스에서 기원한 희귀 품종 파라이네마의 섬세한 화이트 티(White Tea) &amp; 리치 뉘앙스를 콜롬비아 우일라에서 무산소 워시드로 구현. 100g 22,800원의 놀라운 가성비.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (콜롬비아 희귀 품종 파라이네마 화이트티 텍스처)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #7 <span class="rank-num">(7위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ecuador - Fincas Del Putushio, Typica Mejorado ↗
+            </a>
+            <div class="c-spec-sub">
+              Ecuador • Finca Del Putushio (Vinicio Martinez) • Typica Mejorado (Classic Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">83.0 AED</div>
+            <div class="krw-price">약 31,540원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 26</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">92</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">에콰도르 로하 2,100m 최고봉 테루아의 희귀 품종 티피카 메호라도. 게이샤를 뛰어넘는 자스민과 스위트 라임 허브티 톤을 선사하며, 국내 시세(6만원대) 대비 50% 저렴.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (에콰도르 최고봉 메호라도 자스민/라임 허브티)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #8 <span class="rank-num">(8위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw-208" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Finca Los Cenizos Geisha Washed GW-208 ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Finca Los Cenizos (Jose Gallardo) • Geisha (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">210.0 AED</div>
+            <div class="krw-price">약 79,800원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 40</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 22</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 30</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">92</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">바루 화산 최고봉 해발 2,050m에 위치한 로스 세니소스의 극상 나노랏. 국내 수입 이력 전무 100% 독점 랏. 복숭아 아이스티와 얼그레이 홍차 뉘앙스가 선명하게 응축된 하이엔드.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (파나마 2,050m 바루 화산 최고봉 복숭아 아이스티 워시드)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #9 <span class="rank-num">(9위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag espressolab-badge">☕ The Espresso Lab</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://theespressolab.com/products-details/kotowa-las-brujas-ethiopian-natural-lot-4219" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Kotowa Las Brujas Ethiopian Natural Lot 4219 ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Finca Kotowa Las Brujas (Alexander McIntosh) • Ethiopian Heirloom (Natural)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">60.0 AED</div>
+            <div class="krw-price">약 22,800원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 36</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 28</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">92</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">100년 역사의 파나마 코토와 농장에서 에티오피아 토착종을 화산 토양에 이식한 이색 나노랏. 과발효 없이 카모마일 꽃차와 살구의 투명하고 우아한 허브티 톤. 100g 22,800원 극가성비.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (파나마 화산 에티오피아 토착종 카모마일 허브티)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="active-pick-row" data-status="active">
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank">Pick #10 <span class="rank-num">(10위)</span></span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life ↗
+            </a>
+            <div class="c-spec-sub">
+              Colombia • Finca Rio Negro (Cota Coffee) • Pink Bourbon (Washed - Co-ferment)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">53.0 AED</div>
+            <div class="krw-price">약 20,140원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 36</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 27</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">91</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">콜롬비아 명품 핑크버번 품종을 감귤 제스트와 함께 정밀 공발효 워시드 가공. 자몽과 히비스커스 티의 밝고 청량한 산미를 뿜어내는 2만원대 매력적인 티라이크 원두.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> 선발 (콜롬비아 핑크버번 워시드 산뜻한 시트러스티)
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">11위</span>
+          </td>
+          <td>
+            <span class="roastery-tag espressolab-badge">☕ The Espresso Lab</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Auromar Firestone ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Finca Auromar (Roberto Brenes) • Geisha (Washed Anaerobic)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">175.0 AED</div>
+            <div class="krw-price">약 66,500원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 40</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 20</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 29</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">89</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">2022 BOP 1위 챔피언 Firestone 랏. 훌륭한 백차/자스민 티라이크이지만, #1위 [Auromar Geisha Peaberry]와 농장 및 티라이크 풍미가 일치하며 가격(175 AED vs 98 AED) 대비 1위 피베리가 가성비 우위.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #1위 [Auromar Peaberry Washed]와 동일 농장 &amp; 자스민/백차 티라이크 프로필 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">12위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Elto Coffee Elora Station Classic Washed ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Elora Station (Elto Coffee) • 74158 (Classic Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">33.0 AED</div>
+            <div class="krw-price">약 12,540원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 36</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 28</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 25</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">89</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">2,400m 초고고도 워시드로 훌륭하나, #2위 [Elto Sama Washed]와 동일 생산자(Elto) 및 74158 품종 복숭아/자스민 톤이 직접 중복되어 2위 사마 랏으로 단일화.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #2위 [Elto Coffee Sama Washed]와 동일 생산자 &amp; 74158 워시드 복숭아/자스민 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">13위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Daye Bensa Rumudamo DFW Archers Lot ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Rumudamo (Daye Bensa) • 74158 (Dry Ferment Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">52.0 AED</div>
+            <div class="krw-price">약 19,760원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 36</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 26</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 26</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">88</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">다예 벤사의 루무다모 건식발효 워시드. #3위 [Hamasho Village Washed]와 동일 다예 벤사 74158 워시드 얼그레이 계열 노트가 겹치며 하마쇼 랏이 가격(33 AED)에서 더 우수.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #3위 [Hamasho Village Washed]와 동일 다예 벤사 74158 얼그레이 계열 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">14위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Adaura Coffee Geisha Washed Jer DRD ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Adaura Coffee (Alto Jaramillo) • Geisha (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">120.0 AED</div>
+            <div class="krw-price">약 45,600원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 22</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 27</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">87</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">알토 하라미요의 아다우라 게이샤 워시드. 우수한 품질이지만 이미 상위에 #5위 [Elida Plano 2801]과 #1위 [Auromar Peaberry]가 선발되어 보케테 게이샤 워시드 프로필 중복.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #5위 [Elida Plano] 및 #1위 [Auromar]와 파나마 게이샤 워시드 자스민/백차 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">15위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Los Lajones Bambu Geisha Washed Lot 20C ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Los Lajones (Graciano Cruz) • Green Tip Geisha (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">135.0 AED</div>
+            <div class="krw-price">약 51,300원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 21</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">87</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">그라시아노 크루즈의 로스 라호네스 밤부 랏. 화사한 복숭아/자스민 워시드이나 #8위 [Los Cenizos] 및 #5위 [Elida]와 파나마 게이샤 워시드 카테고리 겹침.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #8위 [Los Cenizos] 및 #5위 [Elida]와 파나마 고고도 게이샤 워시드 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">16위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Chevas Limited El Choclo GW Venus ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Chevas Limited (El Choclo) • Geisha (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">145.0 AED</div>
+            <div class="krw-price">약 55,100원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 20</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 28</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">86</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">세바스 리미티드의 엘 초클로 게이샤 워시드. 하라미요 테루아의 아름다운 꽃향이지만 상위 파나마 게이샤 워시드 3종과 직접적인 컵노트 중복.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #5위 [Elida] 및 #1위 [Auromar]와 파나마 게이샤 워시드 자스민/백차 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">17위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural-lot-2" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Elto Coffee Kokose Natural Lot 2 ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Kokose Village (Elto Coffee) • 74158 (Classic Natural)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">33.0 AED</div>
+            <div class="krw-price">약 12,540원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 34</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 27</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 25</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">86</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">엘토 커피의 코코세 내추럴. 달콤한 베리/복숭아이지만 사용자 선호인 워시드 티라이크에 비해 내추럴 성향이며 #2위 [Elto Sama Washed]와 동일 생산자 중복.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #2위 [Elto Sama Washed] 생산자 중복 &amp; 워시드 티라이크 선호 기준 후순위
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">18위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot ↗
+            </a>
+            <div class="c-spec-sub">
+              Ethiopia • Hamasho Village (Daye Bensa) • 74158 (Honey)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">33.0 AED</div>
+            <div class="krw-price">약 12,540원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 35</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 26</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 25</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">86</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">하마쇼 마을의 허니 프로세스. 달콤하고 화사하지만 #3위 [Hamasho Washed]와 동일 농장/스테이션 랏으로 단일화 추천.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #3위 [Hamasho Washed]와 동일 농장/스테이션 및 원산지 중복
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">19위</span>
+          </td>
+          <td>
+            <span class="roastery-tag espressolab-badge">☕ The Espresso Lab</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://theespressolab.com/products-details/cgle-la-margritas-geisha-honey" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              CGLE La Margritas Geisha Honey ↗
+            </a>
+            <div class="c-spec-sub">
+              Colombia • Finca Las Margaritas (CGLE) • Geisha (Honey)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">145.01 AED</div>
+            <div class="krw-price">약 55,100원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 37</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 22</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 26</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">85</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">콜롬비아 CGLE의 마르가리타스 게이샤 허니. 훌륭한 오렌지 블라썸이지만 이미 #6위 [El Rubi Parainema] 및 #10위 [Cota Pink Bourbon]이 선발되었고 145 AED 가격대 대비 파나마 게이샤와 경쟁 열세.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 콜롬비아 스페셜티 랏 중복 &amp; 파나마 게이샤 옥션 랏 대비 가성비 경합
+            </div>
+          </td>
+        </tr>
+        
+
+        <tr class="overlap-pick-row" data-status="overlap">
+          <td class="text-center font-mono">
+            <span class="rank-badge dimmed-rank">20위</span>
+          </td>
+          <td>
+            <span class="roastery-tag archers-badge">🏹 Archers</span>
+          </td>
+          <td class="coffee-name-cell">
+            <a href="https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2" target="_blank" class="c-title-link" title="공식 사이트 상품 페이지 열기">
+              Panama - Mil Cumbres GIL GW lot 2 ↗
+            </a>
+            <div class="c-spec-sub">
+              Panama • Mil Cumbres • Geisha (Washed)
+            </div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">143.0 AED</div>
+            <div class="krw-price">약 54,340원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (40점 만점)">맛 38</span> / 
+              <span title="가성비 점수 (30점 만점)">가격 20</span> / 
+              <span title="한국 희소성 (30점 만점)">희소 26</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">84</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">밀 쿰브레스의 게이샤 워시드 랏. 전형적인 자스민과 백차 톤을 지녔으나 이미 #5위 [Elida Plano] 및 #1위 [Auromar Peaberry]와 완전히 동일한 파나마 게이샤 워시드 향미 구조.</div>
+            <div class="overlap-reason dim-reason mt-1">
+              <strong>판정:</strong> 🚫 #5위 [Elida] 및 #1위 [Auromar]와 파나마 게이샤 워시드 백차/자스민 톤 중복
+            </div>
+          </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>
@@ -393,6 +1493,25 @@
   </footer>
 
 </div>
+
+<script>
+  function filterRanked(type, btn) {
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const rows = document.querySelectorAll('#top20Table tbody tr');
+    rows.forEach(row => {
+      const st = row.getAttribute('data-status');
+      if (type === 'all') {
+        row.style.display = '';
+      } else if (type === 'active') {
+        row.style.display = (st === 'active') ? '' : 'none';
+      } else if (type === 'overlap') {
+        row.style.display = (st === 'overlap') ? '' : 'none';
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
