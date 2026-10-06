@@ -1763,12 +1763,12 @@ def generate_html(items, stats):
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box">
-              <input type="number" id="filter_price_min" class="tfp-num-input" placeholder="최소" min="0" max="1500" step="5" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_price_min" class="tfp-num-input" placeholder="최소" min="0" max="1500" step="5" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이상</span>
             </div>
             <span class="tfp-range-sep">~</span>
             <div class="tfp-input-box">
-              <input type="number" id="filter_price_max" class="tfp-num-input" placeholder="최대" min="0" max="1500" step="5" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_price_max" class="tfp-num-input" placeholder="최대" min="0" max="1500" step="5" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이하</span>
             </div>
           </div>
@@ -1789,12 +1789,12 @@ def generate_html(items, stats):
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box">
-              <input type="number" id="filter_total_min" class="tfp-num-input" placeholder="최소" min="0" max="100" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_total_min" class="tfp-num-input" placeholder="최소" min="0" max="100" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이상</span>
             </div>
             <span class="tfp-range-sep">~</span>
             <div class="tfp-input-box">
-              <input type="number" id="filter_total_max" class="tfp-num-input" placeholder="최대" min="0" max="100" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_total_max" class="tfp-num-input" placeholder="최대" min="0" max="100" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이하</span>
             </div>
           </div>
@@ -1814,12 +1814,12 @@ def generate_html(items, stats):
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box">
-              <input type="number" id="filter_taste_min" class="tfp-num-input" placeholder="최소" min="0" max="50" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_taste_min" class="tfp-num-input" placeholder="최소" min="0" max="50" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이상</span>
             </div>
             <span class="tfp-range-sep">~</span>
             <div class="tfp-input-box">
-              <input type="number" id="filter_taste_max" class="tfp-num-input" placeholder="최대" min="0" max="50" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_taste_max" class="tfp-num-input" placeholder="최대" min="0" max="50" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이하</span>
             </div>
           </div>
@@ -1839,12 +1839,12 @@ def generate_html(items, stats):
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box">
-              <input type="number" id="filter_price_score_min" class="tfp-num-input" placeholder="최소" min="0" max="30" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_price_score_min" class="tfp-num-input" placeholder="최소" min="0" max="30" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이상</span>
             </div>
             <span class="tfp-range-sep">~</span>
             <div class="tfp-input-box">
-              <input type="number" id="filter_price_score_max" class="tfp-num-input" placeholder="최대" min="0" max="30" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_price_score_max" class="tfp-num-input" placeholder="최대" min="0" max="30" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이하</span>
             </div>
           </div>
@@ -1863,12 +1863,12 @@ def generate_html(items, stats):
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box">
-              <input type="number" id="filter_rarity_min" class="tfp-num-input" placeholder="최소" min="0" max="20" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_rarity_min" class="tfp-num-input" placeholder="최소" min="0" max="20" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이상</span>
             </div>
             <span class="tfp-range-sep">~</span>
             <div class="tfp-input-box">
-              <input type="number" id="filter_rarity_max" class="tfp-num-input" placeholder="최대" min="0" max="20" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <input type="number" id="filter_rarity_max" class="tfp-num-input" placeholder="최대" min="0" max="20" step="1" oninput="applyRangeFilters()" onkeydown="if(event.key==='Enter') applyRangeFilters()">
               <span class="tfp-unit-tag">이하</span>
             </div>
           </div>
@@ -2609,7 +2609,10 @@ def generate_html(items, stats):
       let filterDesc = [];
       if (currentOriginFilter !== 'all') filterDesc.push(`원산지:${{currentOriginFilter}}`);
       if (currentProcessFilter !== 'all') filterDesc.push(`가공:${{currentProcessFilter}}`);
-      if (syncPriceWithCharts && maxPriceFilter !== null) filterDesc.push(`100g≤${{maxPriceFilter}} AED`);
+      if (syncPriceWithCharts) {{
+        const activeCount = Object.values(rangeFilters).filter(r => r.min !== null || r.max !== null).length;
+        if (activeCount > 0) filterDesc.push(`정밀필터 ${{activeCount}}개 적용`);
+      }}
       if (searchQuery) filterDesc.push(`검색:'${{searchQuery}}'`);
       const extra = filterDesc.length > 0 ? ` (${{filterDesc.join(', ')}} 적용)` : '';
       sub.textContent = `현재 필터링된 원두 ${{data.totalFiltered}}종 기준 컵노트 출현 빈도${{extra}} (바 클릭 시 크로스 필터링)`;
@@ -2687,19 +2690,23 @@ def generate_html(items, stats):
     const hasTotalF = rangeFilters.score_total.min !== null || rangeFilters.score_total.max !== null;
 
     const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = sorted.map(c => `
-      <tr onclick="openDetailModalById('${{c.id}}')">
-        <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
-        <td><strong style="word-break:keep-all;">${{c.title}}</strong></td>
-        <td>${{c.country}}</td>
-        <td>${{c.process}}</td>
-        <td style="font-family:monospace; ${{hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}}">${{c.price_100g_aed}} AED</td>
-        <td style="font-family:monospace; color:var(--accent-blue); ${{hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_taste}}</td>
-        <td style="font-family:monospace; color:var(--accent-green); ${{hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_price}}</td>
-        <td style="font-family:monospace; color:#a855f7; ${{hasRarityF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_rarity}}</td>
-        <td style="font-family:monospace; color:var(--accent-gold); ${{hasTotalF ? 'font-size:14px; font-weight:900;' : 'font-weight:800;'}}">${{c.score_total}}</td>
-      </tr>
-    `).join('');
+    if (sorted.length === 0) {{
+      tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:36px 16px; color:var(--text-muted); font-size:13.5px;">🔍 지정한 조건에 일치하는 원두가 없습니다. 필터 범위를 조정해 보세요.</td></tr>`;
+    }} else {{
+      tbody.innerHTML = sorted.map(c => `
+        <tr onclick="openDetailModalById('${{c.id}}')">
+          <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
+          <td><strong style="word-break:keep-all;">${{c.title}}</strong></td>
+          <td>${{c.country}}</td>
+          <td>${{c.process}}</td>
+          <td style="font-family:monospace; ${{hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}}">${{c.price_100g_aed}} AED</td>
+          <td style="font-family:monospace; color:var(--accent-blue); ${{hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_taste}}</td>
+          <td style="font-family:monospace; color:var(--accent-green); ${{hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_price}}</td>
+          <td style="font-family:monospace; color:#a855f7; ${{hasRarityF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_rarity}}</td>
+          <td style="font-family:monospace; color:var(--accent-gold); ${{hasTotalF ? 'font-size:14px; font-weight:900;' : 'font-weight:800;'}}">${{c.score_total}}</td>
+        </tr>
+      `).join('');
+    }}
 
     document.getElementById('tableCountDisplay').textContent = sorted.length;
     document.getElementById('pointCountDisplay').textContent = getFilteredCoffees().length;
