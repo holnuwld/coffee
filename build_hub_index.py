@@ -35,7 +35,7 @@ def render_top20_rows():
         short_analysis = t_analysis[:110] + '...' if len(t_analysis) > 110 else t_analysis
 
         r = f"""
-        <tr class="{row_cls}" data-status="{'active' if is_act else 'overlap'}">
+        <tr class="{row_cls}" data-status="{'active' if is_act else 'overlap'}" data-rank="{c['rank']}" data-total="{c['score_total']}" data-taste="{c['score_taste']}" data-price="{c['score_price']}" data-rarity="{c['score_rarity']}">
           <td class="text-center font-mono">
             {rank_badge}
           </td>
@@ -663,6 +663,77 @@ content = f"""<!DOCTYPE html>
     color: var(--text-muted);
   }}
 
+  /* Clickable Score Header & Sub-sort Controls */
+  .score-col-header {{
+    min-width: 175px;
+    user-select: none;
+    padding: 10px 14px !important;
+  }}
+  .score-head-title {{
+    font-size: 13.5px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    color: var(--text-primary);
+    border: 1px solid transparent;
+  }}
+  .score-head-title:hover {{
+    color: var(--accent-gold);
+    background: rgba(210, 153, 34, 0.12);
+    border-color: rgba(210, 153, 34, 0.3);
+  }}
+  .score-head-title.active-sort {{
+    color: var(--accent-gold);
+    background: rgba(210, 153, 34, 0.2);
+    border: 1px solid var(--accent);
+  }}
+  .score-sub-sorts {{
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }}
+  .sub-sort-item {{
+    cursor: pointer;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #cbd5e1;
+    border: 1px solid transparent;
+  }}
+  .sub-sort-item:hover {{
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+  }}
+  .sub-sort-item.active-sort {{
+    color: var(--accent-gold);
+    background: rgba(210, 153, 34, 0.22);
+    border-color: var(--accent);
+  }}
+  .sort-sub-ind {{
+    font-size: 10.5px;
+    opacity: 0.85;
+  }}
+  .sort-sep {{
+    color: var(--border-light);
+    font-size: 11px;
+    user-select: none;
+  }}
+
   .score-col {{
     min-width: 135px;
   }}
@@ -1089,7 +1160,24 @@ content = f"""<!DOCTYPE html>
             <th>로스터리 (공식 링크 ↗)</th>
             <th>커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
             <th class="text-right">100g 가격</th>
-            <th class="text-center">종합 점수 (100점)</th>
+            <th class="text-center score-col-header">
+              <div class="score-head-title active-sort" id="sortTrigger_total" onclick="sortTableByScore('total')" title="종합 총점 기준 정렬 (클릭 시 오름차순/내림차순 토글)">
+                종합 점수 (100점) <span class="sort-ind" id="sortInd_total">▼</span>
+              </div>
+              <div class="score-sub-sorts">
+                <span class="sub-sort-item" id="sortTrigger_taste" onclick="sortTableByScore('taste')" title="맛 점수(50점 만점) 기준 정렬">
+                  맛 <span class="sort-sub-ind" id="sortInd_taste">↕</span>
+                </span>
+                <span class="sort-sep">/</span>
+                <span class="sub-sort-item" id="sortTrigger_price" onclick="sortTableByScore('price')" title="가격 점수(30점 만점) 기준 정렬">
+                  가격 <span class="sort-sub-ind" id="sortInd_price">↕</span>
+                </span>
+                <span class="sort-sep">/</span>
+                <span class="sub-sort-item" id="sortTrigger_rarity" onclick="sortTableByScore('rarity')" title="한국 희소성(20점 만점) 기준 정렬">
+                  희소 <span class="sort-sub-ind" id="sortInd_rarity">↕</span>
+                </span>
+              </div>
+            </th>
             <th>검토 내용 요약 & 선발 / 중복 사유</th>
           </tr>
         </thead>
@@ -1184,10 +1272,71 @@ content = f"""<!DOCTYPE html>
   // Embedded Ranked Dataset (Pure Score Top 20)
   const COFFEES = {embedded_json_str};
 
-  function filterRanked(type, btn) {{
-    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  let currentSortKey = 'total';
+  let currentSortDir = 'desc';
+  let currentFilter = 'all';
 
+  function sortTableByScore(key) {{
+    if (currentSortKey === key) {{
+      currentSortDir = (currentSortDir === 'desc') ? 'asc' : 'desc';
+    }} else {{
+      currentSortKey = key;
+      currentSortDir = 'desc'; // default to highest score first
+    }}
+
+    // Update Header Active UI and Indicators
+    const keys = ['total', 'taste', 'price', 'rarity'];
+    keys.forEach(k => {{
+      const el = document.getElementById('sortTrigger_' + k);
+      const ind = document.getElementById('sortInd_' + k);
+      if (k === currentSortKey) {{
+        if (el) el.classList.add('active-sort');
+        if (ind) {{
+          ind.textContent = (currentSortDir === 'desc') ? '▼' : '▲';
+          ind.style.color = 'var(--accent-gold)';
+        }}
+      }} else {{
+        if (el) el.classList.remove('active-sort');
+        if (ind) {{
+          ind.textContent = '↕';
+          ind.style.color = '';
+        }}
+      }}
+    }});
+
+    const tbody = document.querySelector('#top20Table tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.sort((a, b) => {{
+      const valA = parseFloat(a.getAttribute('data-' + key) || 0);
+      const valB = parseFloat(b.getAttribute('data-' + key) || 0);
+      
+      let diff = (currentSortDir === 'desc') ? (valB - valA) : (valA - valB);
+      if (diff !== 0) return diff;
+
+      // Secondary sort: total score desc
+      const totA = parseFloat(a.getAttribute('data-total') || 0);
+      const totB = parseFloat(b.getAttribute('data-total') || 0);
+      if (totA !== totB) return totB - totA;
+
+      // Tertiary sort: original rank asc
+      const rankA = parseInt(a.getAttribute('data-rank') || 0);
+      const rankB = parseInt(b.getAttribute('data-rank') || 0);
+      return rankA - rankB;
+    }});
+
+    rows.forEach(r => tbody.appendChild(r));
+    applyFilter(currentFilter);
+  }}
+
+  function filterRanked(type, btn) {{
+    currentFilter = type;
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    applyFilter(type);
+  }}
+
+  function applyFilter(type) {{
     const rows = document.querySelectorAll('#top20Table tbody tr');
     rows.forEach(row => {{
       const st = row.getAttribute('data-status');
