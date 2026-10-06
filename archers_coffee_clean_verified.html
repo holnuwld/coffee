@@ -572,15 +572,19 @@
   th {
     background: #1f242c;
     color: #c9d1d9;
-    font-weight: 600;
-    padding: 12px 14px;
+    font-weight: 700;
+    padding: 9px 5px;
     border-bottom: 2px solid var(--border);
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.25;
     position: sticky;
     top: 0;
     z-index: 10;
     cursor: pointer;
     user-select: none;
+    text-align: center;
+    vertical-align: middle;
+    word-break: keep-all;
     transition: background 0.15s;
   }
   th:hover {
@@ -593,7 +597,7 @@
     color: #6e7681;
   }
   td {
-    padding: 12px 14px;
+    padding: 8px 6px; word-break: keep-all;
     border-bottom: 1px solid #21262d;
     vertical-align: middle;
     color: #c9d1d9;
@@ -1371,28 +1375,28 @@
     <table id="coffeeTable">
       <thead>
         <tr>
-          <th onclick="sortTable(0, 'number')">번호 <span class="sort-icon">▲▼</span></th>
-          <th style="width:85px; text-align:center;">패키지 사진</th>
-          <th onclick="sortTable(2, 'number')" style="min-width:115px; text-align:center;">⭐ 종합 점수 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(3, 'string')">컬렉션 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(4, 'string')">커피 이름 (클릭 시 공식몰) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(5, 'string')">원산지 국가 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(6, 'string')">지역 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(7, 'string')">농장 / 스테이션 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(8, 'string')">농부 / 프로듀서 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(9, 'string')">품종 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(10, 'string')">프로세스 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(11, 'string')">고도 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(12, 'string')">배전도 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(13, 'string')">컵노트 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(14, 'string')">중량 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(15, 'number')">가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(16, 'number')">100g당 가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(17, 'string')">국내 동일 프로듀서 유사 원두 유통처 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(18, 'string')">국내 판매 가격 (유사 랏 시세) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(19, 'string')">현지 구매 메리트 분석 <span class="sort-icon">▲▼</span></th>
-          <th>해외 커뮤니티 실사용자 후기 <span style="font-size:10px; color:#6e7681;">(Reddit)</span></th>
-          <th>검증 상태</th>
+          <th onclick="sortTable(0, 'number')" style="width:36px;">#<span class="sort-icon">▲▼</span></th>
+          <th style="width:65px;">사진</th>
+          <th onclick="sortTable(2, 'number')" style="width:85px;">⭐ 종합점수<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(100점)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(3, 'string')" style="width:75px;">컬렉션<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(4, 'string')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(공식몰 링크 ↗)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(5, 'string')" style="width:60px;">국가<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(6, 'string')" style="width:75px;">지역<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(7, 'string')" style="width:80px;">농장/<br>스테이션<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(8, 'string')" style="width:80px;">농부/<br>프로듀서<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(9, 'string')" style="width:70px;">품종<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(10, 'string')" style="width:75px;">가공방식<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(프로세스)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(11, 'string')" style="width:60px;">고도<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(12, 'string')" style="width:58px;">배전도<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(13, 'string')" style="min-width:120px; text-align:left;">컵노트<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(14, 'string')" style="width:45px;">중량<span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(15, 'number')" style="width:78px;">현지 가격<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(AED/원화)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(16, 'number')" style="width:78px;">100g 가격<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(기준가)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(17, 'string')" style="min-width:110px; text-align:left;">국내 유통처<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(유사 랏)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(18, 'string')" style="width:80px;">국내 시세<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(100g)</span><span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(19, 'string')" style="min-width:110px; text-align:left;">구매 메리트<br>분석<span class="sort-icon">▲▼</span></th>
+          <th style="min-width:110px; text-align:left;">해외 후기<br><span style="font-size:10px; color:#6e7681;">(Reddit)</span></th>
+          <th style="width:45px;">검증</th>
         </tr>
       </thead>
       <tbody id="tableBody">
@@ -1428,7 +1432,7 @@
             <div class="cell-price-krw">약 50,350원</div>
           </td>
           <td class="cell-korea">국내 상시 유통 (엠아이커피 생두 상시 공급)<br><a href='https://micoffee.co.kr/product/detail.html?product_no=1862' target='_blank'>[언스페셜티 / 센터커피 / 국내 다수 로스터리 ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 35,000원 ~ 45,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 35,000원 ~ 45,000원 (100g 기준)</td>
           <td class="cell-merit">△ 보통: 맛은 탁월하나 국내에서도 유사 랏을 쉽게 구할 수 있어 현지 구매 메리트는 상대적으로 낮음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1468,7 +1472,7 @@
             <div class="cell-price-krw">약 40,850원</div>
           </td>
           <td class="cell-korea">국내 대량 상시 유통 (디에고 베르무데즈 가향/무산소 시리즈)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 모모스커피 / 로우키 등 국내 전역 ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 25,000원 ~ 32,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 25,000원 ~ 32,000원 (100g 기준)</td>
           <td class="cell-merit">△ 낮음: 국내에서 거의 동일한 원두를 항시 구매할 수 있어 두바이 현지 구매 메리트 없음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1508,7 +1512,7 @@
             <div class="cell-price-krw">약 57,950원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1548,7 +1552,7 @@
             <div class="cell-price-krw">약 50,350원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1588,7 +1592,7 @@
             <div class="cell-price-krw">약 44,650원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1628,7 +1632,7 @@
             <div class="cell-price-krw">약 39,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1668,7 +1672,7 @@
             <div class="cell-price-krw">약 38,950원</div>
           </td>
           <td class="cell-korea">국내 대량 상시 유통 (디에고 베르무데즈 가향/무산소 시리즈)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 모모스커피 / 로우키 등 국내 전역 ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 25,000원 ~ 32,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 25,000원 ~ 32,000원 (100g 기준)</td>
           <td class="cell-merit">△ 낮음: 국내에서 거의 동일한 원두를 항시 구매할 수 있어 두바이 현지 구매 메리트 없음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1708,7 +1712,7 @@
             <div class="cell-price-krw">약 38,950원</div>
           </td>
           <td class="cell-korea">국내 대량 상시 유통 (디에고 베르무데즈 가향/무산소 시리즈)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 모모스커피 / 로우키 등 국내 전역 ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 25,000원 ~ 32,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 25,000원 ~ 32,000원 (100g 기준)</td>
           <td class="cell-merit">△ 낮음: 국내에서 거의 동일한 원두를 항시 구매할 수 있어 두바이 현지 구매 메리트 없음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1748,7 +1752,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1788,7 +1792,7 @@
             <div class="cell-price-krw">약 54,150원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1828,7 +1832,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1868,7 +1872,7 @@
             <div class="cell-price-krw">약 57,000원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1908,7 +1912,7 @@
             <div class="cell-price-krw">약 37,050원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1948,7 +1952,7 @@
             <div class="cell-price-krw">약 37,050원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -1988,7 +1992,7 @@
             <div class="cell-price-krw">약 33,250원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2028,7 +2032,7 @@
             <div class="cell-price-krw">약 33,250원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2068,7 +2072,7 @@
             <div class="cell-price-krw">약 23,750원</div>
           </td>
           <td class="cell-korea">국내 동일 농부(타미루 타데세) 수입 이력 있음 (Archers SFW/DFW 랏은 독점)<br><a href='https://unspecialty.com' target='_blank'>[언스페셜티 / 국내 스페셜티 샵 (2021 COE 1위 랏 기획전) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 35,000원 ~ 45,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 35,000원 ~ 45,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 해발 2,400m 초고고도 워시드. 아처스 현지가는 100g당 약 23,000원으로 국내 반값 수준</td>
           <td class="cell-review">
             2021 에티오피아 COE 1위 타미루 타데세. &#x27;해발 2,400m 초고고도 특유의 얼그레이와 살구, 자스민의 정갈한 클린컵&#x27; 평가. <br>
@@ -2108,7 +2112,7 @@
             <div class="cell-price-krw">약 23,750원</div>
           </td>
           <td class="cell-korea">국내 동일 농부(타미루 타데세) 수입 이력 있음 (Archers SFW/DFW 랏은 독점)<br><a href='https://unspecialty.com' target='_blank'>[언스페셜티 / 국내 스페셜티 샵 (2021 COE 1위 랏 기획전) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 35,000원 ~ 45,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 35,000원 ~ 45,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 해발 2,400m 초고고도 워시드. 아처스 현지가는 100g당 약 23,000원으로 국내 반값 수준</td>
           <td class="cell-review">
             2021 에티오피아 COE 1위 타미루 타데세. &#x27;해발 2,400m 초고고도 특유의 얼그레이와 살구, 자스민의 정갈한 클린컵&#x27; 평가. <br>
@@ -2148,7 +2152,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea">국내 동일 농부(타미루 타데세) 수입 이력 있음 (Archers SFW/DFW 랏은 독점)<br><a href='https://unspecialty.com' target='_blank'>[언스페셜티 / 국내 스페셜티 샵 (2021 COE 1위 랏 기획전) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 35,000원 ~ 45,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 35,000원 ~ 45,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 해발 2,400m 초고고도 워시드. 아처스 현지가는 100g당 약 23,000원으로 국내 반값 수준</td>
           <td class="cell-review">
             2021 에티오피아 COE 1위 타미루 타데세. &#x27;해발 2,400m 초고고도 특유의 얼그레이와 살구, 자스민의 정갈한 클린컵&#x27; 평가. <br>
@@ -2188,7 +2192,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea">국내 동일 농부(타미루 타데세) 수입 이력 있음 (Archers SFW/DFW 랏은 독점)<br><a href='https://unspecialty.com' target='_blank'>[언스페셜티 / 국내 스페셜티 샵 (2021 COE 1위 랏 기획전) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 35,000원 ~ 45,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 35,000원 ~ 45,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 해발 2,400m 초고고도 워시드. 아처스 현지가는 100g당 약 23,000원으로 국내 반값 수준</td>
           <td class="cell-review">
             2021 에티오피아 COE 1위 타미루 타데세. &#x27;해발 2,400m 초고고도 특유의 얼그레이와 살구, 자스민의 정갈한 클린컵&#x27; 평가. <br>
@@ -2228,7 +2232,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2268,7 +2272,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2308,7 +2312,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2348,7 +2352,7 @@
             <div class="cell-price-krw">약 29,450원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2388,7 +2392,7 @@
             <div class="cell-price-krw">약 29,450원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2428,7 +2432,7 @@
             <div class="cell-price-krw">약 31,160원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2468,7 +2472,7 @@
             <div class="cell-price-krw">약 31,160원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2508,7 +2512,7 @@
             <div class="cell-price-krw">약 24,700원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2548,7 +2552,7 @@
             <div class="cell-price-krw">약 24,700원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2588,7 +2592,7 @@
             <div class="cell-price-krw">약 31,160원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2628,7 +2632,7 @@
             <div class="cell-price-krw">약 24,700원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2668,7 +2672,7 @@
             <div class="cell-price-krw">약 29,450원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -2708,7 +2712,7 @@
             <div class="cell-price-krw">약 18,240원</div>
           </td>
           <td class="cell-korea">국내 동일 생산지(다예 벤사 하마쇼) 수입 이력 있음 (내추럴 위주)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 나무사이로 (하마쇼 내추럴) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 20,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 20,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 수입 랏 대비 약 50% 저렴한 AED 33(약 12,500원)으로 극강의 데일리 가성비</td>
           <td class="cell-review">
             다예 벤사 시다마 최고봉 랏. &#x27;블랙티와 서양배, 레몬그라스가 은은하게 감도는 워시드&#x27; 평가. <br>
@@ -2748,7 +2752,7 @@
             <div class="cell-price-krw">약 17,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2788,7 +2792,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2828,7 +2832,7 @@
             <div class="cell-price-krw">약 37,240원</div>
           </td>
           <td class="cell-korea">국내 동일 농장 수입 이력 있음 (피베리 랏은 국내 미수입)<br><a href='https://micoffee.co.kr' target='_blank'>[코에커피스펙트럼 / 엠아이커피 (오로마르 게이샤 워시드) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 55,000원 ~ 80,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 55,000원 ~ 80,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 시세 대비 약 40% 저렴하며, 극소량 피베리(Peaberry) 랏은 아처스 독점 공급</td>
           <td class="cell-review">
             BOP 챔피언 오로마르 피베리 워시드. &#x27;자스민과 화이트 와인, 얼그레이 홍차 뉘앙스가 맑고 투명하며 산미 밸런스가 압도적&#x27;이라는 r/pourover 호평. <br>
@@ -2868,7 +2872,7 @@
             <div class="cell-price-krw">약 58,140원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2908,7 +2912,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2948,7 +2952,7 @@
             <div class="cell-price-krw">약 58,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -2988,7 +2992,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3028,7 +3032,7 @@
             <div class="cell-price-krw">약 45,600원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3068,7 +3072,7 @@
             <div class="cell-price-krw">약 69,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3108,7 +3112,7 @@
             <div class="cell-price-krw">약 57,000원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3148,7 +3152,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3188,7 +3192,7 @@
             <div class="cell-price-krw">약 47,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3228,7 +3232,7 @@
             <div class="cell-price-krw">약 54,340원</div>
           </td>
           <td class="cell-korea">국내 동일 농장 수입 이력 있음 (Plano 2801 나노랏은 국내 미수입)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 70,000원 ~ 90,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 70,000원 ~ 90,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 세계 최고가 농장의 정통 워시드 게이샤를 국내 시세 대비 30~40% 저렴하게 구매 가능</td>
           <td class="cell-review">
             라마스투스 가문의 엘리다 에스테이트 워시드. &#x27;라벤더와 레몬그라스, 백포도의 섬세한 백차(White Tea) 같은 질감&#x27; 극찬. <br>
@@ -3268,7 +3272,7 @@
             <div class="cell-price-krw">약 54,340원</div>
           </td>
           <td class="cell-korea">국내 동일 농장 수입 이력 있음 (Plano 2801 나노랏은 국내 미수입)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 70,000원 ~ 90,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 70,000원 ~ 90,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 세계 최고가 농장의 정통 워시드 게이샤를 국내 시세 대비 30~40% 저렴하게 구매 가능</td>
           <td class="cell-review">
             라마스투스 가문의 엘리다 에스테이트 워시드. &#x27;라벤더와 레몬그라스, 백포도의 섬세한 백차(White Tea) 같은 질감&#x27; 극찬. <br>
@@ -3308,7 +3312,7 @@
             <div class="cell-price-krw">약 74,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3348,7 +3352,7 @@
             <div class="cell-price-krw">약 74,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3388,7 +3392,7 @@
             <div class="cell-price-krw">약 79,800원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 보케테 해발 2,050m 최고봉 에스테이트로 국내에서는 구할 수 없는 독점 테루아</td>
           <td class="cell-review">
             보케테 해발 2,050m 최고봉 게이샤. &#x27;복숭아 홍차를 마시는 듯한 티라이크 텍스처와 베르가못 여운&#x27; 호평. <br>
@@ -3428,7 +3432,7 @@
             <div class="cell-price-krw">약 79,040원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 보케테 해발 2,050m 최고봉 에스테이트로 국내에서는 구할 수 없는 독점 테루아</td>
           <td class="cell-review">
             보케테 해발 2,050m 최고봉 게이샤. &#x27;복숭아 홍차를 마시는 듯한 티라이크 텍스처와 베르가못 여운&#x27; 호평. <br>
@@ -3468,7 +3472,7 @@
             <div class="cell-price-krw">약 148,200원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3508,7 +3512,7 @@
             <div class="cell-price-krw">약 68,400원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3548,7 +3552,7 @@
             <div class="cell-price-krw">약 64,600원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3588,7 +3592,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3628,7 +3632,7 @@
             <div class="cell-price-krw">약 85,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3668,7 +3672,7 @@
             <div class="cell-price-krw">약 74,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3708,7 +3712,7 @@
             <div class="cell-price-krw">약 85,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3748,7 +3752,7 @@
             <div class="cell-price-krw">약 85,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3788,7 +3792,7 @@
             <div class="cell-price-krw">약 85,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3828,7 +3832,7 @@
             <div class="cell-price-krw">약 71,440원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3868,7 +3872,7 @@
             <div class="cell-price-krw">약 85,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3908,7 +3912,7 @@
             <div class="cell-price-krw">약 47,500원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -3948,7 +3952,7 @@
             <div class="cell-price-krw">약 64,600원</div>
           </td>
           <td class="cell-korea">국내 동일 농장 수입 이력 있음 (Plano 2801 나노랏은 국내 미수입)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 70,000원 ~ 90,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 70,000원 ~ 90,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 세계 최고가 농장의 정통 워시드 게이샤를 국내 시세 대비 30~40% 저렴하게 구매 가능</td>
           <td class="cell-review">
             라마스투스 가문의 엘리다 에스테이트 워시드. &#x27;라벤더와 레몬그라스, 백포도의 섬세한 백차(White Tea) 같은 질감&#x27; 극찬. <br>
@@ -3988,7 +3992,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4028,7 +4032,7 @@
             <div class="cell-price-krw">약 58,140원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4068,7 +4072,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4108,7 +4112,7 @@
             <div class="cell-price-krw">약 58,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4148,7 +4152,7 @@
             <div class="cell-price-krw">약 58,140원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4188,7 +4192,7 @@
             <div class="cell-price-krw">약 58,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4228,7 +4232,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4268,7 +4272,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4308,7 +4312,7 @@
             <div class="cell-price-krw">약 57,000원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4348,7 +4352,7 @@
             <div class="cell-price-krw">약 65,740원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4388,7 +4392,7 @@
             <div class="cell-price-krw">약 77,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4428,7 +4432,7 @@
             <div class="cell-price-krw">약 54,340원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4468,7 +4472,7 @@
             <div class="cell-price-krw">약 58,140원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4508,7 +4512,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4548,7 +4552,7 @@
             <div class="cell-price-krw">약 50,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4588,7 +4592,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4628,7 +4632,7 @@
             <div class="cell-price-krw">약 51,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4668,7 +4672,7 @@
             <div class="cell-price-krw">약 54,340원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4708,7 +4712,7 @@
             <div class="cell-price-krw">약 67,640원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4748,7 +4752,7 @@
             <div class="cell-price-krw">약 67,640원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4788,7 +4792,7 @@
             <div class="cell-price-krw">약 55,100원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4828,7 +4832,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4868,7 +4872,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4908,7 +4912,7 @@
             <div class="cell-price-krw">약 24,700원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4948,7 +4952,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -4988,7 +4992,7 @@
             <div class="cell-price-krw">약 20,140원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5028,7 +5032,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5068,7 +5072,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea">국내 대량 상시 유통 (디에고 베르무데즈 가향/무산소 시리즈)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 모모스커피 / 로우키 등 국내 전역 ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 25,000원 ~ 32,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 25,000원 ~ 32,000원 (100g 기준)</td>
           <td class="cell-merit">△ 낮음: 국내에서 거의 동일한 원두를 항시 구매할 수 있어 두바이 현지 구매 메리트 없음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5108,7 +5112,7 @@
             <div class="cell-price-krw">약 31,540원</div>
           </td>
           <td class="cell-korea">국내 정식 유통 없음 (에콰도르 로하 희귀 메호라도)<br><a href='https://momos.co.kr' target='_blank'>[없음 (국내 에콰도르 메호라도 취급 로스터리 간헐적 출시) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 45,000원 ~ 60,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 45,000원 ~ 60,000원 (100g 기준)</td>
           <td class="cell-merit">★ 높음: 워시드 게이샤급 허브티 톤을 가진 희귀 품종으로 현지 가격(약 3.1만원) 메리트 우수</td>
           <td class="cell-review">
             에콰도르 로하 티피카 메호라도. &#x27;자스민과 스위트 라임의 청량한 허브티 톤&#x27; 호평. <br>
@@ -5148,7 +5152,7 @@
             <div class="cell-price-krw">약 14,440원</div>
           </td>
           <td class="cell-korea">국내 동일 생산지(다예 벤사 하마쇼) 수입 이력 있음 (내추럴 위주)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 나무사이로 (하마쇼 내추럴) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 20,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 20,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 수입 랏 대비 약 50% 저렴한 AED 33(약 12,500원)으로 극강의 데일리 가성비</td>
           <td class="cell-review">
             다예 벤사 시다마 최고봉 랏. &#x27;블랙티와 서양배, 레몬그라스가 은은하게 감도는 워시드&#x27; 평가. <br>
@@ -5188,7 +5192,7 @@
             <div class="cell-price-krw">약 19,000원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5228,7 +5232,7 @@
             <div class="cell-price-krw">약 19,760원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5268,7 +5272,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -5308,7 +5312,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -5348,7 +5352,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea">국내 동일 생산지(다예 벤사 하마쇼) 수입 이력 있음 (내추럴 위주)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 나무사이로 (하마쇼 내추럴) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 20,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 20,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 수입 랏 대비 약 50% 저렴한 AED 33(약 12,500원)으로 극강의 데일리 가성비</td>
           <td class="cell-review">
             다예 벤사 시다마 최고봉 랏. &#x27;블랙티와 서양배, 레몬그라스가 은은하게 감도는 워시드&#x27; 평가. <br>
@@ -5388,7 +5392,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea">국내 동일 생산지(다예 벤사 하마쇼) 수입 이력 있음 (내추럴 위주)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 나무사이로 (하마쇼 내추럴) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 20,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 20,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 수입 랏 대비 약 50% 저렴한 AED 33(약 12,500원)으로 극강의 데일리 가성비</td>
           <td class="cell-review">
             다예 벤사 시다마 최고봉 랏. &#x27;블랙티와 서양배, 레몬그라스가 은은하게 감도는 워시드&#x27; 평가. <br>
@@ -5428,7 +5432,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea">국내 동일 생산지(다예 벤사 하마쇼) 수입 이력 있음 (내추럴 위주)<br><a href='https://coffeelibre.kr' target='_blank'>[커피리브레 / 나무사이로 (하마쇼 내추럴) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 20,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 20,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">★ 최상: 국내 수입 랏 대비 약 50% 저렴한 AED 33(약 12,500원)으로 극강의 데일리 가성비</td>
           <td class="cell-review">
             다예 벤사 시다마 최고봉 랏. &#x27;블랙티와 서양배, 레몬그라스가 은은하게 감도는 워시드&#x27; 평가. <br>
@@ -5468,7 +5472,7 @@
             <div class="cell-price-krw">약 13,680원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5508,7 +5512,7 @@
             <div class="cell-price-krw">약 22,800원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5548,7 +5552,7 @@
             <div class="cell-price-krw">약 19,000원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5588,7 +5592,7 @@
             <div class="cell-price-krw">약 32,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5628,7 +5632,7 @@
             <div class="cell-price-krw">약 13,300원</div>
           </td>
           <td class="cell-korea">국내 동일 농장 수입 이력 있음 (모모스커피 보람 움 기획전)<br><a href='https://momos.co.kr' target='_blank'>[모모스커피 (파젠다 움 시리즈) ↗]</a></td>
-          <td style="color:#8b949e; white-space:nowrap;">약 18,000원 ~ 25,000원 (100g 기준)</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">약 18,000원 ~ 25,000원 (100g 기준)</td>
           <td class="cell-merit">○ 양호: 100g당 AED 35(약 13,000원)로 국내 대비 약 30~40% 저렴</td>
           <td class="cell-review">
             2023 WBC 챔피언 패밀리 파젠다 움. &#x27;사과, 자두의 편안한 산미와 밀크초콜릿 단맛 밸런스&#x27; 호평. <br>
@@ -5668,7 +5672,7 @@
             <div class="cell-price-krw">약 20,900원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5708,7 +5712,7 @@
             <div class="cell-price-krw">약 18,240원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5748,7 +5752,7 @@
             <div class="cell-price-krw">약 11,400원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5788,7 +5792,7 @@
             <div class="cell-price-krw">약 11,400원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5828,7 +5832,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5868,7 +5872,7 @@
             <div class="cell-price-krw">약 10,640원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -5908,7 +5912,7 @@
             <div class="cell-price-krw">약 10,640원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Elto Coffee 직거래 독점)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 &amp; 최강 가성비</td>
           <td class="cell-review">
             엘토 커피 시다마 벤사 랏. &#x27;진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤&#x27; 호평. <br>
@@ -5948,7 +5952,7 @@
             <div class="cell-price-krw">약 12,160원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -5988,7 +5992,7 @@
             <div class="cell-price-krw">약 13,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -6028,7 +6032,7 @@
             <div class="cell-price-krw">약 12,540원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>
@@ -6068,7 +6072,7 @@
             <div class="cell-price-krw">약 13,300원</div>
           </td>
           <td class="cell-korea"><span style='color:#8b949e;'>국내 정식 유통 없음 (Archers 독점 랏)</span></td>
-          <td style="color:#8b949e; white-space:nowrap;">없음</td>
+          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">없음</td>
           <td class="cell-merit">★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음</td>
           <td class="cell-review">
             r/pourover 커뮤니티 선정 &#x27;2025 세계 50대 로스터리&#x27; 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평. <br>

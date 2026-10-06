@@ -659,8 +659,8 @@
     background: #0f1621;
     color: var(--text-secondary);
     font-weight: 700;
-    text-align: left;
-    padding: 16px 16px;
+    text-align: center;
+    padding: 9px 5px;
     border-bottom: 2px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -668,7 +668,10 @@
     cursor: pointer;
     user-select: none;
     transition: color 0.15s ease;
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.25;
+    word-break: keep-all;
+    vertical-align: middle;
   }
   .data-table th:hover {
     color: var(--accent-gold);
@@ -683,7 +686,7 @@
   .data-table th.sorted-desc .sort-arrow::after { content: ' ▼'; color: var(--accent-gold); }
 
   .data-table td {
-    padding: 14px 16px;
+    padding: 8px 6px; word-break: keep-all;
     border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
   }
@@ -1248,26 +1251,26 @@
       <table class="data-table" id="coffeeTable">
         <thead>
           <tr>
-            <th onclick="sortTable(0, 'num')"># <span class="sort-arrow"></span></th>
-            <th>패키지 사진</th>
-            <th onclick="sortTable(2, 'num')" class="text-center" style="min-width:115px;">⭐ 종합 점수 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(3, 'str')">커피 이름 (원문 링크) <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(4, 'str')">국가 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(5, 'str')">지역 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(6, 'str')">농장 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(7, 'str')">농부/프로듀서 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(8, 'str')">품종 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(9, 'str')">가공 방식 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(10, 'str')">재배 고도 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(11, 'str')">배전도 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(12, 'str')">컵노트 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(13, 'str')" class="text-center">중량 <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(14, 'num')" class="text-right">현지 가격 (AED / 원화) <span class="sort-arrow"></span></th>
-            <th onclick="sortTable(15, 'num')" class="text-right">100g당 가격 (AED / 원화) <span class="sort-arrow"></span></th>
-            <th>한국 판매처 (링크)</th>
-            <th>한국 시세 & 구매 메리트</th>
-            <th onclick="sortTable(18, 'str')">커뮤니티 평점 & 후기 원문 <span class="sort-arrow"></span></th>
-            <th class="text-center">검증</th>
+            <th onclick="sortTable(0, 'num')" style="width:36px;">#<span class="sort-arrow"></span></th>
+            <th style="width:65px;">사진</th>
+            <th onclick="sortTable(2, 'num')" style="width:85px;">⭐ 종합점수<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(100점)</span><span class="sort-arrow"></span></th>
+            <th onclick="sortTable(3, 'str')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(원문 링크 ↗)</span><span class="sort-arrow"></span></th>
+            <th onclick="sortTable(4, 'str')" style="width:60px;">국가<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(5, 'str')" style="width:75px;">지역<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(6, 'str')" style="width:80px;">농장<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(7, 'str')" style="width:80px;">농부/<br>프로듀서<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(8, 'str')" style="width:70px;">품종<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(9, 'str')" style="width:75px;">가공 방식<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(프로세스)</span><span class="sort-arrow"></span></th>
+            <th onclick="sortTable(10, 'str')" style="width:60px;">재배 고도<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(11, 'str')" style="width:58px;">배전도<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(12, 'str')" style="min-width:120px; text-align:left;">컵노트<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(13, 'str')" class="text-center" style="width:45px;">중량<span class="sort-arrow"></span></th>
+            <th onclick="sortTable(14, 'num')" style="width:78px;">현지 가격<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(AED/원화)</span><span class="sort-arrow"></span></th>
+            <th onclick="sortTable(15, 'num')" style="width:78px;">100g 가격<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(기준가)</span><span class="sort-arrow"></span></th>
+            <th style="min-width:110px; text-align:left;">한국 판매처<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(링크 ↗)</span></th>
+            <th style="min-width:120px; text-align:left;">한국 시세 &<br>구매 메리트</th>
+            <th onclick="sortTable(18, 'str')" style="min-width:120px; text-align:left;">커뮤니티 평점<br>& 후기<span class="sort-arrow"></span></th>
+            <th class="text-center" style="width:45px;">검증</th>
           </tr>
         </thead>
         <tbody>

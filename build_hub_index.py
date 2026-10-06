@@ -981,7 +981,7 @@ content = f"""<!DOCTYPE html>
   }}
   .top20-table {{
     width: 100%;
-    table-layout: fixed;
+    min-width: 1120px;
     border-collapse: separate;
     border-spacing: 0;
     font-size: 13px;
@@ -992,12 +992,14 @@ content = f"""<!DOCTYPE html>
     color: var(--text-secondary);
     font-weight: 700;
     text-align: left;
-    padding: 10px 8px;
+    padding: 12px 10px;
     border-bottom: 2px solid var(--border);
-    white-space: nowrap;
+    white-space: normal;
+    line-height: 1.35;
+    vertical-align: middle;
   }}
   .top20-table td {{
-    padding: 10px 8px;
+    padding: 12px 10px;
     border-bottom: 1px solid var(--border);
     vertical-align: middle;
     word-break: keep-all;
@@ -1191,12 +1193,13 @@ content = f"""<!DOCTYPE html>
   }}
 
   .price-col {{
-    width: 82px;
+    width: 95px;
+    min-width: 90px;
     text-align: right;
-    padding: 8px 6px !important;
+    padding: 10px 8px !important;
   }}
   .aed-price {{
-    font-size: 14px;
+    font-size: 14.5px;
     font-weight: 800;
     color: var(--accent-gold);
     white-space: nowrap;
@@ -1209,20 +1212,21 @@ content = f"""<!DOCTYPE html>
 
   /* Clickable Score Header & Sub-sort Controls */
   .score-col-header {{
-    width: 125px;
+    width: 155px;
+    min-width: 150px;
     user-select: none;
-    padding: 8px 4px !important;
+    padding: 10px 6px !important;
     text-align: center;
   }}
   .score-head-title {{
-    font-size: 12.5px;
+    font-size: 13px;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 4px;
-    padding: 3px 6px;
+    padding: 3px 8px;
     border-radius: 5px;
     transition: all 0.15s ease;
     color: var(--text-primary);
@@ -1240,18 +1244,18 @@ content = f"""<!DOCTYPE html>
     border: 1px solid var(--accent);
   }}
   .score-sub-sorts {{
-    font-size: 11px;
+    font-size: 11.5px;
     color: var(--text-muted);
-    margin-top: 4px;
+    margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2px;
+    gap: 3px;
     white-space: nowrap;
   }}
   .sub-sort-item {{
     cursor: pointer;
-    padding: 1px 4px;
+    padding: 2px 5px;
     border-radius: 4px;
     font-weight: 700;
     transition: all 0.15s ease;
@@ -1282,15 +1286,16 @@ content = f"""<!DOCTYPE html>
   }}
 
   .score-col {{
-    width: 125px;
+    width: 155px;
+    min-width: 150px;
     text-align: center;
-    padding: 8px 4px !important;
+    padding: 10px 6px !important;
   }}
   .score-breakdown {{
-    font-size: 10.5px;
+    font-size: 11px;
     color: var(--text-muted);
-    margin-bottom: 2px;
-    line-height: 1.3;
+    margin-bottom: 3px;
+    line-height: 1.35;
     white-space: nowrap;
   }}
   .total-score-box {{
@@ -1781,17 +1786,27 @@ content = f"""<!DOCTYPE html>
     <!-- Table Responsive Box -->
     <div class="table-box">
       <table class="top20-table" id="top20Table">
+        <colgroup>
+          <col style="width: 42px;">
+          <col style="width: 95px;">
+          <col style="width: 105px;">
+          <col style="width: 250px;">
+          <col style="width: 180px;">
+          <col style="width: 95px;">
+          <col style="width: 155px;">
+          <col style="width: auto;">
+        </colgroup>
         <thead>
           <tr>
-            <th style="width:36px; text-align:center;">
+            <th style="text-align:center;">
               <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAllCart(this.checked)" title="전체 선택/해제">
             </th>
-            <th class="text-center" style="width:72px;">선정 / 순위</th>
-            <th class="text-center" style="width:95px;">로스터리 ↗</th>
-            <th style="width:21%;">커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
-            <th style="width:17%;">✨ 컵노트 (Tasting Notes)</th>
-            <th class="text-right" style="width:82px;">100g 가격</th>
-            <th class="text-center score-col-header" style="width:125px;">
+            <th class="text-center">선정 /<br>순위</th>
+            <th class="text-center">로스터리<br>↗</th>
+            <th>커피 이름 & 스펙<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(클릭 시 분석 모달 🔍)</span></th>
+            <th>✨ 컵노트<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(Tasting Notes)</span></th>
+            <th class="text-right">100g 가격<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(AED/원화)</span></th>
+            <th class="text-center score-col-header">
               <div class="score-head-title active-sort" id="sortTrigger_total" onclick="sortTableByScore('total')" title="종합 총점 기준 정렬 (클릭 시 오름차순/내림차순 토글)">
                 종합 점수 (100점) <span class="sort-ind" id="sortInd_total">▼</span>
               </div>
@@ -1809,7 +1824,7 @@ content = f"""<!DOCTYPE html>
                 </span>
               </div>
             </th>
-            <th>검토 내용 요약 & 선발 / 중복 사유 (유사도 %)</th>
+            <th>검토 내용 요약 & 판정<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(3대 유사도 %)</span></th>
           </tr>
         </thead>
         <tbody>
