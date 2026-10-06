@@ -358,6 +358,119 @@ content = f"""<!DOCTYPE html>
     color: #475569;
   }}
 
+  /* Analytics Promo Card */
+  .analytics-promo-card {{
+    margin: 24px 0 36px 0;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(227, 179, 65, 0.35);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }}
+  .analytics-promo-card::before {{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: linear-gradient(to bottom, #e3b341, #388bfd);
+  }}
+  [data-theme="light"] .analytics-promo-card {{
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }}
+  .analytics-promo-content {{
+    flex: 1;
+    min-width: 300px;
+  }}
+  .analytics-promo-badge {{
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(227, 179, 65, 0.15);
+    border: 1px solid rgba(227, 179, 65, 0.4);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }}
+  .analytics-promo-title {{
+    font-size: 20px;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+  }}
+  [data-theme="light"] .analytics-promo-title {{
+    color: #0f172a;
+  }}
+  .analytics-promo-desc {{
+    font-size: 13.5px;
+    color: var(--text-sub);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }}
+  [data-theme="light"] .analytics-promo-desc {{
+    color: #475569;
+  }}
+  .analytics-promo-stats {{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }}
+  .promo-stat-pill {{
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 9px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-sub);
+  }}
+  [data-theme="light"] .promo-stat-pill {{
+    background: #f1f5f9;
+    color: #475569;
+    border-color: #e2e8f0;
+  }}
+  .analytics-promo-action {{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }}
+  .analytics-promo-btn {{
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #e3b341 0%, #d97706 100%);
+    color: #000;
+    font-weight: 800;
+    font-size: 14.5px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(227, 179, 65, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }}
+  .analytics-promo-btn:hover {{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 179, 65, 0.5);
+  }}
+  .analytics-promo-sub {{
+    font-size: 11px;
+    color: var(--text-sub);
+  }}
+
+
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{
     background: var(--bg);
@@ -1714,8 +1827,37 @@ content = f"""<!DOCTYPE html>
   </div>
 
   <!-- ========================================================
+       NEW FEATURE: 171 WHOLE BEANS INTERACTIVE ANALYTICS BANNER
+       ======================================================== -->
+  <div class="analytics-promo-card">
+    <div class="analytics-promo-content">
+      <div class="analytics-promo-badge">NEW • FULL DATASET ANALYTICS (171종 전수 분석)</div>
+      <h2 class="analytics-promo-title">📊 2대 로스터리 전체 원두 인터랙티브 데이터 분석</h2>
+      <p class="analytics-promo-desc">
+        아처스(117종) & 더 에스프레소 랩(54종) 총 171종 전체 원두에 대한 <strong>100g 가격 vs 점수 산점도(Scatter Plot)</strong>, 
+        <strong>원산지/프로세스/고도별 심볼 구분</strong>, <strong>컵노트 출현 빈도 및 분포도 차트</strong>, 그리고 
+        <strong>가성비 스위트스팟(30~70 AED) 통계 요약</strong>을 인터랙티브하게 탐색해보세요.
+      </p>
+      <div class="analytics-promo-stats">
+        <span class="promo-stat-pill">☕ 총 171종 데이터셋</span>
+        <span class="promo-stat-pill">🎯 4대 컬러 & 심볼 인코딩</span>
+        <span class="promo-stat-pill">🍑 컵노트 크로스 필터링</span>
+        <span class="promo-stat-pill">💡 통계적 유효 인사이트</span>
+      </div>
+    </div>
+    <div class="analytics-promo-action">
+      <a href="analytics.html" class="analytics-promo-btn">
+        <span>전체 원두 인터랙티브 분석 바로가기</span>
+        <span style="font-size:18px;">➔</span>
+      </a>
+      <span class="analytics-promo-sub">데스크톱 & 모바일 완벽 대응 / 다크·라이트 듀얼 테마</span>
+    </div>
+  </div>
+
+  <!-- ========================================================
        TOP 20 RANKED 100g CURATION SECTION
        ======================================================== -->
+
   <section class="top20-section" id="top20Section">
     <div class="top20-header">
       <div class="top20-badge">Integrated 100g Master Curation</div>

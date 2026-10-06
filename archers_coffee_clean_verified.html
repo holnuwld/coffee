@@ -1377,7 +1377,18 @@
         <tr>
           <th onclick="sortTable(0, 'number')" style="width:36px;">#<span class="sort-icon">▲▼</span></th>
           <th style="width:65px;">사진</th>
-          <th onclick="sortTable(2, 'number')" style="width:85px;">⭐ 종합점수<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(100점)</span><span class="sort-icon">▲▼</span></th>
+          <th class="th-score-head" style="width:105px; text-align:center; padding:5px 2px; user-select:none;">
+            <div onclick="sortScoreCol('total')" style="cursor:pointer; font-weight:800; font-size:12px; color:var(--accent-gold);" title="종합 점수 기준 정렬">
+              ⭐ 종합점수 <span id="sortInd_arch_total" style="font-size:9.5px;">▼</span>
+            </div>
+            <div style="font-size:10.5px; color:#8b949e; margin-top:2px; display:flex; justify-content:center; align-items:center; gap:2px;">
+              <span onclick="sortScoreCol('taste')" id="sortTrigger_arch_taste" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="맛 점수(50점 만점) 정렬">맛<span id="sortInd_arch_taste" style="font-size:9px;">↕</span></span>
+              <span>/</span>
+              <span onclick="sortScoreCol('price')" id="sortTrigger_arch_price" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="가격 점수(30점 만점) 정렬">값<span id="sortInd_arch_price" style="font-size:9px;">↕</span></span>
+              <span>/</span>
+              <span onclick="sortScoreCol('rarity')" id="sortTrigger_arch_rarity" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="희소성(20점 만점) 정렬">희<span id="sortInd_arch_rarity" style="font-size:9px;">↕</span></span>
+            </div>
+          </th>
           <th onclick="sortTable(3, 'string')" style="width:75px;">컬렉션<span class="sort-icon">▲▼</span></th>
           <th onclick="sortTable(4, 'string')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(공식몰 링크 ↗)</span><span class="sort-icon">▲▼</span></th>
           <th onclick="sortTable(5, 'string')" style="width:60px;">국가<span class="sort-icon">▲▼</span></th>
@@ -1408,8 +1419,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="83.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 15.5</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="83.8" data-total="83.8" data-taste="44.2" data-price="24.1" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 15.5</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed" target="_blank">Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed ↗</a>
           </td>
@@ -1417,7 +1428,7 @@
           <td>Caicedonia, Valle del Cauca</td>
           <td>Cerro Azul</td>
           <td>Cafe Granja La Esperanza</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Hybrid Washed</td>
           <td>1,700 - 2,000</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -1448,8 +1459,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.4 / 희 15.5</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.6" data-total="77.6" data-taste="36.7" data-price="25.4" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.4 / 희 15.5</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso" target="_blank">Colombia - Caturra Chiroso, Finca El Paraiso ↗</a>
           </td>
@@ -1457,7 +1468,7 @@
           <td>Piendamo, Cauca</td>
           <td>Finca El Paraiso</td>
           <td>Diego Samuel Bermudez</td>
-          <td><span class="spec-tag">Caturra, Chiroso</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Caturra, Chiroso</div></td>
           <td>Thermal Shock Washed</td>
           <td>1,960 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▫▫▫▫]</td>
@@ -1488,8 +1499,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd" target="_blank">Colombia - Finca El Porvenir Geisha Honey DRD ↗</a>
           </td>
@@ -1497,7 +1508,7 @@
           <td>Palestina, Huila</td>
           <td>El Porvenir</td>
           <td>Camilo Segura and Cecilia Almonacid</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey Dark Room Drying</td>
           <td>1,600 - 1,800</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -1528,8 +1539,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="34.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed" target="_blank">Colombia - Finca El Porvenir Geisha Washed ↗</a>
           </td>
@@ -1537,7 +1548,7 @@
           <td>Palestina, Huila</td>
           <td>El Porvenir</td>
           <td>Camilo Segura and Cecilia Almonacid</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,600 - 1,800</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -1568,8 +1579,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 24.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.6" data-total="76.6" data-taste="31.7" data-price="24.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 24.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895" target="_blank">Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895 ↗</a>
           </td>
@@ -1577,7 +1588,7 @@
           <td>Pichindé, Valle del Cauca</td>
           <td>Inmaculada Coffee Farm</td>
           <td>Julian Holguin Ramos</td>
-          <td><span class="spec-tag">Sudan Rume</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Sudan Rume</div></td>
           <td>Natural</td>
           <td>1,7000 - 1,900</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -1608,8 +1619,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 25.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="79.7" data-total="79.7" data-taste="34.2" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 25.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed" target="_blank">Colombia - Las Margaritas, Geisha Hybrid Washed ↗</a>
           </td>
@@ -1617,7 +1628,7 @@
           <td>Caicedonia, Valle del Cauca</td>
           <td>Las Margaritas</td>
           <td>Rigoberto Hererra,</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Hybrid Washed</td>
           <td>1,570 - 1,850</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -1648,8 +1659,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.8" data-total="77.8" data-taste="36.7" data-price="25.6" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-letty-finca-el-paraiso" target="_blank">Colombia - Letty, Finca El Paraiso ↗</a>
           </td>
@@ -1657,7 +1668,7 @@
           <td>Piendamó, Cauca</td>
           <td>Finca El Paraiso</td>
           <td>Diego Samuel</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed Thermal Shock</td>
           <td>1,960 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]</td>
@@ -1688,8 +1699,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.8" data-total="77.8" data-taste="36.7" data-price="25.6" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-luna-finca-el-paraiso" target="_blank">Colombia - Luna, Finca El Paraiso ↗</a>
           </td>
@@ -1697,7 +1708,7 @@
           <td>Piendamó, Cauca</td>
           <td>Finca El Paraiso</td>
           <td>Diego Samuel</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Thermal</td>
           <td>1,960 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]</td>
@@ -1728,8 +1739,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131" target="_blank">Costa Rica - Hacienda Copey Don KS Geisha lot 131 ↗</a>
           </td>
@@ -1737,7 +1748,7 @@
           <td>San Jose, Tarrazu District</td>
           <td>Finca Hacienda Copey</td>
           <td>Hacienda Copey</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural Anaerobic</td>
           <td>1,840 - 2,195 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -1768,8 +1779,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.8" data-total="77.8" data-taste="34.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182 ↗</a>
           </td>
@@ -1777,7 +1788,7 @@
           <td>San Jose, Copey District</td>
           <td>Finca Hacienda Copey</td>
           <td>Hacienda Copey</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey</td>
           <td>1,840 - 2,195 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -1808,8 +1819,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Lot 111 ↗</a>
           </td>
@@ -1817,7 +1828,7 @@
           <td>San Jose, Tarrazu District</td>
           <td>Finca Hacienda Copey</td>
           <td>Hacienda Copey</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey Anaerobic</td>
           <td>1,840 - 2,195 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -1848,8 +1859,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.4" data-total="77.4" data-taste="34.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177 ↗</a>
           </td>
@@ -1857,7 +1868,7 @@
           <td>San Jose, Copey District</td>
           <td>Finca Hacienda Copey</td>
           <td>Hacienda Copey</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,840 - 2,195 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -1888,8 +1899,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.6" data-total="77.6" data-taste="31.7" data-price="25.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad" target="_blank">Ecuador - Sidra Wave Washed, Finca Soledad ↗</a>
           </td>
@@ -1897,7 +1908,7 @@
           <td>Intag Valley, Imbabura Province</td>
           <td>Finca Soledad</td>
           <td>Pepe Jijon</td>
-          <td><span class="spec-tag">Sidra</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Sidra</div></td>
           <td>Wave Washed</td>
           <td>1,550 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▫▫▫]</td>
@@ -1928,8 +1939,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.6" data-total="77.6" data-taste="31.7" data-price="25.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad" target="_blank">Ecuador - Typica Mejorado Wave Natural, Finca Soledad ↗</a>
           </td>
@@ -1937,7 +1948,7 @@
           <td>Intag Valley, Imbabura Province</td>
           <td>Finca Soledad</td>
           <td>Pepe Jijon</td>
-          <td><span class="spec-tag">Typica Mejorado</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica Mejorado</div></td>
           <td>Wave Natural</td>
           <td>1,550 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▫▫▫]</td>
@@ -1968,8 +1979,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="80.6" data-total="80.6" data-taste="34.2" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural" target="_blank">Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural ↗</a>
           </td>
@@ -1977,7 +1988,7 @@
           <td>Alo Village, Sidama Bensa</td>
           <td>Alo Main Station</td>
           <td>Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural Cold Fermentation - RF8</td>
           <td>2,450 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]</td>
@@ -2008,8 +2019,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="80.6" data-total="80.6" data-taste="34.2" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed" target="_blank">Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed ↗</a>
           </td>
@@ -2017,7 +2028,7 @@
           <td>Alo Village, Sidama Bensa</td>
           <td>Alo Main Station</td>
           <td>Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Washed Cold Fermentation - RF8</td>
           <td>2,450 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]</td>
@@ -2048,8 +2059,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.1" data-total="78.1" data-taste="29.5" data-price="28.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw" target="_blank">Ethiopia - Alo Village Archers Lot 1 - SFW ↗</a>
           </td>
@@ -2057,7 +2068,7 @@
           <td>Alo Chilaka Village, Sidama Bensa</td>
           <td>Chilaka Station</td>
           <td>Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Submerged Fermentation Washed</td>
           <td>2,350 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -2088,8 +2099,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.1" data-total="78.1" data-taste="29.5" data-price="28.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw" target="_blank">Ethiopia - Alo Village Archers Lot 2 - DFW ↗</a>
           </td>
@@ -2097,7 +2108,7 @@
           <td>Alo Village, Sidama Bensa</td>
           <td>Chilaka Station</td>
           <td>Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Dry Fermentaion Washed</td>
           <td>2,350 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -2128,8 +2139,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry" target="_blank">Ethiopia - Alo Village, Natural Peaberry ↗</a>
           </td>
@@ -2137,7 +2148,7 @@
           <td>Alo Village, Sidama Bensa</td>
           <td>Alo Main Station</td>
           <td>Alo Cofee / Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural</td>
           <td>2,450 masl</td>
           <td>미디엄 (Espresso | Milk | Filter) [▪▪▫▫▫]</td>
@@ -2168,8 +2179,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry" target="_blank">Ethiopia - Alo Village, Washed Peaberry ↗</a>
           </td>
@@ -2177,7 +2188,7 @@
           <td>Alo Village, Sidama Bensa</td>
           <td>Alo Main Station</td>
           <td>Alo Cofee / Tamiru Tadesse</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Washed</td>
           <td>2,450 masl</td>
           <td>미디엄 (Espresso | Milk | Filter) [▪▪▫▫▫]</td>
@@ -2208,8 +2219,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="93.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP ↗</a>
           </td>
@@ -2217,7 +2228,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Cold Ferment Honey</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -2248,8 +2259,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="93.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP ↗</a>
           </td>
@@ -2257,7 +2268,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Cold Ferment Hybrid Washed</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -2288,8 +2299,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="93.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP ↗</a>
           </td>
@@ -2297,7 +2308,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Cold Ferment Natural</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -2328,8 +2339,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="81.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="81.1" data-total="81.1" data-taste="34.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Natural Cold Ferment Archers EP ↗</a>
           </td>
@@ -2337,7 +2348,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural - River Cold Fermentation</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2368,8 +2379,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="81.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="81.1" data-total="81.1" data-taste="34.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Washed Cold Ferment Archers EP ↗</a>
           </td>
@@ -2377,7 +2388,7 @@
           <td>Arbegona, Sidama</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Washed Cold Fermentation</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2408,8 +2419,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8 ↗</a>
           </td>
@@ -2417,7 +2428,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Cold Ferment Natural - Dark Room Drying</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2448,8 +2459,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd" target="_blank">Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD ↗</a>
           </td>
@@ -2457,7 +2468,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Honey Mosto Ferment - Dark Room Drying</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2488,8 +2499,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5" target="_blank">Ethiopia - Elto - Elora Station River Flow Honey CF5 ↗</a>
           </td>
@@ -2497,7 +2508,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>River Flow Honey CF5</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -2528,8 +2539,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural CF8 ↗</a>
           </td>
@@ -2537,7 +2548,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>River Flow Natural CF8</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -2568,8 +2579,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural RF10 ↗</a>
           </td>
@@ -2577,7 +2588,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>River Flow Natural - Dark Room Drying</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2608,8 +2619,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed CF10 ↗</a>
           </td>
@@ -2617,7 +2628,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>River Flow Washed CF10</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -2648,8 +2659,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="89.1" data-total="89.1" data-taste="42.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed WRF8 ↗</a>
           </td>
@@ -2657,7 +2668,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>River Flow Washed - Dark Room Drying</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2688,8 +2699,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.4 / 희 18.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.4" data-total="88.4" data-taste="41.0" data-price="29.4" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.4 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1" target="_blank">Ethiopia - Hamasho Village Natural Anaerobic Archers Lot ↗</a>
           </td>
@@ -2697,7 +2708,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Daye Bensa / Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural Anaerobic</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -2728,8 +2739,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.7" data-total="88.7" data-taste="40.2" data-price="28.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic ↗</a>
           </td>
@@ -2737,7 +2748,7 @@
           <td>Guji Hambela Dimtu</td>
           <td>Guji Hambela Dimtu Haro</td>
           <td>Hambela Dimtu Small Holder Farms</td>
-          <td><span class="spec-tag">74114, 74110, 74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74114, 74110, 74158</div></td>
           <td>Natural Anaerobic - Shade Drying</td>
           <td>2440 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]</td>
@@ -2768,8 +2779,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.2" data-total="88.2" data-taste="40.2" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26" target="_blank">Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26 ↗</a>
           </td>
@@ -2777,7 +2788,7 @@
           <td>Arbegona, Sidama Bensa</td>
           <td>Rumudamo Station</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural Anaerobic</td>
           <td>2,300 - 2,400</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2808,8 +2819,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="92.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 92.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.8 / 값 26.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="92.2" data-total="92.2" data-taste="45.8" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 92.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.8 / 값 26.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry" target="_blank">Panama  - Finca Auromar, Geisha Washed Peaberry ↗</a>
           </td>
@@ -2817,7 +2828,7 @@
           <td>Piedra Candela</td>
           <td>Auromar Finca La Aurora</td>
           <td>Roberto Brenes / Auromar Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,770 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -2848,8 +2859,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.3" data-total="85.3" data-taste="42.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702" target="_blank">Panama  - Mil Cumbres CLAUS GN Lot 2702 ↗</a>
           </td>
@@ -2857,7 +2868,7 @@
           <td>Cordillera Volcan Paraiso</td>
           <td>Mil Cumbres</td>
           <td>Mario Fonseca Imendia</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,600 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -2888,8 +2899,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690" target="_blank">Panama - Abu Coffee - Geisha Washed lot 2690 ↗</a>
           </td>
@@ -2897,7 +2908,7 @@
           <td>Canas Verdes, Boquete</td>
           <td>Abu Coffee</td>
           <td>Jose Luttrell</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Hybrid Washed</td>
           <td>1,550 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -2928,8 +2939,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365" target="_blank">Panama - Abu Coffee Geisha Washed Lot 3365 ↗</a>
           </td>
@@ -2937,7 +2948,7 @@
           <td>Canas Verdes, Boquete</td>
           <td>Abu Coffee</td>
           <td>Jose Luttrell</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Hybrid Washed</td>
           <td>1,600 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▪▫▫]</td>
@@ -2968,8 +2979,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed" target="_blank">Panama - Adaura Coffee Finca Lorayne Geisha Washed ↗</a>
           </td>
@@ -2977,7 +2988,7 @@
           <td>El Santo, Boquete</td>
           <td>Finca Lorayne</td>
           <td>Marcus Duran</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed</td>
           <td>1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3008,8 +3019,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="79.0" data-total="79.0" data-taste="34.2" data-price="24.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd" target="_blank">Panama - Adaura Coffee Geisha Washed Jer DRD ↗</a>
           </td>
@@ -3017,7 +3028,7 @@
           <td>El Salto, Boquete</td>
           <td>Finca Lorayne</td>
           <td>Marcus Duran</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3048,8 +3059,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.8" data-total="75.8" data-taste="34.2" data-price="21.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025" target="_blank">Panama - Adaura Coffee, Washed Ferment Mosto ↗</a>
           </td>
@@ -3057,7 +3068,7 @@
           <td>El Santo, Boquete</td>
           <td>Finca Lorayne</td>
           <td>Marcus Duran</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed Ferment Mosto</td>
           <td>1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3088,8 +3099,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.4" data-total="77.4" data-taste="34.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7" target="_blank">Panama - Altieri Coffee Chombi 080425 River Flow 7 ↗</a>
           </td>
@@ -3097,7 +3108,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Mima Estate - Chombi Lot</td>
           <td>Altieri Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>RRF7- River Flow Fermentation</td>
           <td>1,850 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3128,8 +3139,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.7" data-total="85.7" data-taste="42.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus" target="_blank">Panama - Chevas Limited  El Choclo GW Venus ↗</a>
           </td>
@@ -3137,7 +3148,7 @@
           <td>El Salto, Boquete</td>
           <td>Chevas Coffee Estate, El Choclo</td>
           <td>Jose Luiz Chevas</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,600 - 1,700 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3168,8 +3179,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.7" data-total="78.7" data-taste="34.2" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural" target="_blank">Panama - Cuatro Caminos H2 Geisha Natural ↗</a>
           </td>
@@ -3177,7 +3188,7 @@
           <td>Horqueta, Boquete Valley</td>
           <td>Horqueta 2</td>
           <td>Andres Lopez</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,780 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3208,8 +3219,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.3" data-total="88.3" data-taste="44.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501" target="_blank">Panama - Elida Geisha Honey Loma 2501 ↗</a>
           </td>
@@ -3217,7 +3228,7 @@
           <td>Baru Volcano Boquete, Panama</td>
           <td>Elida Estates Farm</td>
           <td>Lamastus Family Estates</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey</td>
           <td>1,700 - 1,950 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -3248,8 +3259,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="88.3" data-total="88.3" data-taste="44.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801" target="_blank">Panama - Elida Geisha Washed Plano 2801 ↗</a>
           </td>
@@ -3257,7 +3268,7 @@
           <td>Baru Volcano Boquete, Panama</td>
           <td>Elida Estate Farm</td>
           <td>Lamastus Family Estates</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,700 - 1,950 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -3288,8 +3299,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425" target="_blank">Panama - Finca El Pergamino Geisha Natural Lot 2425 ↗</a>
           </td>
@@ -3297,7 +3308,7 @@
           <td>Alto Geurra, Bambito</td>
           <td>Finca El Pergamino</td>
           <td>Yaneth De Lucich</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,800 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3328,8 +3339,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325" target="_blank">Panama - Finca El Pergamino Geisha Washed Lot 31325 ↗</a>
           </td>
@@ -3337,7 +3348,7 @@
           <td>Alto Geurra, Bambito</td>
           <td>Finca El Pergamino</td>
           <td>Yaneth De Lucich</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,800 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3368,8 +3379,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="84.4" data-total="84.4" data-taste="44.2" data-price="20.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208" target="_blank">Panama - Finca Los Cenizos  - Geisha Washed GW 208 ↗</a>
           </td>
@@ -3377,7 +3388,7 @@
           <td>Cerro Punta, Tierras Altas</td>
           <td>Finca Los Cenizos</td>
           <td>Estela Pitti</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,900 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3408,8 +3419,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="84.6" data-total="84.6" data-taste="44.2" data-price="20.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10" target="_blank">Panama - Finca Los Cenizos GN 060 - Planta lot 10 ↗</a>
           </td>
@@ -3417,7 +3428,7 @@
           <td>Cerro Punta, Tierras Altas</td>
           <td>Finca Los Cenizos</td>
           <td>Estela Pitti</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,800 - 2,200 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3448,8 +3459,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 11.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.4" data-total="75.4" data-taste="44.2" data-price="11.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 11.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841" target="_blank">Panama - Finca Nuguo Geisha Washed Lot 841 ↗</a>
           </td>
@@ -3457,7 +3468,7 @@
           <td>Jurutungo, Panama</td>
           <td>Finca Nuguo</td>
           <td>Jose Gallardo</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,920 - 1,980 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▫▫▫]</td>
@@ -3488,8 +3499,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.0" data-total="76.0" data-taste="34.2" data-price="21.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5" target="_blank">Panama - Gato Grande  Cold Ferment Washed Lot 5 ↗</a>
           </td>
@@ -3497,7 +3508,7 @@
           <td>Los Pozos, Tierras Altas</td>
           <td>Gato Grande Coffee Forest</td>
           <td>Yessie Hartman, Jean Paul Langenstein</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Cold Ferment Washed</td>
           <td>1,910 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3528,8 +3539,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.4" data-total="76.4" data-taste="34.2" data-price="22.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural" target="_blank">Panama - Gato Grande Cold Ferment Natural ↗</a>
           </td>
@@ -3537,7 +3548,7 @@
           <td>Los Pozos, Tierras Altas</td>
           <td>Gato Grande Coffee Forest</td>
           <td>Yessie Hartman, Jean Paul Langenstein</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Cold Ferment Natural</td>
           <td>1,910 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3568,8 +3579,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.7" data-total="85.7" data-taste="42.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125" target="_blank">Panama - Guarumo Coffee Farm Geisha Natural Lot 17125 ↗</a>
           </td>
@@ -3577,7 +3588,7 @@
           <td>Los Pozos, Tierras Altas</td>
           <td>Guarumo Coffee Farm</td>
           <td>Tessie &amp; Ratibor Hartmann</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1800 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3608,8 +3619,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="73.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb" target="_blank">Panama - Hacienda La Esmeralda  Mario Arriba 4 NB ↗</a>
           </td>
@@ -3617,7 +3628,7 @@
           <td>Jaramillo, Boquete</td>
           <td>Jaramillo</td>
           <td>Hacienda La Esmeralda</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,650 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3648,8 +3659,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc" target="_blank">Panama - Hacienda La Esmeralda Buenos Aires 4NC ↗</a>
           </td>
@@ -3657,7 +3668,7 @@
           <td>Jaramilo, Boquete</td>
           <td>Buenos Aires, Jaramilo</td>
           <td>Peterson Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural Climate Controlled Drying</td>
           <td>1,675 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3688,8 +3699,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="73.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb" target="_blank">Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB ↗</a>
           </td>
@@ -3697,7 +3708,7 @@
           <td>Cañas Verdes, Boquete</td>
           <td>Cańas Verdes</td>
           <td>Hacienda La Esmeralda</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,700 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3728,8 +3739,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="73.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb" target="_blank">Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB ↗</a>
           </td>
@@ -3737,7 +3748,7 @@
           <td>Quiel, Boquete</td>
           <td>El Velo</td>
           <td>Hacienda La Esmeralda</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3768,8 +3779,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="73.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb" target="_blank">Panama - Hacienda La Esmeralda Fundador 8 NB ↗</a>
           </td>
@@ -3777,7 +3788,7 @@
           <td>Cañas Verdes, Boquete</td>
           <td>Cańas Verdes</td>
           <td>Hacienda La Esmeralda</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,700 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3808,8 +3819,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="75.6" data-total="75.6" data-taste="34.2" data-price="21.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy" target="_blank">Panama - Hacienda La Esmeralda Montana 6 FC ↗</a>
           </td>
@@ -3817,7 +3828,7 @@
           <td>Canas Verdes</td>
           <td>Jaramilllo Farm</td>
           <td>Peterson Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed Cool Ferment</td>
           <td>1,690 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3848,8 +3859,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="73.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb" target="_blank">Panama - Hacienda La Esmeralda Portón 5 ANB ↗</a>
           </td>
@@ -3857,7 +3868,7 @@
           <td>Quiel, Boquete</td>
           <td>El Velo</td>
           <td>Hacienda La Esmeralda</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,700 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -3888,8 +3899,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.7" data-total="78.7" data-taste="34.2" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934" target="_blank">Panama - Kotowa Coffee Las Brujas Lot 6934 ↗</a>
           </td>
@@ -3897,7 +3908,7 @@
           <td>El Salto, Boquete</td>
           <td>Las Brujas</td>
           <td>Ricardo Koyner</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,800 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -3928,8 +3939,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="87.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 87.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 22.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="87.0" data-total="87.0" data-taste="44.2" data-price="22.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 87.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 22.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325" target="_blank">Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325 ↗</a>
           </td>
@@ -3937,7 +3948,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Elida Estate</td>
           <td>Lamastus Family Estates</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Natural</td>
           <td>1,700-1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -3968,8 +3979,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690" target="_blank">Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690 ↗</a>
           </td>
@@ -3977,7 +3988,7 @@
           <td>Jaramillo, Boquete</td>
           <td>Lerida Coffee Estate</td>
           <td>Maria Amoruso</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,600 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4008,8 +4019,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying ↗</a>
           </td>
@@ -4017,7 +4028,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Lerida Coffee Estate</td>
           <td>Maria Amoruso</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey Cold Room Drying</td>
           <td>1,900 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4048,8 +4059,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying ↗</a>
           </td>
@@ -4057,7 +4068,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Lerida Coffee Estate</td>
           <td>Maria Amoruso</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,700 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -4088,8 +4099,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486 ↗</a>
           </td>
@@ -4097,7 +4108,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Lerida Estate</td>
           <td>Amoruso Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural - Waterfall</td>
           <td>1,800+ masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4128,8 +4139,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying ↗</a>
           </td>
@@ -4137,7 +4148,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Lerida Coffee Estate</td>
           <td>Maria Amoruso</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed - Cold Room Drying</td>
           <td>1,900 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4168,8 +4179,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391" target="_blank">Panama - Lerida Coffee Estate GW Cold Room Lot 0368 ↗</a>
           </td>
@@ -4177,7 +4188,7 @@
           <td>Alto Quiel, Boquete</td>
           <td>Lerida Estate</td>
           <td>Amoruso Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed Cold Room</td>
           <td>1,800+ masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4208,8 +4219,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="86.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="86.2" data-total="86.2" data-taste="42.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 20C ↗</a>
           </td>
@@ -4217,7 +4228,7 @@
           <td>Los Lajones, Boquete</td>
           <td>Los Lajones Estate</td>
           <td>Hiu Coffee / Graciano Cruz</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed</td>
           <td>1,995-2,070 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]</td>
@@ -4248,8 +4259,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="86.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="86.2" data-total="86.2" data-taste="42.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 26C ↗</a>
           </td>
@@ -4257,7 +4268,7 @@
           <td>Los Lajones, Boquete</td>
           <td>Los Lajones Estate</td>
           <td>Hiu Coffee / Graciano Cruz</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed</td>
           <td>1,995-2,070 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]</td>
@@ -4288,8 +4299,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.4" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.4" data-total="85.4" data-taste="42.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab" target="_blank">Panama - Los Lajones Bambú Geisha Washed lot 8 AB ↗</a>
           </td>
@@ -4297,7 +4308,7 @@
           <td>Los Lajones</td>
           <td>Los Lajones Estate</td>
           <td>Hiu Coffee, Graciano Cruz</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,995 - 2,070 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4328,8 +4339,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.3" data-total="76.3" data-taste="34.2" data-price="22.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release" target="_blank">Panama - Lost Origin La Estrella Yeast Inoculation ↗</a>
           </td>
@@ -4337,7 +4348,7 @@
           <td>Los Naranjos, Boquete</td>
           <td>La Estrella</td>
           <td>Franz Zeimetz &amp; Giovana Boutet</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed - Yeast Inoculation</td>
           <td>1,600 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4368,8 +4379,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="82.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 82.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 20.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="82.7" data-total="82.7" data-taste="42.2" data-price="20.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 82.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 20.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325" target="_blank">Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325 ↗</a>
           </td>
@@ -4377,7 +4388,7 @@
           <td>Los Pozos, Tierras Altas</td>
           <td>Mi Finquita</td>
           <td>Tessie &amp; Ratibor Hartmann</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Wineglobe Natural</td>
           <td>1750-2000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4408,8 +4419,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.8" data-total="85.8" data-taste="42.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2" target="_blank">Panama - Mil Cumbres GIL GW lot 2 ↗</a>
           </td>
@@ -4417,7 +4428,7 @@
           <td>Cordillera Volcan Paraiso</td>
           <td>Mil Cumbres</td>
           <td>Mario Fonseca Imendia</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,600 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4448,8 +4459,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="85.3" data-total="85.3" data-taste="42.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201" target="_blank">Panama - Mil Cumbres OMO GN Lot 1201 ↗</a>
           </td>
@@ -4457,7 +4468,7 @@
           <td>Cordillera Volcan Paraiso</td>
           <td>Mil Cumbres</td>
           <td>Mario Fonseca Imendia</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,600 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4488,8 +4499,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed" target="_blank">Panama - Santamaria Estate  Geisha DF Washed ↗</a>
           </td>
@@ -4497,7 +4508,7 @@
           <td>Paso Ancho, Chiriqui</td>
           <td>Santamaria Coffee Estate</td>
           <td>Santamaria Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>DF Washed</td>
           <td>1,700 - 1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4528,8 +4539,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="34.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey" target="_blank">Panama - Santamaria Estate - Geisha Honey ↗</a>
           </td>
@@ -4537,7 +4548,7 @@
           <td>Paso Ancho, Chiriqui</td>
           <td>Santamaria Coffee Estate</td>
           <td>Santamaria Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Honey</td>
           <td>1,700 - 1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4568,8 +4579,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7" target="_blank">Panama - Santamaria Estate - Geisha Washed Lot 7 ↗</a>
           </td>
@@ -4577,7 +4588,7 @@
           <td>Paso Ancho, Chiriqui</td>
           <td>Santamaria Coffee Estate</td>
           <td>Edwin Santamaria &amp; Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Washed</td>
           <td>1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4608,8 +4619,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11" target="_blank">Panama - Santamaria Estate Geisha Natural Lot 11 ↗</a>
           </td>
@@ -4617,7 +4628,7 @@
           <td>Paso Ancho, Chiriqui</td>
           <td>Santamaria Coffee Estate</td>
           <td>Edwin Santamaria &amp; Family</td>
-          <td><span class="spec-tag">Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
           <td>Natural</td>
           <td>1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4648,8 +4659,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.8" data-total="77.8" data-taste="34.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-spectrum" target="_blank">Panama - Spectrum, Savage Coffees ↗</a>
           </td>
@@ -4657,7 +4668,7 @@
           <td>Boquete, Chiriqui, Panama</td>
           <td>Savage Coffees</td>
           <td>Jamison Savage /</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed Carbonic Maceration</td>
           <td>1,700 - 1,800 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -4688,8 +4699,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.1" data-total="76.1" data-taste="34.2" data-price="21.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-symbiosis" target="_blank">Panama - Symbiosis, Iris Estate ↗</a>
           </td>
@@ -4697,7 +4708,7 @@
           <td>Volcan, Chiriqui, Panama</td>
           <td>Iris Estate</td>
           <td>Jamison Savage /</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Natural Anaerobic</td>
           <td>1,850 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -4728,8 +4739,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="76.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="76.1" data-total="76.1" data-taste="34.2" data-price="21.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-symmetry" target="_blank">Panama - Symmetry, Iris Estate ↗</a>
           </td>
@@ -4737,7 +4748,7 @@
           <td>Volcan, Chiriqui, Panama</td>
           <td>Iris Estate</td>
           <td>Jamison Savage /</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Natural Carbonic Maceration</td>
           <td>1,850 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -4768,8 +4779,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="77.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Competition 2025</span></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed" target="_blank">Panama - Tierra Blanca C5 Geisha Washed ↗</a>
           </td>
@@ -4777,7 +4788,7 @@
           <td>Cordillera, Chiriqui</td>
           <td>Tierra Blanca Coffee</td>
           <td>Kyle Snider</td>
-          <td><span class="spec-tag">Green Tip Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
           <td>Washed</td>
           <td>1,800 - 1,900 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -4808,8 +4819,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="79.5" data-total="79.5" data-taste="31.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289" target="_blank">Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289 ↗</a>
           </td>
@@ -4817,7 +4828,7 @@
           <td>Pitalito, Huila</td>
           <td>Veci Project</td>
           <td>Luis Marcelino</td>
-          <td><span class="spec-tag">Pink Bourbon</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Pink Bourbon</div></td>
           <td>Honey Double Fermentation</td>
           <td>1,700 - 1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4848,8 +4859,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="79.5" data-total="79.5" data-taste="31.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396" target="_blank">Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396 ↗</a>
           </td>
@@ -4857,7 +4868,7 @@
           <td>Pitalito, Huila</td>
           <td>Veci Project</td>
           <td>Luis Marcelino</td>
-          <td><span class="spec-tag">Bourbon AJi</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Bourbon AJi</div></td>
           <td>Hydro Honey</td>
           <td>1,700 - 1,750 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -4888,8 +4899,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="31.7" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf" target="_blank">Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF ↗</a>
           </td>
@@ -4897,7 +4908,7 @@
           <td>Timana, Huila</td>
           <td>Capilla De Rosario</td>
           <td>Jose Posada</td>
-          <td><span class="spec-tag">Castillo, Colombia</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Castillo, Colombia</div></td>
           <td>Washed - Co-Ferment</td>
           <td>1,650 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -4928,8 +4939,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="84.7" data-total="84.7" data-taste="36.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf" target="_blank">Colombia - Cota Coffee Finca Kodu Coconut CF ↗</a>
           </td>
@@ -4937,7 +4948,7 @@
           <td>Timana, Huila</td>
           <td>Finca Kodu</td>
           <td>Juan Guillermo Misteli, COTA Coffee</td>
-          <td><span class="spec-tag">Castillo</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Castillo</div></td>
           <td>Washed - Coconut Co-Ferment</td>
           <td>1,800 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -4968,8 +4979,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="84.8" data-total="84.8" data-taste="36.7" data-price="28.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life" target="_blank">Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life ↗</a>
           </td>
@@ -4977,7 +4988,7 @@
           <td>Acevedo, Huila</td>
           <td>Finca Rio Negro</td>
           <td>Jhon Rodriguez, Cota Coffee</td>
-          <td><span class="spec-tag">Pink Bourbon</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Pink Bourbon</div></td>
           <td>Washed - Co-ferment</td>
           <td>1,600 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▫▫]</td>
@@ -5008,8 +5019,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="84.5" data-total="84.5" data-taste="36.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle" target="_blank">Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle ↗</a>
           </td>
@@ -5017,7 +5028,7 @@
           <td>Acevedo, Huila</td>
           <td>Finca Rio Negro</td>
           <td>Jhon Rodriguez, COTA Coffee</td>
-          <td><span class="spec-tag">Yellow Caturra</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Yellow Caturra</div></td>
           <td>Washed - Maracuya &amp; Orange Mosto Co-Ferment</td>
           <td>1,600 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -5048,8 +5059,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 15.5</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="80.0" data-total="80.0" data-taste="36.7" data-price="27.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 15.5</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita" target="_blank">Colombia - Finca El Paraiso Villa Rosita ↗</a>
           </td>
@@ -5057,7 +5068,7 @@
           <td>Piendamo, Cauca</td>
           <td>Finca El Paraiso</td>
           <td>Bermudez Family</td>
-          <td><span class="spec-tag">Pink Bourbon</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Pink Bourbon</div></td>
           <td>Washed Thermal Shock</td>
           <td>1,960 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -5088,8 +5099,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="86.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.7 / 값 26.6 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="86.3" data-total="86.3" data-taste="39.7" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.7 / 값 26.6 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt" target="_blank">Ecuador - Fincas Del Putushio, Typica Mejorado ↗</a>
           </td>
@@ -5097,7 +5108,7 @@
           <td>Loja Province, Ecuador</td>
           <td>Finca Del Putushio</td>
           <td>Pepe Jijon &amp; Francisco Vintimilla</td>
-          <td><span class="spec-tag">Typica Mejorado</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica Mejorado</div></td>
           <td>Classic Washed</td>
           <td>2,222 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]</td>
@@ -5128,8 +5139,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="88.9" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.9 / 희 18.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="88.9" data-total="88.9" data-taste="41.0" data-price="29.9" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.9 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126" target="_blank">Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126 ↗</a>
           </td>
@@ -5137,7 +5148,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5168,8 +5179,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="93.9" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="93.9" data-total="93.9" data-taste="45.7" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini" target="_blank">Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini ↗</a>
           </td>
@@ -5177,7 +5188,7 @@
           <td>Murago Village, Sidama Bensa</td>
           <td>Murago Korma Kontoma Station</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74112, 74110, 74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74112, 74110, 74158</div></td>
           <td>Natural</td>
           <td>2,230 - 2,300</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -5208,8 +5219,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="93.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="93.8" data-total="93.8" data-taste="45.7" data-price="28.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot" target="_blank">Ethiopia - Daye Bensa Rumudamo DFW Archers Lot ↗</a>
           </td>
@@ -5217,7 +5228,7 @@
           <td>Arbegona, Sidama Bensa</td>
           <td>Rumudamo Station</td>
           <td>Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Dry Ferment Washed</td>
           <td>2,300 - 2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -5248,8 +5259,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="91.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="91.3" data-total="91.3" data-taste="42.2" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed" target="_blank">Ethiopia - Elto Coffee Elora Station Classic Washed ↗</a>
           </td>
@@ -5257,7 +5268,7 @@
           <td>Arbegona &amp; Bona Village</td>
           <td>Elora Washing Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Classic Washed</td>
           <td>2,400 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5288,8 +5299,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="91.3" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="91.3" data-total="91.3" data-taste="42.2" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural" target="_blank">Ethiopia - Elto Coffee Kokose Natural Lot 2 ↗</a>
           </td>
@@ -5297,7 +5308,7 @@
           <td>Kokose, Sidama Bensa</td>
           <td>Kokose Village</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Classic Natural, Shade Drying</td>
           <td>2,300 MSAL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5328,8 +5339,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot ↗</a>
           </td>
@@ -5337,7 +5348,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Daye Bensa / Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Honey</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -5368,8 +5379,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot ↗</a>
           </td>
@@ -5377,7 +5388,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Daye Bensa / Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Natural</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -5408,8 +5419,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot ↗</a>
           </td>
@@ -5417,7 +5428,7 @@
           <td>Hamasho Village, Sidama Bensa</td>
           <td>Hamasho Village</td>
           <td>Daye Bensa / Asefa Dukamo, Smallholder Farmers</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Washed</td>
           <td>2,230 - 2,300 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -5448,8 +5459,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="89.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.9 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="89.1" data-total="89.1" data-taste="40.2" data-price="28.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.9 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural ↗</a>
           </td>
@@ -5457,7 +5468,7 @@
           <td>Guji Hambela Dimtu</td>
           <td>Guji Hambela Dimtu Haro</td>
           <td>Hambela Dimtu Small Holder Farms</td>
-          <td><span class="spec-tag">74114, 74110, 74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74114, 74110, 74158</div></td>
           <td>Natural - Shade Drying</td>
           <td>2440 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -5488,8 +5499,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 32.2 / 값 27.8 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="80.0" data-total="80.0" data-taste="32.2" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 32.2 / 값 27.8 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy" target="_blank">Guatemala - Finca El Injerto, Malawi Geisha ↗</a>
           </td>
@@ -5497,7 +5508,7 @@
           <td>La Libertad, Huehuetenango</td>
           <td>Finca El Injerto</td>
           <td>Arturo Aguirre</td>
-          <td><span class="spec-tag">Malawi Geisha</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Malawi Geisha</div></td>
           <td>Classic Washed</td>
           <td>1,500 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]</td>
@@ -5528,8 +5539,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="79.9" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="79.9" data-total="79.9" data-taste="31.7" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural" target="_blank">Panama - Adaura Coffee Catuai Natural ↗</a>
           </td>
@@ -5537,7 +5548,7 @@
           <td>El Salto, Boquete</td>
           <td>Finca Lorayne</td>
           <td>Marcus Duran</td>
-          <td><span class="spec-tag">Catuai</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Catuai</div></td>
           <td>Natural</td>
           <td>1,630 - 1,700 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5568,8 +5579,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 26.5 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot Reserve 2025</span></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="31.7" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 26.5 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon" target="_blank">Yemen - East Haraz Wadi Al Sallol ↗</a>
           </td>
@@ -5577,7 +5588,7 @@
           <td>East Haraz</td>
           <td>Wadi al Sallol</td>
           <td>Wadi al Sallol, Mokha not Mocha</td>
-          <td><span class="spec-tag">Typica - Ja’adi</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica - Ja’adi</div></td>
           <td>Natural Anaerobic</td>
           <td>2,200 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5608,8 +5619,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="75.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.7 / 값 29.5 / 희 18.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="75.2" data-total="75.2" data-taste="27.7" data-price="29.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.7 / 값 29.5 / 희 18.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural" target="_blank">Brazil - Fazenda Um Supreme Pulp Natural ↗</a>
           </td>
@@ -5617,7 +5628,7 @@
           <td>Moutains of Espirito Santo</td>
           <td>Fazenda Um</td>
           <td>Stefano Um</td>
-          <td><span class="spec-tag">Red Catucai 785</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Red Catucai 785</div></td>
           <td>Pulped Natural</td>
           <td>1,200 - 1,400 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용)</td>
@@ -5648,8 +5659,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="84.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="84.7" data-total="84.7" data-taste="36.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf" target="_blank">Colombia - Cota Coffee Finca Anaya - Watermelon CF ↗</a>
           </td>
@@ -5657,7 +5668,7 @@
           <td>Acevedo, Huila</td>
           <td>Finca Anaya</td>
           <td>Sergio Aranda, Cota Coffee</td>
-          <td><span class="spec-tag">Typica Mejorado</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica Mejorado</div></td>
           <td>Co-ferment Watermelon</td>
           <td>1,600 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▫▫]</td>
@@ -5688,8 +5699,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.1" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="80.1" data-total="80.1" data-taste="31.7" data-price="28.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine" target="_blank">Colombia - Nogales Coffee Farm Typica Low Caffeine ↗</a>
           </td>
@@ -5697,7 +5708,7 @@
           <td>Pitalito, Huila</td>
           <td>Nogales Coffee Farm</td>
           <td>Hernandez family</td>
-          <td><span class="spec-tag">Typica</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica</div></td>
           <td>Washed - Low Caffiene</td>
           <td>1,750 - 1,950 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5728,8 +5739,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.9" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="80.9" data-total="80.9" data-taste="31.7" data-price="29.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey" target="_blank">Costa Rica - Cafe Rivense Black Honey ↗</a>
           </td>
@@ -5737,7 +5748,7 @@
           <td>San Jose, Chirripó</td>
           <td>Cafe Rivense</td>
           <td>Ureña Rojas family</td>
-          <td><span class="spec-tag">Catuai</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Catuai</div></td>
           <td>Black Honey</td>
           <td>1,800 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▪▫▫]</td>
@@ -5768,8 +5779,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="78.9" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.7 / 값 29.2 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="78.9" data-total="78.9" data-taste="29.7" data-price="29.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.7 / 값 29.2 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic" target="_blank">Costa Rica - El Jardin, Anaerobic ↗</a>
           </td>
@@ -5777,7 +5788,7 @@
           <td>Chirripó</td>
           <td>Café Rivense del Chirripó</td>
           <td>Ureña Rojas Family</td>
-          <td><span class="spec-tag">Red Catuai</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Red Catuai</div></td>
           <td>Honey Anaerobic</td>
           <td>1,500 – 1,700 masl</td>
           <td>라이트 (Filter Roast, 핸드드립 전용) [▪▪▫▫▫]</td>
@@ -5808,8 +5819,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="80.8" data-total="80.8" data-taste="31.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela" target="_blank">Ethiopia - Benti Nenka Guji Hambela ↗</a>
           </td>
@@ -5817,7 +5828,7 @@
           <td>Hambela, Benti Nenka Village</td>
           <td>Benti Nenka Smallholder Farmers</td>
           <td>EDN Ethiopian Coffee</td>
-          <td><span class="spec-tag">Kurume, 74112</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Kurume, 74112</div></td>
           <td>Natural Anaerobic</td>
           <td>1,950 - 2,300 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -5848,8 +5859,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="91.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="91.6" data-total="91.6" data-taste="42.2" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey" target="_blank">Ethiopia - Elto Coffee Sama Honey ↗</a>
           </td>
@@ -5857,7 +5868,7 @@
           <td>Anasora, Guji</td>
           <td>Elto Sama Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Honey</td>
           <td>2,350 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5888,8 +5899,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="91.6" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="91.6" data-total="91.6" data-taste="42.2" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed" target="_blank">Ethiopia - Elto Coffee Sama Washed ↗</a>
           </td>
@@ -5897,7 +5908,7 @@
           <td>Anasora, Guji</td>
           <td>Elto Sama Station</td>
           <td>Eliyas Dukamo &amp; Atiklit Dejene</td>
-          <td><span class="spec-tag">74158</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">74158</div></td>
           <td>Washed</td>
           <td>2,350 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]</td>
@@ -5928,8 +5939,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="85.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 29.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="85.8" data-total="85.8" data-taste="36.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 29.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2" target="_blank">Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2 ↗</a>
           </td>
@@ -5937,7 +5948,7 @@
           <td>Guji Hambela Benti Nenka</td>
           <td>Hambela Benti Nenka Station</td>
           <td>Benti Nenka Small Holder Farms</td>
-          <td><span class="spec-tag">JARC Varieties &amp; Local Landraces</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">JARC Varieties &amp; Local Landraces</div></td>
           <td>Natural</td>
           <td>2,350 MASL</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -5968,8 +5979,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.7" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="80.7" data-total="80.7" data-taste="31.7" data-price="29.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural" target="_blank">Guatemala - Finca La Serrania Kimono Natural ↗</a>
           </td>
@@ -5977,7 +5988,7 @@
           <td>Sierra de Las Minas</td>
           <td>Finca Serrania</td>
           <td>Pedro Fernández / Raul Rodas</td>
-          <td><span class="spec-tag">Kimono</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Kimono</div></td>
           <td>Natural</td>
           <td>1,600 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트)</td>
@@ -6008,8 +6019,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="80.8" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="80.8" data-total="80.8" data-taste="31.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59" target="_blank">India - Pearl Mountain Lot RM 59 ↗</a>
           </td>
@@ -6017,7 +6028,7 @@
           <td>Chikmagalur, Karnataka</td>
           <td>Ratnagiri Estate</td>
           <td>Ashok Patre</td>
-          <td><span class="spec-tag">Catuai</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Catuai</div></td>
           <td>CM Intenso Natural</td>
           <td>1,340 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -6048,8 +6059,8 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="td-score" data-value="83.2" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 29.0 / 희 20.0</div></td>
-          <td><span class="spec-tag">Microlot 2026</span></td>
+          <td class="td-score" data-value="83.2" data-total="83.2" data-taste="34.2" data-price="29.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 29.0 / 희 20.0</div></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic" target="_blank">Kenya - Rui Ruiru AA Natural Anaerobic ↗</a>
           </td>
@@ -6057,7 +6068,7 @@
           <td>Mathira, Nyeri County</td>
           <td>Ruiruiru Factory</td>
           <td>Mathira North Cooperative, Torch Coffee</td>
-          <td><span class="spec-tag">SL28, SL34, Ruiru 11</span></td>
+          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">SL28, SL34, Ruiru 11</div></td>
           <td>Natural Anaerobic</td>
           <td>1,800 - 2,000 masl</td>
           <td>라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]</td>
@@ -6127,6 +6138,60 @@
 
   // Interactive Table Header Sorting
   let sortDirection = {};
+
+  
+  let currentScoreSortKey = 'total';
+  let currentScoreSortDir = 'desc';
+
+  function sortScoreCol(key) {
+    if (currentScoreSortKey === key) {
+      currentScoreSortDir = (currentScoreSortDir === 'desc') ? 'asc' : 'desc';
+    } else {
+      currentScoreSortKey = key;
+      currentScoreSortDir = 'desc';
+    }
+
+    const keys = ['total', 'taste', 'price', 'rarity'];
+    keys.forEach(k => {
+      const ind = document.getElementById('sortInd_arch_' + k);
+      const trig = document.getElementById('sortTrigger_arch_' + k);
+      if (k === currentScoreSortKey) {
+        if (ind) {
+          ind.textContent = (currentScoreSortDir === 'desc') ? '▼' : '▲';
+          ind.style.color = 'var(--accent-gold)';
+        }
+        if (trig) trig.style.color = 'var(--accent-gold)';
+      } else {
+        if (ind) {
+          ind.textContent = '↕';
+          ind.style.color = '';
+        }
+        if (trig) trig.style.color = '';
+      }
+    });
+
+    const tbody = document.getElementById('tableBody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    rows.sort((rowA, rowB) => {
+      const cellA = rowA.querySelector('.td-score');
+      const cellB = rowB.querySelector('.td-score');
+      if (!cellA || !cellB) return 0;
+
+      const valA = parseFloat(cellA.getAttribute('data-' + key) || 0);
+      const valB = parseFloat(cellB.getAttribute('data-' + key) || 0);
+
+      let diff = (currentScoreSortDir === 'desc') ? (valB - valA) : (valA - valB);
+      if (diff !== 0) return diff;
+
+      // Secondary: total
+      const totA = parseFloat(cellA.getAttribute('data-total') || 0);
+      const totB = parseFloat(cellB.getAttribute('data-total') || 0);
+      return totB - totA;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+  }
 
   function sortTable(columnIndex, type) {
     const table = document.getElementById('coffeeTable');

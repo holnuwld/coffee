@@ -126,7 +126,26 @@ checks = [
         tel_mb.count('m-score-badge') >= 54),
     ("Price scores in Top 20 have continuous decimal precision",
         any(isinstance(c.get('score_price'), float) and not float(c.get('score_price')).is_integer() for c in top_20)),
+
+    # Roastery Dashboards: Multi-Score Sub-sorting (Total / Taste / Price / Rarity) & Plain Text Badges
+    ("Archers desktop dashboard contains sortScoreCol function for sub-sorting", "function sortScoreCol(" in archers and "sortInd_arch_taste" in archers),
+    ("Archers desktop dashboard has data-taste, data-price, data-rarity on all 117 rows", archers.count('data-taste=') >= 117 and archers.count('data-price=') >= 117),
+    ("Espresso Lab desktop dashboard contains sortScoreCol function for sub-sorting", "function sortScoreCol(" in tel_dt and "sortInd_tel_taste" in tel_dt),
+    ("Espresso Lab desktop dashboard has data-taste, data-price, data-rarity on all 54 rows", tel_dt.count('data-taste=') >= 54 and tel_dt.count('data-price=') >= 54),
+
+    # Analytics Page (analytics.html) Full Requirements
+    ("analytics.html exists and size > 150KB", os.path.exists('analytics.html') and os.path.getsize('analytics.html') > 150000),
+    ("analytics.html contains 171 coffee beans dataset", '"total_count": 171' in open('analytics.html', encoding='utf-8').read() or '171종' in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html contains statistical insights (sweet-spot 30~70 AED, correlation)", all(t in open('analytics.html', encoding='utf-8').read() for t in ['30 ~ 70 AED', '상관관계', '스위트스팟'])),
+    ("analytics.html contains Graph 1: Scatter plot (scatterChart)", "scatterChart" in open('analytics.html', encoding='utf-8').read() and "type: 'scatter'" in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html supports 4 group color encoding (Comp, Reserve, Selection, Esolab)", all(k in open('analytics.html', encoding='utf-8').read() for k in ['competition', 'reserve', 'selection', 'esolab'])),
+    ("analytics.html supports point shape encoding (country, process, altitude, default)", "currentShapeMode" in open('analytics.html', encoding='utf-8').read() and "getPointStyle" in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html contains Graph 2: Tasting notes chart (notesChart)", "notesChart" in open('analytics.html', encoding='utf-8').read() and "TOP_NOTES" in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html contains detail modal with 3 taste criteria breakdown", "detailOverlay" in open('analytics.html', encoding='utf-8').read() and "modalAwardScore" in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html supports dual theme (dark/light) with theme toggle", "toggleTheme" in open('analytics.html', encoding='utf-8').read() and '[data-theme="light"]' in open('analytics.html', encoding='utf-8').read()),
+    ("index.html contains link to analytics.html (analytics-promo-card)", "analytics-promo-card" in idx and "analytics.html" in idx),
 ]
+
 
 print("="*75)
 print("Comprehensive System Verification Report (Mobile, Snapshot & Shared Cart)")

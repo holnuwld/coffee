@@ -1253,7 +1253,18 @@
           <tr>
             <th onclick="sortTable(0, 'num')" style="width:36px;">#<span class="sort-arrow"></span></th>
             <th style="width:65px;">사진</th>
-            <th onclick="sortTable(2, 'num')" style="width:85px;">⭐ 종합점수<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(100점)</span><span class="sort-arrow"></span></th>
+            <th class="th-score-head text-center" style="width:105px; padding:5px 2px; user-select:none;">
+            <div onclick="sortScoreCol('total')" style="cursor:pointer; font-weight:800; font-size:12px; color:var(--accent-gold);" title="종합 점수 기준 정렬">
+              ⭐ 종합점수 <span id="sortInd_tel_total" style="font-size:9.5px;">▼</span>
+            </div>
+            <div style="font-size:10.5px; color:var(--text-muted); margin-top:2px; display:flex; justify-content:center; align-items:center; gap:2px;">
+              <span onclick="sortScoreCol('taste')" id="sortTrigger_tel_taste" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="맛 점수(50점 만점) 정렬">맛<span id="sortInd_tel_taste" style="font-size:9px;">↕</span></span>
+              <span>/</span>
+              <span onclick="sortScoreCol('price')" id="sortTrigger_tel_price" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="가격 점수(30점 만점) 정렬">값<span id="sortInd_tel_price" style="font-size:9px;">↕</span></span>
+              <span>/</span>
+              <span onclick="sortScoreCol('rarity')" id="sortTrigger_tel_rarity" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="희소성(20점 만점) 정렬">희<span id="sortInd_tel_rarity" style="font-size:9px;">↕</span></span>
+            </div>
+          </th>
             <th onclick="sortTable(3, 'str')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(원문 링크 ↗)</span><span class="sort-arrow"></span></th>
             <th onclick="sortTable(4, 'str')" style="width:60px;">국가<span class="sort-arrow"></span></th>
             <th onclick="sortTable(5, 'str')" style="width:75px;">지역<span class="sort-arrow"></span></th>
@@ -1282,7 +1293,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="70.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 14.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="70.0" data-total="70.0" data-taste="35.5" data-price="14.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 14.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/agricola-geisha-oxidized-natural-27" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1291,12 +1302,12 @@
             </div>
             <div class="text-xs text-muted font-mono">agricola-geisha-oxidized-natural-27</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Santa Isabel</td>
           <td class="text-sm">Agricola Geisha</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Oxidized Natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Oxidized Natural</div></td>
           <td class="text-sm font-mono">1500 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Jasmine, Oranges, Honey</td>
@@ -1337,7 +1348,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="86.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 45.8 / 값 22.5 / 희 18.0</div></td>
+          <td class="td-score" data-value="86.3" data-total="86.3" data-taste="45.8" data-price="22.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 45.8 / 값 22.5 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1346,12 +1357,12 @@
             </div>
             <div class="text-xs text-muted font-mono">auromar-firestone-7</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Piedra Candela, Chiriquí</td>
           <td class="text-sm font-medium">Finca La Auromar</td>
           <td class="text-sm">Roberto Brenes / Auromar Family</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Washed Anaerobic</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Washed Anaerobic</div></td>
           <td class="text-sm font-mono">1,770 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Jasmine, Longan, Yuzu</td>
@@ -1394,7 +1405,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="83.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 83.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 38.5 / 값 29.8 / 희 15.5</div></td>
+          <td class="td-score" data-value="83.8" data-total="83.8" data-taste="38.5" data-price="29.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 83.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 38.5 / 값 29.8 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/bombe-washed-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1403,12 +1414,12 @@
             </div>
             <div class="text-xs text-muted font-mono">bombe-washed-7</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Sidama Bensa</td>
           <td class="text-sm font-medium">Bombe Washing Station</td>
           <td class="text-sm">Tamiru Tadesse / Alo Coffee</td>
-          <td><span class="badge badge-variety">74158</span></td>
-          <td><span class="badge badge-process">washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">74158</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
           <td class="text-sm font-mono">2200 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Apple, Brown Sugar</td>
@@ -1451,7 +1462,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="73.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
+          <td class="td-score" data-value="73.8" data-total="73.8" data-taste="29.5" data-price="28.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-16" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1460,12 +1471,12 @@
             </div>
             <div class="text-xs text-muted font-mono">carmo-fazenda-isidro-pereira-16</div>
           </td>
-          <td><span class="badge badge-country">🇧🇷 Brazil</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇧🇷 Brazil</div></td>
           <td class="text-sm">Carmo de Minas, Minas Gerais</td>
           <td class="text-sm font-medium">Fazenda Isidro Pereira</td>
           <td class="text-sm">Isidro Pereira Family</td>
-          <td><span class="badge badge-variety">Yellow Bourbon</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Yellow Bourbon</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,200 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Coconut, Lime, Almonds, Chocolates.</td>
@@ -1508,7 +1519,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="73.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
+          <td class="td-score" data-value="73.8" data-total="73.8" data-taste="29.5" data-price="28.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-for-meraki-espresso-machine" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1517,12 +1528,12 @@
             </div>
             <div class="text-xs text-muted font-mono">carmo-fazenda-isidro-pereira-for-meraki-espresso-machine</div>
           </td>
-          <td><span class="badge badge-country">🇧🇷 Brazil</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇧🇷 Brazil</div></td>
           <td class="text-sm">Carmo de Minas, Minas Gerais</td>
           <td class="text-sm font-medium">Fazenda Isidro Pereira</td>
           <td class="text-sm">Isidro Pereira Family</td>
-          <td><span class="badge badge-variety">Yellow Bourbon</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Yellow Bourbon</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,200 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Coconut, Lime, Almonds, Chocolates.</td>
@@ -1565,7 +1576,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="73.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.5 / 희 18.0</div></td>
+          <td class="td-score" data-value="73.5" data-total="73.5" data-taste="32.0" data-price="23.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.5 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cgle-la-margritas-geisha-honey" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1574,12 +1585,12 @@
             </div>
             <div class="text-xs text-muted font-mono">cgle-la-margritas-geisha-honey</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Valle del Cauca</td>
           <td class="text-sm font-medium">Finca Las Margaritas / Potosi</td>
           <td class="text-sm">Rigoberto &amp; Luis Eduardo Herrera (Cafe Granja La Esperanza)</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">honey</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">honey</div></td>
           <td class="text-sm font-mono">1648 – 1852 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Mango, orange, Stone Fruits, floral</td>
@@ -1622,7 +1633,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="65.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 65.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.5 / 값 20.0 / 희 18.0</div></td>
+          <td class="td-score" data-value="65.5" data-total="65.5" data-taste="27.5" data-price="20.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 65.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.5 / 값 20.0 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cgle-sudan-rume-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1631,12 +1642,12 @@
             </div>
             <div class="text-xs text-muted font-mono">cgle-sudan-rume-natural</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Valle del Cauca</td>
           <td class="text-sm font-medium">Finca Las Margaritas / Potosi</td>
           <td class="text-sm">Rigoberto &amp; Luis Eduardo Herrera (Cafe Granja La Esperanza)</td>
-          <td><span class="badge badge-variety">Sudan Rume</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Sudan Rume</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1571 - 1852 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Lavender, Stone Fruits, orange</td>
@@ -1679,7 +1690,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="74.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 14.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="74.5" data-total="74.5" data-taste="40.0" data-price="14.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 14.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/chevas-geisha-lot-11" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1688,12 +1699,12 @@
             </div>
             <div class="text-xs text-muted font-mono">chevas-geisha-lot-11</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Chevas</td>
           <td class="text-sm">Chevas Coffee Estate</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Peach, Pineapple, Oranges</td>
@@ -1734,7 +1745,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="75.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 15.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="75.5" data-total="75.5" data-taste="40.0" data-price="15.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 15.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/chevas-geisha-lot-75" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1743,12 +1754,12 @@
             </div>
             <div class="text-xs text-muted font-mono">chevas-geisha-lot-75</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Chevas</td>
           <td class="text-sm">Chevas Coffee Estate</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Pineapple, Oranges</td>
@@ -1789,7 +1800,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="80.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="80.0" data-total="80.0" data-taste="34.5" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cota-kodu-coco-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1798,12 +1809,12 @@
             </div>
             <div class="text-xs text-muted font-mono">cota-kodu-coco-5</div>
           </td>
-          <td><span class="badge badge-country">🇨🇷 Costa Rica</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇷 Costa Rica</div></td>
           <td class="text-sm">Tarrazú</td>
           <td class="text-sm font-medium">Finca Cota</td>
           <td class="text-sm">Finca Cota</td>
-          <td><span class="badge badge-variety">Castillo</span></td>
-          <td><span class="badge badge-process">Co-Fermented Washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Castillo</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Co-Fermented Washed</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Toasted Coconut, Milk Chocolate, Vanilla</td>
@@ -1844,7 +1855,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="80.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="80.0" data-total="80.0" data-taste="34.5" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cota-tropical-popsicle-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1853,12 +1864,12 @@
             </div>
             <div class="text-xs text-muted font-mono">cota-tropical-popsicle-5</div>
           </td>
-          <td><span class="badge badge-country">🇨🇷 Costa Rica</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇷 Costa Rica</div></td>
           <td class="text-sm">Tarrazú</td>
           <td class="text-sm font-medium">Finca Cota</td>
           <td class="text-sm">Finca Cota</td>
-          <td><span class="badge badge-variety">Pink Bourbon</span></td>
-          <td><span class="badge badge-process">Co-Fermented Washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Pink Bourbon</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Co-Fermented Washed</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Passion Fruit, Orange Soda, Tropical fruit</td>
@@ -1899,7 +1910,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="62.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 62.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 23.0 / 값 24.2 / 희 15.5</div></td>
+          <td class="td-score" data-value="62.7" data-total="62.7" data-taste="23.0" data-price="24.2" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 62.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 23.0 / 값 24.2 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/daterra-laurina-anaerobic-natural-lot-tb13" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1908,12 +1919,12 @@
             </div>
             <div class="text-xs text-muted font-mono">daterra-laurina-anaerobic-natural-lot-tb13</div>
           </td>
-          <td><span class="badge badge-country">🇧🇷 Brazil</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇧🇷 Brazil</div></td>
           <td class="text-sm">Cerrado Mineiro</td>
           <td class="text-sm font-medium">Daterra Farm</td>
           <td class="text-sm">Daterra Coffee</td>
-          <td><span class="badge badge-variety">Laurina</span></td>
-          <td><span class="badge badge-process">Anaerobic Natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Laurina</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic Natural</div></td>
           <td class="text-sm font-mono">1150 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Red Plum, Milk Chocolate, Citrus Fruit</td>
@@ -1956,7 +1967,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="76.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 26.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="76.5" data-total="76.5" data-taste="30.0" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 26.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-olingo-geisha-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -1965,12 +1976,12 @@
             </div>
             <div class="text-xs text-muted font-mono">el-olingo-geisha-natural</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca El Olingo</td>
           <td class="text-sm">Finca El Olingo</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1500 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Stone Fruits, Oranges</td>
@@ -2011,7 +2022,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="80.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="80.8" data-total="80.8" data-taste="33.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2020,12 +2031,12 @@
             </div>
             <div class="text-xs text-muted font-mono">el-rubi-parainema-anaerobic-washed-lot-a</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">San Adolfo, Acevedo, Huila</td>
           <td class="text-sm font-medium">Finca El Rubí</td>
           <td class="text-sm">Heiner Lazo</td>
-          <td><span class="badge badge-variety">Parainema</span></td>
-          <td><span class="badge badge-process">Anaerobic washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Parainema</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic washed</div></td>
           <td class="text-sm font-mono">1420 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Honey, Cranberry, Apple</td>
@@ -2066,7 +2077,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="80.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="80.8" data-total="80.8" data-taste="33.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-b" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2075,12 +2086,12 @@
             </div>
             <div class="text-xs text-muted font-mono">el-rubi-parainema-anaerobic-washed-lot-b</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">San Adolfo, Acevedo, Huila</td>
           <td class="text-sm font-medium">Finca El Rubí</td>
           <td class="text-sm">Heiner Lazo</td>
-          <td><span class="badge badge-variety">Parainema</span></td>
-          <td><span class="badge badge-process">Anaerobic washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Parainema</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic washed</div></td>
           <td class="text-sm font-mono">1420 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Honey, Apple</td>
@@ -2121,7 +2132,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="71.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 71.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 21.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="71.3" data-total="71.3" data-taste="29.5" data-price="21.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 71.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 21.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-salto-cielo-015" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2130,12 +2141,12 @@
             </div>
             <div class="text-xs text-muted font-mono">el-salto-cielo-015</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca El Salto</td>
           <td class="text-sm">Finca El Salto</td>
-          <td><span class="badge badge-variety">Laurina</span></td>
-          <td><span class="badge badge-process">Natural ASD</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Laurina</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural ASD</div></td>
           <td class="text-sm font-mono">1780 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Molasses, Chocolate</td>
@@ -2176,7 +2187,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="68.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 18.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="68.3" data-total="68.3" data-taste="29.5" data-price="18.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 18.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-salto-la-leyenda-lot-008" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2185,12 +2196,12 @@
             </div>
             <div class="text-xs text-muted font-mono">el-salto-la-leyenda-lot-008</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca El Salto</td>
           <td class="text-sm">Finca El Salto</td>
-          <td><span class="badge badge-variety">Laurina</span></td>
-          <td><span class="badge badge-process">Natural ASD</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Laurina</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural ASD</div></td>
           <td class="text-sm font-mono">1780 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Red Apple, Sugarcane</td>
@@ -2231,7 +2242,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="79.4" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 79.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.2 / 값 25.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="79.4" data-total="79.4" data-taste="34.2" data-price="25.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 79.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.2 / 값 25.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/finca-feryen-sl28-washed" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2240,12 +2251,12 @@
             </div>
             <div class="text-xs text-muted font-mono">finca-feryen-sl28-washed</div>
           </td>
-          <td><span class="badge badge-country">🇰🇪 Kenya</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇰🇪 Kenya</div></td>
           <td class="text-sm">Nyeri</td>
           <td class="text-sm font-medium">Finca Feryen</td>
           <td class="text-sm">Finca Feryen</td>
-          <td><span class="badge badge-variety">SL28</span></td>
-          <td><span class="badge badge-process">washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">SL28</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
           <td class="text-sm font-mono">1,600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Red Apple, Honey, floral</td>
@@ -2286,7 +2297,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.0" data-total="77.0" data-taste="29.5" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/finca-milan-caturra-washed" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2295,12 +2306,12 @@
             </div>
             <div class="text-xs text-muted font-mono">finca-milan-caturra-washed</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Pereira, Risaralda</td>
           <td class="text-sm font-medium">Finca Milán</td>
           <td class="text-sm">Julio Madrid</td>
-          <td><span class="badge badge-variety">Caturra</span></td>
-          <td><span class="badge badge-process">Nitro Advanced Washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Caturra</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Nitro Advanced Washed</div></td>
           <td class="text-sm font-mono">Varies by lot masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Cantaloupe, Peach, Candy</td>
@@ -2341,7 +2352,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="55.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 55.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 10.0 / 희 15.5</div></td>
+          <td class="td-score" data-value="55.0" data-total="55.0" data-taste="29.5" data-price="10.0" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 55.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 10.0 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/geisha-village-rsv-1-oma" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2350,12 +2361,12 @@
             </div>
             <div class="text-xs text-muted font-mono">geisha-village-rsv-1-oma</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Bench Maji</td>
           <td class="text-sm font-medium">Geisha Village Estate (Oma Lot 1)</td>
           <td class="text-sm">Adam Overton &amp; Rachel Samuel</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">2,000 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Peach, Jasmine, Honey</td>
@@ -2398,7 +2409,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="78.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-14" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2407,12 +2418,12 @@
             </div>
             <div class="text-xs text-muted font-mono">guji-hambela-rogicha-14</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji Hambela</td>
           <td class="text-sm font-medium">Rogicha Washing Station</td>
           <td class="text-sm">Rogicha Smallholders / METAD</td>
-          <td><span class="badge badge-variety">Heirloom</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">2,050 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">berries, Blackcurrant, Honey.</td>
@@ -2453,7 +2464,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="78.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2462,12 +2473,12 @@
             </div>
             <div class="text-xs text-muted font-mono">guji-hambela-rogicha-15</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji Hambela</td>
           <td class="text-sm font-medium">Rogicha Washing Station</td>
           <td class="text-sm">Rogicha Smallholders / METAD</td>
-          <td><span class="badge badge-variety">Heirloom</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">2,050 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">berries, Blackcurrant, Honey.</td>
@@ -2508,7 +2519,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/harusuke-14" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2517,12 +2528,12 @@
             </div>
             <div class="text-xs text-muted font-mono">harusuke-14</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji</td>
           <td class="text-sm font-medium">Harusuke Station</td>
           <td class="text-sm">Harusuke Washing Station</td>
-          <td><span class="badge badge-variety">Heirloom</span></td>
-          <td><span class="badge badge-process">Natural Anaerobic</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
           <td class="text-sm font-mono">2,170 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Cherry, Peach, Berry Gums, Mandarin Oranges.</td>
@@ -2563,7 +2574,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/harusuke-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2572,12 +2583,12 @@
             </div>
             <div class="text-xs text-muted font-mono">harusuke-15</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji</td>
           <td class="text-sm font-medium">Harusuke Station</td>
           <td class="text-sm">Harusuke Washing Station</td>
-          <td><span class="badge badge-variety">Heirloom</span></td>
-          <td><span class="badge badge-process">Natural Anaerobic</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
           <td class="text-sm font-mono">2,170 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Cherry, Peach, Berry Gums, Mandarin Oranges.</td>
@@ -2618,7 +2629,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="80.4" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.2 / 값 28.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="80.4" data-total="80.4" data-taste="32.2" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.2 / 값 28.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kamavindi-cianda-sl28-natural-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2627,12 +2638,12 @@
             </div>
             <div class="text-xs text-muted font-mono">kamavindi-cianda-sl28-natural-7</div>
           </td>
-          <td><span class="badge badge-country">🇰🇪 Kenya</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇰🇪 Kenya</div></td>
           <td class="text-sm">Kiambu</td>
           <td class="text-sm font-medium">Cianda Estate</td>
           <td class="text-sm">Cianda Estate</td>
-          <td><span class="badge badge-variety">SL28</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">SL28</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1500 - 1700 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">berries, Red Grape, Caramel</td>
@@ -2673,7 +2684,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="78.2" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.2</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 28.2 / 희 18.0</div></td>
+          <td class="td-score" data-value="78.2" data-total="78.2" data-taste="32.0" data-price="28.2" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.2</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 28.2 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kamavindi-giakanja-ab-washed-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2682,12 +2693,12 @@
             </div>
             <div class="text-xs text-muted font-mono">kamavindi-giakanja-ab-washed-7</div>
           </td>
-          <td><span class="badge badge-country">🇰🇪 Kenya</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇰🇪 Kenya</div></td>
           <td class="text-sm">Nyeri</td>
           <td class="text-sm font-medium">Giakanja Washing Station</td>
           <td class="text-sm">Giakanja Farmers Co-op</td>
-          <td><span class="badge badge-variety">SL28, SL34, Batian, Ruiru II</span></td>
-          <td><span class="badge badge-process">washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">SL28, SL34, Batian, Ruiru II</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
           <td class="text-sm font-mono">1750 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Cranberry, Green Apple, Caramel</td>
@@ -2730,7 +2741,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="74.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.0 / 값 27.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="74.8" data-total="74.8" data-taste="27.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.0 / 값 27.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kotowa-las-brujas-ethiopian-natural-lot-4219" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2739,12 +2750,12 @@
             </div>
             <div class="text-xs text-muted font-mono">kotowa-las-brujas-ethiopian-natural-lot-4219</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Kotowa (Las Brujas)</td>
           <td class="text-sm">Ricardo Koyner</td>
-          <td><span class="badge badge-variety">Ethiopian Heirloom</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Ethiopian Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,800 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Chamomile, Lychee, Stone Fruit</td>
@@ -2785,7 +2796,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="68.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="68.5" data-total="68.5" data-taste="29.5" data-price="19.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2794,12 +2805,12 @@
             </div>
             <div class="text-xs text-muted font-mono">la-negrita-mundo-novo-3</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Tolima</td>
           <td class="text-sm font-medium">Finca La Negrita</td>
           <td class="text-sm">Mauricio Shattah</td>
-          <td><span class="badge badge-variety">Mundo Novo</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Mundo Novo</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,780–2,100 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Grape, Pomelo, Brown Spices</td>
@@ -2840,7 +2851,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="68.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="68.5" data-total="68.5" data-taste="29.5" data-price="19.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-4" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2849,12 +2860,12 @@
             </div>
             <div class="text-xs text-muted font-mono">la-negrita-mundo-novo-4</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Tolima</td>
           <td class="text-sm font-medium">Finca La Negrita</td>
           <td class="text-sm">Mauricio Shattah</td>
-          <td><span class="badge badge-variety">Mundo Novo</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Mundo Novo</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,780–2,100 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Grape, Pomelo, Brown Spices</td>
@@ -2895,7 +2906,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="69.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 14.8 / 희 15.5</div></td>
+          <td class="td-score" data-value="69.8" data-total="69.8" data-taste="39.5" data-price="14.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 14.8 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lamastus-egn-asd-rf2d-torre-080426" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2904,12 +2915,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lamastus-egn-asd-rf2d-torre-080426</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Elida Estate</td>
           <td class="text-sm">Wilford Lamastus Family</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Anaerobic Natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic Natural</div></td>
           <td class="text-sm font-mono">Geisha masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Tropical Fruits, Raisin, Lavender, Blood Orange, syrupy, sugarry</td>
@@ -2952,7 +2963,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="68.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 13.5 / 희 15.5</div></td>
+          <td class="td-score" data-value="68.5" data-total="68.5" data-taste="39.5" data-price="13.5" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 13.5 / 희 15.5</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lamastus-egn-drd-vuelta-280426" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -2961,12 +2972,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lamastus-egn-drd-vuelta-280426</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Elida Estate</td>
           <td class="text-sm">Wilford Lamastus Family</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1900-1950 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Honeysuckle, Citrus Fruit, Peach</td>
@@ -3009,7 +3020,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="75.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="75.0" data-total="75.0" data-taste="32.0" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lerida-geisha-lot-0642" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3018,12 +3029,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lerida-geisha-lot-0642</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Alto Quiel, Boquete</td>
           <td class="text-sm font-medium">Finca Lérida</td>
           <td class="text-sm">Garcia Family</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Waterfall</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Waterfall</div></td>
           <td class="text-sm font-mono">1,600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Honeysuckle, Apricot, Bergamot</td>
@@ -3064,7 +3075,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 25.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.0" data-total="77.0" data-taste="32.0" data-price="25.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 25.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lerida-geisha-natural-06442" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3073,12 +3084,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lerida-geisha-natural-06442</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Alto Quiel, Boquete</td>
           <td class="text-sm font-medium">Finca Lérida</td>
           <td class="text-sm">Maria Antonella Amoruso</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Rose, Stone Fruit, Clementine</td>
@@ -3119,7 +3130,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="63.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
+          <td class="td-score" data-value="63.8" data-total="63.8" data-taste="35.8" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-natural-lot-5a" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3128,12 +3139,12 @@
             </div>
             <div class="text-xs text-muted font-mono">longboard-misty-mountain-geisha-natural-lot-5a</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Piedra Candela, Boquete</td>
           <td class="text-sm font-medium">Longboard Coffee (Misty Mountain)</td>
           <td class="text-sm">Justin Boudeman</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,750 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Longan, Coffee Blossom, Honey</td>
@@ -3176,7 +3187,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="63.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
+          <td class="td-score" data-value="63.8" data-total="63.8" data-taste="35.8" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-washed-lot-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3185,12 +3196,12 @@
             </div>
             <div class="text-xs text-muted font-mono">longboard-misty-mountain-geisha-washed-lot-15</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Piedra Candela, Boquete</td>
           <td class="text-sm font-medium">Longboard Coffee (Misty Mountain)</td>
           <td class="text-sm">Justin Boudeman</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
           <td class="text-sm font-mono">1,750 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Jasmine, Peach, Oranges</td>
@@ -3233,7 +3244,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="67.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 67.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 17.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="67.0" data-total="67.0" data-taste="30.0" data-price="17.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 67.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 17.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lost-origin-las-nubes-lot-184" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3242,12 +3253,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lost-origin-las-nubes-lot-184</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Las Nubes</td>
           <td class="text-sm">Lost Origin Coffee Lab</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1500 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Chamomile, Hibiscus, Lychee, Nectarine.</td>
@@ -3288,7 +3299,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="64.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 64.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 12.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="64.8" data-total="64.8" data-taste="32.0" data-price="12.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 64.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 12.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lost-origin-morgan-estate-lot-197" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3297,12 +3308,12 @@
             </div>
             <div class="text-xs text-muted font-mono">lost-origin-morgan-estate-lot-197</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Morgan Estate</td>
           <td class="text-sm">The Morgan Family &amp; Jamison Savage</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,800 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Rose, Lychee, Peach</td>
@@ -3343,7 +3354,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="70.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153-2" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3352,12 +3363,12 @@
             </div>
             <div class="text-xs text-muted font-mono">mi-finquita-geisha-lot-153-2</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Los Naranjos, Boquete</td>
           <td class="text-sm font-medium">Mi Finquita</td>
           <td class="text-sm">Ratibor Hartmann &amp; Tessie Palacios</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,850 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Lychee, Coffee Blossom, Stone Fruits</td>
@@ -3398,7 +3409,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="70.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3407,12 +3418,12 @@
             </div>
             <div class="text-xs text-muted font-mono">mi-finquita-geisha-lot-153</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Los Naranjos, Boquete</td>
           <td class="text-sm font-medium">Mi Finquita</td>
           <td class="text-sm">Ratibor Hartmann &amp; Tessie Palacios</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,850 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Lychee, Coffee Blossom, Stone Fruits</td>
@@ -3453,7 +3464,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="70.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-tel-lot" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3462,12 +3473,12 @@
             </div>
             <div class="text-xs text-muted font-mono">mi-finquita-tel-lot</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Los Naranjos, Boquete</td>
           <td class="text-sm font-medium">Mi Finquita</td>
           <td class="text-sm">Ratibor Hartmann &amp; Tessie Palacios</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,850 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Pineapple, Honeysuckle, Red Plum</td>
@@ -3508,7 +3519,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="74.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 25.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="74.7" data-total="74.7" data-taste="29.5" data-price="25.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 25.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/moreno-maragogype-natural-anaerobic-84h" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3517,12 +3528,12 @@
             </div>
             <div class="text-xs text-muted font-mono">moreno-maragogype-natural-anaerobic-84h</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Huila</td>
           <td class="text-sm font-medium">Finca Moreno</td>
           <td class="text-sm">Edilberto Moreno</td>
-          <td><span class="badge badge-variety">Maragogype</span></td>
-          <td><span class="badge badge-process">84 H</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Maragogype</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">84 H</div></td>
           <td class="text-sm font-mono">1,600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Pineapple, Peach, berries</td>
@@ -3563,7 +3574,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="76.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 26.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="76.3" data-total="76.3" data-taste="29.5" data-price="26.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 26.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/moreno-pink-bourbon-natural-114" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3572,12 +3583,12 @@
             </div>
             <div class="text-xs text-muted font-mono">moreno-pink-bourbon-natural-114</div>
           </td>
-          <td><span class="badge badge-country">🇨🇴 Colombia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇨🇴 Colombia</div></td>
           <td class="text-sm">Huila</td>
           <td class="text-sm font-medium">Finca Moreno</td>
           <td class="text-sm">Edilberto Moreno</td>
-          <td><span class="badge badge-variety">Pink Bourbon</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Pink Bourbon</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Stone Fruits, Brown Sugar, berries</td>
@@ -3618,7 +3629,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 27.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.8" data-total="77.8" data-taste="30.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 27.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nelin-guzman-parainema-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3627,12 +3638,12 @@
             </div>
             <div class="text-xs text-muted font-mono">nelin-guzman-parainema-natural</div>
           </td>
-          <td><span class="badge badge-country">🇭🇳 Honduras</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇭🇳 Honduras</div></td>
           <td class="text-sm">Pozo Negro, Intibucá</td>
           <td class="text-sm font-medium">Finca Los Pinos</td>
           <td class="text-sm">Nelin Guzmán</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1500 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Grapes, Raisins, Brown Sugar</td>
@@ -3673,7 +3684,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.9" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.9</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.4 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.9" data-total="77.9" data-taste="29.5" data-price="28.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.9</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.4 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nocturne-8" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3682,12 +3693,12 @@
             </div>
             <div class="text-xs text-muted font-mono">nocturne-8</div>
           </td>
-          <td><span class="badge badge-country">🌐 Blend / Origin</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🌐 Blend / Origin</div></td>
           <td class="text-sm">Highland Regions</td>
           <td class="text-sm font-medium">Specialty Smallholders</td>
           <td class="text-sm">The Espresso Lab Selection</td>
-          <td><span class="badge badge-variety">Yellow Bourbon</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Yellow Bourbon</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,300 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Chocolate, Toasted Hazelnut, Tobbaco</td>
@@ -3728,7 +3739,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="70.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 42.0 / 값 10.0 / 희 18.0</div></td>
+          <td class="td-score" data-value="70.0" data-total="70.0" data-taste="42.0" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 42.0 / 값 10.0 / 희 18.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nuguo-geisha-natural-778" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3737,12 +3748,12 @@
             </div>
             <div class="text-xs text-muted font-mono">nuguo-geisha-natural-778</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Jurutungo, Renacimiento</td>
           <td class="text-sm font-medium">Finca Nuguo</td>
           <td class="text-sm">José Manuel &quot;Pocho&quot; Gallardo Méndez</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Natural Fermented</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Fermented</div></td>
           <td class="text-sm font-mono">1,900 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Champagne, Plum, White Grape</td>
@@ -3785,7 +3796,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="69.8" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 19.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="69.8" data-total="69.8" data-taste="30.0" data-price="19.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 19.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/ponderosa-geisha-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3794,12 +3805,12 @@
             </div>
             <div class="text-xs text-muted font-mono">ponderosa-geisha-natural</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Cordillera Central</td>
           <td class="text-sm font-medium">Finca Ponderosa</td>
           <td class="text-sm">Ponderosa Coffee / Cordillera Central</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1400 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Peach, Raspberry</td>
@@ -3840,7 +3851,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="76.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 24.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="76.5" data-total="76.5" data-taste="32.0" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 24.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/romesas-geisha-natural-river-flow-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3849,12 +3860,12 @@
             </div>
             <div class="text-xs text-muted font-mono">romesas-geisha-natural-river-flow-5</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Chiriquí</td>
           <td class="text-sm font-medium">Finca Romesas</td>
           <td class="text-sm">Romesas Coffee</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">River Flow Natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">River Flow Natural</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Coffee Blossom, Peach, Mandarin Oranges</td>
@@ -3895,7 +3906,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="76.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="76.7" data-total="76.7" data-taste="29.5" data-price="27.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/romesas-pacamara-natural-oxidado-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3904,12 +3915,12 @@
             </div>
             <div class="text-xs text-muted font-mono">romesas-pacamara-natural-oxidado-5</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Chiriquí</td>
           <td class="text-sm font-medium">Finca Romesas</td>
           <td class="text-sm">Romesas Coffee</td>
-          <td><span class="badge badge-variety">Pacamara</span></td>
-          <td><span class="badge badge-process">Oxidation Natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Pacamara</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Oxidation Natural</div></td>
           <td class="text-sm font-mono">1600 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Stone Fruit, Honey, Dried Oranges</td>
@@ -3950,7 +3961,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="77.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
+          <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/samambaia-natural-arara-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -3959,12 +3970,12 @@
             </div>
             <div class="text-xs text-muted font-mono">samambaia-natural-arara-15</div>
           </td>
-          <td><span class="badge badge-country">🇧🇷 Brazil</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇧🇷 Brazil</div></td>
           <td class="text-sm">Santo Antônio do Amparo, Sul de Minas</td>
           <td class="text-sm font-medium">Fazenda Samambaia</td>
           <td class="text-sm">Henrique Cambraia</td>
-          <td><span class="badge badge-variety">Arara</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Arara</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">1,200 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Stone Fruits, Milk Chocolate, Hazelnuts.</td>
@@ -4005,7 +4016,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="68.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 18.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="68.0" data-total="68.0" data-taste="30.0" data-price="18.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 18.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/santos-geisha-natural-dark-room-lot-41" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -4014,12 +4025,12 @@
             </div>
             <div class="text-xs text-muted font-mono">santos-geisha-natural-dark-room-lot-41</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Santos Coffee Estate</td>
           <td class="text-sm">The Lezcano Family</td>
-          <td><span class="badge badge-variety">Geisha</span></td>
-          <td><span class="badge badge-process">Natural Dark Room</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Geisha</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Dark Room</div></td>
           <td class="text-sm font-mono">1400 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, Cranberry, Stone Fruits</td>
@@ -4060,7 +4071,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="86.7" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.7 / 값 27.0 / 희 20.0</div></td>
+          <td class="td-score" data-value="86.7" data-total="86.7" data-taste="39.7" data-price="27.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.7 / 값 27.0 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -4069,12 +4080,12 @@
             </div>
             <div class="text-xs text-muted font-mono">sl28-santa-isabel-3</div>
           </td>
-          <td><span class="badge badge-country">🇵🇦 Panama</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇵🇦 Panama</div></td>
           <td class="text-sm">Boquete, Chiriquí</td>
           <td class="text-sm font-medium">Finca Santa Isabel</td>
           <td class="text-sm">Agricola Geisha</td>
-          <td><span class="badge badge-variety">SL28</span></td>
-          <td><span class="badge badge-process">washed</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">SL28</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
           <td class="text-sm font-mono">1,650 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Blackcurrant, Red Plum, Honey, Bergamot.</td>
@@ -4115,7 +4126,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="76.5" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 23.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="76.5" data-total="76.5" data-taste="33.0" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 23.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/testi-guji-hambela-faysel-abdosh-project-lot-tel-natural-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -4124,12 +4135,12 @@
             </div>
             <div class="text-xs text-muted font-mono">testi-guji-hambela-faysel-abdosh-project-lot-tel-natural-3</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji &amp; Sidama</td>
           <td class="text-sm font-medium">Yaye / Hambela Station</td>
           <td class="text-sm">Testi Coffee / Faysel Abdosh</td>
-          <td><span class="badge badge-variety">Mixed Heirloom</span></td>
-          <td><span class="badge badge-process">Natural Anaerobic</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Mixed Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
           <td class="text-sm font-mono">2200-2500 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Lavender, Tropical fruit, Raspberry</td>
@@ -4170,7 +4181,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="82.0" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 82.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 26.5 / 희 20.0</div></td>
+          <td class="td-score" data-value="82.0" data-total="82.0" data-taste="35.5" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 82.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 26.5 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/testi-sidama-yaye-natural-anaerobic-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -4179,12 +4190,12 @@
             </div>
             <div class="text-xs text-muted font-mono">testi-sidama-yaye-natural-anaerobic-3</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Guji &amp; Sidama</td>
           <td class="text-sm font-medium">Yaye / Hambela Station</td>
           <td class="text-sm">Testi Coffee / Faysel Abdosh</td>
-          <td><span class="badge badge-variety">74158</span></td>
-          <td><span class="badge badge-process">Natural Anaerobic</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">74158</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
           <td class="text-sm font-mono">2230-2350 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">Mango, Oranges, floral</td>
@@ -4225,7 +4236,7 @@
               <span class="zoom-icon">🔍</span>
             </div>
           </td>
-          <td class="text-center font-mono td-score" data-value="78.3" style="vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
+          <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/yirgacheffe-haru-natural-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
@@ -4234,12 +4245,12 @@
             </div>
             <div class="text-xs text-muted font-mono">yirgacheffe-haru-natural-5</div>
           </td>
-          <td><span class="badge badge-country">🇪🇹 Ethiopia</span></td>
+          <td><div style="font-weight:600; font-size:12px;">🇪🇹 Ethiopia</div></td>
           <td class="text-sm">Yirgacheffe</td>
           <td class="text-sm font-medium">Haru Station</td>
           <td class="text-sm">Haru Washing Station Smallholders</td>
-          <td><span class="badge badge-variety">Heirloom</span></td>
-          <td><span class="badge badge-process">natural</span></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Heirloom</div></td>
+          <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
           <td class="text-sm font-mono">2,200 masl</td>
           <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">floral, orange, berries, Nectarine.</td>
@@ -4342,6 +4353,59 @@
 
     // Table Sorting
     let sortDirections = {};
+    
+    let currentScoreSortKey = 'total';
+    let currentScoreSortDir = 'desc';
+
+    function sortScoreCol(key) {
+      if (currentScoreSortKey === key) {
+        currentScoreSortDir = (currentScoreSortDir === 'desc') ? 'asc' : 'desc';
+      } else {
+        currentScoreSortKey = key;
+        currentScoreSortDir = 'desc';
+      }
+
+      const keys = ['total', 'taste', 'price', 'rarity'];
+      keys.forEach(k => {
+        const ind = document.getElementById('sortInd_tel_' + k);
+        const trig = document.getElementById('sortTrigger_tel_' + k);
+        if (k === currentScoreSortKey) {
+          if (ind) {
+            ind.textContent = (currentScoreSortDir === 'desc') ? '▼' : '▲';
+            ind.style.color = 'var(--accent-gold)';
+          }
+          if (trig) trig.style.color = 'var(--accent-gold)';
+        } else {
+          if (ind) {
+            ind.textContent = '↕';
+            ind.style.color = '';
+          }
+          if (trig) trig.style.color = '';
+        }
+      });
+
+      const tbody = document.querySelector('#coffeeTable tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+
+      rows.sort((rowA, rowB) => {
+        const cellA = rowA.querySelector('.td-score');
+        const cellB = rowB.querySelector('.td-score');
+        if (!cellA || !cellB) return 0;
+
+        const valA = parseFloat(cellA.getAttribute('data-' + key) || 0);
+        const valB = parseFloat(cellB.getAttribute('data-' + key) || 0);
+
+        let diff = (currentScoreSortDir === 'desc') ? (valB - valA) : (valA - valB);
+        if (diff !== 0) return diff;
+
+        const totA = parseFloat(cellA.getAttribute('data-total') || 0);
+        const totB = parseFloat(cellB.getAttribute('data-total') || 0);
+        return totB - totA;
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+    }
+
     function sortTable(colIndex, type) {
       const table = document.getElementById('coffeeTable');
       const tbody = table.querySelector('tbody');
