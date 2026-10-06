@@ -1,0 +1,318 @@
+import json
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+import test_pure_scores_all
+
+all_100g = test_pure_scores_all.all_100g
+
+# Pure Top 20
+raw_top_20 = all_100g[:20]
+
+# Detailed annotations for each of the 20 coffees
+# We define each coffee's active status, overlap reason, in-depth analysis, brewing guide, etc.
+
+annotations = {
+    # 1. Ethiopia Elto Sama Washed
+    "ethiopia-elto-coffee-sama-washed": {
+        "is_active": True,
+        "active_pick_num": 1,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #1: 에티오피아 워시드 최고봉, 1만원 극가성비 데일리 랏)",
+        "flavor_category": "Floral & Tea-like Citrus",
+        "detailed_review": {
+            "taste_analysis": "에티오피아 시다마 보나 주레(Bona Zuria) 해발 2,260m 초고고도에서 생산된 74158 단일 품종 클래식 워시드. 분쇄하는 순간 터져 나오는 자스민과 베르가못 향이 압도적이며, 한 모금 머금으면 홍차(얼그레이)와 잘 익은 서양배의 맑고 투명한 단맛이 클린하게 이어집니다.",
+            "price_analysis": "100g 단돈 28 AED(약 10,640원)라는 경이적인 가격. 국내 스페셜티 씬에서 2,200m급 싱글 오리진 74158 워시드가 통상 100g당 20,000~25,000원에 형성되는 점을 고려할 때 50% 이상 저렴한 파격적 가성비입니다.",
+            "rarity_analysis": "Elto Coffee 프로젝트는 아처스가 현지 생두 파트너와 함께 독점 공급받는 최상위 랏으로, 국내 일반 생두상이나 로스터리에는 정식 수입되지 않는 순수 직구 전용 라인업입니다.",
+            "selection_reason": "전체 131개 원두 중 순수 총점 94점으로 압도적 1위. 매일 아침 부담 없이 마실 수 있는 최상급 데일리 티라이크 커피로 무조건 담아야 할 필수 1순위입니다.",
+            "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g (1:16 비율) | 분쇄도: 코만단테 24클릭 (중세립) | 추출 시간: 2분 15초 내 클린컷 추출 권장."
+        }
+    },
+    # 2. Colombia Cota Coffee Pink Bourbon
+    "colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life": {
+        "is_active": True,
+        "active_pick_num": 2,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #2: 복숭아·베르가못 팡팡 터지는 코퍼먼트 핑크버본의 정점)",
+        "flavor_category": "Exotic Fruit & Floral Honey",
+        "detailed_review": {
+            "taste_analysis": "콜롬비아 우일라(Huila) 핀카 리오 네그로 농장의 핑크 버본 품종에 감귤류/베르가못 효모 공발효(Co-fermentation Washed)를 적용한 예술적 랏. 과하지 않은 섬세한 화이트 플로럴과 복숭아 아이스티, 오렌지 제스트의 상큼함이 입안 가득 폭발합니다.",
+            "price_analysis": "100g 53 AED(약 20,140원). 국내에서 엘 파라이소 계열이나 코퍼먼트 핑크버본이 100g당 28,000~35,000원에 판매되는 것을 감안할 때 약 35% 저렴하며 품질 밸런스는 훨씬 뛰어납니다.",
+            "rarity_analysis": "Cota Coffee의 Zest Life 시리즈는 아처스 커피가 독점 큐레이션한 소량 한정 마이크로랏으로 국내에는 일절 수입된 적이 없는 희소 원두입니다.",
+            "selection_reason": "총점 92점(맛 44, 가격 28, 희소 20). 화려한 과일 향미와 복숭아 톤을 선호하는 브루어에게 대체 불가능한 즐거움을 선사하는 최고의 트로피컬 랏입니다.",
+            "brewing_guide": "드리퍼: Origami 또는 Kalita Wave | 원두: 16g | 물: 91℃ 240g (1:15 비율) | 추출 시간: 2분 30초 내외. 약간 낮은 온도로 추출 시 복숭아와 베르가못 향미가 극대화됩니다."
+        }
+    },
+    # 3. Ethiopia Elto Elora Classic Washed
+    "ethiopia-elto-coffee-elora-station-classic-washed": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #1위 Elto Sama Washed와 동일 농장주(Elto) 및 품종(74158) 워시드 중복으로 음영 제외",
+        "flavor_category": "Floral & White Grape",
+        "detailed_review": {
+            "taste_analysis": "엘로라 워싱 스테이션의 클래식 워시드로 진저에일, 백포도, 베르가못의 경쾌하고 청량한 산미가 일품입니다. 총점 91점의 매우 뛰어난 원두입니다.",
+            "price_analysis": "100g 33 AED(약 12,540원). 가성비는 매우 우수합니다.",
+            "rarity_analysis": "아처스 독점 수입 라인업.",
+            "selection_reason": "품질은 탁월하나, 1위에 선정된 동일 Elto 사마 스테이션 워시드(#1위, 28 AED)와 농장주 및 에티오피아 74158 워시드 컵 프로필이 밀접하게 중복되어 다양성을 위해 음영 처리되었습니다.",
+            "brewing_guide": "Hario V60, 92℃, 1:16 비율 추출."
+        }
+    },
+    # 4. Ethiopia Elto Sama Honey
+    "ethiopia-elto-coffee-sama-honey": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #1위 Elto Sama Washed와 동일 농장(Sama Station) 계열 중복으로 음영 제외",
+        "flavor_category": "Sweet Stone Fruit & Honey",
+        "detailed_review": {
+            "taste_analysis": "사마 스테이션 74158의 허니 프로세스 랏. 살구와 칸탈루프 멜론의 달콤한 과육 향과 부드러운 꿀의 질감이 특징입니다. 총점 89점.",
+            "price_analysis": "100g 28 AED(약 10,640원)로 가격 경쟁력은 매우 뛰어납니다.",
+            "rarity_analysis": "아처스 독점 랏.",
+            "selection_reason": "동일 사마 스테이션에서 생산된 원두로, 1위의 사마 워시드가 더 선명한 클린컵과 티라이크 노트를 제공하므로 동일 농장 중복 방지를 위해 음영 제외되었습니다.",
+            "brewing_guide": "Kalita Wave, 91℃, 1:15 추출 권장."
+        }
+    },
+    # 5. Ethiopia Daye Bensa Rumudamo DFW
+    "ethiopia-daye-bensa-rumudamo-dfw-archers-lot": {
+        "is_active": True,
+        "active_pick_num": 3,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #3: 에티오피아 COE 1위 챔피언 산지 루무다모의 드라이 퍼먼트 워시드)",
+        "flavor_category": "Stone Fruit & Lychee Elegance",
+        "detailed_review": {
+            "taste_analysis": "2020 에티오피아 COE 1위를 배출한 전설적인 루무다모(Rumudamo) 스테이션에서 무물(Dry Ferment) 건식 발효 워시드로 가공한 아처스 단독 랏. 백도(White Peach)와 신선한 리치, 사탕수수의 맑고 고급스러운 단맛이 압권입니다.",
+            "price_analysis": "100g 52 AED(약 19,760원). COE 우승 테루아의 독점 랏 원두가 1만원대 후반이라는 점은 스페셜티 애호가에게 엄청난 메리트입니다.",
+            "rarity_analysis": "다예 벤사 가문이 아처스만을 위해 분할 공급한 공식 Archers Lot으로, 국내에는 일반 루무다모 생두만 소량 유통되었을 뿐 해당 드라이 퍼먼트 랏은 존재하지 않습니다.",
+            "selection_reason": "총점 88점(맛 40, 가격 28, 희소 20). 엘토 커피와는 완전히 다른 다예 벤사 가문 특유의 밀도 높은 복숭아·리치 단맛과 고혹적인 텍스처를 경험할 수 있습니다.",
+            "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 230g (1:15.3 비율) | 뜸 45초 후 2차 추출로 복숭아와 사탕수수의 단맛을 응축시켜 추출하세요."
+        }
+    },
+    # 6. Ethiopia Daye Bensa Murago Natural Mini
+    "ethiopia-daye-bensa-korma-kontoma-murago-natural-mini": {
+        "is_active": True,
+        "active_pick_num": 4,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #4: 다예 벤사 무라고의 티라이크 클린 내추럴 미니랏)",
+        "flavor_category": "Clean Natural & Berry Tea",
+        "detailed_review": {
+            "taste_analysis": "시다마 무라고(Murago) 코르마 콘토마 스테이션의 토착 품종(74112, 74110, 74158) 복합 블렌딩 내추럴. 텁텁함이나 발효취가 전혀 없는 완벽한 아프리칸 베드 건조를 거쳐 잘 익은 복숭아, 청포도, 레몬 아이스티의 화사하고 산뜻한 향미를 뿜어냅니다.",
+            "price_analysis": "100g 50 AED(약 19,000원). 2만원 언더로 즐기는 최고 등급 클린 내추럴의 표준입니다.",
+            "rarity_analysis": "무라고 지역에서도 최상급 체리만 선별한 Mini Lot으로 국내 정식 수입이 전무한 랏입니다.",
+            "selection_reason": "총점 87점(맛 39, 가격 28, 희소 20). 앞선 3개의 워시드/코퍼먼트와 차별화되는 '워시드처럼 깨끗한 에티오피아 내추럴'의 정수를 보여주어 에티오피아 내추럴 부문 대표로 최종 선발되었습니다.",
+            "brewing_guide": "드리퍼: Origami 또는 V60 | 원두: 15g | 물: 92℃ 240g | 고운 분쇄보다는 약간 굵게 분쇄하여 과다 추출을 방지하고 티라이크 질감을 살리세요."
+        }
+    },
+    # 7. Ethiopia Elto Kokose Natural Lot 2
+    "ethiopia-elto-coffee-kokose-natural": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #1위 Elto Sama 및 #6위 Daye Bensa Murago Natural과 농장주/내추럴 프로필 중복으로 음영 제외",
+        "flavor_category": "Blueberry & Floral Honey",
+        "detailed_review": {
+            "taste_analysis": "코코세 빌리지의 74158 내추럴 랏. 블루베리, 리치, 꽃꿀의 달콤한 과일 노트를 지니고 있으며 총점 87점입니다.",
+            "price_analysis": "100g 33 AED(약 12,540원).",
+            "rarity_analysis": "아처스 독점 수입 랏.",
+            "selection_reason": "농장주(Elto Coffee)가 1위와 중복될 뿐 아니라, 6위에 선발된 다예 벤사 무라고 내추럴(#6위)이 보다 다층적인 복합미를 지니고 있어 중복 배제되었습니다.",
+            "brewing_guide": "Hario V60, 92℃ 추출."
+        }
+    },
+    # 8. Panama Adaura Coffee Geisha Washed Jer DRD
+    "panama-adaura-coffee-geisha-washed-jer-drd": {
+        "is_active": True,
+        "active_pick_num": 5,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #5: 파나마 보케테 정통 워시드 게이샤의 교과서, 4만원대 최고 가성비)",
+        "flavor_category": "Jasmine & White Tea Aristocracy",
+        "detailed_review": {
+            "taste_analysis": "파나마 보케테(Boquete) 로레인 농장(Finca Lorayne) 해발 1,750m에서 자란 그린팁 게이샤를 다크룸 건조(DRD)로 완성한 정통 워시드 게이샤. 한 모금 마시는 순간 만개한 재스민 꽃밭에 서 있는 듯한 향과 허니듀, 파파야, 백차의 귀족적인 여운이 끝없이 지속됩니다.",
+            "price_analysis": "100g 120 AED(약 45,600원). 파나마 보케테의 하이엔드 워시드 게이샤가 국내 로스터리에서 100g당 80,000~120,000원에 판매되는 것을 감안하면 약 50% 반값 수준입니다.",
+            "rarity_analysis": "Adaura Coffee 프로젝트의 DRD(Dark Room Drying) 워시드 나노랏은 국내 커피 바이어들에게 거의 공급되지 않은 아처스만의 시그니처 랏입니다.",
+            "selection_reason": "총점 86점(맛 45점 만점에 가까운 최고 맛 점수!). 수많은 파나마 워시드 게이샤 중에서 가장 완벽한 밸런스와 가격 합리성을 갖춰 파나마 게이샤 워시드 대표로 최우선 선발되었습니다.",
+            "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 뜸 35초 후 3회 푸어링으로 정갈하고 섬세한 재스민 플로럴을 온전히 추출하세요."
+        }
+    },
+    # 9. Panama Chevas Limited El Choclo GW Venus
+    "panama-chevas-limited-el-choclo-gw-venus": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #8위 Adaura Geisha Washed와 파나마 보케테 워시드 게이샤 향미(재스민·백차) 중복으로 음영 제외",
+        "flavor_category": "Jasmine & White Tea",
+        "detailed_review": {
+            "taste_analysis": "체바스 에스테이트 엘 초클로 농장의 워시드 게이샤. 커피꽃, 파파야, 백차의 훌륭한 노트를 보여줍니다. 총점 86점.",
+            "price_analysis": "100g 145 AED(약 55,100원).",
+            "rarity_analysis": "아처스 독점 수입 라인.",
+            "selection_reason": "8위에 선발된 Adaura Geisha Washed(120 AED)와 동일한 파나마 보케테 워시드 게이샤 향미 프로필(화이트티/플로럴)을 공유하며, 가격 면에서 Adaura가 더 합리적이므로 음영 처리되었습니다.",
+            "brewing_guide": "Hario V60, 93℃ 추출."
+        }
+    },
+    # 10. Panama Los Lajones Bambu Geisha Washed Lot 20C
+    "panama-los-lajones-bambu-geisha-washed-lot-20c": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #8위 Adaura Geisha Washed와 파나마 워시드 게이샤 향미 프로필 중복으로 음영 제외",
+        "flavor_category": "Lemongrass & Jasmine Tea",
+        "detailed_review": {
+            "taste_analysis": "파나마 최고 고도(2,000m+) 그라시아노 크루즈의 유기농 농장 로스 라호네스 밤부 랏. 레몬그라스, 베르가못, 재스민의 기품 있는 향미가 탁월합니다. 총점 86점.",
+            "price_analysis": "100g 135 AED(약 51,300원).",
+            "rarity_analysis": "아처스 독점 공급 랏.",
+            "selection_reason": "매우 훌륭한 농장의 게이샤이나, 8위의 Adaura Geisha Washed와 파나마 워시드 게이샤 대표 자리가 겹쳐 음영 제외되었습니다.",
+            "brewing_guide": "Hario V60, 93℃ 추출."
+        }
+    },
+    # 11. Panama Los Lajones Bambu Geisha Washed Lot 26C
+    "panama-los-lajones-bambu-geisha-washed-lot-26c": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #10위 Los Lajones Bambu Lot 20C와 동일 농장/품종/랏 중복으로 음영 제외",
+        "flavor_category": "Jasmine & Grapefruit",
+        "detailed_review": {
+            "taste_analysis": "로스 라호네스 농장의 대나무 숲 26C 랏. 자몽, 복숭아, 얼그레이 노트를 지니고 있습니다. 총점 86점.",
+            "price_analysis": "100g 135 AED(약 51,300원).",
+            "rarity_analysis": "아처스 공급 랏.",
+            "selection_reason": "10위의 Lot 20C와 동일 농장, 동일 품종, 동일 가공의 패러럴 랏으로 완벽한 중복입니다.",
+            "brewing_guide": "Hario V60, 93℃ 추출."
+        }
+    },
+    # 12. Panama Mil Cumbres GIL GW lot 2
+    "panama-mil-cumbres-gil-gw-lot-2": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #8위 Adaura Geisha Washed와 파나마 워시드 게이샤 향미 프로필 중복으로 음영 제외",
+        "flavor_category": "Orange Blossom & White Grape",
+        "detailed_review": {
+            "taste_analysis": "밀 쿰브레스 농장의 그린팁 게이샤 워시드. 오렌지 블라썸, 백포도, 베르가못의 클래식한 노트를 지닙니다. 총점 86점.",
+            "price_analysis": "100g 143 AED(약 54,340원).",
+            "rarity_analysis": "아처스 수입 랏.",
+            "selection_reason": "8위 Adaura Geisha Washed와 동일한 파나마 워시드 게이샤 계열 중복으로 음영 제외되었습니다.",
+            "brewing_guide": "Hario V60, 93℃ 추출."
+        }
+    },
+    # 13. The Espresso Lab: SL28 Santa Isabel
+    "sl28-santa-isabel-3": {
+        "is_active": True,
+        "active_pick_num": 6,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #6: 파나마 산타 이사벨 농장의 극희귀 케냐 SL28 품종, 에스프레소랩 독점)",
+        "flavor_category": "Blackcurrant & Bergamot Royalty",
+        "detailed_review": {
+            "taste_analysis": "파나마 명문 산타 이사벨(Finca Santa Isabel) 농장에서 재배된 케냐 혈통의 SL28 단일 품종 클래식 워시드. 케냐 특유의 농밀한 블랙커런트와 레드 플럼의 쥬시한 산미에 파나마 테루아 특유의 우아한 베르가못과 꿀의 여운이 환상적으로 결합되어 있습니다.",
+            "price_analysis": "100g 75.5 AED(약 28,690원). 파나마에서 게이샤보다 훨씬 구하기 힘든 이국적 SL28 마이크로랏을 2만원대 후반에 맛볼 수 있는 경이로운 가격입니다.",
+            "rarity_analysis": "에스프레소랩이 산타 이사벨 농장과 다이렉트 계약을 통해 단독 확보한 랏으로, 국내 스페셜티 시장에서는 파나마산 SL28 원두 자체를 찾아보기 어렵습니다.",
+            "selection_reason": "총점 86점(맛 40, 가격 26, 희소 20). 게이샤 일색인 파나마 커피 중에서 가장 유니크한 품종적 차별성을 지니며, 케냐와 파나마의 장점이 공존하는 에스프레소랩의 최고 역작입니다.",
+            "brewing_guide": "드리퍼: Kalita Wave 155 | 원두: 15g | 물: 92℃ 230g (1:15.3 비율) | 평평한 침출 구조 드리퍼 사용 시 블랙커런트와 자두의 풍부한 단맛이 극대화됩니다."
+        }
+    },
+    # 14. Panama Finca Auromar Geisha Washed Peaberry
+    "panama-finca-auromar-malla-geisha-washed-peaberry": {
+        "is_active": True,
+        "active_pick_num": 7,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #7: BOP 세계 신화 오로마르 농장의 극희귀 피베리 나노랏, 3만원대 기적)",
+        "flavor_category": "Champagne & Yuzu Peaberry",
+        "detailed_review": {
+            "taste_analysis": "Best of Panama(BOP) 역사상 최고 경매가를 기록했던 로베르토 브레네스의 오로마르(Auromar Finca La Aurora) 농장에서 전체 수확량의 3~5% 미만으로만 생성되는 피베리(Peaberry)만 선별한 기적의 나노랏. 잔을 채우는 백포도와 커피꽃, 유주, 샴페인의 터지는 듯한 탄산감과 농축된 산미가 경이롭습니다.",
+            "price_analysis": "100g 98 AED(약 37,240원). 통상 100g당 150,000원을 호가하는 오로마르 게이샤를 피베리 나노랏 사양으로 3만원대에 구매할 수 있는 전 세계 유일무이한 기회입니다.",
+            "rarity_analysis": "오로마르 피베리는 전 세계 생두 바이어들이 줄을 서는 극희소 랏으로, 아처스 커피가 다이렉트 파트너십을 통해 극소량 독점 배정받은 랏입니다.",
+            "selection_reason": "총점 85점(맛 41, 가격 24, 희소 20). 일반 게이샤와는 완전히 다른 피베리 특유의 응축된 밀도감과 샴페인 산미를 자랑하여 단독 랏으로 당당히 선발되었습니다.",
+            "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 94℃ 240g | 높은 온도로 피베리 고밀도 생두의 화려한 샴페인 에시디티를 남김없이 추출하세요."
+        }
+    },
+    # 15. The Espresso Lab: El Rubi Parainema Lot B
+    "el-rubi-parainema-anaerobic-washed-lot-b": {
+        "is_active": True,
+        "active_pick_num": 8,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #8: 콜롬비아 엘 루비 농장의 아네어로빅 워시드 파라이네마, 청사과·허니)",
+        "flavor_category": "Green Apple & Honey Floral",
+        "detailed_review": {
+            "taste_analysis": "콜롬비아 우일라 에이스베도(Acevedo)의 전설적인 핀카 엘 루비(Finca El Rubí)에서 재배된 내병계 명품 파라이네마(Parainema) 품종. 제어된 무산소 발효 후 정밀 워시드 처리하여 갓 딴 청사과(Green Apple)의 아삭한 산미와 아카시아 꿀, 은은한 들꽃 향이 절묘한 조화를 이룹니다.",
+            "price_analysis": "100g 60 AED(약 22,800원). 무산소 가공의 하이엔드 마이크로랏을 2만원대 초반에 맛볼 수 있는 믿을 수 없는 가성비입니다.",
+            "rarity_analysis": "에스프레소랩이 엘 루비 농장주와 직접 다이렉트 트레이드로 수입한 단독 랏으로 국내 공식 수입처가 전무합니다.",
+            "selection_reason": "총점 85점(맛 37, 가격 28, 희소 20). 파라이네마라는 독특한 품종의 매력과 과하지 않은 완벽한 클린 무산소 워시드의 교과서로 에스프레소랩 라인업 중 필수 선택지입니다.",
+            "brewing_guide": "드리퍼: Origami 또는 V60 | 원두: 15g | 물: 92℃ 230g | 뜸 40초 후 균일한 물줄기로 부드럽게 추출하여 꿀과 청사과의 클린컵을 강조하세요."
+        }
+    },
+    # 16. Ethiopia Elto Elora River Flow Washed CF10
+    "ethiopia-elto-elora-station-river-flow-washed-cf10": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #1위 Elto Sama Washed와 동일 농장주(Elto) 워시드 계열 중복으로 음영 제외",
+        "flavor_category": "Peach & Mandarin",
+        "detailed_review": {
+            "taste_analysis": "엘로라 스테이션의 리버 플로우 콜드 퍼먼트 워시드 랏. 백도와 리치, 만다린의 상큼한 향미를 지닙니다. 총점 84점.",
+            "price_analysis": "100g 65 AED(약 24,700원).",
+            "rarity_analysis": "아처스 독점 공급.",
+            "selection_reason": "품질은 우수하나 1위 Elto Sama Washed와 동일한 Elto 생산자 계열이며, 이미 상위에 Elto 워시드가 존재하므로 다양성을 위해 음영 처리되었습니다.",
+            "brewing_guide": "Hario V60, 92℃ 추출."
+        }
+    },
+    # 17. Ecuador Fincas Del Putushio Typica Mejorado
+    "finca-del-putushio-typica-mejorado-rt": {
+        "is_active": True,
+        "active_pick_num": 9,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #9: 에콰도르 로하 고산지의 티피카 메호라도, 살구·플로럴의 우아함)",
+        "flavor_category": "Floral Apricot & Sweet Tea",
+        "detailed_review": {
+            "taste_analysis": "에콰도르 남부 로하(Loja) 해발 2,100m 핀카 델 푸투시오 농장의 티피카 메호라도(Typica Mejorado) 클래식 워시드. 에티오피아 토착종과 티피카의 자연 교배종인 메호라도 특유의 폭발적인 플로럴과 잘 익은 살구, 꿀에 절인 사과의 우아한 단맛이 잔잔하게 퍼집니다.",
+            "price_analysis": "100g 83 AED(약 31,540원). 국내에서 에콰도르 메호라도 워시드가 통상 100g당 45,000~60,000원에 형성되는 시세 대비 35% 이상 저렴합니다.",
+            "rarity_analysis": "에콰도르 메호라도는 전 세계 스페셜티 시장에서 게이샤를 잇는 최고급 희귀 품종으로 주목받고 있으며, 아처스 직구 외에는 국내에서 만나보기 힘든 농장 랏입니다.",
+            "selection_reason": "총점 84점(맛 38, 가격 26, 희소 20). 콜롬비아, 파나마, 에티오피아에 이어 남미 제4의 테루아인 에콰도르의 진수를 보여주는 필수 품종입니다.",
+            "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 중온 추출로 티피카 메호라도의 섬세한 살구와 복숭아 홍차 뉘앙스를 이끌어내세요."
+        }
+    },
+    # 18. Ethiopia Oboleyan Hambela Dimtu Haro Classic Natural
+    "ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #6위 Daye Bensa Murago Natural과 에티오피아 내추럴 향미 프로필 중복으로 음영 제외",
+        "flavor_category": "Ripe Berries & Floral",
+        "detailed_review": {
+            "taste_analysis": "구지 함벨라 딤투 하로 프로젝트의 클래식 내추럴. 베리와 꽃향이 어우러진 정통 구지 내추럴 랏입니다. 총점 84점.",
+            "price_analysis": "100g 36 AED(약 13,680원).",
+            "rarity_analysis": "아처스 독점 랏.",
+            "selection_reason": "이미 6위에 더 완성도 높은 다예 벤사 무라고 클린 내추럴(#6위)이 선발되어 있어 향미 카테고리 중복으로 음영 제외되었습니다.",
+            "brewing_guide": "Kalita Wave, 91℃ 추출."
+        }
+    },
+    # 19. Panama Adaura Coffee Finca Lorayne Geisha Washed
+    "panama-adaura-coffee-finca-lorayne-geisha-washed": {
+        "is_active": False,
+        "active_pick_num": None,
+        "overlap_note": "🚫 #8위 Adaura Geisha Washed Jer DRD와 동일 농장(Finca Lorayne) 중복으로 음영 제외",
+        "flavor_category": "Jasmine & Citrus",
+        "detailed_review": {
+            "taste_analysis": "핀카 로레인의 표준 워시드 게이샤 랏. 재스민과 시트러스 노트를 담고 있습니다. 총점 83점.",
+            "price_analysis": "100g 145 AED(약 55,100원).",
+            "rarity_analysis": "아처스 독점 랏.",
+            "selection_reason": "8위에 선발된 동일 농장의 Adaura DRD 나노랏과 농장, 품종, 가공이 일치하여 중복 제외되었습니다.",
+            "brewing_guide": "Hario V60, 93℃ 추출."
+        }
+    },
+    # 20. Panama Elida Geisha Honey Loma 2501
+    "panama-elida-estate-geisha-loma-2501": {
+        "is_active": True,
+        "active_pick_num": 10,
+        "overlap_note": "★ 최종 추천 10선 선정 (Pick #10: 세계 최고 명문 라마스투스 가문 엘리다 농장의 허니 게이샤)",
+        "flavor_category": "Honey Jasmine & Tropical Nectar",
+        "detailed_review": {
+            "taste_analysis": "파나마 보케테의 살아있는 전설 라마스투스 가문(Lamastus Family)의 엘리다 에스테이트(Elida Estate) 해발 1,800m+ 로마(Loma) 구역에서 생산된 허니 게이샤. 워시드의 재스민·시트러스에 점액질 발효의 농익은 열대과일 꿀, 살구 넥타의 관능적인 질감이 층층이 겹쳐집니다.",
+            "price_analysis": "100g 143 AED(약 54,340원). 엘리다 에스테이트의 허니 게이샤가 국내 경매나 특별 판매 시 100g당 100,000~150,000원을 호가하는 것을 생각하면 비교 불가능한 직구 메리트입니다.",
+            "rarity_analysis": "엘리다 농장의 로마 구역 단독 랏은 전 세계 카페와 로스터리들이 매년 가장 치열하게 확보 경쟁을 벌이는 최고 명품 랏입니다.",
+            "selection_reason": "총점 83점(맛 42, 가격 21, 희소 20). 워시드 게이샤와 피베리에 이어 '허니 가공 게이샤의 종결자'로서 10선 라인업의 마지막 퍼즐을 완벽하게 장식합니다.",
+            "brewing_guide": "드리퍼: Hario V60 또는 Kalita Wave | 원두: 15g | 물: 92℃ 235g | 허니 점액질의 묵직한 넥타 질감과 재스민 향미가 최적의 밸런스를 이룹니다."
+        }
+    }
+}
+
+final_curation = []
+for i, c in enumerate(raw_top_20, 1):
+    c['rank'] = i
+    handle = c['handle']
+    ann = annotations.get(handle, {})
+    
+    c['is_active'] = ann.get('is_active', False)
+    c['active_pick_num'] = ann.get('active_pick_num')
+    c['overlap_note'] = ann.get('overlap_note', '순위권 평가')
+    c['flavor_category'] = ann.get('flavor_category', 'Specialty Coffee')
+    c['detailed_review'] = ann.get('detailed_review', {})
+    
+    final_curation.append(c)
+
+with open('top_20_curation.json', 'w', encoding='utf-8') as f:
+    json.dump(final_curation, f, ensure_ascii=False, indent=2)
+
+print(f"Successfully generated top_20_curation.json with {len(final_curation)} items.")
+print(f"Active Picks: {sum(1 for c in final_curation if c['is_active'])} / 10")
+print(f"Dimmed Overlaps: {sum(1 for c in final_curation if not c['is_active'])} / 10")
