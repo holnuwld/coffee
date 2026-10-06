@@ -16,6 +16,16 @@ cart_page_code = f"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAE 스페셜티 커피 현지 구매 발주서 (Purchase Order & Spec Sheet)</title>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<script>
+  (function() {{
+    try {{
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {{
+        document.documentElement.setAttribute('data-theme', 'light');
+      }}
+    }} catch (e) {{}}
+  }})();
+</script>
 <style>
   :root {{
     --bg: #090d13;
@@ -31,6 +41,147 @@ cart_page_code = f"""<!DOCTYPE html>
     --success: #3fb950;
     --blue: #58a6ff;
     --danger: #f85149;
+  }}
+
+  [data-theme="light"] {{
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --border-light: #cbd5e1;
+    --accent: #b45309;
+    --accent-gold: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --success: #15803d;
+    --blue: #0284c7;
+    --danger: #dc2626;
+  }}
+
+  /* Light Theme Specific Enhancements */
+  [data-theme="light"] .doc-header {{
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }}
+  [data-theme="light"] .doc-title {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .instructions-card {{
+    background: #ffffff;
+    border-color: #e2e8f0;
+    border-left: 5px solid #d97706;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }}
+  [data-theme="light"] .inst-title {{
+    color: #b45309;
+  }}
+  [data-theme="light"] .inst-item {{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+  }}
+  [data-theme="light"] .inst-num {{
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    color: #b45309;
+  }}
+  [data-theme="light"] .inst-content {{
+    color: #334155;
+  }}
+  [data-theme="light"] .inst-content strong {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .kpi-card {{
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }}
+  [data-theme="light"] .table-box {{
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }}
+  [data-theme="light"] .po-table th {{
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+  }}
+  [data-theme="light"] .po-table td {{
+    border-bottom: 1px solid #e2e8f0;
+    color: #0f172a;
+  }}
+  [data-theme="light"] .po-table tr:hover td {{
+    background: #f8fafc;
+  }}
+  [data-theme="light"] .coffee-link {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .coffee-link:hover {{
+    color: var(--accent);
+  }}
+  [data-theme="light"] .notes-tag {{
+    color: #92400e;
+    background: #fffbeb;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #fde68a;
+    display: inline-block;
+  }}
+  [data-theme="light"] .reason-text {{
+    color: #475569;
+  }}
+  [data-theme="light"] .po-btn {{
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #334155;
+  }}
+  [data-theme="light"] .po-btn:hover {{
+    background: #e2e8f0;
+    color: #0f172a;
+  }}
+  [data-theme="light"] .footer-sig-block {{
+    background: #ffffff;
+  }}
+  [data-theme="light"] .theme-toggle-btn {{
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }}
+  [data-theme="light"] .theme-toggle-btn:hover {{
+    border-color: var(--accent);
+    background: #f8fafc;
+  }}
+  [data-theme="light"] .badge-tag {{
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #475569 !important;
+  }}
+  [data-theme="light"] .badge-po {{
+    background: #fef3c7 !important;
+    border-color: #f59e0b !important;
+    color: #b45309 !important;
+  }}
+
+  /* Theme Switcher Button */
+  .theme-toggle-btn {{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #111722;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }}
+  .theme-toggle-btn:hover {{
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }}
+  .theme-icon {{
+    font-size: 14px;
   }}
 
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -476,7 +627,11 @@ cart_page_code = f"""<!DOCTYPE html>
         📱 모바일 전용 발주서로 보기 ↗
       </a>
     </div>
-    <div class="nav-badges">
+    <div class="nav-badges" style="display:flex; align-items:center; gap:10px;">
+      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)">
+        <span class="theme-icon">☀️</span>
+        <span class="theme-label">브라이트 모드</span>
+      </button>
       <span class="badge-tag badge-po">Official Purchase Order</span>
       <span class="badge-tag" style="background:#111722; color:var(--text-secondary); border:1px solid var(--border);">1 AED ≈ 380 KRW</span>
     </div>
@@ -679,7 +834,41 @@ cart_page_code = f"""<!DOCTYPE html>
     }}
   }}
 
+  function initTheme() {{
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {{
+      applyTheme('light');
+    }} else {{
+      applyTheme('dark');
+    }}
+  }}
+
+  function applyTheme(theme) {{
+    const btn = document.getElementById('themeToggleBtn');
+    if (theme === 'light') {{
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (btn) {{
+        btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">다크 모드</span>';
+        btn.setAttribute('title', '다크 모드로 전환하기');
+      }}
+    }} else {{
+      document.documentElement.removeAttribute('data-theme');
+      if (btn) {{
+        btn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-label">브라이트 모드</span>';
+        btn.setAttribute('title', '브라이트 모드로 전환하기');
+      }}
+    }}
+  }}
+
+  function toggleTheme() {{
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const nextTheme = isLight ? 'dark' : 'light';
+    localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
+  }}
+
   function initCart() {{
+    initTheme();
     const today = new Date();
     document.getElementById('printDateStr').textContent = `출력/발주일시: ${{today.getFullYear()}}-${{String(today.getMonth()+1).padStart(2,'0')}}-${{String(today.getDate()).padStart(2,'0')}}`;
 

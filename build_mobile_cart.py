@@ -15,6 +15,16 @@ cart_html_template = f"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>UAE 스페셜티 커피 현지 구매 발주서 (모바일 PO)</title>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<script>
+  (function() {{
+    try {{
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {{
+        document.documentElement.setAttribute('data-theme', 'light');
+      }}
+    }} catch (e) {{}}
+  }})();
+</script>
 <style>
   :root {{
     --bg-main: #0a0e17;
@@ -33,6 +43,129 @@ cart_html_template = f"""<!DOCTYPE html>
     --purple: #bc8cff;
     --danger: #f85149;
     --safe-bottom: env(safe-area-inset-bottom, 16px);
+  }}
+
+  [data-theme="light"] {{
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-inner: #f1f5f9;
+    --border-color: #e2e8f0;
+    --border-light: #cbd5e1;
+    --accent: #b45309;
+    --accent-gold: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --success: #15803d;
+    --blue: #0284c7;
+    --purple: #7e22ce;
+    --danger: #dc2626;
+  }}
+
+  /* Light Theme Specific Enhancements */
+  [data-theme="light"] .m-header {{
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }}
+  [data-theme="light"] .m-desktop-link {{
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #334155;
+  }}
+  [data-theme="light"] .m-doc-banner {{
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-bottom-color: #e2e8f0;
+  }}
+  [data-theme="light"] .m-doc-title {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .m-inst-card {{
+    background: #ffffff;
+    border-color: #e2e8f0;
+    border-left: 4px solid #d97706;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }}
+  [data-theme="light"] .m-inst-head {{
+    color: #b45309;
+  }}
+  [data-theme="light"] .m-inst-item {{
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }}
+  [data-theme="light"] .m-inst-num {{
+    background: #fef3c7;
+    color: #b45309;
+  }}
+  [data-theme="light"] .m-inst-txt {{
+    color: #334155;
+  }}
+  [data-theme="light"] .m-inst-txt strong {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .m-kpi-box {{
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }}
+  [data-theme="light"] .m-po-card {{
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }}
+  [data-theme="light"] .m-po-no {{
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #334155;
+  }}
+  [data-theme="light"] .m-po-name a {{
+    color: #0f172a;
+  }}
+  [data-theme="light"] .m-po-name a:hover {{
+    color: var(--accent);
+  }}
+  [data-theme="light"] .m-po-toggle {{
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    color: #334155;
+  }}
+  [data-theme="light"] .m-po-content {{
+    border-top-color: #e2e8f0;
+    color: #334155;
+  }}
+  [data-theme="light"] .m-act-btn {{
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }}
+  [data-theme="light"] .btn-secondary {{
+    background: #f1f5f9;
+    color: #334155;
+  }}
+  [data-theme="light"] .m-empty-state {{
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #64748b;
+  }}
+  [data-theme="light"] .m-theme-btn {{
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }}
+
+  /* Mobile Theme Switch Button */
+  .m-theme-btn {{
+    background: var(--bg-inner);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }}
 
   * {{ box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }}
@@ -419,7 +552,12 @@ cart_html_template = f"""<!DOCTYPE html>
   <a href="mobile_index.html" class="m-nav-back">
     ← 모바일 큐레이션으로
   </a>
-  <a href="cart.html" class="m-desktop-link">🖥️ 데스크톱 발주서</a>
+  <div style="display:flex; align-items:center; gap:8px;">
+    <button id="themeToggleBtn" class="m-theme-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)">
+      <span class="theme-icon">☀️</span>
+    </button>
+    <a href="cart.html" class="m-desktop-link">🖥️ 데스크톱 발주서</a>
+  </div>
 </header>
 
 <!-- Banner -->
@@ -548,7 +686,41 @@ cart_html_template = f"""<!DOCTYPE html>
     }}
   }}
 
+  function initTheme() {{
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {{
+      applyTheme('light');
+    }} else {{
+      applyTheme('dark');
+    }}
+  }}
+
+  function applyTheme(theme) {{
+    const btn = document.getElementById('themeToggleBtn');
+    if (theme === 'light') {{
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (btn) {{
+        btn.innerHTML = '<span class="theme-icon">🌙</span>';
+        btn.setAttribute('title', '다크 모드로 전환');
+      }}
+    }} else {{
+      document.documentElement.removeAttribute('data-theme');
+      if (btn) {{
+        btn.innerHTML = '<span class="theme-icon">☀️</span>';
+        btn.setAttribute('title', '브라이트 모드로 전환');
+      }}
+    }}
+  }}
+
+  function toggleTheme() {{
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const nextTheme = isLight ? 'dark' : 'light';
+    localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
+  }}
+
   function initPo() {{
+    initTheme();
     const today = new Date();
     document.getElementById('mDocMetaDate').innerHTML = `발주 일자: ${{today.getFullYear()}}-${{String(today.getMonth()+1).padStart(2,'0')}}-${{String(today.getDate()).padStart(2,'0')}}<br>대상: Archers Coffee &amp; The Espresso Lab`;
 

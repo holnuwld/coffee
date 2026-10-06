@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAE 에스프레소 커피랩 (The Espresso Lab) - 전수 원두 검증 및 구매 가이드</title>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
 <style>
   :root {
     --bg-main: #0b0f17;
@@ -29,6 +39,187 @@
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
+  }
+
+  [data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --bg-input: #f1f5f9;
+    --border-color: #e2e8f0;
+    --border-light: #cbd5e1;
+    --accent: #b45309;
+    --accent-gold: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --success: #15803d;
+    --success-bg: rgba(21, 128, 61, 0.1);
+    --blue: #0284c7;
+    --blue-bg: rgba(2, 132, 199, 0.1);
+    --purple: #7e22ce;
+    --purple-bg: rgba(126, 34, 206, 0.1);
+    --danger: #dc2626;
+  }
+
+  /* Light Theme Specific Enhancements */
+  [data-theme="light"] .top-nav {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .hero-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .hero-title {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  [data-theme="light"] .stat-item {
+    background: #ffffff;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .roast-card {
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  [data-theme="light"] .roast-content p {
+    color: #475569;
+  }
+  [data-theme="light"] .rec-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .rec-pkg-img {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .rec-title-link {
+    color: #0f172a;
+  }
+  [data-theme="light"] .rec-title-link:hover {
+    color: var(--accent);
+  }
+  [data-theme="light"] .rec-box {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .rec-box-text {
+    color: #334155;
+  }
+  [data-theme="light"] .filter-controls-wrap {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .tab-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+  [data-theme="light"] .tab-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] .tab-btn.active {
+    background: #d97706;
+    color: #ffffff;
+    border-color: #d97706;
+  }
+  [data-theme="light"] .tab-btn.active .tab-count {
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+  }
+  [data-theme="light"] .search-input {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+  [data-theme="light"] .table-responsive {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .data-table th {
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  [data-theme="light"] .data-table td {
+    border-bottom: 1px solid #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] .data-table tr:hover td {
+    background: #f8fafc;
+  }
+  [data-theme="light"] .pkg-img-wrap {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .coffee-link {
+    color: #0f172a;
+  }
+  [data-theme="light"] .coffee-link:hover {
+    color: var(--accent);
+  }
+  [data-theme="light"] .notes-cell {
+    color: #92400e;
+  }
+  [data-theme="light"] .merit-cell {
+    color: #475569;
+  }
+  [data-theme="light"] .badge-country {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+  }
+  [data-theme="light"] .modal-content {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] .modal-img {
+    background: #f8fafc;
+  }
+  [data-theme="light"] .modal-title {
+    color: #0f172a;
+  }
+  [data-theme="light"] .theme-toggle-btn {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  [data-theme="light"] .theme-toggle-btn:hover {
+    border-color: var(--accent);
+    background: #f8fafc;
+  }
+
+  .theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-toggle-btn:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .theme-icon {
+    font-size: 14px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -699,6 +890,10 @@
       <span class="brand-title">The Espresso Lab (UAE)</span>
     </a>
     <div class="nav-links">
+      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)">
+        <span class="theme-icon">☀️</span>
+        <span class="theme-label">브라이트 모드</span>
+      </button>
       <a href="theespressolab_mobile.html" class="nav-btn">📱 모바일 뷰</a>
       <a href="archers_coffee_clean_verified.html" class="nav-btn">☕ 아처스 커피 대시보드</a>
       <a href="index.html" class="nav-btn primary">🏠 허브 메인</a>
@@ -4228,6 +4423,42 @@
 
       rows.forEach(r => tbody.appendChild(r));
     }
+
+    // Theme Switcher Logic
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+    }
+
+    function applyTheme(theme) {
+      const btn = document.getElementById('themeToggleBtn');
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (btn) {
+          btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">다크 모드</span>';
+          btn.setAttribute('title', '다크 모드로 전환하기');
+        }
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        if (btn) {
+          btn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-label">브라이트 모드</span>';
+          btn.setAttribute('title', '브라이트 모드로 전환하기');
+        }
+      }
+    }
+
+    function toggleTheme() {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const nextTheme = isLight ? 'dark' : 'light';
+      localStorage.setItem('theme', nextTheme);
+      applyTheme(nextTheme);
+    }
+
+    window.addEventListener('DOMContentLoaded', initTheme);
   </script>
 </body>
 </html>

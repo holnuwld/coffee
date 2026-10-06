@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAE 아처스 커피 (Archers Coffee) 공식 전수 검증 리포트 & 현지 구매 가이드</title>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
 <style>
   :root {
     --bg: #0d1117;
@@ -23,6 +33,206 @@
     --purple: #bc8cff;
     --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
+  }
+
+  [data-theme="light"] {
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --card-hover: #f1f5f9;
+    --border: #e2e8f0;
+    --accent: #b45309;
+    --accent-light: #d97706;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --tag-bg: #f1f5f9;
+    --success: #15803d;
+    --success-light: #16a34a;
+    --blue: #0284c7;
+    --purple: #7e22ce;
+  }
+
+  /* Light Theme Specific Enhancements */
+  [data-theme="light"] header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] h1 {
+    color: #0f172a;
+  }
+  [data-theme="light"] .header-desc {
+    color: #475569;
+  }
+  [data-theme="light"] .hl-box {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .hl-item {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .hl-item-name {
+    color: #0f172a;
+  }
+  [data-theme="light"] .rec-col-box {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .rec-col-header {
+    color: #0f172a;
+    border-bottom-color: #e2e8f0;
+  }
+  [data-theme="light"] .rec-card {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .rec-card:hover {
+    background: #ffffff;
+    border-color: var(--accent);
+  }
+  [data-theme="light"] .rec-specs-grid {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+  [data-theme="light"] .rec-specs-grid span {
+    color: #0f172a;
+  }
+  [data-theme="light"] .rec-notes {
+    background: #fffbeb;
+    color: #92400e;
+    border-left-color: #d97706;
+  }
+  [data-theme="light"] .rec-detail-block {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #334155;
+  }
+  [data-theme="light"] .rec-detail-block strong {
+    color: #0f172a;
+  }
+  [data-theme="light"] .controls-bar {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .tab-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+  [data-theme="light"] .tab-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] .tab-btn.active {
+    background: #d97706;
+    color: #ffffff;
+    border-color: #d97706;
+  }
+  [data-theme="light"] .search-box {
+    background: #ffffff;
+    border-color: #cbd5e1;
+  }
+  [data-theme="light"] .search-box input {
+    color: #0f172a;
+  }
+  [data-theme="light"] .table-container {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] th {
+    background: #f1f5f9;
+    color: #334155;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  [data-theme="light"] th:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] td {
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+  }
+  [data-theme="light"] tr:hover td {
+    background: #f8fafc;
+  }
+  [data-theme="light"] .cell-title {
+    color: #0f172a;
+  }
+  [data-theme="light"] .cell-notes {
+    color: #92400e;
+  }
+  [data-theme="light"] .cell-price {
+    color: #0f172a;
+  }
+  [data-theme="light"] .cell-merit {
+    color: #0f172a;
+  }
+  [data-theme="light"] .spec-tag {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+  }
+  [data-theme="light"] .pkg-img-wrap {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .rec-card-pkg-img,
+  [data-theme="light"] .hl-item-pkg-img {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .lightbox-content {
+    background: #ffffff;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .lightbox-content img {
+    background: #f8fafc;
+  }
+  [data-theme="light"] .lightbox-caption {
+    color: #0f172a;
+  }
+  [data-theme="light"] .lightbox-close {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+  }
+  [data-theme="light"] .theme-toggle-btn {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  [data-theme="light"] .theme-toggle-btn:hover {
+    border-color: var(--accent);
+    background: #f8fafc;
+  }
+
+  .theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .theme-toggle-btn:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .theme-icon {
+    font-size: 14px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -582,6 +792,21 @@
 <body>
 
 <div class="container">
+  <!-- Top Navigation Bar -->
+  <div class="top-nav-bar" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border); flex-wrap:wrap; gap:12px;">
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+      <a href="index.html" class="nav-btn" style="color:var(--text-secondary); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:var(--tag-bg); border:1px solid var(--border); border-radius:6px;">← 허브 인덱스로 돌아가기</a>
+      <a href="mobile.html" class="nav-btn" style="color:var(--accent-light); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:rgba(210,153,34,0.15); border:1px solid var(--accent); border-radius:6px;">📱 모바일 최적화 버전 ↗</a>
+      <a href="theespressolab_verified.html" class="nav-btn" style="color:var(--blue); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:var(--tag-bg); border:1px solid var(--border); border-radius:6px;">☕ The Espresso Lab 대시보드</a>
+    </div>
+    <div>
+      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)">
+        <span class="theme-icon">☀️</span>
+        <span class="theme-label">브라이트 모드</span>
+      </button>
+    </div>
+  </div>
+
   <header>
     <div class="title-sub">Verified Specialty Coffee Intelligence & Buying Guide</div>
     <h1>UAE 아처스 커피 (Archers Coffee) 공식 전수 검증 리포트</h1>
@@ -5965,6 +6190,42 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeLightbox();
   });
+
+  // Archers Desktop Theme Logic
+  function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      applyTheme('light');
+    } else {
+      applyTheme('dark');
+    }
+  }
+
+  function applyTheme(theme) {
+    const btn = document.getElementById('themeToggleBtn');
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (btn) {
+        btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">다크 모드</span>';
+        btn.setAttribute('title', '다크 모드로 전환하기');
+      }
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (btn) {
+        btn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-label">브라이트 모드</span>';
+        btn.setAttribute('title', '브라이트 모드로 전환하기');
+      }
+    }
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const nextTheme = isLight ? 'dark' : 'light';
+    localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
+  }
+
+  window.addEventListener('DOMContentLoaded', initTheme);
 </script>
 
 </body>

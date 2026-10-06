@@ -20,6 +20,15 @@ with open('archers_coffee_clean_verified.html', 'r', encoding='utf-8') as f:
 with open('top_20_curation.json', 'r', encoding='utf-8') as f:
     top_20 = json.load(f)
 
+with open('theespressolab_verified.html', 'r', encoding='utf-8') as f:
+    tel_dt = f.read()
+
+with open('theespressolab_mobile.html', 'r', encoding='utf-8') as f:
+    tel_mb = f.read()
+
+with open('mobile.html', 'r', encoding='utf-8') as f:
+    arc_mb = f.read()
+
 checks = [
     # Desktop index.html & cart.html
     ("index.html contains cart-action-toolbar", "cart-action-toolbar" in idx),
@@ -74,15 +83,21 @@ checks = [
     # Archers package photos & Lightbox modal
     ("Archers desktop dashboard contains package photos (.td-pkg)", "td-pkg" in archers and "pkg-thumb" in archers),
     ("Archers desktop dashboard contains Lightbox modal (openLightbox)", "openLightbox" in archers and "imgLightbox" in archers),
-    ("Archers mobile view contains package photos (m-pkg-thumb)", "m-pkg-thumb" in open('mobile.html', 'r', encoding='utf-8').read()),
-    ("Archers mobile view contains Lightbox modal (mLightbox)", "mLightbox" in open('mobile.html', 'r', encoding='utf-8').read()),
+    ("Archers mobile view contains package photos (m-pkg-thumb)", "m-pkg-thumb" in arc_mb),
+    ("Archers mobile view contains Lightbox modal (mLightbox)", "mLightbox" in arc_mb),
 
-    # Dual Theme (Bright / Dark Mode) Support
-    ("index.html contains data-theme='light' CSS styles", "[data-theme=\"light\"]" in idx),
-    ("index.html contains themeToggleBtn and toggleTheme()", "themeToggleBtn" in idx and "toggleTheme()" in idx),
-    ("index.html contains FOUC prevention theme script in head", "localStorage.getItem('theme')" in idx),
-    ("mobile_index.html contains data-theme='light' CSS styles", "[data-theme=\"light\"]" in m_idx),
-    ("mobile_index.html contains themeToggleBtn and toggleTheme()", "themeToggleBtn" in m_idx and "toggleTheme()" in m_idx),
+    # Dual Theme (Bright / Dark Mode) Across All 8 Pages
+    ("index.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in idx and "themeToggleBtn" in idx and "toggleTheme()" in idx),
+    ("mobile_index.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in m_idx and "themeToggleBtn" in m_idx and "toggleTheme()" in m_idx),
+    ("cart.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in cart and "themeToggleBtn" in cart and "toggleTheme()" in cart),
+    ("mobile_cart.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in m_cart and "themeToggleBtn" in m_cart and "toggleTheme()" in m_cart),
+    ("theespressolab_verified.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in tel_dt and "themeToggleBtn" in tel_dt and "toggleTheme()" in tel_dt),
+    ("theespressolab_mobile.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in tel_mb and "themeToggleBtn" in tel_mb and "toggleTheme()" in tel_mb),
+    ("archers_coffee_clean_verified.html: [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in archers and "themeToggleBtn" in archers and "toggleTheme()" in archers),
+    ("mobile.html (Archers Mobile): [data-theme='light'] CSS + themeToggleBtn + toggleTheme()", '[data-theme="light"]' in arc_mb and "themeToggleBtn" in arc_mb and "toggleTheme()" in arc_mb),
+
+    # FOUC prevention instant script in head on all pages
+    ("All 8 pages have FOUC prevention theme script in head", all("localStorage.getItem('theme')" in p for p in [idx, m_idx, cart, m_cart, tel_dt, tel_mb, archers, arc_mb])),
 
     # Dataset integrity
     ("Top 20 curation JSON has exactly 20 items", len(top_20) == 20),
