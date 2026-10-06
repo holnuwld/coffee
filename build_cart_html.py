@@ -127,40 +127,68 @@ cart_page_code = f"""<!DOCTYPE html>
 
   /* Purchasing Instructions Callout */
   .instructions-card {{
-    background: rgba(19, 26, 38, 0.7);
-    border-left: 4px solid var(--accent-gold);
-    border-top: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 24px;
+    background: linear-gradient(180deg, rgba(26, 36, 52, 0.7) 0%, rgba(19, 26, 38, 0.9) 100%);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--accent-gold);
+    border-radius: 14px;
+    padding: 20px 24px;
     margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   }}
   .inst-title {{
-    font-size: 14.5px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
     color: var(--accent-gold);
-    margin-bottom: 8px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
   }}
-  .inst-list {{
-    list-style: none;
+  .inst-grid {{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 8px 20px;
-    font-size: 13px;
-    color: #c9d1d9;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 16px;
   }}
-  .inst-list li {{
+  @media (max-width: 680px) {{
+    .inst-grid {{ grid-template-columns: 1fr; }}
+  }}
+  .inst-item {{
+    background: rgba(10, 14, 23, 0.65);
+    border: 1px solid rgba(46, 62, 87, 0.6);
+    border-radius: 8px;
+    padding: 10px 14px;
     display: flex;
     align-items: flex-start;
-    gap: 6px;
+    gap: 12px;
   }}
-  .inst-list li span {{
+  .inst-num {{
+    background: rgba(240, 180, 41, 0.18);
+    border: 1px solid rgba(240, 180, 41, 0.4);
     color: var(--accent-gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 11.5px;
+    min-width: 26px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }}
+  .inst-content {{
+    flex: 1;
+    font-size: 13px;
+    color: #c9d1d9;
+    line-height: 1.55;
+    word-break: keep-all;
+  }}
+  .inst-content strong {{
+    color: #fff;
     font-weight: 700;
+    display: inline-block;
+    margin-right: 4px;
   }}
 
   /* Summary KPI Cards Grid */
@@ -440,9 +468,14 @@ cart_page_code = f"""<!DOCTYPE html>
 
   <!-- Navigation -->
   <div class="top-nav">
-    <a href="index.html" class="nav-back-link">
-      ← 통합 허브 대시보드로 돌아가기
-    </a>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <a href="index.html" class="nav-back-link">
+        ← 통합 허브 대시보드로 돌아가기
+      </a>
+      <a href="mobile_cart.html" class="nav-back-link" style="color:var(--accent-gold); background:var(--accent-glow); padding:4px 12px; border-radius:6px; border:1px solid rgba(240,180,41,0.4); text-decoration:none;">
+        📱 모바일 전용 발주서로 보기 ↗
+      </a>
+    </div>
     <div class="nav-badges">
       <span class="badge-tag badge-po">Official Purchase Order</span>
       <span class="badge-tag" style="background:#111722; color:var(--text-secondary); border:1px solid var(--border);">1 AED ≈ 380 KRW</span>
@@ -467,14 +500,44 @@ cart_page_code = f"""<!DOCTYPE html>
   <!-- Purchasing Instructions for Manager -->
   <div class="instructions-card">
     <div class="inst-title">📌 현지 구매 담당자 필독 가이드 (Purchaser Checklist)</div>
-    <ul class="inst-list">
-      <li><span>1.</span> <strong>패키지 용량 필수 확인:</strong> 전 품목 <strong>100g 소포장 패키지</strong> 기준입니다.</li>
-      <li><span>2.</span> <strong>배전도(Roast) 확인:</strong> 에스프레소용이 아닌 <strong>필터/브루잉용(Filter / Light Roast)</strong>인지 확인하세요.</li>
-      <li><span>3.</span> <strong>원두 링크 확인:</strong> 원두명을 클릭하면 로스터리 공식 웹스토어 상품 페이지로 연결됩니다.</li>
-      <li><span>4.</span> <strong>신선도 확인:</strong> 매장 진열 품목 중 <strong>로스팅 일자(Roast Date)가 최근 2~3주 이내</strong>인 원두를 우선 수령하세요.</li>
-      <li><span>5.</span> <strong>영수증 보관:</strong> 두바이 공항 출국 시 부가세(VAT) 환급을 위해 Tax Invoice 영수증을 챙기세요.</li>
-      <li><span>6.</span> <strong>품절 시 대안:</strong> 해당 나노랏이 현장 품절인 경우, 목록 내 다른 동일 로스터리 원두를 수량 대체하세요.</li>
-    </ul>
+    <div class="inst-grid">
+      <div class="inst-item">
+        <span class="inst-num">01</span>
+        <div class="inst-content">
+          <strong>패키지 용량 필수 확인:</strong> 전 품목 <strong>100g 소포장 패키지</strong> 기준입니다. 250g과 혼동하지 마세요.
+        </div>
+      </div>
+      <div class="inst-item">
+        <span class="inst-num">02</span>
+        <div class="inst-content">
+          <strong>배전도(Roast) 확인:</strong> 에스프레소용이 아닌 <strong>드립/필터용(Filter / Light Roast)</strong>인지 확인하세요.
+        </div>
+      </div>
+      <div class="inst-item">
+        <span class="inst-num">03</span>
+        <div class="inst-content">
+          <strong>원두 링크 확인:</strong> 원두명을 누르면 각 로스터리 공식 웹스토어 상품 페이지로 즉시 연결됩니다.
+        </div>
+      </div>
+      <div class="inst-item">
+        <span class="inst-num">04</span>
+        <div class="inst-content">
+          <strong>신선도 확인:</strong> 매장 진열 품목 중 <strong>로스팅 일자(Roast Date)가 최근 2~3주 이내</strong>인 원두를 우선 수령하세요.
+        </div>
+      </div>
+      <div class="inst-item">
+        <span class="inst-num">05</span>
+        <div class="inst-content">
+          <strong>영수증 보관:</strong> 두바이 공항 출국 시 부가세(VAT) 환급을 위해 Tax Invoice 영수증을 반드시 챙기세요.
+        </div>
+      </div>
+      <div class="inst-item">
+        <span class="inst-num">06</span>
+        <div class="inst-content">
+          <strong>품절 시 대안:</strong> 해당 나노랏이 현장 품절인 경우, 목록 내 동일 로스터리의 다른 추천 원두로 수량 대체하세요.
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Summary KPI Cards -->

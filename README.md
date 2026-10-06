@@ -2,15 +2,17 @@
 
 UAE(두바이/샤르자) 현지 스페셜티 커피 양대 명문인 **아처스 커피(Archers Coffee)**와 **에스프레소 커피랩(The Espresso Lab)**의 **전수 171종 원두 데이터 수집, 기계 검증(Machine Quote Verification), 7대 기준 유사도 프로파일 분석, 100g 단위 통합 랭킹 TOP 20 & 최종 엄선 10선 큐레이션, 그리고 현지 구매 담당자용 인터랙티브 장바구니/발주서 시스템(PO Sheet)** 프로젝트입니다.
 
-> 🌐 **통합 허브 포털**: [`index.html`](index.html) (통합 100g 원두 TOP 20 랭킹, 실시간 장바구니 체크박스 & 견적 계산기, 7대 유사도 프로파일, 심층 분석 모달, 공식 웹스토어 링크)  
-> 🛒 **현지 구매 발주서**: [`cart.html`](cart.html) (구매 담당자 전달용 독립 발주서, 원두 분석표, 100g 현지 가격 & 원화 환산, 공식 쇼핑몰 바로가기, A4 인쇄/PDF, 메신저 텍스트 복사, 공유 URL)
+> 🌐 **통합 허브 포털 (데스크톱)**: [`index.html`](index.html) (통합 100g 원두 TOP 20 랭킹, 실시간 장바구니 체크박스 & 견적 계산기, 7대 유사도 프로파일, 심층 분석 모달, 공식 웹스토어 링크)  
+> 📱 **통합 허브 포털 (모바일 전용)**: [`mobile_index.html`](mobile_index.html) (좌우 스크롤 0px, 순위·로스터리·커피명·가격·총점 카드 뷰 & 원터치 아코디언 드로우다운 상세 스펙)  
+> 🛒 **현지 구매 발주서 (데스크톱 PO)**: [`cart.html`](cart.html) (구매 담당자 전달용 독립 발주서, 원두 분석표, 100g 현지 가격 & 원화 환산, 공식 쇼핑몰 바로가기, A4 인쇄/PDF, 메신저 텍스트 복사, 공유 URL)  
+> 📱 **현지 구매 발주서 (모바일 PO)**: [`mobile_cart.html`](mobile_cart.html) (현지 매장 방문 구매용 모바일 최적화 발주서, 아코디언 스펙, 실시간 견적, 텍스트 복사)
 > 
 > ### 1. The Espresso Lab (에스프레소 커피랩 - 54종 전수 + 실물 패키지 사진)
 > * 🖥️ **데스크톱 대시보드**: [`theespressolab_verified.html`](theespressolab_verified.html) (패키지 사진 썸네일, 18개 컬럼 양방향 정렬, 6대 추천 원두)
 > * 📱 **모바일 퀵 가이드**: [`theespressolab_mobile.html`](theespressolab_mobile.html) (패키지 실물 카드, 원터치 필터, 터치 최적화 아코디언)
 > 
 > ### 2. Archers Coffee (아처스 커피 - 117종 전수 3대 컬렉션)
-> * 🖥️ **데스크톱 대시보드**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html) (18개 전수 지표 양방향 정렬 테이블)
+> * 🖥️ **데스크톱 대시보드**: [`archers_coffee_clean_verified.html`](archers_coffee_clean_verified.html) (18개 전수 지표 양방향 정렬 테이블, 전문가 추천 Best 3 복원 완료)
 > * 📱 **모바일 퀵 가이드**: [`mobile.html`](mobile.html) (터치 최적화 카드 뷰, 아코디언 상세 스펙, 원터치 칩 필터)
 
 ---
