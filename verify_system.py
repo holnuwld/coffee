@@ -71,6 +71,19 @@ checks = [
     ("Archers dashboard contains Expert Rank 1 (Los Cenizos GW 208)", "1위 | Competition Series 2025" in archers and "Los Cenizos" in archers),
     ("Archers dashboard has complete Best 3 (1위, 2위, 3위)", all(f"{r}위 |" in archers for r in [1, 2, 3])),
 
+    # Archers package photos & Lightbox modal
+    ("Archers desktop dashboard contains package photos (.td-pkg)", "td-pkg" in archers and "pkg-thumb" in archers),
+    ("Archers desktop dashboard contains Lightbox modal (openLightbox)", "openLightbox" in archers and "imgLightbox" in archers),
+    ("Archers mobile view contains package photos (m-pkg-thumb)", "m-pkg-thumb" in open('mobile.html', 'r', encoding='utf-8').read()),
+    ("Archers mobile view contains Lightbox modal (mLightbox)", "mLightbox" in open('mobile.html', 'r', encoding='utf-8').read()),
+
+    # Dual Theme (Bright / Dark Mode) Support
+    ("index.html contains data-theme='light' CSS styles", "[data-theme=\"light\"]" in idx),
+    ("index.html contains themeToggleBtn and toggleTheme()", "themeToggleBtn" in idx and "toggleTheme()" in idx),
+    ("index.html contains FOUC prevention theme script in head", "localStorage.getItem('theme')" in idx),
+    ("mobile_index.html contains data-theme='light' CSS styles", "[data-theme=\"light\"]" in m_idx),
+    ("mobile_index.html contains themeToggleBtn and toggleTheme()", "themeToggleBtn" in m_idx and "toggleTheme()" in m_idx),
+
     # Dataset integrity
     ("Top 20 curation JSON has exactly 20 items", len(top_20) == 20),
     ("Top 20 has exactly 10 active picks", sum(1 for c in top_20 if c.get("is_active")) == 10),

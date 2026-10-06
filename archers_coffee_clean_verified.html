@@ -458,6 +458,125 @@
     border-top: 1px solid var(--border);
     margin-top: 40px;
   }
+
+  /* Package Image Styling */
+  .td-pkg { width: 85px; min-width: 85px; padding: 6px 8px !important; text-align: center; }
+  .pkg-img-wrap {
+    width: 68px;
+    height: 86px;
+    margin: 0 auto;
+    background: #090d13;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .pkg-img-wrap:hover {
+    transform: scale(1.06);
+    border-color: var(--accent);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+  }
+  .pkg-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px;
+  }
+  .zoom-icon {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 1px 3px;
+    border-radius: 3px;
+    pointer-events: none;
+  }
+
+  /* Recommendation Card Package Images */
+  .rec-card-pkg-img {
+    width: 90px;
+    height: 110px;
+    object-fit: contain;
+    background: #090d13;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .rec-card-pkg-img:hover {
+    transform: scale(1.05);
+    border-color: var(--accent);
+  }
+  .hl-item-pkg-img {
+    width: 54px;
+    height: 68px;
+    object-fit: contain;
+    background: #090d13;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* Lightbox Modal */
+  .lightbox-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox-backdrop.active { display: flex; }
+  .lightbox-content {
+    background: #111722;
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #090d13;
+  }
+  .lightbox-caption {
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
 </style>
 </head>
 <body>
@@ -491,7 +610,8 @@
       </div>
       <div class="hl-list">
 
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113" alt="panama-finca-auromar-malla-geisha-washed-peaberry" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113', 'panama-finca-auromar-malla-geisha-washed-peaberry')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">1위 | Competition Series 2025</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry" target="_blank" style="color:inherit; text-decoration:none;">Panama - Finca Auromar Geisha Washed Peaberry ↗</a></div>
@@ -504,7 +624,8 @@
           </div>
         </div>
     
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Washed89.png?v=1759301791" alt="ethiopia-hamasho-village-washed-archers-lot-2025" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Washed89.png?v=1759301791', 'ethiopia-hamasho-village-washed-archers-lot-2025')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">2위 | Microlot Reserve 2025</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025" target="_blank" style="color:inherit; text-decoration:none;">Ethiopia - Hamasho Village Washed Archers Lot 2025 ↗</a></div>
@@ -517,7 +638,8 @@
           </div>
         </div>
     
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaPlano2801.png?v=1694595649" alt="panama-elida-estate-geisha-plano-2801" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaPlano2801.png?v=1694595649', 'panama-elida-estate-geisha-plano-2801')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">3위 | Competition Series 2025</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801" target="_blank" style="color:inherit; text-decoration:none;">Panama - Elida Geisha Washed Plano 2801 ↗</a></div>
@@ -540,7 +662,8 @@
       </div>
       <div class="hl-list">
 
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizos-GeishaWashedGW208Belt-01.png?v=1761649606" alt="panama-finca-los-cenizos-geisha-washed-gw208" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizos-GeishaWashedGW208Belt-01.png?v=1761649606', 'panama-finca-los-cenizos-geisha-washed-gw208')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">1위 | Competition Series 2025</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208" target="_blank" style="color:inherit; text-decoration:none;">Panama - Finca Los Cenizos - Geisha Washed GW 208 ↗</a></div>
@@ -553,7 +676,8 @@
           </div>
         </div>
 
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Del_Putushio_Black_Bag.png?v=1740475857" alt="finca-del-putushio-typica-mejorado-rt" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Del_Putushio_Black_Bag.png?v=1740475857', 'finca-del-putushio-typica-mejorado-rt')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">2위 | Microlot Reserve 2025</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt" target="_blank" style="color:inherit; text-decoration:none;">Ecuador - Finca Del Putushio Typica Mejorado RT ↗</a></div>
@@ -566,7 +690,8 @@
           </div>
         </div>
     
-        <div class="hl-item">
+        <div class="hl-item" style="display:flex; align-items:center; gap:14px;">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaWashedBlackBag.png?v=1765628644" alt="ethiopia-elto-coffee-sama-washed" class="hl-item-pkg-img" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaWashedBlackBag.png?v=1765628644', 'ethiopia-elto-coffee-sama-washed')" onerror="this.src='https://via.placeholder.com/54x68?text=Archers'">
           <div class="hl-item-left">
             <div class="hl-item-rank">3위 | Microlot Selection 2026</div>
             <div class="hl-item-name"><a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed" target="_blank" style="color:inherit; text-decoration:none;">Ethiopia - Elto Coffee Sama Washed ↗</a></div>
@@ -1022,23 +1147,24 @@
       <thead>
         <tr>
           <th onclick="sortTable(0, 'number')">번호 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(1, 'string')">컬렉션 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(2, 'string')">커피 이름 (클릭 시 공식몰) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(3, 'string')">원산지 국가 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(4, 'string')">지역 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(5, 'string')">농장 / 스테이션 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(6, 'string')">농부 / 프로듀서 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(7, 'string')">품종 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(8, 'string')">프로세스 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(9, 'string')">고도 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(10, 'string')">배전도 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(11, 'string')">컵노트 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(12, 'string')">중량 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(13, 'number')">가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(14, 'number')">100g당 가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(15, 'string')">국내 동일 프로듀서 유사 원두 유통처 <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(16, 'string')">국내 판매 가격 (유사 랏 시세) <span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(17, 'string')">현지 구매 메리트 분석 <span class="sort-icon">▲▼</span></th>
+          <th style="width:85px; text-align:center;">패키지 사진</th>
+          <th onclick="sortTable(2, 'string')">컬렉션 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(3, 'string')">커피 이름 (클릭 시 공식몰) <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(4, 'string')">원산지 국가 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(5, 'string')">지역 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(6, 'string')">농장 / 스테이션 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(7, 'string')">농부 / 프로듀서 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(8, 'string')">품종 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(9, 'string')">프로세스 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(10, 'string')">고도 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(11, 'string')">배전도 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(12, 'string')">컵노트 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(13, 'string')">중량 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(14, 'number')">가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(15, 'number')">100g당 가격 (AED / 원화) <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(16, 'string')">국내 동일 프로듀서 유사 원두 유통처 <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(17, 'string')">국내 판매 가격 (유사 랏 시세) <span class="sort-icon">▲▼</span></th>
+          <th onclick="sortTable(18, 'string')">현지 구매 메리트 분석 <span class="sort-icon">▲▼</span></th>
           <th>해외 커뮤니티 실사용자 후기 <span style="font-size:10px; color:#6e7681;">(Reddit)</span></th>
           <th>검증 상태</th>
         </tr>
@@ -1047,6 +1173,12 @@
 
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="1">1</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CGLE_Cerro_Azul_Hybrid_Washed_Box_1.png?v=1778330399', 'colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CGLE_Cerro_Azul_Hybrid_Washed_Box_1.png?v=1778330399" alt="colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed" target="_blank">Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed ↗</a>
@@ -1081,6 +1213,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="2">2</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Caturra-Chiroso-Finca-El-Paraiso.png?v=1684499802', 'colombia-caturra-chiroso-finca-el-paraiso')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Caturra-Chiroso-Finca-El-Paraiso.png?v=1684499802" alt="colombia-caturra-chiroso-finca-el-paraiso" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso" target="_blank">Colombia - Caturra Chiroso, Finca El Paraiso ↗</a>
@@ -1115,6 +1253,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="3">3</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElPorvenir-GeishaHoneyDRDBox.png?v=1782380172', 'colombia-finca-el-porvenir-geisha-honey-drd')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElPorvenir-GeishaHoneyDRDBox.png?v=1782380172" alt="colombia-finca-el-porvenir-geisha-honey-drd" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd" target="_blank">Colombia - Finca El Porvenir Geisha Honey DRD ↗</a>
@@ -1149,6 +1293,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="4">4</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/El_Porvenir_-_Geisha_Washed_Box.png?v=1782380588', 'colombia-finca-el-porvenir-geisha-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/El_Porvenir_-_Geisha_Washed_Box.png?v=1782380588" alt="colombia-finca-el-porvenir-geisha-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed" target="_blank">Colombia - Finca El Porvenir Geisha Washed ↗</a>
@@ -1183,6 +1333,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="5">5</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/InmaculadaT895Box-01_b7327496-46c3-425d-ac0d-e66fc4328a9a.png?v=1755332722', 'colombia-inmaculada-coffee-sudan-rume-signature-lot-t895')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/InmaculadaT895Box-01_b7327496-46c3-425d-ac0d-e66fc4328a9a.png?v=1755332722" alt="colombia-inmaculada-coffee-sudan-rume-signature-lot-t895" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895" target="_blank">Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895 ↗</a>
@@ -1217,6 +1373,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="6">6</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Las_Margaritas_hybrid_washed_box-01_1.png?v=1763555318', 'colombia-las-margaritas-geisha-hybrid-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Las_Margaritas_hybrid_washed_box-01_1.png?v=1763555318" alt="colombia-las-margaritas-geisha-hybrid-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed" target="_blank">Colombia - Las Margaritas, Geisha Hybrid Washed ↗</a>
@@ -1251,6 +1413,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="7">7</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Colombia-Finca-El-Paraiso-Letty.png?v=1719815345', 'colombia-letty-finca-el-paraiso')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Colombia-Finca-El-Paraiso-Letty.png?v=1719815345" alt="colombia-letty-finca-el-paraiso" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-letty-finca-el-paraiso" target="_blank">Colombia - Letty, Finca El Paraiso ↗</a>
@@ -1285,6 +1453,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="8">8</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Colombia-Finca-El-Paraiso-Luna.png?v=1719815554', 'colombia-luna-finca-el-paraiso')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Colombia-Finca-El-Paraiso-Luna.png?v=1719815554" alt="colombia-luna-finca-el-paraiso" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-luna-finca-el-paraiso" target="_blank">Colombia - Luna, Finca El Paraiso ↗</a>
@@ -1319,6 +1493,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="9">9</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DonKSGeishaLot131BlackBox-01.png?v=1749204274', 'costa-rica-hacienda-copey-don-ks-geisha-lot-131')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DonKSGeishaLot131BlackBox-01.png?v=1749204274" alt="costa-rica-hacienda-copey-don-ks-geisha-lot-131" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131" target="_blank">Costa Rica - Hacienda Copey Don KS Geisha lot 131 ↗</a>
@@ -1353,6 +1533,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="10">10</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HaciendaCopey-Honey182Box.png?v=1780126423', 'costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HaciendaCopey-Honey182Box.png?v=1780126423" alt="costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182 ↗</a>
@@ -1387,6 +1573,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="11">11</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ItadakiGeishaLot111BlackBox-01.png?v=1749115265', 'costa-rica-hacienda-copey-itadaki-geisha-lot-111')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ItadakiGeishaLot111BlackBox-01.png?v=1749115265" alt="costa-rica-hacienda-copey-itadaki-geisha-lot-111" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Lot 111 ↗</a>
@@ -1421,6 +1613,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="12">12</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_Copey_-_Washed_177_Box.png?v=1780126777', 'costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_Copey_-_Washed_177_Box.png?v=1780126777" alt="costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177 ↗</a>
@@ -1455,6 +1653,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="13">13</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaSoledadSidraWave200g.png?v=1715673410', 'ecuador-sidra-wave-washed-finca-soledad')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaSoledadSidraWave200g.png?v=1715673410" alt="ecuador-sidra-wave-washed-finca-soledad" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad" target="_blank">Ecuador - Sidra Wave Washed, Finca Soledad ↗</a>
@@ -1489,6 +1693,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="14">14</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TypicaMejorado200g.png?v=1719040185', 'ecuador-typica-mejorado-wave-natural-finca-soledad')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TypicaMejorado200g.png?v=1719040185" alt="ecuador-typica-mejorado-wave-natural-finca-soledad" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad" target="_blank">Ecuador - Typica Mejorado Wave Natural, Finca Soledad ↗</a>
@@ -1523,6 +1733,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="15">15</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloVillage_RF8NaturalColdFermentBox-01.png?v=1771407136', 'ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloVillage_RF8NaturalColdFermentBox-01.png?v=1771407136" alt="ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural" target="_blank">Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural ↗</a>
@@ -1557,6 +1773,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="16">16</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloVillage_WRF8WashedColdFermentBox-01.png?v=1771408208', 'ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloVillage_WRF8WashedColdFermentBox-01.png?v=1771408208" alt="ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed" target="_blank">Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed ↗</a>
@@ -1591,6 +1813,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="17">17</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloChilakastationArchersLot1-SFWBox-01.png?v=1771581646', 'ethiopia-alo-village-archers-lot-1-sfw')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloChilakastationArchersLot1-SFWBox-01.png?v=1771581646" alt="ethiopia-alo-village-archers-lot-1-sfw" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw" target="_blank">Ethiopia - Alo Village Archers Lot 1 - SFW ↗</a>
@@ -1625,6 +1853,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="18">18</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloChilakastationArchersLot2-DFWBox-01.png?v=1771585298', 'ethiopia-alo-village-archers-lot-2-dfw')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloChilakastationArchersLot2-DFWBox-01.png?v=1771585298" alt="ethiopia-alo-village-archers-lot-2-dfw" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw" target="_blank">Ethiopia - Alo Village Archers Lot 2 - DFW ↗</a>
@@ -1659,6 +1893,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="19">19</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/PeaberryNatural-01_c.png?v=1740579022', 'ethiopia-alo-village-natural-peaberry')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/PeaberryNatural-01_c.png?v=1740579022" alt="ethiopia-alo-village-natural-peaberry" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry" target="_blank">Ethiopia - Alo Village, Natural Peaberry ↗</a>
@@ -1693,6 +1933,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="20">20</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloPeaberryWashed-01_c.png?v=1740578867', 'ethiopia-alo-village-washed-peaberry')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AloPeaberryWashed-01_c.png?v=1740578867" alt="ethiopia-alo-village-washed-peaberry" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry" target="_blank">Ethiopia - Alo Village, Washed Peaberry ↗</a>
@@ -1727,6 +1973,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="21">21</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentHoneyBox_eecaf67b-f87f-4196-9568-291bbb595717.png?v=1775208441', 'ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentHoneyBox_eecaf67b-f87f-4196-9568-291bbb595717.png?v=1775208441" alt="ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP ↗</a>
@@ -1761,6 +2013,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="22">22</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentHybridWashedBox.png?v=1775542865', 'ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentHybridWashedBox.png?v=1775542865" alt="ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP ↗</a>
@@ -1795,6 +2053,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="23">23</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentNaturalBox.png?v=1775039093', 'ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/DayeBensaColdFermentNaturalBox.png?v=1775039093" alt="ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP ↗</a>
@@ -1829,6 +2093,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="24">24</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraStation_NaturalColdFermentBox-01.png?v=1765792004', 'ethiopia-elora-station-natural-cold-ferment-archers-ep')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraStation_NaturalColdFermentBox-01.png?v=1765792004" alt="ethiopia-elora-station-natural-cold-ferment-archers-ep" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Natural Cold Ferment Archers EP ↗</a>
@@ -1863,6 +2133,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="25">25</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EthiopiaEltoEloraStationBox-01_aeafa7be-2ccf-4b60-afa1-73567ab3d3a4.png?v=1765790959', 'ethiopia-elora-station-washed-cold-ferment-archers-ep')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EthiopiaEltoEloraStationBox-01_aeafa7be-2ccf-4b60-afa1-73567ab3d3a4.png?v=1765790959" alt="ethiopia-elora-station-washed-cold-ferment-archers-ep" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Washed Cold Ferment Archers EP ↗</a>
@@ -1897,6 +2173,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="26">26</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraColdFermentNaturalCF8-DRDBox.png?v=1788849183', 'ethiopia-elto-elora-station-cold-ferment-natural-cf8')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraColdFermentNaturalCF8-DRDBox.png?v=1788849183" alt="ethiopia-elto-elora-station-cold-ferment-natural-cf8" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8 ↗</a>
@@ -1931,6 +2213,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="27">27</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraMostoFerment-DRDBox_74a67d0a-301d-4ac4-bf13-55584664e13f.png?v=1788850467', 'ethiopia-elto-elora-station-honey-mosto-ferment-drd')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraMostoFerment-DRDBox_74a67d0a-301d-4ac4-bf13-55584664e13f.png?v=1788850467" alt="ethiopia-elto-elora-station-honey-mosto-ferment-drd" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd" target="_blank">Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD ↗</a>
@@ -1965,6 +2253,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="28">28</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowHoneyCF5Box-01.png?v=1765627986', 'ethiopia-elto-elora-station-river-flow-honey-cf5')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowHoneyCF5Box-01.png?v=1765627986" alt="ethiopia-elto-elora-station-river-flow-honey-cf5" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5" target="_blank">Ethiopia - Elto - Elora Station River Flow Honey CF5 ↗</a>
@@ -1999,6 +2293,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="29">29</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowNaturalCF8Box-01.png?v=1765626437', 'ethiopia-elto-elora-station-river-flow-natural-cf8')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowNaturalCF8Box-01.png?v=1765626437" alt="ethiopia-elto-elora-station-river-flow-natural-cf8" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural CF8 ↗</a>
@@ -2033,6 +2333,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="30">30</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraRiverflowNaturalRF10-DRDBox.png?v=1788848052', 'ethiopia-elto-elora-station-river-flow-natural-rf10')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraRiverflowNaturalRF10-DRDBox.png?v=1788848052" alt="ethiopia-elto-elora-station-river-flow-natural-rf10" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural RF10 ↗</a>
@@ -2067,6 +2373,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="31">31</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowWashedCF10Box-01.png?v=1765610040', 'ethiopia-elto-elora-station-river-flow-washed-cf10')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraRiverFlowWashedCF10Box-01.png?v=1765610040" alt="ethiopia-elto-elora-station-river-flow-washed-cf10" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed CF10 ↗</a>
@@ -2101,6 +2413,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="32">32</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraRiverflowWashedWRF8-DRDBox.png?v=1788849528', 'ethiopia-elto-elora-station-river-flow-washed-wrf8')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EloraRiverflowWashedWRF8-DRDBox.png?v=1788849528" alt="ethiopia-elto-elora-station-river-flow-washed-wrf8" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed WRF8 ↗</a>
@@ -2135,6 +2453,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="33">33</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HAMASHO_NAT_AEROOBIC_BOX-01.png?v=1770190932', 'ethiopia-hamasho-village-natural-anaerobic-archers-lot-1')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HAMASHO_NAT_AEROOBIC_BOX-01.png?v=1770190932" alt="ethiopia-hamasho-village-natural-anaerobic-archers-lot-1" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1" target="_blank">Ethiopia - Hamasho Village Natural Anaerobic Archers Lot ↗</a>
@@ -2169,6 +2493,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="34">34</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HambellaDimtuHaro-HighbornNaturalAnaerobicBox.png?v=1787209344', 'ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HambellaDimtuHaro-HighbornNaturalAnaerobicBox.png?v=1787209344" alt="ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic ↗</a>
@@ -2203,6 +2533,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="35">35</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/RumudamoNaturalanaerobicminiBox.png?v=1790362095', 'ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/RumudamoNaturalanaerobicminiBox.png?v=1790362095" alt="ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26" target="_blank">Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26 ↗</a>
@@ -2237,6 +2573,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="36">36</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113', 'panama-finca-auromar-malla-geisha-washed-peaberry')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113" alt="panama-finca-auromar-malla-geisha-washed-peaberry" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry" target="_blank">Panama  - Finca Auromar, Geisha Washed Peaberry ↗</a>
@@ -2271,6 +2613,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="37">37</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresClausGNLot2702Box-01.png?v=1750946983', 'panama-mil-cumbres-claus-gn-lot-2702')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresClausGNLot2702Box-01.png?v=1750946983" alt="panama-mil-cumbres-claus-gn-lot-2702" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702" target="_blank">Panama  - Mil Cumbres CLAUS GN Lot 2702 ↗</a>
@@ -2305,6 +2653,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="38">38</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Abucoffee_Abu2690.png?v=1740577786', 'panama-abu-coffee-geisha-washed-lot-2690')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Abucoffee_Abu2690.png?v=1740577786" alt="panama-abu-coffee-geisha-washed-lot-2690" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690" target="_blank">Panama - Abu Coffee - Geisha Washed lot 2690 ↗</a>
@@ -2339,6 +2693,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="39">39</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Abu3365box-01_91634088-219f-4cfe-99cb-87ffda3b6db7.png?v=1769608736', 'panama-abu-coffee-geisha-washed-lot-3365')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Abu3365box-01_91634088-219f-4cfe-99cb-87ffda3b6db7.png?v=1769608736" alt="panama-abu-coffee-geisha-washed-lot-3365" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365" target="_blank">Panama - Abu Coffee Geisha Washed Lot 3365 ↗</a>
@@ -2373,6 +2733,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="40">40</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AdauraFincaLorayneGWBox-01.png?v=1751969538', 'panama-adaura-coffee-finca-lorayne-geisha-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AdauraFincaLorayneGWBox-01.png?v=1751969538" alt="panama-adaura-coffee-finca-lorayne-geisha-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed" target="_blank">Panama - Adaura Coffee Finca Lorayne Geisha Washed ↗</a>
@@ -2407,6 +2773,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="41">41</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Adaura_Finca_Lorayne_Geisha_Washed_Jer_Box.png?v=1779107869', 'panama-adaura-coffee-geisha-washed-jer-drd')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Adaura_Finca_Lorayne_Geisha_Washed_Jer_Box.png?v=1779107869" alt="panama-adaura-coffee-geisha-washed-jer-drd" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd" target="_blank">Panama - Adaura Coffee Geisha Washed Jer DRD ↗</a>
@@ -2441,6 +2813,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="42">42</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Lorayne_Washed_Ferment_Mosto.png?v=1759844852', 'panama-adaura-coffee-washed-ferment-mosto-2025')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Lorayne_Washed_Ferment_Mosto.png?v=1759844852" alt="panama-adaura-coffee-washed-ferment-mosto-2025" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025" target="_blank">Panama - Adaura Coffee, Washed Ferment Mosto ↗</a>
@@ -2475,6 +2853,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="43">43</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-RFF7-CHOMBI-080425Box-01.png?v=1768140650', 'panama-altieri-coffee-chombi-080425-river-flow-7')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-RFF7-CHOMBI-080425Box-01.png?v=1768140650" alt="panama-altieri-coffee-chombi-080425-river-flow-7" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7" target="_blank">Panama - Altieri Coffee Chombi 080425 River Flow 7 ↗</a>
@@ -2509,6 +2893,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="44">44</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ChevasVenusBox.png?v=1777045988', 'panama-chevas-limited-el-choclo-gw-venus')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ChevasVenusBox.png?v=1777045988" alt="panama-chevas-limited-el-choclo-gw-venus" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus" target="_blank">Panama - Chevas Limited  El Choclo GW Venus ↗</a>
@@ -2543,6 +2933,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="45">45</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CuatroCaminosH2GNBox-01.png?v=1759574664', 'panama-cuatro-caminos-h2-geisha-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CuatroCaminosH2GNBox-01.png?v=1759574664" alt="panama-cuatro-caminos-h2-geisha-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural" target="_blank">Panama - Cuatro Caminos H2 Geisha Natural ↗</a>
@@ -2577,6 +2973,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="46">46</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaLoma2501.png?v=1694785451', 'panama-elida-estate-geisha-loma-2501')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaLoma2501.png?v=1694785451" alt="panama-elida-estate-geisha-loma-2501" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501" target="_blank">Panama - Elida Geisha Honey Loma 2501 ↗</a>
@@ -2611,6 +3013,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="47">47</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaPlano2801.png?v=1694595649', 'panama-elida-estate-geisha-plano-2801')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElidaGeishaPlano2801.png?v=1694595649" alt="panama-elida-estate-geisha-plano-2801" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801" target="_blank">Panama - Elida Geisha Washed Plano 2801 ↗</a>
@@ -2645,6 +3053,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="48">48</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_El_Pergamino_GN_Lot_2425_Box.png?v=1774444747', 'panama-finca-el-pergamino-geisha-natural-lot-2425')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_El_Pergamino_GN_Lot_2425_Box.png?v=1774444747" alt="panama-finca-el-pergamino-geisha-natural-lot-2425" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425" target="_blank">Panama - Finca El Pergamino Geisha Natural Lot 2425 ↗</a>
@@ -2679,6 +3093,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="49">49</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaElPergaminoGWLot31325Box.png?v=1774445395', 'panama-finca-el-pergamino-geisha-washed-lot-31325')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaElPergaminoGWLot31325Box.png?v=1774445395" alt="panama-finca-el-pergamino-geisha-washed-lot-31325" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325" target="_blank">Panama - Finca El Pergamino Geisha Washed Lot 31325 ↗</a>
@@ -2713,6 +3133,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="50">50</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizos-GeishaWashedGW208Belt-01.png?v=1761649606', 'panama-finca-los-cenizos-geisha-washed-gw208')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizos-GeishaWashedGW208Belt-01.png?v=1761649606" alt="panama-finca-los-cenizos-geisha-washed-gw208" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208" target="_blank">Panama - Finca Los Cenizos  - Geisha Washed GW 208 ↗</a>
@@ -2747,6 +3173,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="51">51</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizosPlantaLot10Box-01.png?v=1750924253', 'panama-finca-los-cenizos-gn-060-planta-lot-10')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaLosCenizosPlantaLot10Box-01.png?v=1750924253" alt="panama-finca-los-cenizos-gn-060-planta-lot-10" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10" target="_blank">Panama - Finca Los Cenizos GN 060 - Planta lot 10 ↗</a>
@@ -2781,6 +3213,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="52">52</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Nuguo_-_Geisha_Washed_lot_841_Box.png?v=1785312742', 'panama-finca-nuguo-geisha-washed-lot-841')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Nuguo_-_Geisha_Washed_lot_841_Box.png?v=1785312742" alt="panama-finca-nuguo-geisha-washed-lot-841" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841" target="_blank">Panama - Finca Nuguo Geisha Washed Lot 841 ↗</a>
@@ -2815,6 +3253,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="53">53</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Gato_Grande_Box.png?v=1756376520', 'panama-gato-grande-cold-ferment-washed-lot-5')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Gato_Grande_Box.png?v=1756376520" alt="panama-gato-grande-cold-ferment-washed-lot-5" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5" target="_blank">Panama - Gato Grande  Cold Ferment Washed Lot 5 ↗</a>
@@ -2849,6 +3293,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="54">54</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/gatograndenaturalbox-01_1.png?v=1758287923', 'panama-gato-grande-cold-ferment-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/gatograndenaturalbox-01_1.png?v=1758287923" alt="panama-gato-grande-cold-ferment-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural" target="_blank">Panama - Gato Grande Cold Ferment Natural ↗</a>
@@ -2883,6 +3333,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="55">55</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Guarumolot07125Box.png?v=1776084295', 'panama-guarumo-coffee-farm-geisha-natural-lot-17125')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Guarumolot07125Box.png?v=1776084295" alt="panama-guarumo-coffee-farm-geisha-natural-lot-17125" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125" target="_blank">Panama - Guarumo Coffee Farm Geisha Natural Lot 17125 ↗</a>
@@ -2917,6 +3373,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="56">56</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Mario_Arriba_4_NB_Box.png?v=1785510019', 'panama-hacienda-la-esmeralda-mario-arriba-4-nb')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Mario_Arriba_4_NB_Box.png?v=1785510019" alt="panama-hacienda-la-esmeralda-mario-arriba-4-nb" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb" target="_blank">Panama - Hacienda La Esmeralda  Mario Arriba 4 NB ↗</a>
@@ -2951,6 +3413,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="57">57</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HLEBenosAires4NCBox.png?v=1784017785', 'panama-hacienda-la-esmeralda-buenos-aires-4nc')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HLEBenosAires4NCBox.png?v=1784017785" alt="panama-hacienda-la-esmeralda-buenos-aires-4nc" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc" target="_blank">Panama - Hacienda La Esmeralda Buenos Aires 4NC ↗</a>
@@ -2985,6 +3453,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="58">58</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Cabana_Arriba_8_NB_Box.png?v=1785509760', 'panama-hacienda-la-esmeralda-cabana-arriba-8nb')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Cabana_Arriba_8_NB_Box.png?v=1785509760" alt="panama-hacienda-la-esmeralda-cabana-arriba-8nb" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb" target="_blank">Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB ↗</a>
@@ -3019,6 +3493,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="59">59</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Higo_4_FB_Box_9bdb3ad8-d391-4e27-baae-e9c0c8cb582c.png?v=1785508914', 'panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Higo_4_FB_Box_9bdb3ad8-d391-4e27-baae-e9c0c8cb582c.png?v=1785508914" alt="panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb" target="_blank">Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB ↗</a>
@@ -3053,6 +3533,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="60">60</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Fundador_8_NB_Box.png?v=1785510360', 'panama-hacienda-la-esmeralda-fundador-8-nb')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Fundador_8_NB_Box.png?v=1785510360" alt="panama-hacienda-la-esmeralda-fundador-8-nb" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb" target="_blank">Panama - Hacienda La Esmeralda Fundador 8 NB ↗</a>
@@ -3087,6 +3573,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="61">61</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HLEMontana6FCBox-01.png?v=1750919369', 'panama-hacienda-la-esmeralda-montana-6-fc-copy')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HLEMontana6FCBox-01.png?v=1750919369" alt="panama-hacienda-la-esmeralda-montana-6-fc-copy" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy" target="_blank">Panama - Hacienda La Esmeralda Montana 6 FC ↗</a>
@@ -3121,6 +3613,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="62">62</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Porton_5_ANB_Box.png?v=1785510434', 'panama-hacienda-la-esmeralda-porton-5-anb')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hacienda_La_Esmeralda_-_Porton_5_ANB_Box.png?v=1785510434" alt="panama-hacienda-la-esmeralda-porton-5-anb" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb" target="_blank">Panama - Hacienda La Esmeralda Portón 5 ANB ↗</a>
@@ -3155,6 +3653,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="63">63</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/KotowaLasBrujasLot6934Box.png?v=1773819129', 'panama-kotowa-coffee-las-brujas-lot-6934')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/KotowaLasBrujasLot6934Box.png?v=1773819129" alt="panama-kotowa-coffee-las-brujas-lot-6934" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934" target="_blank">Panama - Kotowa Coffee Las Brujas Lot 6934 ↗</a>
@@ -3189,6 +3693,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="64">64</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Vuelta_Box-01.png?v=1770538176', 'panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Vuelta_Box-01.png?v=1770538176" alt="panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325" target="_blank">Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325 ↗</a>
@@ -3223,6 +3733,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="65">65</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Natural_0690_Box.png?v=1787571976', 'panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Natural_0690_Box.png?v=1787571976" alt="panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690" target="_blank">Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690 ↗</a>
@@ -3257,6 +3773,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="66">66</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida-_Geisha_Honey_07901_Box.png?v=1787571977', 'panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida-_Geisha_Honey_07901_Box.png?v=1787571977" alt="panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying ↗</a>
@@ -3291,6 +3813,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="67">67</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Natural_0746_Box.png?v=1787571977', 'panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Natural_0746_Box.png?v=1787571977" alt="panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying ↗</a>
@@ -3325,6 +3853,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="68">68</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_Estate_-_Geisha_Waterfall_Natural_Lot_0486_Box.png?v=1778162618', 'panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_Estate_-_Geisha_Waterfall_Natural_Lot_0486_Box.png?v=1778162618" alt="panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486 ↗</a>
@@ -3359,6 +3893,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="69">69</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Washed_0774_Box.png?v=1787571977', 'panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_-_Geisha_Washed_0774_Box.png?v=1787571977" alt="panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying ↗</a>
@@ -3393,6 +3933,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="70">70</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_Estate_-_Geisha_Washed_Lot_0368_Box_1.png?v=1778320068', 'panama-lerida-coffee-estate-gw-cold-room-lot-0391')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Lerida_Estate_-_Geisha_Washed_Lot_0368_Box_1.png?v=1778320068" alt="panama-lerida-coffee-estate-gw-cold-room-lot-0391" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391" target="_blank">Panama - Lerida Coffee Estate GW Cold Room Lot 0368 ↗</a>
@@ -3427,6 +3973,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="71">71</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LosLajonesBambu20CBox-01.png?v=1740037324', 'panama-los-lajones-bambu-geisha-washed-lot-20c')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LosLajonesBambu20CBox-01.png?v=1740037324" alt="panama-los-lajones-bambu-geisha-washed-lot-20c" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 20C ↗</a>
@@ -3461,6 +4013,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="72">72</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LosLajonesBambu26CBox-01.png?v=1740038672', 'panama-los-lajones-bambu-geisha-washed-lot-26c')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LosLajonesBambu26CBox-01.png?v=1740038672" alt="panama-los-lajones-bambu-geisha-washed-lot-26c" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 26C ↗</a>
@@ -3495,6 +4053,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="73">73</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HiUCoffee-LosLajonesGW-lot8ABBox-01.png?v=1772960094', 'panama-los-lajones-bambo-geisha-washed-lot-8-ab')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HiUCoffee-LosLajonesGW-lot8ABBox-01.png?v=1772960094" alt="panama-los-lajones-bambo-geisha-washed-lot-8-ab" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab" target="_blank">Panama - Los Lajones Bambú Geisha Washed lot 8 AB ↗</a>
@@ -3529,6 +4093,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="74">74</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LostOriginLaEstrellaBox-01.png?v=1762348411', 'panama-lost-origin-la-estrella-yeast-inoculation-for-release')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/LostOriginLaEstrellaBox-01.png?v=1762348411" alt="panama-lost-origin-la-estrella-yeast-inoculation-for-release" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release" target="_blank">Panama - Lost Origin La Estrella Yeast Inoculation ↗</a>
@@ -3563,6 +4133,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="75">75</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MiFinquitaWineglobe10325Box.png?v=1776148769', 'panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MiFinquitaWineglobe10325Box.png?v=1776148769" alt="panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325" target="_blank">Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325 ↗</a>
@@ -3597,6 +4173,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="76">76</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresGILGWLot2Box-01.png?v=1750948900', 'panama-mil-cumbres-gil-gw-lot-2')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresGILGWLot2Box-01.png?v=1750948900" alt="panama-mil-cumbres-gil-gw-lot-2" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2" target="_blank">Panama - Mil Cumbres GIL GW lot 2 ↗</a>
@@ -3631,6 +4213,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="77">77</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbres1201Box-01.png?v=1750944052', 'panama-mil-cumbres-omo-gn-lot-1201')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbres1201Box-01.png?v=1750944052" alt="panama-mil-cumbres-omo-gn-lot-1201" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201" target="_blank">Panama - Mil Cumbres OMO GN Lot 1201 ↗</a>
@@ -3665,6 +4253,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="78">78</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGeishaDFWashedBlackBox-01.png?v=1750928256', 'panama-santamaria-estate-geisha-df-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGeishaDFWashedBlackBox-01.png?v=1750928256" alt="panama-santamaria-estate-geisha-df-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed" target="_blank">Panama - Santamaria Estate  Geisha DF Washed ↗</a>
@@ -3699,6 +4293,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="79">79</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Santamaria_Geisha_Honey_Box-01.png?v=1752229907', 'panama-santamaria-estate-geisha-honey')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Santamaria_Geisha_Honey_Box-01.png?v=1752229907" alt="panama-santamaria-estate-geisha-honey" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey" target="_blank">Panama - Santamaria Estate - Geisha Honey ↗</a>
@@ -3733,6 +4333,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="80">80</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGWBox.png?v=1773751171', 'panama-santamaria-estate-geisha-washed-lot-7')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGWBox.png?v=1773751171" alt="panama-santamaria-estate-geisha-washed-lot-7" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7" target="_blank">Panama - Santamaria Estate - Geisha Washed Lot 7 ↗</a>
@@ -3767,6 +4373,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="81">81</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGNBox_520d93ad-3d86-4aa6-b40f-5b209b427c9a.png?v=1773751285', 'panama-santamaria-estate-geisha-natural-lot-11')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/SantamariaGNBox_520d93ad-3d86-4aa6-b40f-5b209b427c9a.png?v=1773751285" alt="panama-santamaria-estate-geisha-natural-lot-11" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11" target="_blank">Panama - Santamaria Estate Geisha Natural Lot 11 ↗</a>
@@ -3801,6 +4413,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="82">82</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeSavageCoffeesSpectrum.png?v=1695978195', 'panama-spectrum')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeSavageCoffeesSpectrum.png?v=1695978195" alt="panama-spectrum" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-spectrum" target="_blank">Panama - Spectrum, Savage Coffees ↗</a>
@@ -3835,6 +4453,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="83">83</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeIrisEstateSymbiosis.png?v=1695978186', 'panama-symbiosis')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeIrisEstateSymbiosis.png?v=1695978186" alt="panama-symbiosis" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-symbiosis" target="_blank">Panama - Symbiosis, Iris Estate ↗</a>
@@ -3869,6 +4493,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="84">84</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeIrisEstateSymmetry.png?v=1695978151', 'panama-symmetry')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ArchersCoffeeIrisEstateSymmetry.png?v=1695978151" alt="panama-symmetry" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-symmetry" target="_blank">Panama - Symmetry, Iris Estate ↗</a>
@@ -3903,6 +4533,12 @@
     
         <tr data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="85">85</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TierraC5WashedBox-01.png?v=1756472771', 'panama-teirra-blanca-c2-geisha-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TierraC5WashedBox-01.png?v=1756472771" alt="panama-teirra-blanca-c2-geisha-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Competition 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed" target="_blank">Panama - Tierra Blanca C5 Geisha Washed ↗</a>
@@ -3937,6 +4573,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="86">86</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ColombiaAromaNativoEFMLot1289BlackBag.png?v=1779970741', 'colombia-aroma-nativo-pink-bouron-efm-lot-1289')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ColombiaAromaNativoEFMLot1289BlackBag.png?v=1779970741" alt="colombia-aroma-nativo-pink-bouron-efm-lot-1289" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289" target="_blank">Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289 ↗</a>
@@ -3971,6 +4613,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="87">87</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Colombia_Aji_HH_Lot_396_Black_Bag.png?v=1779967131', 'colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Colombia_Aji_HH_Lot_396_Black_Bag.png?v=1779967131" alt="colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396" target="_blank">Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396 ↗</a>
@@ -4005,6 +4653,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="88">88</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Clearpath-LycheeBlackbag_1.png?v=1783517078', 'colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Clearpath-LycheeBlackbag_1.png?v=1783517078" alt="colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf" target="_blank">Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF ↗</a>
@@ -4039,6 +4693,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="89">89</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Cota_Coffee_-_Co-ferment_Coconut_Black_Bag.png?v=1784017635', 'colombia-cota-coffee-finca-kodu-coconut-cf')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Cota_Coffee_-_Co-ferment_Coconut_Black_Bag.png?v=1784017635" alt="colombia-cota-coffee-finca-kodu-coconut-cf" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf" target="_blank">Colombia - Cota Coffee Finca Kodu Coconut CF ↗</a>
@@ -4073,6 +4733,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="90">90</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Cota_Coffee_-_Pink_bourbon_Zest_Life_Black_Bag.png?v=1788163500', 'colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Cota_Coffee_-_Pink_bourbon_Zest_Life_Black_Bag.png?v=1788163500" alt="colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life" target="_blank">Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life ↗</a>
@@ -4107,6 +4773,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="91">91</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CotaCoffee-TropicalPopsicleBlackbag_1.png?v=1783498126', 'colombia-cota-coffee-finca-rio-negro-tropical-popsicle')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CotaCoffee-TropicalPopsicleBlackbag_1.png?v=1783498126" alt="colombia-cota-coffee-finca-rio-negro-tropical-popsicle" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle" target="_blank">Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle ↗</a>
@@ -4141,6 +4813,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="92">92</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Villa_Rosita_Black_Bag_2026.png?v=1771580560', 'colombia-finca-el-paraiso-villa-rosita')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Villa_Rosita_Black_Bag_2026.png?v=1771580560" alt="colombia-finca-el-paraiso-villa-rosita" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita" target="_blank">Colombia - Finca El Paraiso Villa Rosita ↗</a>
@@ -4175,6 +4853,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="93">93</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Del_Putushio_Black_Bag.png?v=1740475857', 'finca-del-putushio-typica-mejorado-rt')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Finca_Del_Putushio_Black_Bag.png?v=1740475857" alt="finca-del-putushio-typica-mejorado-rt" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt" target="_blank">Ecuador - Fincas Del Putushio, Typica Mejorado ↗</a>
@@ -4209,6 +4893,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="94">94</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HamashoNaturalLot0126BlackBag.png?v=1790363058', 'ethiopia-daye-bensa-hamasho-natural-archers-lot-0126')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HamashoNaturalLot0126BlackBag.png?v=1790363058" alt="ethiopia-daye-bensa-hamasho-natural-archers-lot-0126" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126" target="_blank">Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126 ↗</a>
@@ -4243,6 +4933,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="95">95</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/kormaKontomaNaturalMiniBlackBag.png?v=1790333372', 'ethiopia-daye-bensa-korma-kontoma-murago-natural-mini')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/kormaKontomaNaturalMiniBlackBag.png?v=1790333372" alt="ethiopia-daye-bensa-korma-kontoma-murago-natural-mini" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini" target="_blank">Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini ↗</a>
@@ -4277,6 +4973,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="96">96</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/RumadamoDFW-ArchersLotBlackBAg.png?v=1775543330', 'ethiopia-daye-bensa-rumudamo-dfw-archers-lot')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/RumadamoDFW-ArchersLotBlackBAg.png?v=1775543330" alt="ethiopia-daye-bensa-rumudamo-dfw-archers-lot" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot" target="_blank">Ethiopia - Daye Bensa Rumudamo DFW Archers Lot ↗</a>
@@ -4311,6 +5013,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="97">97</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraClassicWashedBlackBag_c7da58e6-2472-4838-8dc3-f10ef74426e0.png?v=1765696254', 'ethiopia-elto-coffee-elora-station-classic-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_EloraClassicWashedBlackBag_c7da58e6-2472-4838-8dc3-f10ef74426e0.png?v=1765696254" alt="ethiopia-elto-coffee-elora-station-classic-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed" target="_blank">Ethiopia - Elto Coffee Elora Station Classic Washed ↗</a>
@@ -4345,6 +5053,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="98">98</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EltoKokoseLot2BlackBag.png?v=1789996861', 'ethiopia-elto-coffee-kokose-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EltoKokoseLot2BlackBag.png?v=1789996861" alt="ethiopia-elto-coffee-kokose-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural" target="_blank">Ethiopia - Elto Coffee Kokose Natural Lot 2 ↗</a>
@@ -4379,6 +5093,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="99">99</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Honey_89.png?v=1759301676', 'ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Honey_89.png?v=1759301676" alt="ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot ↗</a>
@@ -4413,6 +5133,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="100">100</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Natural_89.png?v=1759301676', 'ethiopia-hamasho-village-natural-archers-lot-2025')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Natural_89.png?v=1759301676" alt="ethiopia-hamasho-village-natural-archers-lot-2025" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot ↗</a>
@@ -4447,6 +5173,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="101">101</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Washed89.png?v=1759301791', 'ethiopia-hamasho-village-washed-archers-lot-2025')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Washed89.png?v=1759301791" alt="ethiopia-hamasho-village-washed-archers-lot-2025" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot ↗</a>
@@ -4481,6 +5213,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="102">102</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hambela_Dimtu_Haro_-_Highborn_Natural_Black_Bag.png?v=1787209326', 'ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hambela_Dimtu_Haro_-_Highborn_Natural_Black_Bag.png?v=1787209326" alt="ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural ↗</a>
@@ -4515,6 +5253,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="103">103</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaElInjertoMalawiGeishaBlackBag.png?v=1741769807', 'finca-la-pradera-cf-lychee-copy')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaElInjertoMalawiGeishaBlackBag.png?v=1741769807" alt="finca-la-pradera-cf-lychee-copy" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy" target="_blank">Guatemala - Finca El Injerto, Malawi Geisha ↗</a>
@@ -4549,6 +5293,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="104">104</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Adaura_Finca_Lorayne_Catuai_Black_Bag.png?v=1776940250', 'panama-adaura-coffee-catuai-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Adaura_Finca_Lorayne_Catuai_Black_Bag.png?v=1776940250" alt="panama-adaura-coffee-catuai-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural" target="_blank">Panama - Adaura Coffee Catuai Natural ↗</a>
@@ -4583,6 +5333,12 @@
     
         <tr data-collection="Microlot Reserve 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="105">105</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Yemen_Wadi_Al_Sallol_Box_1.png?v=1784020365', 'yemen-east-haraz-wadi-al-salon')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Yemen_Wadi_Al_Sallol_Box_1.png?v=1784020365" alt="yemen-east-haraz-wadi-al-salon" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot Reserve 2025</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon" target="_blank">Yemen - East Haraz Wadi Al Sallol ↗</a>
@@ -4617,6 +5373,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="106">106</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BrazilFazendaUmBlackBag.png?v=1755269721', 'brazil-fazenda-um-supreme-pulp-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BrazilFazendaUmBlackBag.png?v=1755269721" alt="brazil-fazenda-um-supreme-pulp-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural" target="_blank">Brazil - Fazenda Um Supreme Pulp Natural ↗</a>
@@ -4651,6 +5413,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="107">107</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CotaCoffee-Co-fermentWatermelonBlackBag.png?v=1787988014', 'colombia-cota-coffee-finca-anaya-watermelon-cf')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CotaCoffee-Co-fermentWatermelonBlackBag.png?v=1787988014" alt="colombia-cota-coffee-finca-anaya-watermelon-cf" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf" target="_blank">Colombia - Cota Coffee Finca Anaya - Watermelon CF ↗</a>
@@ -4685,6 +5453,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="108">108</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Colombia_Typica_Nogales_Coffee_Farm_Black_Bag.png?v=1767684720', 'colombia-nogales-coffee-farm-typica-low-caffeine')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Colombia_Typica_Nogales_Coffee_Farm_Black_Bag.png?v=1767684720" alt="colombia-nogales-coffee-farm-typica-low-caffeine" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine" target="_blank">Colombia - Nogales Coffee Farm Typica Low Caffeine ↗</a>
@@ -4719,6 +5493,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="109">109</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CafeRivenseBlackHoneyBag.png?v=1758026235', 'costa-rica-cafe-rivense-black-honey')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CafeRivenseBlackHoneyBag.png?v=1758026235" alt="costa-rica-cafe-rivense-black-honey" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey" target="_blank">Costa Rica - Cafe Rivense Black Honey ↗</a>
@@ -4753,6 +5533,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="110">110</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Artboard_2_1.png?v=1718275452', 'costa-rica-el-jardin-anaerobic')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Artboard_2_1.png?v=1718275452" alt="costa-rica-el-jardin-anaerobic" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic" target="_blank">Costa Rica - El Jardin, Anaerobic ↗</a>
@@ -4787,6 +5573,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="111">111</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BentiNenkaBlackBag.png?v=1788418059', 'ethiopia-benti-nenka-guji-hambela')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BentiNenkaBlackBag.png?v=1788418059" alt="ethiopia-benti-nenka-guji-hambela" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela" target="_blank">Ethiopia - Benti Nenka Guji Hambela ↗</a>
@@ -4821,6 +5613,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="112">112</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaHoneyBlackBag.png?v=1765630062', 'ethiopia-elto-coffee-sama-honey')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaHoneyBlackBag.png?v=1765630062" alt="ethiopia-elto-coffee-sama-honey" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey" target="_blank">Ethiopia - Elto Coffee Sama Honey ↗</a>
@@ -4855,6 +5653,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="113">113</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaWashedBlackBag.png?v=1765628644', 'ethiopia-elto-coffee-sama-washed')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Elto_SamaWashedBlackBag.png?v=1765628644" alt="ethiopia-elto-coffee-sama-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed" target="_blank">Ethiopia - Elto Coffee Sama Washed ↗</a>
@@ -4889,6 +5693,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="114">114</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hambella_Benti_Nenka_Natural_Black_Bag.png?v=1787209325', 'ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Hambella_Benti_Nenka_Natural_Black_Bag.png?v=1787209325" alt="ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2" target="_blank">Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2 ↗</a>
@@ -4923,6 +5733,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="115">115</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Kimono_natural_black_bag.png?v=1778848739', 'guatemala-finca-la-serrania-kimono-natural')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Kimono_natural_black_bag.png?v=1778848739" alt="guatemala-finca-la-serrania-kimono-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural" target="_blank">Guatemala - Finca La Serrania Kimono Natural ↗</a>
@@ -4957,6 +5773,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="116">116</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/IndiaPearlMountainLotRM59.png?v=1704361710', 'india-pearl-mountain-lot-rm-59')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/IndiaPearlMountainLotRM59.png?v=1704361710" alt="india-pearl-mountain-lot-rm-59" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59" target="_blank">India - Pearl Mountain Lot RM 59 ↗</a>
@@ -4991,6 +5813,12 @@
     
         <tr data-collection="Microlot Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="117">117</td>
+          <td class="td-pkg">
+            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/KenyaRuiruiruBlackBag.png?v=1779178520', 'kenya-rui-ruiru-aa-natural-anaerobic')">
+              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/KenyaRuiruiruBlackBag.png?v=1779178520" alt="kenya-rui-ruiru-aa-natural-anaerobic" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
+              <span class="zoom-icon">🔍</span>
+            </div>
+          </td>
           <td><span class="spec-tag">Microlot 2026</span></td>
           <td class="cell-title">
             <a href="https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic" target="_blank">Kenya - Rui Ruiru AA Natural Anaerobic ↗</a>
@@ -5107,5 +5935,37 @@
     rows.forEach(row => tbody.appendChild(row));
   }
 </script>
+
+<!-- Image Lightbox Modal -->
+<div class="lightbox-backdrop" id="imgLightbox" onclick="closeLightbox()">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <img src="" id="lightboxImg" alt="Package Zoom">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  </div>
+</div>
+
+<script>
+  function openLightbox(src, caption) {
+    const box = document.getElementById('imgLightbox');
+    const img = document.getElementById('lightboxImg');
+    const cap = document.getElementById('lightboxCaption');
+    if (box && img) {
+      img.src = src;
+      cap.textContent = caption || 'Archers Coffee Package';
+      box.classList.add('active');
+    }
+  }
+
+  function closeLightbox() {
+    const box = document.getElementById('imgLightbox');
+    if (box) box.classList.remove('active');
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
 </body>
 </html>

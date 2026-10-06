@@ -403,6 +403,132 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  /* Mobile Package Image & Card Flex */
+  .m-card-header-flex {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .m-pkg-thumb-wrap {
+    width: 62px;
+    height: 78px;
+    flex-shrink: 0;
+    background: #0d121a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .m-pkg-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 2px;
+  }
+  .m-zoom-pill {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 1px 3px;
+    border-radius: 3px;
+    pointer-events: none;
+    font-weight: 600;
+  }
+  .m-card-header-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Top 6 Pick Cards Package Image */
+  .top-card-header-flex {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .top-card-pkg-wrap {
+    width: 72px;
+    height: 90px;
+    flex-shrink: 0;
+    background: #0d121a;
+    border: 1px solid rgba(210, 153, 34, 0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .top-card-pkg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 3px;
+  }
+  .top-card-header-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Mobile Lightbox Modal */
+  .m-lightbox-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .m-lightbox-backdrop.active { display: flex; }
+  .m-lightbox-box {
+    background: #141922;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 16px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+  }
+  .m-lightbox-img {
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #090d13;
+  }
+  .m-lightbox-title {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .m-lightbox-close {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
 </style>
 </head>
 <body>
@@ -454,8 +580,16 @@
   <div class="top-swipe-container">
     <div class="top-card">
       <span class="top-card-badge">🥇 취향 1위 | BOP 챔피언 독점 피베리</span>
-      <div class="top-card-title">Panama Auromar Geisha Washed Peaberry</div>
+      <div class="top-card-header-flex">
+        <div class="top-card-pkg-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113', 'Panama Auromar Geisha Washed Peaberry')">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113" alt="Panama Auromar Geisha Washed Peaberry" class="top-card-pkg-img" loading="lazy" onerror="this.src='https://via.placeholder.com/72x90?text=Archers'">
+          <span class="m-zoom-pill">🔍 확대</span>
+        </div>
+        <div class="top-card-header-body">
+          <div class="top-card-title">Panama Auromar Geisha Washed Peaberry</div>
       <div class="top-card-price">AED 98.0 (100g) <span style="font-size:12px; color:#8b949e;">약 37,240원</span></div>
+        </div>
+      </div>
       <div class="top-card-notes">🌸 화이트그레이프, 커피블라썸, 유자, 샴페인</div>
       <div class="top-card-merit">💡 <strong>국내 반값 혜택:</strong> 국내 일반 플랫빈 시세(7~8만원) 대비 50% 반값이며, 피베리는 국내 미수입 아처스 단독 랏!</div>
     </div>
@@ -7611,5 +7745,40 @@
     cards.forEach(card => container.appendChild(card));
   }
 </script>
+
+<!-- Mobile Package Image Lightbox Modal -->
+<div class="m-lightbox-backdrop" id="mLightbox" onclick="closeLightbox(event)">
+  <div class="m-lightbox-box" onclick="event.stopPropagation()">
+    <button class="m-lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="mLightboxImg" src="" alt="패키지 확대" class="m-lightbox-img">
+    <div id="mLightboxTitle" class="m-lightbox-title"></div>
+  </div>
+</div>
+
+<script>
+  function openLightbox(src, title) {
+    const box = document.getElementById('mLightbox');
+    const img = document.getElementById('mLightboxImg');
+    const titleEl = document.getElementById('mLightboxTitle');
+    if (box && img) {
+      img.src = src;
+      if (titleEl) titleEl.textContent = title;
+      box.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox(e) {
+    if (e && e.target && e.target.id !== 'mLightbox' && !e.target.classList.contains('m-lightbox-close')) {
+      return;
+    }
+    const box = document.getElementById('mLightbox');
+    if (box) {
+      box.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+</script>
+
 </body>
 </html>

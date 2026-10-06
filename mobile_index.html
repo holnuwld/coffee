@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>UAE 2대 명문 스페셜티 커피 100g 통합 큐레이션 (모바일 퀵 가이드)</title>
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
 <style>
   :root {
     --bg-main: #0a0e17;
@@ -23,6 +33,137 @@
     --purple: #bc8cff;
     --danger: #f85149;
     --safe-bottom: env(safe-area-inset-bottom, 16px);
+  }
+
+  [data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-inner: #f1f5f9;
+    --border-color: #e2e8f0;
+    --border-light: #cbd5e1;
+    --accent: #b45309;
+    --accent-gold: #d97706;
+    --accent-glow: rgba(217, 119, 6, 0.12);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --success: #15803d;
+    --blue: #0284c7;
+    --purple: #7e22ce;
+    --danger: #dc2626;
+  }
+
+  /* Mobile Light Theme Adjustments */
+  [data-theme="light"] .m-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-brand-title {
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-top-btn {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-hero {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-bottom-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-hero-title {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  [data-theme="light"] .m-stat-pill {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-roastery-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .m-roastery-title {
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-roastery-bullet {
+    color: #475569;
+  }
+  [data-theme="light"] .m-criteria-card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme="light"] .m-guide-banner {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1e3a8a;
+  }
+  [data-theme="light"] .m-chip {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+  [data-theme="light"] .m-chip.active {
+    background: #d97706;
+    color: #ffffff;
+    border-color: #d97706;
+  }
+  [data-theme="light"] .m-sort-bar {
+    background: #ffffff;
+    border-bottom-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-select {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+  [data-theme="light"] .btn-select-all {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-coffee-card {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  }
+  [data-theme="light"] .m-coffee-card.dimmed {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-coffee-card.checked {
+    border-color: #f59e0b;
+    background: #ffffff;
+  }
+  [data-theme="light"] .m-coffee-title a {
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-notes-box {
+    background: #f8fafc;
+    border-color: #e2e8f0;
+    color: #334155;
+  }
+  [data-theme="light"] .m-toggle-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #475569;
+  }
+  [data-theme="light"] .m-toggle-btn.open {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  [data-theme="light"] .m-drawdown-content {
+    background: #f8fafc;
+    border-top-color: #e2e8f0;
+  }
+  [data-theme="light"] .m-review-box {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #334155;
+  }
+  [data-theme="light"] .m-bottom-cart-bar {
+    background: rgba(255, 255, 255, 0.96);
+    border-top-color: #e2e8f0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  }
+  [data-theme="light"] .m-cart-count-txt {
+    color: #0f172a;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -654,6 +795,9 @@
     <span class="m-brand-title">UAE 스페셜티 큐레이션</span>
   </a>
   <div class="m-top-actions">
+    <button id="themeToggleBtn" class="m-top-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)" style="cursor:pointer; padding:6px 9px;">
+      <span id="themeIcon">☀️</span>
+    </button>
     <a href="index.html" class="m-top-btn" title="데스크톱 포털로 이동">🖥️ 데스크톱</a>
     <a href="mobile_cart.html" class="m-top-btn cart-link" title="모바일 발주서 보기">🛒 발주서 <span id="topCartBadge">10</span></a>
   </div>
@@ -740,7 +884,36 @@
   let currentSort = 'score';
   let checkedHandles = new Set();
 
+  // Theme Management
+  function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      applyTheme('light');
+    } else {
+      applyTheme('dark');
+    }
+  }
+
+  function applyTheme(theme) {
+    const icon = document.getElementById('themeIcon');
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (icon) icon.textContent = '🌙';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (icon) icon.textContent = '☀️';
+    }
+  }
+
+  function toggleTheme() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    const nextTheme = isLight ? 'dark' : 'light';
+    localStorage.setItem('theme', nextTheme);
+    applyTheme(nextTheme);
+  }
+
   function initApp() {
+    initTheme();
     // 1. Try to load checked state from localStorage
     try {
       const stored = localStorage.getItem('coffee_cart');
