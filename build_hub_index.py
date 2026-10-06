@@ -56,6 +56,10 @@ def render_top20_rows():
               {html.escape(c['country'])} • {html.escape(c['farm'])} • {html.escape(c['variety'])} ({html.escape(c['process'])})
             </div>
           </td>
+          <td class="notes-cell">
+            <div class="table-notes-tag">✨ {html.escape(c['notes'])}</div>
+            <div class="table-flavor-cat">{html.escape(c.get('flavor_category', 'Specialty Coffee'))}</div>
+          </td>
           <td class="text-right font-mono price-col">
             <div class="aed-price">{c['price_aed']} AED</div>
             <div class="krw-price">약 {c['price_krw']:,}원</div>
@@ -1050,21 +1054,29 @@ content = f"""<!DOCTYPE html>
     border: 1px solid var(--border);
   }}
 
-  /* Roastery Link Button in Table */
+  /* Roastery Link Button in Table (Compact Width for archers / espresso lab) */
   .roastery-cell {{
-    min-width: 145px;
+    width: 115px;
+    min-width: 110px;
+    max-width: 125px;
+    white-space: nowrap;
+    text-align: center;
+    padding: 14px 8px !important;
   }}
   .roastery-link-btn {{
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 8px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.15s ease;
     white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
   }}
   .roastery-link-btn .out-icon {{
     font-size: 10px;
@@ -1091,6 +1103,31 @@ content = f"""<!DOCTYPE html>
     border-color: #ffd166;
     color: #fff;
     transform: translateY(-1px);
+  }}
+
+  /* Tasting Notes Column */
+  .notes-cell {{
+    min-width: 180px;
+    max-width: 240px;
+    line-height: 1.45;
+  }}
+  .table-notes-tag {{
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent-gold);
+    line-height: 1.4;
+    word-break: keep-all;
+  }}
+  .table-flavor-cat {{
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }}
+  [data-theme="light"] .table-notes-tag {{
+    color: #b45309;
+  }}
+  [data-theme="light"] .table-flavor-cat {{
+    color: #64748b;
   }}
 
   /* Coffee Name Modal Trigger Button */
@@ -1657,7 +1694,7 @@ content = f"""<!DOCTYPE html>
       <h2 class="top20-title">🏆 2대 로스터리 통합 100g 원두 랭킹 TOP 20<br>& 최종 엄선 10선 (Active Picks)</h2>
       <p class="top20-desc">
         두 로스터리의 100g 패키지 원두 131종 전체를 3대 기준(<strong>맛 50점 + 가격 합리성 30점 + 한국 희소성 20점 = 총 100점 만점</strong>)으로 정밀 평가했습니다.<br>
-        프로파일 중복 여부는 점수 산정에서 배제하고 순수 점수로 1~20위를 매긴 후, <strong>7대 기준(지역, 농장, 프로듀서, 컵노트, 프로세스, 배전도, 고도) 유사도 프로파일</strong>을 적용하여 상위 순위와 겹치는 하위 10종을 음영(톤다운) 처리했습니다.<br>
+        프로파일 중복 여부는 점수 산정에서 배제하고 순수 점수로 1~20위를 매긴 후, <strong>새 유사도 기준(컵노트 50%, 테루아 30%, 프로세스 20%) 프로파일</strong>을 적용하여 상위 순위와 겹치는 하위 10종을 음영(톤다운) 처리했습니다.<br>
         <em>※ 동일 농장이더라도 컵노트가 다르면 중복 제외하지 않고 실질 추천 랏으로 당당히 선발했습니다.</em>
       </p>
     </div>
@@ -1714,7 +1751,7 @@ content = f"""<!DOCTYPE html>
         <button class="f-btn" onclick="filterRanked('overlap', this)">🚫 중복 제외 10종 보기</button>
       </div>
       <div class="legend-note">
-        💡 <strong>안내:</strong> 점수는 순수 기준으로만 매겨졌으며, 유사도 프로파일(7대 기준)을 적용하여 몇위 어느 커피와 몇% 유사한지 표기했습니다.
+        💡 <strong>안내:</strong> 점수는 순수 기준으로만 매겨졌으며, 3대 유사도 프로파일(컵노트 50%, 테루아 30%, 프로세스 20%)을 적용하여 상위 커피와의 유사도 %를 산출했습니다.
       </div>
     </div>
 
@@ -1727,9 +1764,10 @@ content = f"""<!DOCTYPE html>
               <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAllCart(this.checked)" title="전체 선택/해제">
             </th>
             <th class="text-center" style="width:110px;">선정 / 순위</th>
-            <th>로스터리 (공식 링크 ↗)</th>
+            <th class="text-center" style="width:115px;">로스터리 ↗</th>
             <th>커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
-            <th class="text-right">100g 가격</th>
+            <th style="min-width:180px; max-width:240px;">✨ 컵노트 (Tasting Notes)</th>
+            <th class="text-right" style="width:110px;">100g 가격</th>
             <th class="text-center score-col-header">
               <div class="score-head-title active-sort" id="sortTrigger_total" onclick="sortTableByScore('total')" title="종합 총점 기준 정렬 (클릭 시 오름차순/내림차순 토글)">
                 종합 점수 (100점) <span class="sort-ind" id="sortInd_total">▼</span>
@@ -1814,9 +1852,9 @@ content = f"""<!DOCTYPE html>
       <!-- Terroir & Specs Grid -->
       <div class="m-specs-grid" id="mSpecsGrid"></div>
 
-      <!-- 7-Item Similarity Analysis Section -->
+      <!-- 3-Item Similarity Analysis Section -->
       <div class="m-section" id="mSimilaritySection">
-        <div class="m-section-title">📊 7대 기준 유사도 프로파일 분석 (Similarity Breakdown)</div>
+        <div class="m-section-title">📊 3대 기준 유사도 프로파일 분석 (Tasting 50% / Terroir 30% / Process 20%)</div>
         <div class="m-section-body" id="mSimilarityBody"></div>
       </div>
 
@@ -2150,7 +2188,7 @@ content = f"""<!DOCTYPE html>
     `;
     document.getElementById('mSpecsGrid').innerHTML = specsHtml;
 
-    // 7-Item Similarity Profile
+    // 3-Criteria Similarity Profile
     const simBody = document.getElementById('mSimilarityBody');
     if (c.similar_target_rank) {{
       const dt = c.similar_details || {{}};
@@ -2160,19 +2198,17 @@ content = f"""<!DOCTYPE html>
           🔍 가장 유사한 상위 원두: <span style="color:var(--accent-gold);">#${{c.similar_target_rank}}위 ${{c.similar_target_title}}</span> 
           (종합 유사도: <strong style="color:${{simColor}};">${{c.max_prior_sim}}%</strong>)
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:8px; font-size:12.5px; background:var(--modal-score-bg); padding:12px; border-radius:8px; border:1px solid var(--border);">
-          <div>🌍 지역 (14.3%): <strong>${{dt.region || 0}}%</strong></div>
-          <div>🏡 농장 (14.3%): <strong>${{dt.farm || 0}}%</strong></div>
-          <div>👨‍🌾 프로듀서 (14.3%): <strong>${{dt.producer || 0}}%</strong></div>
-          <div>🍓 컵노트 (14.3%): <strong>${{dt.notes || 0}}%</strong> <span style="font-size:11px; color:var(--text-muted);">(자카드 ${{dt.notes_jaccard || 0}}%)</span></div>
-          <div>⚙️ 프로세스 (14.3%): <strong>${{dt.process || 0}}%</strong></div>
-          <div>🔥 배전도 (14.3%): <strong>14.3%</strong></div>
-          <div>⛰️ 고도 (14.3%): <strong>${{dt.altitude || 0}}%</strong></div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:8px; font-size:12.5px; background:var(--modal-score-bg); padding:12px; border-radius:8px; border:1px solid var(--border);">
+          <div>🍓 컵노트 (50%): <strong>${{dt.notes || 0}}%</strong> <span style="font-size:11px; color:var(--text-muted);">(자카드 ${{dt.notes_jaccard || 0}}%)</span></div>
+          <div>🌍 지역 (10%): <strong>${{dt.region || 0}}%</strong></div>
+          <div>🏡 농장 (10%): <strong>${{dt.farm || 0}}%</strong></div>
+          <div>👨‍🌾 프로듀서 (10%): <strong>${{dt.producer || 0}}%</strong></div>
+          <div>⚙️ 프로세스 (20%): <strong>${{dt.process || 0}}%</strong></div>
         </div>
         <div style="margin-top:8px; font-size:12px; color:var(--text-secondary);">
           ${{isAct 
-            ? '💡 <strong>선발 근거:</strong> 동일 농장이더라도 컵노트가 상이하거나 독자적인 프로세스/테루아를 지녀 최종 10선으로 당당히 선발되었습니다.' 
-            : '💡 <strong>음영 근거:</strong> 상위 랏과 7대 항목 전반에서 높은 유사도를 보여, 맛의 다양성 확보를 위해 음영 처리되었습니다.'}}
+            ? '💡 <strong>선발 근거:</strong> 동일 농장이더라도 컵노트가 상이하거나(50% 가중치) 독자적 프로세스(20%)를 지녀 최종 10선으로 당당히 선발되었습니다.' 
+            : '💡 <strong>음영 근거:</strong> 상위 랏과 3대 기준(컵노트 50%, 테루아 30%, 프로세스 20%) 전반에서 높은 유사도를 보여, 맛의 다양성 확보를 위해 음영 처리되었습니다.'}}
         </div>
       `;
     }} else {{

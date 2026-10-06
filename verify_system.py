@@ -1,6 +1,9 @@
 import json
 import re
 import os
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 with open('index.html', 'r', encoding='utf-8') as f:
     idx = f.read()
@@ -36,8 +39,10 @@ checks = [
     ("index.html contains link to mobile_index.html", "mobile_index.html" in idx),
     ("index.html contains selectAllCheckbox", "selectAllCheckbox" in idx),
     ("index.html contains cart checkbox class", "cart-row-checkbox" in idx),
-    ("index.html contains 7 items in modal (지역, 농장, 프로듀서, 컵노트, 프로세스, 배전도, 고도)", 
-        all(term in idx for term in ['지역', '농장', '프로듀서', '컵노트', '프로세스', '배전도', '고도'])),
+    ("index.html contains dedicated tasting notes column (✨ 컵노트)", "✨ 컵노트 (Tasting Notes)" in idx and "notes-cell" in idx),
+    ("index.html contains shortened roastery badge (🏹 Archers)", "🏹 Archers" in idx and "🧪 Espresso Lab" in idx),
+    ("index.html contains new 3-criteria similarity in modal (컵노트 50%, 테루아 30%, 프로세스 20%)", 
+        all(term in idx for term in ['컵노트 (50%)', '지역 (10%)', '농장 (10%)', '프로듀서 (10%)', '프로세스 (20%)'])),
     ("cart.html contains purchaser checklist inst-grid", "inst-grid" in cart),
     ("cart.html contains purchaser checklist inst-num badges", "inst-num" in cart),
     ("cart.html contains link to mobile_cart.html", "mobile_cart.html" in cart),
@@ -99,10 +104,13 @@ checks = [
     # FOUC prevention instant script in head on all pages
     ("All 8 pages have FOUC prevention theme script in head", all("localStorage.getItem('theme')" in p for p in [idx, m_idx, cart, m_cart, tel_dt, tel_mb, archers, arc_mb])),
 
-    # Dataset integrity
+    # Dataset integrity & New Criteria
     ("Top 20 curation JSON has exactly 20 items", len(top_20) == 20),
     ("Top 20 has exactly 10 active picks", sum(1 for c in top_20 if c.get("is_active")) == 10),
     ("Elto Sama Honey (#4) is active pick (different cup notes rule)", any(c['rank'] == 4 and c['is_active'] for c in top_20)),
+    ("Top 20 curation JSON has 3-criteria similarity breakdown (notes, terroir, process)", 
+        any(c.get('similar_details') and 'terroir' in c['similar_details'] for c in top_20)),
+    ("mobile_index.html contains 3-criteria similarity breakdown", "3대 기준 유사도 세부 내역" in m_idx),
 ]
 
 print("="*75)

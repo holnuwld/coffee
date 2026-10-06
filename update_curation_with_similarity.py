@@ -34,21 +34,24 @@ def parse_alt(alt_str):
         return sum(nums) / len(nums)
     return 1800.0
 
-def calc_similarity_7(c1, c2):
-    # 7 Items: 1) Region, 2) Farm, 3) Producer, 4) Cup Notes, 5) Process, 6) Roast, 7) Altitude
+def calc_similarity_new(c1, c2):
+    # New Criteria: 
+    # 1) Cup Notes (50%): Jaccard similarity * 50
+    # 2) Terroir / Origin (30%): Region (10%) + Farm (10%) + Producer (10%)
+    # 3) Process (20%): Process match * 20
     cnt1 = str(c1.get('country', '')).strip().lower()
     cnt2 = str(c2.get('country', '')).strip().lower()
     loc1 = (str(c1.get('country', '')) + ' ' + str(c1.get('location', '')) + ' ' + str(c1.get('farm', ''))).lower()
     loc2 = (str(c2.get('country', '')) + ' ' + str(c2.get('location', '')) + ' ' + str(c2.get('farm', ''))).lower()
     
-    # 1. Region (1/7)
+    # 1. Region (10%)
     if cnt1 == cnt2:
         sub_match = any(reg in loc1 and reg in loc2 for reg in ['boquete', 'sidama', 'huila', 'loja', 'guji', 'chiriqui', 'yirgacheffe'])
         s_reg = 1.0 if sub_match else 0.8
     else:
         s_reg = 0.0
 
-    # 2. Farm (1/7)
+    # 2. Farm (10%)
     f1 = re.sub(r'finca|estate|village|station|lot|\d+', '', str(c1.get('farm', '')).lower()).strip()
     f2 = re.sub(r'finca|estate|village|station|lot|\d+', '', str(c2.get('farm', '')).lower()).strip()
     if f1 and f2 and (f1 in f2 or f2 in f1 or f1 == f2):
@@ -58,7 +61,7 @@ def calc_similarity_7(c1, c2):
         t2 = set(f2.split())
         s_farm = len(t1 & t2) / max(1, len(t1 | t2)) if (t1 and t2) else 0.0
 
-    # 3. Producer (1/7)
+    # 3. Producer (10%)
     p1 = str(c1.get('producer', '')).lower().strip()
     p2 = str(c2.get('producer', '')).lower().strip()
     if p1 and p2 and (p1 == p2 or p1 in p2 or p2 in p1):
@@ -68,15 +71,12 @@ def calc_similarity_7(c1, c2):
         tp2 = set(p2.split())
         s_prod = len(tp1 & tp2) / max(1, len(tp1 | tp2)) if (tp1 and tp2) else 0.0
 
-    # 4. Tasting Notes (1/7)
+    # 4. Tasting Notes (50%)
     n1 = extract_notes_set(c1.get('notes', ''))
     n2 = extract_notes_set(c2.get('notes', ''))
-    if n1 and n2:
-        s_notes = len(n1 & n2) / len(n1 | n2)
-    else:
-        s_notes = 0.0
+    s_notes = len(n1 & n2) / len(n1 | n2) if (n1 and n2) else 0.0
 
-    # 5. Process (1/7)
+    # 5. Process (20%)
     pr1 = str(c1.get('process', '')).lower()
     pr2 = str(c2.get('process', '')).lower()
     def proc_type(p):
@@ -96,47 +96,37 @@ def calc_similarity_7(c1, c2):
     else:
         s_proc = 0.0
 
-    # 6. Roast Profile (Filter / Light Roast) (1/7)
-    s_roast = 1.0
+    # Weighted Calculation: Notes 50% + Terroir 30% + Process 20%
+    s_cup_notes = round(s_notes * 50.0, 1)
+    s_terroir = round((s_reg * 10.0) + (s_farm * 10.0) + (s_prod * 10.0), 1)
+    s_process = round(s_proc * 20.0, 1)
+    total_sim = round(s_cup_notes + s_terroir + s_process, 1)
 
-    # 7. Altitude (1/7)
-    a1 = parse_alt(c1.get('altitude', ''))
-    a2 = parse_alt(c2.get('altitude', ''))
-    diff = abs(a1 - a2)
-    if diff <= 100:
-        s_alt = 1.0
-    elif diff <= 250:
-        s_alt = 0.8
-    elif diff <= 500:
-        s_alt = 0.5
-    elif diff <= 800:
-        s_alt = 0.2
-    else:
-        s_alt = 0.0
-
-    # Equal weighting: each item is 1/7 (~14.29%)
-    total_sim = (s_reg + s_farm + s_prod + s_notes + s_proc + s_roast + s_alt) / 7.0 * 100.0
-    
     details = {
-        'region': round(s_reg * 100 / 7, 1),
-        'farm': round(s_farm * 100 / 7, 1),
-        'producer': round(s_prod * 100 / 7, 1),
-        'notes': round(s_notes * 100 / 7, 1),
-        'process': round(s_proc * 100 / 7, 1),
-        'roast': round(s_roast * 100 / 7, 1),
-        'altitude': round(s_alt * 100 / 7, 1),
+        'notes': s_cup_notes,
+        'terroir': s_terroir,
+        'region': round(s_reg * 10.0, 1),
+        'farm': round(s_farm * 10.0, 1),
+        'producer': round(s_prod * 10.0, 1),
+        'process': s_process,
         'notes_jaccard': round(s_notes * 100, 1),
         'same_farm': (s_farm >= 0.8 or s_prod >= 0.8)
     }
-    return round(total_sim, 1), details
+    return total_sim, details
 
 for i, c in enumerate(top_20):
+    # Shorten roastery badge to archers / espresso lab compact form
+    if "Archers" in c.get('roastery', ''):
+        c['roastery_badge'] = "🏹 Archers"
+    else:
+        c['roastery_badge'] = "🧪 Espresso Lab"
+
     best_sim = 0.0
     best_target = None
     best_dt = None
     for j in range(i):
         prev = top_20[j]
-        sim, dt = calc_similarity_7(c, prev)
+        sim, dt = calc_similarity_new(c, prev)
         if sim > best_sim:
             best_sim = sim
             best_target = prev

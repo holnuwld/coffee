@@ -1002,7 +1002,7 @@ html_template = f"""<!DOCTYPE html>
   <span class="m-hero-badge">100g 단위 통합 랭킹</span>
   <h1 class="m-hero-title">아처스 &amp; 에소랩 100g 큐레이션</h1>
   <p class="m-hero-desc">
-    131종 전수 중 최고 점수 20종 선발. 7대 유사도 프로파일을 거쳐 중복 없는 <strong>실질 엄선 10선</strong>을 추천합니다.
+    131종 전수 중 최고 점수 20종 선발. 새 유사도 기준(컵노트 50%, 테루아 30%, 프로세스 20%)을 적용하여 중복 없는 <strong>실질 엄선 10선</strong>을 추천합니다.
   </p>
 
   <!-- 3 Criteria Chips -->
@@ -1238,7 +1238,7 @@ html_template = f"""<!DOCTYPE html>
 
         <!-- Accordion Drawdown Toggle Button -->
         <button type="button" class="m-toggle-btn" onclick="toggleDrawdown('${{c.handle}}', this)">
-          <span>상세 스펙 &amp; 7대 유사도 분석 보기</span>
+          <span>상세 스펙 &amp; 유사도 분석 보기</span>
           <span class="m-toggle-icon">▼</span>
         </button>
 
@@ -1280,23 +1280,21 @@ html_template = f"""<!DOCTYPE html>
             </div>
           </div>
 
-          <!-- 7-Similarity Profile Breakdown -->
+          <!-- 3-Similarity Profile Breakdown -->
           <div class="m-drawdown-block">
-            <div class="m-block-title">🧬 7대 기준 유사도 세부 내역 (각 14.3%)</div>
+            <div class="m-block-title">🧬 3대 기준 유사도 세부 내역 (컵노트 50% / 테루아 30% / 프로세스 20%)</div>
             ${{c.similar_target_rank ? `
               <div class="m-sim-grid">
-                <div class="m-sim-item">🌍 지역: <strong>${{dt.region || 0}}%</strong></div>
-                <div class="m-sim-item">🏡 농장: <strong>${{dt.farm || 0}}%</strong></div>
-                <div class="m-sim-item">👨‍🌾 프로듀서: <strong>${{dt.producer || 0}}%</strong></div>
                 <div class="m-sim-item">🍓 컵노트: <strong>${{dt.notes || 0}}%</strong></div>
                 <div class="m-sim-item">⚙️ 프로세스: <strong>${{dt.process || 0}}%</strong></div>
-                <div class="m-sim-item">🔥 배전도: <strong>14.3%</strong></div>
-                <div class="m-sim-item" style="grid-column: span 2;">⛰️ 재배 고도: <strong>${{dt.altitude || 0}}%</strong></div>
+                <div class="m-sim-item">🌍 지역: <strong>${{dt.region || 0}}%</strong></div>
+                <div class="m-sim-item">🏡 농장: <strong>${{dt.farm || 0}}%</strong></div>
+                <div class="m-sim-item" style="grid-column: span 2;">👨‍🌾 프로듀서: <strong>${{dt.producer || 0}}%</strong></div>
               </div>
               <div style="font-size:11.5px; color:var(--text-secondary); margin-top:6px; line-height:1.45;">
                 ${{isAct 
-                  ? '💡 <strong>선발 이유:</strong> 동일 농장이더라도 컵노트(향미)가 상이하거나 독자적 프로세스를 갖추어 최종 10선으로 선발되었습니다.' 
-                  : '💡 <strong>음영 사유:</strong> 상위 랏과 7대 항목 전반에서 높은 유사도를 보여 맛의 다양성을 위해 음영 처리되었습니다.'}}
+                  ? '💡 <strong>선발 이유:</strong> 동일 농장이더라도 컵노트(향미)가 상이하거나(50% 가중치) 독자적 프로세스를 갖추어 최종 10선으로 선발되었습니다.' 
+                  : '💡 <strong>음영 사유:</strong> 상위 랏과 3대 기준(컵노트 50%, 테루아 30%, 프로세스 20%) 전반에서 높은 유사도를 보여 맛의 다양성을 위해 음영 처리되었습니다.'}}
               </div>
             ` : `
               <div style="font-size:12px; color:var(--text-secondary); background:#080c13; padding:8px 10px; border-radius:6px; border:1px solid var(--border-color);">
