@@ -1,13 +1,20 @@
 """
 Build interactive coffee analytics page (analytics.html)
-Includes:
+Features & Updates:
 - Full dataset (171 coffees: Archers 117 + The Espresso Lab 54)
 - Statistical summary & insights (Pearson correlation, sweet-spots, pricing tiers)
-- Graph 1: Scatter plot (Price per 100g vs Score - Total/Taste/Rarity)
+- Graph 1: Scatter plot (Price per 100g vs Score - Total/Taste/Rarity/Price)
   - Color encoded: Archers Comp (black), Reserve (blue), Selection (yellow), Espresso Lab (red)
-  - Shape encoded: Country / Process / Altitude / Default (*, x, o, triangle, rect, etc.)
-  - Interactive hover / touch detail modal & side panel
-- Graph 2: Tasting notes distribution chart with cross-filtering
+  - Smaller point radius (4.5px) for clear separation in dense clusters
+  - Tooltip caret padding (20px) away from cursor to avoid covering nearby dots
+  - Point shape encoding by Country, Process, Altitude, or Default (*, x, o, triangle, rect)
+  - Mouse wheel zoom & pan via chartjs-plugin-zoom with floating "Fit to Size" button
+  - Distinct active/inactive styles for lineup filter chips
+  - Korean search support (country, process, farm, variety, tasting notes, roastery)
+- Graph 2: Tasting notes distribution chart with dynamic recalculation based on active filters
+  - Dedicated Origin and Process quick filter buttons
+  - Real-time recalculation of flavor frequencies when origin/process/lineup filters change
+  - Bidirectional cross-filtering (clicking note filters scatter plot; selecting bean highlights notes)
 - Dual theme support (Dark / Light) synchronized with other pages
 - Full mobile responsiveness
 """
@@ -76,6 +83,83 @@ def extract_notes_list(notes_raw):
                 notes.append(cleaned)
     return notes
 
+def generate_korean_keywords(c, roastery, group_key):
+    kr = []
+    if roastery == 'Archers':
+        kr.extend(['아처스', '아쳐스'])
+        if group_key == 'competition': kr.extend(['컴피티션', '대회'])
+        elif group_key == 'reserve': kr.extend(['리저브', '마이크로랏'])
+        elif group_key == 'selection': kr.extend(['셀렉션', '데일리'])
+    elif roastery == 'The Espresso Lab':
+        kr.extend(['에소랩', '에스프레소랩', '디에스프레소랩', '에스프레소'])
+    
+    country = str(c.get('country', '')).lower()
+    if 'panama' in country: kr.append('파나마')
+    if 'ethiopia' in country: kr.append('에티오피아')
+    if 'colombia' in country: kr.append('콜롬비아')
+    if 'costa rica' in country: kr.append('코스타리카')
+    if 'kenya' in country: kr.append('케냐')
+    if 'brazil' in country: kr.append('브라질')
+    if 'ecuador' in country: kr.append('에콰도르')
+    if 'guatemala' in country: kr.append('과테말라')
+    
+    proc = str(c.get('process', '')).lower()
+    if 'washed' in proc: kr.extend(['워시드', '수세식'])
+    if 'natural' in proc: kr.extend(['내추럴', '네추럴', '건식'])
+    if 'anaerobic' in proc: kr.extend(['무산소', '혐기성'])
+    if 'honey' in proc: kr.append('허니')
+    if 'ferment' in proc: kr.append('발효')
+    if 'yeast' in proc: kr.append('효모')
+    if 'carbonic' in proc: kr.append('카보닉')
+    if 'hybrid' in proc: kr.append('하이브리드')
+    if 'thermal' in proc: kr.append('써멀쇼크')
+    
+    var = str(c.get('variety', '')).lower()
+    title_l = str(c.get('title', '')).lower()
+    combined = var + ' ' + title_l
+    if 'geisha' in combined or 'gesha' in combined: kr.extend(['게이샤', '게샤'])
+    if 'caturra' in combined: kr.append('카투라')
+    if 'catuai' in combined: kr.append('카투아이')
+    if 'castillo' in combined: kr.append('카스티요')
+    if 'typica' in combined: kr.append('티피카')
+    if 'bourbon' in combined: kr.append('버번')
+    if 'sidra' in combined: kr.append('시드라')
+    if 'chiroso' in combined: kr.append('치로소')
+    if 'peaberry' in combined: kr.append('피베리')
+    if 'pacamara' in combined: kr.append('파카마라')
+    if 'eugenioides' in combined: kr.append('에우제니오이데스')
+
+    # Common farm names
+    farm_l = str(c.get('farm', '')).lower() + ' ' + str(c.get('producer', '')).lower() + ' ' + title_l
+    if 'auromar' in farm_l: kr.append('오로마')
+    if 'elida' in farm_l: kr.append('엘리다')
+    if 'chiquita' in farm_l: kr.append('치키타')
+    if 'hamasho' in farm_l: kr.append('하마쇼')
+    if 'bombe' in farm_l: kr.append('봄베')
+    if 'cerro azul' in farm_l: kr.append('세로아줄')
+    if 'granja' in farm_l: kr.append('그란하')
+
+    notes = str(c.get('tasting_notes', '')).lower()
+    if 'peach' in notes: kr.extend(['복숭아', '피치'])
+    if 'jasmine' in notes: kr.extend(['자스민', '재스민'])
+    if 'bergamot' in notes: kr.extend(['베르가못', '베르가모트'])
+    if 'floral' in notes: kr.extend(['꽃', '플로럴'])
+    if 'citrus' in notes: kr.append('시트러스')
+    if 'mandarine' in notes: kr.extend(['만다린', '귤'])
+    if 'yuzu' in notes: kr.append('유자')
+    if 'strawberry' in notes: kr.extend(['딸기', '스트로베리'])
+    if 'lychee' in notes: kr.append('리치')
+    if 'mango' in notes: kr.append('망고')
+    if 'papaya' in notes: kr.append('파파야')
+    if 'apricot' in notes: kr.append('살구')
+    if 'pear' in notes: kr.append('서양배')
+    if 'grape' in notes: kr.append('포도')
+    if 'honey' in notes: kr.append('꿀')
+    if 'earl grey' in notes: kr.append('얼그레이')
+    if 'blueberry' in notes: kr.append('블루베리')
+    
+    return ' '.join(set(kr))
+
 def build_data():
     with open('c:/cowork/coffee/new_pipeline/raw_collected_coffees.json', encoding='utf-8') as f:
         archers_raw = json.load(f)
@@ -106,8 +190,8 @@ def build_data():
         country_cat = normalize_country(c.get('country', ''))
         alt_cat = get_altitude_cat(alt_num)
         notes = extract_notes_list(c.get('tasting_notes', ''))
+        kr_keywords = generate_korean_keywords(c, 'Archers', group_key)
 
-        # Korea price display
         k_price = c.get('korea_price', '-')
         if isinstance(k_price, (int, float)):
             k_price_str = f"{int(k_price):,}원"
@@ -154,7 +238,8 @@ def build_data():
             'korea_status': c.get('korea_status', '-'),
             'korea_seller': c.get('korea_seller', '-'),
             'korea_price': k_price_str,
-            'merit': c.get('purchase_merit', '-')
+            'merit': c.get('purchase_merit', '-'),
+            'search_kr': kr_keywords
         })
 
     # Espresso Lab (54)
@@ -169,6 +254,7 @@ def build_data():
         country_cat = normalize_country(c.get('country', ''))
         alt_cat = get_altitude_cat(alt_num)
         notes = extract_notes_list(c.get('tasting_notes', ''))
+        kr_keywords = generate_korean_keywords(c, 'The Espresso Lab', group_key)
 
         k_price = c.get('korea_price', '-')
         if isinstance(k_price, (int, float)):
@@ -216,7 +302,8 @@ def build_data():
             'korea_status': '미수입' if c.get('korea_shop') == '-' else '수입확인',
             'korea_seller': c.get('korea_shop', '-'),
             'korea_price': k_price_str,
-            'merit': c.get('merit', '-')
+            'merit': c.get('merit', '-'),
+            'search_kr': kr_keywords
         })
 
     return all_items
@@ -283,8 +370,9 @@ def generate_html(items, stats):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전체 원두 인터랙티브 데이터 분석 (171종) | 두바이 스페셜티 허브</title>
-  <!-- Chart.js 4.4.1 -->
+  <!-- Chart.js 4.4.1 & Zoom Plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
   <style>
     :root {{
       --bg-primary: #0d1117;
@@ -510,7 +598,7 @@ def generate_html(items, stats):
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 16px 20px;
+      padding: 18px 20px;
       margin-bottom: 20px;
       display: flex;
       flex-direction: column;
@@ -547,9 +635,9 @@ def generate_html(items, stats):
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      padding: 6px 12px;
+      padding: 6px 11px;
       border-radius: 6px;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
@@ -559,6 +647,8 @@ def generate_html(items, stats):
       color: #000;
       font-weight: 700;
     }}
+
+    /* LINEUP FILTER CHIPS - SHARP CONTRAST */
     .filter-chips {{
       display: flex;
       gap: 8px;
@@ -569,28 +659,40 @@ def generate_html(items, stats):
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 20px;
       font-size: 12px;
-      font-weight: 600;
-      border: 1px solid var(--border-color);
-      background: var(--bg-primary);
-      color: var(--text-secondary);
+      font-weight: 700;
       cursor: pointer;
       user-select: none;
-      transition: all 0.2s;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }}
     .chip.active {{
-      border-color: currentColor;
-      color: var(--text-primary);
-      background: var(--bg-card);
+      opacity: 1 !important;
+      border: 2px solid currentColor !important;
+      background: var(--bg-card) !important;
+      color: var(--text-primary) !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }}
+    .chip:not(.active) {{
+      opacity: 0.35 !important;
+      border: 1px dashed var(--border-color) !important;
+      background: transparent !important;
+      color: var(--text-muted) !important;
+      text-decoration: line-through;
     }}
     .chip-dot {{
       width: 10px;
       height: 10px;
       border-radius: 50%;
       display: inline-block;
+      transition: all 0.2s;
     }}
+    .chip:not(.active) .chip-dot {{
+      filter: grayscale(100%);
+      opacity: 0.4;
+    }}
+
     .search-input {{
       padding: 7px 12px;
       background: var(--bg-primary);
@@ -598,7 +700,7 @@ def generate_html(items, stats):
       border-radius: 8px;
       color: var(--text-primary);
       font-size: 13px;
-      min-width: 200px;
+      min-width: 240px;
       outline: none;
     }}
     .search-input:focus {{
@@ -629,7 +731,7 @@ def generate_html(items, stats):
     /* CHARTS LAYOUT */
     .charts-main-grid {{
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1.1fr;
       gap: 20px;
       margin-bottom: 24px;
     }}
@@ -647,11 +749,12 @@ def generate_html(items, stats):
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
+      position: relative;
     }}
     .chart-box-header {{
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 14px;
       flex-wrap: wrap;
       gap: 8px;
@@ -666,12 +769,39 @@ def generate_html(items, stats):
     .chart-subtitle {{
       font-size: 12px;
       color: var(--text-secondary);
+      margin-top: 2px;
     }}
     .chart-canvas-wrapper {{
       position: relative;
       flex: 1;
-      min-height: 440px;
+      min-height: 460px;
       width: 100%;
+    }}
+
+    /* FLOATING FIT BUTTON */
+    .chart-fit-btn {{
+      position: absolute;
+      left: 14px;
+      bottom: 24px;
+      z-index: 10;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }}
+    .chart-fit-btn:hover {{
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: scale(1.04);
     }}
 
     /* DETAIL MODAL / PANEL */
@@ -997,6 +1127,7 @@ def generate_html(items, stats):
 
   <!-- CONTROLS PANEL -->
   <div class="controls-panel">
+    <!-- ROW 1: Y-METRIC & SHAPE ENCODER -->
     <div class="control-row">
       <!-- Y-Axis Metric -->
       <div class="control-group">
@@ -1021,33 +1152,61 @@ def generate_html(items, stats):
       </div>
     </div>
 
+    <!-- ROW 2: ORIGIN & PROCESS QUICK FILTERS -->
+    <div class="control-row">
+      <!-- Origin Filter -->
+      <div class="control-group">
+        <span class="control-label">🌍 원산지 필터:</span>
+        <div class="btn-toggle-group" id="originFilterGroup">
+          <button class="btn-toggle active" onclick="setOriginFilter('all', this)">전체 원산지</button>
+          <button class="btn-toggle" onclick="setOriginFilter('Ethiopia', this)">에티오피아 (43)</button>
+          <button class="btn-toggle" onclick="setOriginFilter('Panama', this)">파나마 (76)</button>
+          <button class="btn-toggle" onclick="setOriginFilter('Colombia', this)">콜롬비아 (26)</button>
+          <button class="btn-toggle" onclick="setOriginFilter('Other', this)">코스타리카/기타 (26)</button>
+        </div>
+      </div>
+
+      <!-- Process Filter -->
+      <div class="control-group">
+        <span class="control-label">⚙️ 프로세스 필터:</span>
+        <div class="btn-toggle-group" id="processFilterGroup">
+          <button class="btn-toggle active" onclick="setProcessFilter('all', this)">전체 프로세스</button>
+          <button class="btn-toggle" onclick="setProcessFilter('Washed', this)">워시드 (Washed)</button>
+          <button class="btn-toggle" onclick="setProcessFilter('Natural', this)">내추럴 (Natural)</button>
+          <button class="btn-toggle" onclick="setProcessFilter('Anaerobic/Fermented', this)">무산소·발효</button>
+          <button class="btn-toggle" onclick="setProcessFilter('Honey', this)">허니 (Honey)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3: LINEUP CHIPS & SEARCH INPUT -->
     <div class="control-row">
       <!-- Roastery / Group Filters -->
       <div class="control-group">
         <span class="control-label">🏷️ 라인업 필터:</span>
         <div class="filter-chips">
-          <div class="chip active" onclick="toggleGroupFilter('competition', this)" style="border-color:#6e7681;">
+          <div class="chip active" onclick="toggleGroupFilter('competition', this)" style="border-color:#8b949e; color:#f0f6fc;">
             <span class="chip-dot" style="background:#1f242d; border:1px solid #8b949e;"></span>
             아처스 컴피티션 (85)
           </div>
-          <div class="chip active" onclick="toggleGroupFilter('reserve', this)" style="border-color:#2563eb;">
+          <div class="chip active" onclick="toggleGroupFilter('reserve', this)" style="border-color:#2563eb; color:#60a5fa;">
             <span class="chip-dot" style="background:#2563eb;"></span>
             아처스 리저브 (20)
           </div>
-          <div class="chip active" onclick="toggleGroupFilter('selection', this)" style="border-color:#d97706;">
+          <div class="chip active" onclick="toggleGroupFilter('selection', this)" style="border-color:#d97706; color:#fbbf24;">
             <span class="chip-dot" style="background:#d97706;"></span>
             아처스 셀렉션 (12)
           </div>
-          <div class="chip active" onclick="toggleGroupFilter('esolab', this)" style="border-color:#dc2626;">
+          <div class="chip active" onclick="toggleGroupFilter('esolab', this)" style="border-color:#dc2626; color:#f87171;">
             <span class="chip-dot" style="background:#dc2626;"></span>
             에소랩 전체 (54)
           </div>
         </div>
       </div>
 
-      <!-- Search Input -->
+      <!-- Search Input with Korean support -->
       <div class="control-group" style="margin-left:auto;">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 원두명, 생산국, 농장 검색..." oninput="handleSearch(this.value)">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 원두명, 생산국(예:에티오피아), 품종, 농장 검색..." oninput="handleSearch(this.value)">
       </div>
     </div>
 
@@ -1068,7 +1227,7 @@ def generate_html(items, stats):
             <span>🎯 100g당 가격 vs 점수 산점도 (Scatter Plot)</span>
           </div>
           <div class="chart-subtitle" id="scatterSubtitle">
-            점을 클릭하거나 터치하면 우측 상세 분석 창이 활성화됩니다.
+            마우스 휠 스크롤로 확대/축소, 드래그로 이동 가능하며 점을 클릭하면 상세 정보가 열립니다.
           </div>
         </div>
         <div style="font-size:12px; color:var(--text-muted);">
@@ -1077,6 +1236,9 @@ def generate_html(items, stats):
       </div>
       <div class="chart-canvas-wrapper">
         <canvas id="scatterChart"></canvas>
+        <button class="chart-fit-btn" onclick="resetScatterZoom()" title="확대/축소 리셋 및 전체보기">
+          🔍 전체보기 (Fit to Size)
+        </button>
       </div>
     </div>
 
@@ -1087,8 +1249,8 @@ def generate_html(items, stats):
           <div class="chart-title">
             <span>🍑 컵노트 출현 빈도 및 분포도</span>
           </div>
-          <div class="chart-subtitle">
-            바를 클릭하면 해당 컵노트를 지닌 원두가 산점도에서 하이라이트됩니다.
+          <div class="chart-subtitle" id="notesChartSubtitle">
+            현재 필터링된 원두 171종 기준 컵노트 출현 빈도 (바 클릭 시 크로스 필터링)
           </div>
         </div>
       </div>
@@ -1238,6 +1400,8 @@ def generate_html(items, stats):
   // State
   let currentYMetric = 'total'; // 'total', 'taste', 'rarity', 'price'
   let currentShapeMode = 'default'; // 'default', 'country', 'process', 'altitude'
+  let currentOriginFilter = 'all'; // 'all', 'Ethiopia', 'Panama', 'Colombia', 'Other'
+  let currentProcessFilter = 'all'; // 'all', 'Washed', 'Natural', 'Anaerobic/Fermented', 'Honey'
   let activeGroups = new Set(['competition', 'reserve', 'selection', 'esolab']);
   let searchQuery = '';
   let selectedCoffeeId = null;
@@ -1249,8 +1413,8 @@ def generate_html(items, stats):
   let scatterChart = null;
   let notesChart = null;
 
-  // Top notes frequency list
-  const TOP_NOTES = [
+  // Base Top notes vocabulary
+  const TOP_NOTES_VOCAB = [
     'peach', 'lychee', 'mandarine', 'white grapes', 'pear', 'papaya',
     'jasmine', 'apricot', 'mango', 'yuzu', 'honey', 'nectarine',
     'cantaloupe', 'strawberry', 'bergamot', 'earl grey', 'blueberry', 'sugarcane'
@@ -1283,12 +1447,27 @@ def generate_html(items, stats):
   // Filtered dataset
   function getFilteredCoffees() {{
     return ALL_COFFEES.filter(c => {{
+      // 1. Group filter
       if (!activeGroups.has(c.group_key)) return false;
+
+      // 2. Origin quick filter
+      if (currentOriginFilter !== 'all') {{
+        if (c.country_cat !== currentOriginFilter) return false;
+      }}
+
+      // 3. Process quick filter
+      if (currentProcessFilter !== 'all') {{
+        if (c.process_cat !== currentProcessFilter) return false;
+      }}
+
+      // 4. Search query (supports Korean & English)
       if (searchQuery) {{
         const q = searchQuery.toLowerCase();
-        const text = (c.title + ' ' + c.country + ' ' + c.farm + ' ' + c.process + ' ' + c.tasting_notes).toLowerCase();
+        const text = (c.title + ' ' + c.country + ' ' + c.farm + ' ' + c.producer + ' ' + c.process + ' ' + c.variety + ' ' + c.tasting_notes + ' ' + (c.search_kr || '')).toLowerCase();
         if (!text.includes(q)) return false;
       }}
+
+      // 5. Note cross-filtering
       if (highlightedNote) {{
         const hasNote = c.notes_list.some(n => n.includes(highlightedNote));
         if (!hasNote) return false;
@@ -1297,7 +1476,7 @@ def generate_html(items, stats):
     }});
   }}
 
-  // Initialize Charts
+  // Initialize Scatter Chart
   function initScatterChart() {{
     const ctx = document.getElementById('scatterChart').getContext('2d');
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
@@ -1308,28 +1487,51 @@ def generate_html(items, stats):
       options: {{
         responsive: true,
         maintainAspectRatio: false,
-        animation: {{ duration: 400 }},
+        animation: {{ duration: 300 }},
         plugins: {{
           legend: {{ display: false }},
           tooltip: {{
-            backgroundColor: isDark ? '#161b22' : '#ffffff',
+            backgroundColor: isDark ? 'rgba(22, 27, 34, 0.96)' : 'rgba(255, 255, 255, 0.98)',
             titleColor: isDark ? '#f0f6fc' : '#1f2328',
             bodyColor: isDark ? '#8b949e' : '#57606a',
             borderColor: isDark ? '#30363d' : '#d0d7de',
             borderWidth: 1,
             padding: 10,
+            caretPadding: 20, // Keep tooltip away from cursor and dense points
+            caretSize: 8,
+            xAlign: 'center',
+            yAlign: 'bottom',
+            titleFont: {{ size: 12.5, weight: 'bold' }},
+            bodyFont: {{ size: 11.5, lineHeight: 1.4 }},
             callbacks: {{
               label: function(ctx) {{
                 const raw = ctx.raw;
                 const c = raw.coffee;
                 return [
                   `☕ [${{c.roastery}}] ${{c.title}}`,
-                  `💰 100g 가격: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`,
+                  `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`,
                   `⭐ 종합: ${{c.score_total}}점 (맛 ${{c.score_taste}} / 값 ${{c.score_price}} / 희 ${{c.score_rarity}})`,
-                  `🌍 원산지: ${{c.country}} | 프로세스: ${{c.process}}`,
-                  `👉 클릭하여 상세 분석 확인`
+                  `🌍 원산지: ${{c.country}} | 가공: ${{c.process}}`,
+                  `👉 클릭하여 상세 스펙 열기`
                 ];
               }}
+            }}
+          }},
+          zoom: {{
+            pan: {{
+              enabled: true,
+              mode: 'xy',
+              modifierKey: null
+            }},
+            zoom: {{
+              wheel: {{
+                enabled: true,
+                speed: 0.1
+              }},
+              pinch: {{
+                enabled: true
+              }},
+              mode: 'xy'
             }}
           }}
         }},
@@ -1337,9 +1539,9 @@ def generate_html(items, stats):
           x: {{
             title: {{
               display: true,
-              text: '100g당 가격 (AED)',
+              text: '100g당 가격 (AED) - 마우스 휠 스크롤로 확대/축소 가능',
               color: isDark ? '#8b949e' : '#57606a',
-              font: {{ weight: 'bold' }}
+              font: {{ weight: 'bold', size: 11.5 }}
             }},
             grid: {{ color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }},
             ticks: {{ color: isDark ? '#8b949e' : '#57606a' }}
@@ -1349,7 +1551,7 @@ def generate_html(items, stats):
               display: true,
               text: getYAxisLabel(),
               color: isDark ? '#8b949e' : '#57606a',
-              font: {{ weight: 'bold' }}
+              font: {{ weight: 'bold', size: 11.5 }}
             }},
             grid: {{ color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }},
             ticks: {{ color: isDark ? '#8b949e' : '#57606a' }}
@@ -1369,6 +1571,12 @@ def generate_html(items, stats):
     }});
   }}
 
+  function resetScatterZoom() {{
+    if (scatterChart) {{
+      scatterChart.resetZoom();
+    }}
+  }}
+
   function getYAxisLabel() {{
     if (currentYMetric === 'taste') return '맛 점수 (50점 만점: COE 20 + 테루아 15 + 업계평가 15)';
     if (currentYMetric === 'price') return '가격 점수 (30점 만점)';
@@ -1380,7 +1588,6 @@ def generate_html(items, stats):
     const filtered = getFilteredCoffees();
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
 
-    // Group items by group_key
     const groups = [
       {{ key: 'competition', name: '아처스 컴피티션', color: isDark ? '#f3f4f6' : '#111827', border: '#111827' }},
       {{ key: 'reserve', name: '아처스 리저브', color: '#2563eb', border: '#1d4ed8' }},
@@ -1396,44 +1603,44 @@ def generate_html(items, stats):
         if (currentYMetric === 'price') yVal = c.score_price;
         if (currentYMetric === 'rarity') yVal = c.score_rarity;
 
-        const isSelected = (selectedCoffeeId === c.id);
         return {{
           x: c.price_100g_aed,
           y: yVal,
-          pointStyle: getPointStyle(c, currentShapeMode),
           coffee: c
         }};
       }});
 
+      // Point styles array explicitly defined for Chart.js dataset
+      const pointStyles = items.map(c => getPointStyle(c, currentShapeMode));
+      const pointRadii = items.map(c => (selectedCoffeeId === c.id ? 8.5 : 4.5));
+
       return {{
         label: g.name,
         data: data,
+        pointStyle: pointStyles,
+        pointRadius: pointRadii,
+        pointHoverRadius: 7.5,
         backgroundColor: g.key === 'competition' ? (isDark ? '#e2e8f0' : '#1f242d') : g.color,
         borderColor: g.key === 'competition' ? (isDark ? '#388bfd' : '#000000') : g.border,
-        borderWidth: 1.5,
-        pointRadius: 7,
-        pointHoverRadius: 10
+        borderWidth: 1.2
       }};
     }});
   }}
 
-  // Initialize Notes Chart
+  // Initialize & Update Notes Chart
   function initNotesChart() {{
     const ctx = document.getElementById('notesChart').getContext('2d');
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-
-    const counts = TOP_NOTES.map(note => {{
-      return ALL_COFFEES.filter(c => c.notes_list.some(n => n.includes(note))).length;
-    }});
+    const notesData = getDynamicNotesData();
 
     notesChart = new Chart(ctx, {{
       type: 'bar',
       data: {{
-        labels: TOP_NOTES.map(n => n.charAt(0).toUpperCase() + n.slice(1)),
+        labels: notesData.labels,
         datasets: [{{
           label: '출현 빈도',
-          data: counts,
-          backgroundColor: TOP_NOTES.map(() => isDark ? 'rgba(56, 139, 253, 0.4)' : 'rgba(9, 105, 218, 0.4)'),
+          data: notesData.counts,
+          backgroundColor: notesData.colors,
           borderColor: isDark ? '#388bfd' : '#0969da',
           borderWidth: 1,
           borderRadius: 4
@@ -1443,18 +1650,19 @@ def generate_html(items, stats):
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
+        animation: {{ duration: 300 }},
         plugins: {{
           legend: {{ display: false }},
           tooltip: {{
             callbacks: {{
-              label: ctx => `${{ctx.raw}}개 원두에서 식별됨 (클릭 시 필터)`
+              label: ctx => `${{ctx.raw}}개 원두에서 식별됨 (클릭 시 크로스 필터)`
             }}
           }}
         }},
         scales: {{
           x: {{
             grid: {{ color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }},
-            ticks: {{ color: isDark ? '#8b949e' : '#57606a' }}
+            ticks: {{ color: isDark ? '#8b949e' : '#57606a', stepSize: 1 }}
           }},
           y: {{
             grid: {{ display: false }},
@@ -1464,12 +1672,66 @@ def generate_html(items, stats):
         onClick: (evt, activeEls) => {{
           if (activeEls.length > 0) {{
             const idx = activeEls[0].index;
-            const clickedNote = TOP_NOTES[idx];
+            const clickedNote = notesChart.data.labels[idx].toLowerCase();
             toggleNoteFilter(clickedNote);
           }}
         }}
       }}
     }});
+  }}
+
+  // Calculate dynamic notes frequency based on currently filtered coffees
+  function getDynamicNotesData() {{
+    const filtered = getFilteredCoffees();
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const selCoffee = ALL_COFFEES.find(c => c.id === selectedCoffeeId);
+
+    // Count occurrences within filtered coffees
+    const noteCountMap = {{}};
+    TOP_NOTES_VOCAB.forEach(n => {{ noteCountMap[n] = 0; }});
+
+    filtered.forEach(c => {{
+      TOP_NOTES_VOCAB.forEach(note => {{
+        if (c.notes_list.some(n => n.includes(note))) {{
+          noteCountMap[note] = (noteCountMap[note] || 0) + 1;
+        }}
+      }});
+    }});
+
+    // Sort notes by count descending, take top 14
+    const sorted = Object.entries(noteCountMap)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 14);
+
+    const labels = sorted.map(([k]) => k.charAt(0).toUpperCase() + k.slice(1));
+    const counts = sorted.map(([, v]) => v);
+    const colors = sorted.map(([k]) => {{
+      if (highlightedNote === k) return '#f59e0b'; // Gold selected
+      if (selCoffee && selCoffee.notes_list.some(n => n.includes(k))) return 'rgba(227, 179, 65, 0.95)';
+      return isDark ? 'rgba(56, 139, 253, 0.45)' : 'rgba(9, 105, 218, 0.45)';
+    }});
+
+    return {{ labels, counts, colors, totalFiltered: filtered.length }};
+  }}
+
+  function updateNotesChart() {{
+    if (!notesChart) return;
+    const data = getDynamicNotesData();
+    notesChart.data.labels = data.labels;
+    notesChart.data.datasets[0].data = data.counts;
+    notesChart.data.datasets[0].backgroundColor = data.colors;
+    notesChart.update();
+
+    // Update subtitle
+    const sub = document.getElementById('notesChartSubtitle');
+    if (sub) {{
+      let filterDesc = [];
+      if (currentOriginFilter !== 'all') filterDesc.push(`원산지:${{currentOriginFilter}}`);
+      if (currentProcessFilter !== 'all') filterDesc.push(`가공:${{currentProcessFilter}}`);
+      if (searchQuery) filterDesc.push(`검색:'${{searchQuery}}'`);
+      const extra = filterDesc.length > 0 ? ` (${{filterDesc.join(', ')}} 적용)` : '';
+      sub.textContent = `현재 필터링된 원두 ${{data.totalFiltered}}종 기준 컵노트 출현 빈도${{extra}} (바 클릭 시 크로스 필터링)`;
+    }}
   }}
 
   function toggleNoteFilter(note) {{
@@ -1565,48 +1827,43 @@ def generate_html(items, stats):
       scatterChart.options.scales.y.title.text = getYAxisLabel();
       scatterChart.update();
     }}
+    updateNotesChart();
     updateShapeLegend();
     renderTable();
-    highlightSelectedInNotesChart();
-  }}
-
-  function highlightSelectedInNotesChart() {{
-    if (!notesChart) return;
-    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-    const selCoffee = ALL_COFFEES.find(c => c.id === selectedCoffeeId);
-
-    const colors = TOP_NOTES.map(note => {{
-      if (highlightedNote === note) {{
-        return '#f59e0b'; // Gold active
-      }}
-      if (selCoffee && selCoffee.notes_list.some(n => n.includes(note))) {{
-        return 'rgba(227, 179, 65, 0.9)'; // Coffee active gold
-      }}
-      return isDark ? 'rgba(56, 139, 253, 0.4)' : 'rgba(9, 105, 218, 0.4)';
-    }});
-
-    notesChart.data.datasets[0].backgroundColor = colors;
-    notesChart.update();
   }}
 
   // Filter & Toggle handlers
   function setYMetric(metric, btn) {{
     currentYMetric = metric;
-    document.querySelectorAll('.control-group:first-child .btn-toggle').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.control-row:first-child .control-group:first-child .btn-toggle').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
 
   function setShapeMode(mode, btn) {{
     currentShapeMode = mode;
-    document.querySelectorAll('.control-group:nth-child(2) .btn-toggle').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.control-row:first-child .control-group:nth-child(2) .btn-toggle').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateAll();
+  }}
+
+  function setOriginFilter(origin, btn) {{
+    currentOriginFilter = origin;
+    document.querySelectorAll('#originFilterGroup .btn-toggle').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateAll();
+  }}
+
+  function setProcessFilter(proc, btn) {{
+    currentProcessFilter = proc;
+    document.querySelectorAll('#processFilterGroup .btn-toggle').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
 
   function toggleGroupFilter(groupKey, chip) {{
     if (activeGroups.has(groupKey)) {{
-      if (activeGroups.size === 1) return; // keep at least one
+      if (activeGroups.size === 1) return; // Keep at least one group
       activeGroups.delete(groupKey);
       chip.classList.remove('active');
     }} else {{
@@ -1629,7 +1886,7 @@ def generate_html(items, stats):
 
   function openDetailModal(c) {{
     selectedCoffeeId = c.id;
-    highlightSelectedInNotesChart();
+    updateNotesChart();
 
     document.getElementById('modalBadges').innerHTML = `
       <span class="detail-badge roastery" style="color:${{c.color}}; border-color:${{c.color}};">${{c.roastery}}</span>
@@ -1677,7 +1934,7 @@ def generate_html(items, stats):
   function closeDetailModal(e) {{
     document.getElementById('detailOverlay').classList.remove('active');
     selectedCoffeeId = null;
-    highlightSelectedInNotesChart();
+    updateNotesChart();
   }}
 
   // THEME TOGGLE
@@ -1732,7 +1989,7 @@ def generate_html(items, stats):
 """
     with open('c:/cowork/coffee/analytics.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
-    print("analytics.html generated successfully!")
+    print("analytics.html generated successfully with all requested enhancements!")
 
 def main():
     items = build_data()
@@ -1742,4 +1999,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
