@@ -369,8 +369,10 @@ content = f"""<!DOCTYPE html>
   }}
 
   .container {{
-    max-width: 1260px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 16px;
   }}
 
   /* Top Navigation Bar */
@@ -979,6 +981,7 @@ content = f"""<!DOCTYPE html>
   }}
   .top20-table {{
     width: 100%;
+    table-layout: fixed;
     border-collapse: separate;
     border-spacing: 0;
     font-size: 13px;
@@ -989,14 +992,16 @@ content = f"""<!DOCTYPE html>
     color: var(--text-secondary);
     font-weight: 700;
     text-align: left;
-    padding: 14px 16px;
+    padding: 10px 8px;
     border-bottom: 2px solid var(--border);
     white-space: nowrap;
   }}
   .top20-table td {{
-    padding: 16px 16px;
+    padding: 10px 8px;
     border-bottom: 1px solid var(--border);
     vertical-align: middle;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }}
 
   /* Cart Checkbox Style */
@@ -1056,21 +1061,19 @@ content = f"""<!DOCTYPE html>
 
   /* Roastery Link Button in Table (Compact Width for archers / espresso lab) */
   .roastery-cell {{
-    width: 115px;
-    min-width: 110px;
-    max-width: 125px;
+    width: 95px;
     white-space: nowrap;
     text-align: center;
-    padding: 14px 8px !important;
+    padding: 8px 4px !important;
   }}
   .roastery-link-btn {{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 5px 8px;
+    gap: 3px;
+    padding: 4px 6px;
     border-radius: 6px;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.15s ease;
@@ -1079,7 +1082,7 @@ content = f"""<!DOCTYPE html>
     box-sizing: border-box;
   }}
   .roastery-link-btn .out-icon {{
-    font-size: 10px;
+    font-size: 9px;
     opacity: 0.8;
   }}
   .archers-btn {{
@@ -1107,21 +1110,22 @@ content = f"""<!DOCTYPE html>
 
   /* Tasting Notes Column */
   .notes-cell {{
-    min-width: 180px;
-    max-width: 240px;
-    line-height: 1.45;
+    line-height: 1.4;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    padding: 8px 6px !important;
   }}
   .table-notes-tag {{
-    font-size: 12.5px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--accent-gold);
-    line-height: 1.4;
+    line-height: 1.35;
     word-break: keep-all;
   }}
   .table-flavor-cat {{
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--text-muted);
-    margin-top: 3px;
+    margin-top: 2px;
   }}
   [data-theme="light"] .table-notes-tag {{
     color: #b45309;
@@ -1132,7 +1136,9 @@ content = f"""<!DOCTYPE html>
 
   /* Coffee Name Modal Trigger Button */
   .coffee-name-cell {{
-    min-width: 250px;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    padding: 8px 6px !important;
   }}
   .coffee-modal-btn {{
     background: none;
@@ -1144,16 +1150,17 @@ content = f"""<!DOCTYPE html>
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 3px;
     color: inherit;
     width: 100%;
   }}
   .btn-coffee-title {{
-    font-size: 14.5px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #fff;
     transition: color 0.15s ease;
-    line-height: 1.35;
+    line-height: 1.3;
+    word-break: keep-all;
   }}
   .coffee-modal-btn:hover .btn-coffee-title {{
     color: var(--accent-gold);
@@ -1161,11 +1168,11 @@ content = f"""<!DOCTYPE html>
   }}
   .view-detail-chip {{
     display: inline-block;
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--accent-gold);
     background: rgba(210, 153, 34, 0.12);
     border: 1px solid rgba(210, 153, 34, 0.3);
-    padding: 2px 7px;
+    padding: 1px 6px;
     border-radius: 4px;
     font-weight: 600;
     letter-spacing: 0.3px;
@@ -1176,44 +1183,51 @@ content = f"""<!DOCTYPE html>
     color: #000;
   }}
   .c-spec-sub {{
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
-    margin-top: 4px;
-    line-height: 1.4;
+    margin-top: 3px;
+    line-height: 1.35;
+    word-break: keep-all;
   }}
 
   .price-col {{
-    min-width: 105px;
+    width: 82px;
+    text-align: right;
+    padding: 8px 6px !important;
   }}
   .aed-price {{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--accent-gold);
+    white-space: nowrap;
   }}
   .krw-price {{
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
+    white-space: nowrap;
   }}
 
   /* Clickable Score Header & Sub-sort Controls */
   .score-col-header {{
-    min-width: 175px;
+    width: 125px;
     user-select: none;
-    padding: 10px 14px !important;
+    padding: 8px 4px !important;
+    text-align: center;
   }}
   .score-head-title {{
-    font-size: 13.5px;
+    font-size: 12.5px;
     font-weight: 800;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding: 4px 10px;
-    border-radius: 6px;
+    gap: 4px;
+    padding: 3px 6px;
+    border-radius: 5px;
     transition: all 0.15s ease;
     color: var(--text-primary);
     border: 1px solid transparent;
+    white-space: nowrap;
   }}
   .score-head-title:hover {{
     color: var(--accent-gold);
@@ -1226,23 +1240,24 @@ content = f"""<!DOCTYPE html>
     border: 1px solid var(--accent);
   }}
   .score-sub-sorts {{
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
-    margin-top: 5px;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 2px;
+    white-space: nowrap;
   }}
   .sub-sort-item {{
     cursor: pointer;
-    padding: 2px 7px;
-    border-radius: 5px;
+    padding: 1px 4px;
+    border-radius: 4px;
     font-weight: 700;
     transition: all 0.15s ease;
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 2px;
     color: #cbd5e1;
     border: 1px solid transparent;
   }}
@@ -1257,47 +1272,55 @@ content = f"""<!DOCTYPE html>
     border-color: var(--accent);
   }}
   .sort-sub-ind {{
-    font-size: 10.5px;
+    font-size: 10px;
     opacity: 0.85;
   }}
   .sort-sep {{
     color: var(--border-light);
-    font-size: 11px;
+    font-size: 10px;
     user-select: none;
   }}
 
   .score-col {{
-    min-width: 135px;
+    width: 125px;
+    text-align: center;
+    padding: 8px 4px !important;
   }}
   .score-breakdown {{
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--text-muted);
-    margin-bottom: 3px;
-    line-height: 1.35;
+    margin-bottom: 2px;
+    line-height: 1.3;
+    white-space: nowrap;
   }}
   .total-score-box {{
     display: inline-block;
     background: #0d131c;
     border: 1px solid var(--border);
-    padding: 3px 8px;
-    border-radius: 6px;
+    padding: 2px 6px;
+    border-radius: 5px;
   }}
   .total-score {{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 800;
     color: var(--success);
   }}
   .total-max {{
-    font-size: 10px;
+    font-size: 9.5px;
     color: var(--text-muted);
   }}
 
   .analysis-cell {{
-    min-width: 290px;
+    padding: 8px 6px !important;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }}
   .review-desc {{
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--text-secondary);
+    line-height: 1.45;
+    word-break: keep-all;
+  }}
     line-height: 1.5;
   }}
   .overlap-reason {{
@@ -1702,16 +1725,16 @@ content = f"""<!DOCTYPE html>
     <!-- Criteria Breakdown Box (50 / 30 / 20) -->
     <div class="criteria-box">
       <div class="criterion-item">
-        <div class="crit-name">☕ 1. 맛이 좋은가 (50점 만점)</div>
-        <div class="crit-desc">클린 워시드/발효 가공(+10), 재스민·베르가못·얼그레이·복숭아 티라이크 플로럴 센서리(+15), 파나마/에티오피아 최고 테루아(+12), 게이샤/SL28/피베리/BOP/COE 명문 혈통(+13).</div>
+        <div class="crit-name">☕ 1. 맛이 좋은가 (50점 만점: 이력20 + 테루아15 + 평가15)</div>
+        <div class="crit-desc">COE/BOP 챔피언 및 명문 랏(+20점 만점 차등), 해발 2,200m+ 초고고도/바루 화산 천혜 미기후 테루아(+15점 만점), Reddit r/pourover 9.6~9.8/10 만점급 극찬 및 Q-Grader 호평(+15점 만점).</div>
       </div>
       <div class="criterion-item">
-        <div class="crit-name">💰 2. 가격이 합리적인가 (30점 만점)</div>
-        <div class="crit-desc">100g당 현지 가격 구간(40 AED 이하: 30점 만점부터 차등) 및 국내 동일/유사 등급 시세(7~12만원) 대비 35~50% 이상 저렴한 메리트 반영.</div>
+        <div class="crit-name">💰 2. 가격이 합리적인가 (30점 만점: 소수점 연속 반영)</div>
+        <div class="crit-desc">100g 실구매가를 0.1점 단위 소수점 곡선으로 환산하여 1 AED 단위 가격 차이를 부드럽고 정밀하게 차등 반영 (+반값 파격 할인 가산점, 10.0~30.0점).</div>
       </div>
       <div class="criterion-item">
         <div class="crit-name">🇰🇷 3. 한국에서 구하기 어려운가 (20점 만점)</div>
-        <div class="crit-desc">국내 공식 수입 전무 여부(20점 만점), UAE 현지 로스터리 단독 다이렉트 독점 랏, 마이크로/나노랏 및 국내 대체 불가성 평가.</div>
+        <div class="crit-desc">국내 공식 수입 전무 및 현지 로스터리 단독 다이렉트 독점 랏(20점 만점), 유사 랏 극소량 유통 완판(18점), 국내 유사 싱글 유통 이력(15.5점).</div>
       </div>
     </div>
 
@@ -1719,7 +1742,7 @@ content = f"""<!DOCTYPE html>
     <div class="interaction-guide">
       <div>💡 <strong>인터랙션 안내:</strong></div>
       <div>• <strong>표 좌측 체크박스</strong>로 원하는 원두를 선택한 뒤 <code>[🛒 장바구니 담기]</code> 및 <code>[📋 장바구니 보기]</code>를 누르면 <strong>공식 구매 발주서(cart.html)</strong>로 바로 연결됩니다.</div>
-      <div>• <strong>커피 이름</strong>을 클릭하면 <strong>7대 유사도 분석</strong>과 브루잉 팁이 담긴 <strong>상세 분석 모달</strong>이 열립니다.</div>
+      <div>• <strong>커피 이름</strong>을 클릭하면 <strong>3대 유사도 프로파일(컵노트 50%, 테루아 30%, 프로세스 20%)</strong>과 브루잉 팁이 담긴 <strong>상세 분석 모달</strong>이 열립니다.</div>
       <div>• <strong>로스터리 이름</strong>을 클릭하면 해당 커피의 <strong>공식 웹스토어 판매 페이지</strong>로 새 창 이동합니다.</div>
     </div>
 
@@ -1760,15 +1783,15 @@ content = f"""<!DOCTYPE html>
       <table class="top20-table" id="top20Table">
         <thead>
           <tr>
-            <th style="width:45px; text-align:center;">
+            <th style="width:36px; text-align:center;">
               <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAllCart(this.checked)" title="전체 선택/해제">
             </th>
-            <th class="text-center" style="width:110px;">선정 / 순위</th>
-            <th class="text-center" style="width:115px;">로스터리 ↗</th>
-            <th>커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
-            <th style="min-width:180px; max-width:240px;">✨ 컵노트 (Tasting Notes)</th>
-            <th class="text-right" style="width:110px;">100g 가격</th>
-            <th class="text-center score-col-header">
+            <th class="text-center" style="width:72px;">선정 / 순위</th>
+            <th class="text-center" style="width:95px;">로스터리 ↗</th>
+            <th style="width:21%;">커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
+            <th style="width:17%;">✨ 컵노트 (Tasting Notes)</th>
+            <th class="text-right" style="width:82px;">100g 가격</th>
+            <th class="text-center score-col-header" style="width:125px;">
               <div class="score-head-title active-sort" id="sortTrigger_total" onclick="sortTableByScore('total')" title="종합 총점 기준 정렬 (클릭 시 오름차순/내림차순 토글)">
                 종합 점수 (100점) <span class="sort-ind" id="sortInd_total">▼</span>
               </div>

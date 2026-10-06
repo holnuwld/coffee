@@ -107,10 +107,25 @@ checks = [
     # Dataset integrity & New Criteria
     ("Top 20 curation JSON has exactly 20 items", len(top_20) == 20),
     ("Top 20 has exactly 10 active picks", sum(1 for c in top_20 if c.get("is_active")) == 10),
-    ("Elto Sama Honey (#4) is active pick (different cup notes rule)", any(c['rank'] == 4 and c['is_active'] for c in top_20)),
+    ("Elto Sama Honey is active pick (different cup notes rule)", any('sama' in c.get('title','').lower() and 'honey' in c.get('title','').lower() and c.get('is_active') for c in top_20)),
     ("Top 20 curation JSON has 3-criteria similarity breakdown (notes, terroir, process)", 
         any(c.get('similar_details') and 'terroir' in c['similar_details'] for c in top_20)),
     ("mobile_index.html contains 3-criteria similarity breakdown", "3대 기준 유사도 세부 내역" in m_idx),
+
+    # New User Requirements Verification (Dashboards all coffees scored & Desktop table fixed)
+    ("index.html table-layout is fixed (prevent horizontal scroll)", "table-layout: fixed" in idx),
+    ("index.html criteria box contains new 3 taste criteria (COE 20, Terroir 15, Review 15)", 
+        all(k in idx for k in ['이력20', '테루아15', '평가15'])),
+    ("Archers desktop dashboard contains ⭐ 종합 점수 header and 117 score cells",
+        "⭐ 종합 점수" in archers and archers.count('class="td-score"') >= 117),
+    ("Espresso Lab desktop dashboard contains ⭐ 종합 점수 header and 54 score cells",
+        "⭐ 종합 점수" in tel_dt and tel_dt.count('td-score') >= 54),
+    ("Archers mobile dashboard contains 117 score tags",
+        arc_mb.count('score-tag') >= 117),
+    ("Espresso Lab mobile dashboard contains 54 score badges",
+        tel_mb.count('m-score-badge') >= 54),
+    ("Price scores in Top 20 have continuous decimal precision",
+        any(isinstance(c.get('score_price'), float) and not float(c.get('score_price')).is_integer() for c in top_20)),
 ]
 
 print("="*75)
