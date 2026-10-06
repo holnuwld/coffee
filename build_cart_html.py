@@ -569,14 +569,44 @@ cart_page_code = f"""<!DOCTYPE html>
   <!-- Action Toolbar -->
   <div class="action-toolbar">
     <div class="action-group-left">
-      <button type="button" class="po-btn btn-print" onclick="window.print()">🖨️ 발주서 인쇄 / PDF 저장</button>
-      <button type="button" class="po-btn" onclick="copyOrderText()">📋 텍스트 발주서 복사 (메신저 전달용)</button>
-      <button type="button" class="po-btn" onclick="copyShareableUrl()">🔗 발주서 공유 링크 복사</button>
+      <button type="button" class="po-btn btn-print" onclick="generateImmutableSnapshotUrl()" style="background:linear-gradient(135deg, #d29922, #b8860b); color:#000; font-weight:800;" title="현재 시점의 내용으로 영구 동결되는 불변 링크를 생성합니다">
+        🔒 발주서 불변 링크 확정 복사 (동결 스냅샷)
+      </button>
+      <button type="button" class="po-btn" onclick="generateSharedCartUrl()" style="color:var(--blue); border-color:rgba(88,166,255,0.4);" title="다른 사람과 장바구니를 함께 수정할 수 있는 링크를 복사합니다">
+        👥 장바구니 공동 편집 링크 복사
+      </button>
+      <button type="button" class="po-btn" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+      <button type="button" class="po-btn" onclick="copyOrderText()">📋 텍스트 복사 (메신저용)</button>
     </div>
-    <div class="action-group-right">
+    <div class="action-group-right" id="editActionGroup">
       <a href="index.html#top20Section" class="po-btn">➕ 원두 추가 / 변경하러 가기</a>
       <button type="button" class="po-btn btn-danger" onclick="clearCartAndReset()">🗑️ 발주서 초기화</button>
     </div>
+  </div>
+
+  <!-- Snapshot Locked Mode Banner -->
+  <div id="snapshotBanner" style="display:none; background:rgba(210,153,34,0.12); border:1.5px solid var(--accent-gold); padding:14px 20px; border-radius:12px; margin-bottom:16px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="font-size:24px;">🔒</span>
+        <div>
+          <div style="font-weight:800; font-size:14.5px; color:var(--accent-gold);">
+            발주 확정 불변 스냅샷 모드 (Immutable PO Snapshot)
+          </div>
+          <div style="font-size:12.5px; color:#c9d1d9; margin-top:2px;" id="snapshotMetaText">
+            본 문서는 발행 시점의 데이터로 영구 동결(Frozen)되었습니다. 이후 장바구니가 수정되더라도 본 페이지 내용은 절대 변경되지 않습니다.
+          </div>
+        </div>
+      </div>
+      <span style="font-size:11.5px; font-weight:700; background:rgba(240,180,41,0.2); color:var(--accent-gold); border:1px solid var(--accent); padding:4px 10px; border-radius:6px;" id="snapshotPoBadge">
+        PO-LOCKED
+      </span>
+    </div>
+  </div>
+
+  <!-- Shared Cart Banner -->
+  <div id="sharedCartNotice" style="display:none; background:rgba(88,166,255,0.12); border:1px solid rgba(88,166,255,0.4); padding:10px 16px; border-radius:8px; font-size:13px; color:var(--blue); margin-bottom:16px;">
+    👥 <strong>동료 공동 편집 모드:</strong> 동료가 공유한 장바구니 데이터가 로드되었습니다. 품목을 수정하면 새로운 공유 링크를 생성할 수 있습니다.
   </div>
 
   <!-- Fallback Notification Banner -->
@@ -627,21 +657,97 @@ cart_page_code = f"""<!DOCTYPE html>
   const DEFAULT_PICKS = {json.dumps(active_10, ensure_ascii=False)};
 
   let cartItems = [];
+  let isSnapshotMode = false;
+  let snapshotMeta = null;
+
+  // Safe UTF-8 Base64 Encoding & Decoding
+  function encodeBase64Utf8(str) {{
+    return encodeURIComponent(btoa(encodeURIComponent(str).replace(/%([0-9A-F]{{2}})/g, function(match, p1) {{
+      return String.fromCharCode('0x' + p1);
+    }})));
+  }}
+
+  function decodeBase64Utf8(str) {{
+    try {{
+      const raw = atob(decodeURIComponent(str));
+      return decodeURIComponent(Array.prototype.map.call(raw, function(c) {{
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }}).join(''));
+    }} catch(e) {{
+      console.error('Base64 decode error', e);
+      return null;
+    }}
+  }}
 
   function initCart() {{
     const today = new Date();
     document.getElementById('printDateStr').textContent = `출력/발주일시: ${{today.getFullYear()}}-${{String(today.getMonth()+1).padStart(2,'0')}}-${{String(today.getDate()).padStart(2,'0')}}`;
 
-    // 1. Check URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const itemHandlesParam = urlParams.get('items');
 
+    // 1. Check for Immutable Snapshot (Highest Priority)
+    const snapParam = urlParams.get('snapshot');
+    if (snapParam) {{
+      try {{
+        const jsonStr = decodeBase64Utf8(snapParam);
+        if (jsonStr) {{
+          const snapData = JSON.parse(jsonStr);
+          if (snapData && snapData.items && snapData.items.length) {{
+            isSnapshotMode = true;
+            snapshotMeta = snapData;
+            cartItems = snapData.items;
+
+            // Display Snapshot Banner & Lock Editing
+            document.getElementById('snapshotBanner').style.display = 'block';
+            document.getElementById('snapshotPoBadge').textContent = snapData.po_number || 'PO-SNAPSHOT';
+            document.getElementById('snapshotMetaText').innerHTML = `
+              <strong>문서 번호:</strong> ${{snapData.po_number || 'PO-LOCKED'}} &nbsp;|&nbsp; 
+              <strong>확정 일시:</strong> ${{snapData.created_at || '기록일시'}} &nbsp;|&nbsp; 
+              <strong>상태:</strong> 영구 불변 동결 (이후 장바구니 변경과 완전히 독립됨)
+            `;
+            document.getElementById('printDateStr').textContent = `발주 확정일시: ${{snapData.created_at || '확정일자'}}`;
+            
+            // Hide edit actions in toolbar
+            const editGroup = document.getElementById('editActionGroup');
+            if (editGroup) editGroup.style.display = 'none';
+
+            renderCartTable();
+            return;
+          }}
+        }}
+      }} catch(err) {{
+        console.error('Snapshot load failed', err);
+      }}
+    }}
+
+    // 2. Check for Shared Collaborative Cart
+    const sharedParam = urlParams.get('shared_cart');
+    if (sharedParam) {{
+      try {{
+        const jsonStr = decodeBase64Utf8(sharedParam);
+        if (jsonStr) {{
+          const sharedData = JSON.parse(jsonStr);
+          if (sharedData && sharedData.handles) {{
+            cartItems = MASTER_COFFEES.filter(c => sharedData.handles.includes(c.handle));
+            document.getElementById('sharedCartNotice').style.display = 'block';
+            saveCartToStorage();
+            renderCartTable();
+            return;
+          }}
+        }}
+      }} catch(err) {{
+        console.error('Shared cart load failed', err);
+      }}
+    }}
+
+    // 3. Check for standard item handles URL parameter
+    const itemHandlesParam = urlParams.get('items');
     if (itemHandlesParam) {{
       const handles = itemHandlesParam.split(',');
       cartItems = MASTER_COFFEES.filter(c => handles.includes(c.handle));
     }}
 
-    // 2. If no URL params, check localStorage
+    // 4. If no URL params, check localStorage
     if (!cartItems.length) {{
       try {{
         const stored = localStorage.getItem('coffee_cart');
@@ -653,7 +759,7 @@ cart_page_code = f"""<!DOCTYPE html>
       }}
     }}
 
-    // 3. If still empty, fall back to Default 10 Active Picks!
+    // 5. If still empty, fall back to Default 10 Active Picks!
     if (!cartItems || !cartItems.length) {{
       cartItems = [...DEFAULT_PICKS];
       document.getElementById('fallbackNotice').style.display = 'block';
@@ -717,14 +823,18 @@ cart_page_code = f"""<!DOCTYPE html>
           <div class="reason-text">${{reasonText}}</div>
         </td>
         <td style="text-align:center;">
-          <button type="button" class="btn-remove-item" onclick="removeItem(${{idx}})" title="발주 목록에서 삭제">✕</button>
+          ${{isSnapshotMode 
+            ? '<span style="font-size:11px; color:var(--accent-gold); font-weight:700;" title="확정된 발주서로 삭제 불가">🔒 확정</span>' 
+            : `<button type="button" class="btn-remove-item" onclick="removeItem(${{idx}})" title="발주 목록에서 삭제">✕</button>`}}
         </td>
       `;
       tbody.appendChild(tr);
     }});
 
     updateKpis(cartItems.length, archersCount, telCount, totalAed, totalKrw);
-    saveCartToStorage();
+    if (!isSnapshotMode) {{
+      saveCartToStorage();
+    }}
   }}
 
   function updateKpis(total, archers, tel, aed, krw) {{
@@ -736,11 +846,13 @@ cart_page_code = f"""<!DOCTYPE html>
   }}
 
   function removeItem(idx) {{
+    if (isSnapshotMode) return;
     cartItems.splice(idx, 1);
     renderCartTable();
   }}
 
   function saveCartToStorage() {{
+    if (isSnapshotMode) return;
     try {{
       localStorage.setItem('coffee_cart', JSON.stringify(cartItems));
     }} catch (e) {{
@@ -749,11 +861,84 @@ cart_page_code = f"""<!DOCTYPE html>
   }}
 
   function clearCartAndReset() {{
+    if (isSnapshotMode) return;
     if (confirm('발주서 목록을 초기화하시겠습니까?')) {{
       cartItems = [];
       saveCartToStorage();
       renderCartTable();
     }}
+  }}
+
+  // 1. Generate Immutable Snapshot (FROZEN URL)
+  function generateImmutableSnapshotUrl() {{
+    if (!cartItems.length) {{
+      alert('발주서에 담긴 커피가 없습니다.');
+      return;
+    }}
+    const now = new Date();
+    const dateStr = `${{now.getFullYear()}}-${{String(now.getMonth()+1).padStart(2,'0')}}-${{String(now.getDate()).padStart(2,'0')}} ${{String(now.getHours()).padStart(2,'0')}}:${{String(now.getMinutes()).padStart(2,'0')}}`;
+    const poCode = 'PO-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
+
+    const snapshotPayload = {{
+      po_number: poCode,
+      created_at: dateStr,
+      created_ts: now.getTime(),
+      items: cartItems.map(c => ({{
+        handle: c.handle,
+        title: c.title,
+        roastery: c.roastery,
+        roastery_badge: c.roastery_badge,
+        price_aed: parseFloat(c.price_aed || 0),
+        price_krw: parseInt(c.price_krw || Math.round((c.price_aed || 0) * 380)),
+        notes: c.notes,
+        country: c.country,
+        farm: c.farm,
+        producer: c.producer,
+        variety: c.variety,
+        process: c.process,
+        altitude: c.altitude,
+        roast: c.roast,
+        weight: c.weight,
+        source_url: c.source_url,
+        overlap_note: c.overlap_note,
+        score_total: c.score_total,
+        score_taste: c.score_taste,
+        score_price: c.score_price,
+        score_rarity: c.score_rarity,
+        max_prior_sim: c.max_prior_sim,
+        similar_target_rank: c.similar_target_rank,
+        detailed_review: c.detailed_review
+      }}))
+    }};
+
+    const encoded = encodeBase64Utf8(JSON.stringify(snapshotPayload));
+    const snapUrl = window.location.origin + window.location.pathname + '?snapshot=' + encoded;
+
+    navigator.clipboard.writeText(snapUrl).then(() => {{
+      alert(`🔒 [불변 발주서 링크 복사 완료]\\n\\n발주 번호: ${{poCode}}\\n확정 일시: ${{dateStr}}\\n\\n✅ 본 링크는 생성 시점의 내용으로 영구 동결(Frozen)되었습니다.\\n이후 장바구니를 다른 사람이 어떻게 수정하더라도, 이 링크를 열면 당시 발주서 내용이 절대 변경되지 않습니다!\\n\\n구매 담당자에게 이 링크를 전달하세요.`);
+    }}).catch(() => {{
+      prompt('생성된 불변 발주서 링크입니다 (복사하여 전달하세요):', snapUrl);
+    }});
+  }}
+
+  // 2. Generate Collaborative Cart URL (MUTABLE)
+  function generateSharedCartUrl() {{
+    if (!cartItems.length) {{
+      alert('장바구니에 담긴 커피가 없습니다.');
+      return;
+    }}
+    const sharedPayload = {{
+      updated_at: new Date().toISOString(),
+      handles: cartItems.map(c => c.handle)
+    }};
+    const encoded = encodeBase64Utf8(JSON.stringify(sharedPayload));
+    const shareUrl = window.location.origin + window.location.pathname + '?shared_cart=' + encoded;
+
+    navigator.clipboard.writeText(shareUrl).then(() => {{
+      alert(`👥 [장바구니 공동 편집 링크 복사 완료]\\n\\n이 링크를 동료에게 전달하면, 동료가 장바구니를 열어 원두를 추가/삭제/변경할 수 있습니다.\\n동료가 수정한 후 다시 공유 링크를 생성하여 서로 변경사항을 확인할 수 있습니다!`);
+    }}).catch(() => {{
+      prompt('공동 편집 링크입니다:', shareUrl);
+    }});
   }}
 
   function copyOrderText() {{
@@ -762,7 +947,9 @@ cart_page_code = f"""<!DOCTYPE html>
       return;
     }}
     let totalAed = 0;
-    let lines = ['[📋 UAE 스페셜티 커피 현지 구매 발주서]', '규격: 전 품목 100g 필터용(Filter Light Roast) 필수 확인', '----------------------------------------'];
+    const poNum = snapshotMeta ? snapshotMeta.po_number : 'PO-DRAFT';
+    const dateInfo = snapshotMeta ? ` (확정일시: ${{snapshotMeta.created_at}})` : '';
+    let lines = [`[📋 UAE 스페셜티 커피 현지 구매 발주서 - ${{poNum}}${{dateInfo}}]`, '규격: 전 품목 100g 필터용(Filter Light Roast) 필수 확인', '----------------------------------------'];
     cartItems.forEach((c, idx) => {{
       const p = parseFloat(c.price_aed || 0);
       totalAed += p;
@@ -782,17 +969,7 @@ cart_page_code = f"""<!DOCTYPE html>
   }}
 
   function copyShareableUrl() {{
-    if (!cartItems.length) {{
-      alert('발주서에 담긴 커피가 없습니다.');
-      return;
-    }}
-    const handles = cartItems.map(c => c.handle).join(',');
-    const shareUrl = window.location.origin + window.location.pathname + '?items=' + encodeURIComponent(handles);
-    navigator.clipboard.writeText(shareUrl).then(() => {{
-      alert('발주서 공유 링크가 복사되었습니다! 이 링크를 열면 선택한 품목이 그대로 표시됩니다:\\n' + shareUrl);
-    }}).catch(err => {{
-      alert('공유 URL 복사 실패');
-    }});
+    generateImmutableSnapshotUrl();
   }}
 
   window.addEventListener('DOMContentLoaded', initCart);

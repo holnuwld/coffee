@@ -55,6 +55,18 @@ checks = [
     ("mobile_cart.html contains text copy function", "copyOrderText" in m_cart),
     ("mobile_cart.html contains direct shop links with target='_blank'", 'target="_blank"' in m_cart),
 
+    # Immutable Snapshot & Shared Cart Features
+    ("cart.html contains generateImmutableSnapshotUrl", "generateImmutableSnapshotUrl" in cart),
+    ("cart.html contains snapshot banner", "snapshotBanner" in cart),
+    ("cart.html contains shared_cart handling", "shared_cart" in cart),
+    ("cart.html contains snapshot parameter handler (?snapshot=)", "urlParams.get('snapshot')" in cart),
+    ("cart.html locks editing in snapshot mode", "isSnapshotMode" in cart),
+    ("mobile_cart.html contains generateImmutableSnapshotUrl", "generateImmutableSnapshotUrl" in m_cart),
+    ("mobile_cart.html contains snapshot banner", "mSnapshotBanner" in m_cart),
+    ("mobile_cart.html contains shared_cart handling", "shared_cart" in m_cart),
+    ("mobile_cart.html contains snapshot parameter handler (?snapshot=)", "urlParams.get('snapshot')" in m_cart),
+    ("mobile_cart.html locks editing in snapshot mode", "isSnapshotMode" in m_cart),
+
     # Archers dashboard expert rank 1 fix
     ("Archers dashboard contains Expert Rank 1 (Los Cenizos GW 208)", "1위 | Competition Series 2025" in archers and "Los Cenizos" in archers),
     ("Archers dashboard has complete Best 3 (1위, 2위, 3위)", all(f"{r}위 |" in archers for r in [1, 2, 3])),
@@ -65,9 +77,9 @@ checks = [
     ("Elto Sama Honey (#4) is active pick (different cup notes rule)", any(c['rank'] == 4 and c['is_active'] for c in top_20)),
 ]
 
-print("="*70)
-print("Comprehensive System Verification Report (Mobile & Fixes)")
-print("="*70)
+print("="*75)
+print("Comprehensive System Verification Report (Mobile, Snapshot & Shared Cart)")
+print("="*75)
 all_pass = True
 for name, res in checks:
     status = "PASS" if res else "FAIL"
@@ -75,8 +87,9 @@ for name, res in checks:
     if not res:
         all_pass = False
 
-print("="*70)
+print("="*75)
 if all_pass:
     print("ALL CHECKS PASSED PERFECTLY (100% COMPLETE)! NO FLAWS DETECTED.")
 else:
     print("SOME CHECKS FAILED. Please review.")
+

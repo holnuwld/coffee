@@ -483,13 +483,34 @@ cart_html_template = f"""<!DOCTYPE html>
 
 <!-- Action Buttons -->
 <div class="m-actions-wrap">
-  <button type="button" class="m-act-btn btn-print" onclick="window.print()">🖨️ 발주서 인쇄 / PDF 저장</button>
-  <button type="button" class="m-act-btn" onclick="copyOrderText()">📋 텍스트 발주서 복사 (카톡/메신저용)</button>
-  <button type="button" class="m-act-btn" onclick="copyShareUrl()">🔗 모바일 발주서 공유 링크 복사</button>
-  <div style="display:flex; gap:8px;">
+  <button type="button" class="m-act-btn btn-print" onclick="generateImmutableSnapshotUrl()" style="background:linear-gradient(135deg, #d29922, #b07d12); color:#000; font-weight:800;" title="현재 시점의 내용으로 영구 동결되는 불변 링크를 생성합니다">
+    🔒 발주서 불변 링크 확정 복사 (스냅샷)
+  </button>
+  <button type="button" class="m-act-btn" onclick="generateSharedCartUrl()" style="color:var(--blue); border-color:rgba(88,166,255,0.4);" title="다른 사람과 장바구니를 함께 수정할 수 있는 링크를 복사합니다">
+    👥 장바구니 공동 편집 링크 복사
+  </button>
+  <button type="button" class="m-act-btn" onclick="window.print()">🖨️ 발주서 인쇄 / PDF 저장</button>
+  <button type="button" class="m-act-btn" onclick="copyOrderText()">📋 텍스트 발주서 복사 (메신저용)</button>
+  <div style="display:flex; gap:8px;" id="mEditActionRow">
     <a href="mobile_index.html" class="m-act-btn btn-secondary" style="flex:1; text-decoration:none;">➕ 원두 더 담기</a>
     <button type="button" class="m-act-btn btn-secondary" style="width:110px; color:var(--danger);" onclick="resetCart()">🗑️ 초기화</button>
   </div>
+</div>
+
+<!-- Snapshot Locked Mode Banner -->
+<div id="mSnapshotBanner" style="display:none; margin:0 16px 16px 16px; background:rgba(210,153,34,0.12); border:1.5px solid var(--accent-gold); padding:12px 14px; border-radius:10px;">
+  <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+    <span style="font-size:18px;">🔒</span>
+    <strong style="color:var(--accent-gold); font-size:13.5px;">발주 확정 불변 스냅샷 (Frozen)</strong>
+  </div>
+  <div style="font-size:12px; color:#c9d1d9; line-height:1.45;" id="mSnapshotMetaTxt">
+    발행 시점의 데이터로 영구 동결되었습니다. 이후 장바구니 변경과 무관하게 당시 내용이 보존됩니다.
+  </div>
+</div>
+
+<!-- Shared Cart Notice -->
+<div id="mSharedCartNotice" style="display:none; margin:0 16px 16px 16px; background:rgba(88,166,255,0.12); border:1px solid rgba(88,166,255,0.4); padding:10px 14px; border-radius:8px; font-size:12.5px; color:var(--blue);">
+  👥 <strong>공동 편집 모드:</strong> 동료가 공유한 장바구니 목록이 로드되었습니다.
 </div>
 
 <!-- Toast -->
@@ -505,21 +526,94 @@ cart_html_template = f"""<!DOCTYPE html>
   const DEFAULT_PICKS = {json.dumps(active_10, ensure_ascii=False)};
 
   let cartItems = [];
+  let isSnapshotMode = false;
+  let snapshotMeta = null;
+
+  // Safe UTF-8 Base64 Encoding & Decoding
+  function encodeBase64Utf8(str) {{
+    return encodeURIComponent(btoa(encodeURIComponent(str).replace(/%([0-9A-F]{{2}})/g, function(match, p1) {{
+      return String.fromCharCode('0x' + p1);
+    }})));
+  }}
+
+  function decodeBase64Utf8(str) {{
+    try {{
+      const raw = atob(decodeURIComponent(str));
+      return decodeURIComponent(Array.prototype.map.call(raw, function(c) {{
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }}).join(''));
+    }} catch(e) {{
+      console.error('Base64 decode error', e);
+      return null;
+    }}
+  }}
 
   function initPo() {{
     const today = new Date();
     document.getElementById('mDocMetaDate').innerHTML = `발주 일자: ${{today.getFullYear()}}-${{String(today.getMonth()+1).padStart(2,'0')}}-${{String(today.getDate()).padStart(2,'0')}}<br>대상: Archers Coffee &amp; The Espresso Lab`;
 
-    // 1. Check URL parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const itemHandlesParam = urlParams.get('items');
 
+    // 1. Check for Immutable Snapshot (Highest Priority)
+    const snapParam = urlParams.get('snapshot');
+    if (snapParam) {{
+      try {{
+        const jsonStr = decodeBase64Utf8(snapParam);
+        if (jsonStr) {{
+          const snapData = JSON.parse(jsonStr);
+          if (snapData && snapData.items && snapData.items.length) {{
+            isSnapshotMode = true;
+            snapshotMeta = snapData;
+            cartItems = snapData.items;
+
+            document.getElementById('mSnapshotBanner').style.display = 'block';
+            document.getElementById('mSnapshotMetaTxt').innerHTML = `
+              <strong>문서 번호:</strong> ${{snapData.po_number || 'PO-LOCKED'}}<br>
+              <strong>확정 일시:</strong> ${{snapData.created_at || '기록일시'}}<br>
+              이후 장바구니 변경과 완전히 독립된 영구 동결 문서입니다.
+            `;
+            document.getElementById('mDocMetaDate').innerHTML = `발주 확정일시: ${{snapData.created_at || '확정일자'}}<br>문서 번호: ${{snapData.po_number || 'PO-LOCKED'}}`;
+
+            const editRow = document.getElementById('mEditActionRow');
+            if (editRow) editRow.style.display = 'none';
+
+            renderPoItems();
+            return;
+          }}
+        }}
+      }} catch(err) {{
+        console.error('Snapshot load failed', err);
+      }}
+    }}
+
+    // 2. Check for Shared Collaborative Cart
+    const sharedParam = urlParams.get('shared_cart');
+    if (sharedParam) {{
+      try {{
+        const jsonStr = decodeBase64Utf8(sharedParam);
+        if (jsonStr) {{
+          const sharedData = JSON.parse(jsonStr);
+          if (sharedData && sharedData.handles) {{
+            cartItems = MASTER_COFFEES.filter(c => sharedData.handles.includes(c.handle));
+            document.getElementById('mSharedCartNotice').style.display = 'block';
+            saveStorage();
+            renderPoItems();
+            return;
+          }}
+        }}
+      }} catch(err) {{
+        console.error('Shared cart load failed', err);
+      }}
+    }}
+
+    // 3. Standard item handles URL param
+    const itemHandlesParam = urlParams.get('items');
     if (itemHandlesParam) {{
       const handles = itemHandlesParam.split(',');
       cartItems = MASTER_COFFEES.filter(c => handles.includes(c.handle));
     }}
 
-    // 2. If no URL params, check localStorage
+    // 4. LocalStorage
     if (!cartItems.length) {{
       try {{
         const stored = localStorage.getItem('coffee_cart');
@@ -529,7 +623,7 @@ cart_html_template = f"""<!DOCTYPE html>
       }} catch (e) {{}}
     }}
 
-    // 3. Fallback to active 10 picks
+    // 5. Fallback to active 10 picks
     if (!cartItems || !cartItems.length) {{
       cartItems = [...DEFAULT_PICKS];
     }}
@@ -579,7 +673,9 @@ cart_html_template = f"""<!DOCTYPE html>
             <span class="m-roastery-badge ${{rBadgeCls}}">${{c.roastery_badge}}</span>
             <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">종합 ${{c.score_total}}점</span>
           </div>
-          <button type="button" class="btn-del-item" onclick="deleteItem(${{idx}})" title="품목 삭제">✕</button>
+          ${{isSnapshotMode 
+            ? '<span style="font-size:11px; color:var(--accent-gold); font-weight:800; padding:2px 6px;">🔒 확정</span>' 
+            : `<button type="button" class="btn-del-item" onclick="deleteItem(${{idx}})" title="품목 삭제">✕</button>`}}
         </div>
 
         <h2 class="m-po-name">
@@ -628,7 +724,9 @@ cart_html_template = f"""<!DOCTYPE html>
     }});
 
     updateKpis(cartItems.length, archers, tel, totalAed, totalKrw);
-    saveStorage();
+    if (!isSnapshotMode) {{
+      saveStorage();
+    }}
   }}
 
   function updateKpis(cnt, arch, tel, aed, krw) {{
@@ -653,18 +751,21 @@ cart_html_template = f"""<!DOCTYPE html>
   }}
 
   function deleteItem(idx) {{
+    if (isSnapshotMode) return;
     cartItems.splice(idx, 1);
     renderPoItems();
     showToast('품목이 발주서에서 삭제되었습니다.');
   }}
 
   function saveStorage() {{
+    if (isSnapshotMode) return;
     try {{
       localStorage.setItem('coffee_cart', JSON.stringify(cartItems));
     }} catch (e) {{}}
   }}
 
   function resetCart() {{
+    if (isSnapshotMode) return;
     if (confirm('발주서 목록을 초기화하시겠습니까?')) {{
       cartItems = [];
       saveStorage();
@@ -673,13 +774,86 @@ cart_html_template = f"""<!DOCTYPE html>
     }}
   }}
 
+  // 1. Generate Immutable Snapshot URL (FROZEN)
+  function generateImmutableSnapshotUrl() {{
+    if (!cartItems.length) {{
+      alert('발주서에 담긴 커피가 없습니다.');
+      return;
+    }}
+    const now = new Date();
+    const dateStr = `${{now.getFullYear()}}-${{String(now.getMonth()+1).padStart(2,'0')}}-${{String(now.getDate()).padStart(2,'0')}} ${{String(now.getHours()).padStart(2,'0')}}:${{String(now.getMinutes()).padStart(2,'0')}}`;
+    const poCode = 'PO-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
+
+    const snapshotPayload = {{
+      po_number: poCode,
+      created_at: dateStr,
+      items: cartItems.map(c => ({{
+        handle: c.handle,
+        title: c.title,
+        roastery: c.roastery,
+        roastery_badge: c.roastery_badge,
+        price_aed: parseFloat(c.price_aed || 0),
+        price_krw: parseInt(c.price_krw || Math.round((c.price_aed || 0) * 380)),
+        notes: c.notes,
+        country: c.country,
+        farm: c.farm,
+        producer: c.producer,
+        variety: c.variety,
+        process: c.process,
+        altitude: c.altitude,
+        roast: c.roast,
+        weight: c.weight,
+        source_url: c.source_url,
+        overlap_note: c.overlap_note,
+        score_total: c.score_total,
+        score_taste: c.score_taste,
+        score_price: c.score_price,
+        score_rarity: c.score_rarity,
+        max_prior_sim: c.max_prior_sim,
+        similar_target_rank: c.similar_target_rank,
+        detailed_review: c.detailed_review
+      }}))
+    }};
+
+    const encoded = encodeBase64Utf8(JSON.stringify(snapshotPayload));
+    const snapUrl = window.location.origin + window.location.pathname + '?snapshot=' + encoded;
+
+    navigator.clipboard.writeText(snapUrl).then(() => {{
+      alert(`🔒 [불변 발주서 링크 복사 완료]\\n\\n발주 번호: ${{poCode}}\\n확정 일시: ${{dateStr}}\\n\\n✅ 본 링크는 생성 시점의 내용으로 영구 동결(Frozen)되었습니다.\\n이후 장바구니를 다른 사람이 어떻게 수정하더라도, 이 링크를 열면 당시 발주서 내용이 절대 변경되지 않습니다!\\n\\n구매 담당자에게 이 링크를 전달하세요.`);
+    }}).catch(() => {{
+      prompt('불변 발주서 링크입니다:', snapUrl);
+    }});
+  }}
+
+  // 2. Generate Collaborative Cart URL (MUTABLE)
+  function generateSharedCartUrl() {{
+    if (!cartItems.length) {{
+      alert('장바구니에 담긴 커피가 없습니다.');
+      return;
+    }}
+    const sharedPayload = {{
+      updated_at: new Date().toISOString(),
+      handles: cartItems.map(c => c.handle)
+    }};
+    const encoded = encodeBase64Utf8(JSON.stringify(sharedPayload));
+    const shareUrl = window.location.origin + window.location.pathname + '?shared_cart=' + encoded;
+
+    navigator.clipboard.writeText(shareUrl).then(() => {{
+      alert(`👥 [장바구니 공동 편집 링크 복사 완료]\\n\\n이 링크를 동료에게 전달하면 동료가 열어서 원두를 추가/수정할 수 있습니다.`);
+    }}).catch(() => {{
+      prompt('공동 편집 링크입니다:', shareUrl);
+    }});
+  }}
+
   function copyOrderText() {{
     if (!cartItems.length) {{
       alert('발주서에 담긴 커피가 없습니다.');
       return;
     }}
     let totalAed = 0;
-    let lines = ['[📋 UAE 스페셜티 커피 현지 구매 발주서 (모바일)]', '규격: 전 품목 100g 필터용(Filter Light Roast) 필수', '----------------------------------------'];
+    const poNum = snapshotMeta ? snapshotMeta.po_number : 'PO-DRAFT';
+    const dateInfo = snapshotMeta ? ` (확정일시: ${{snapshotMeta.created_at}})` : '';
+    let lines = [`[📋 UAE 스페셜티 커피 현지 구매 발주서 - ${{poNum}}${{dateInfo}}]`, '규격: 전 품목 100g 필터용(Filter Light Roast) 필수', '----------------------------------------'];
     cartItems.forEach((c, idx) => {{
       const a = parseFloat(c.price_aed || 0);
       totalAed += a;
@@ -699,17 +873,7 @@ cart_html_template = f"""<!DOCTYPE html>
   }}
 
   function copyShareUrl() {{
-    if (!cartItems.length) {{
-      alert('발주서에 담긴 커피가 없습니다.');
-      return;
-    }}
-    const handles = cartItems.map(c => c.handle).join(',');
-    const shareUrl = window.location.origin + window.location.pathname + '?items=' + encodeURIComponent(handles);
-    navigator.clipboard.writeText(shareUrl).then(() => {{
-      showToast('모바일 발주서 공유 링크가 복사되었습니다!');
-    }}).catch(() => {{
-      alert('공유 URL 복사 실패');
-    }});
+    generateImmutableSnapshotUrl();
   }}
 
   function showToast(msg) {{
