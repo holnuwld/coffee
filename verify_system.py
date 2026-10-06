@@ -143,6 +143,7 @@ checks = [
     ("analytics.html contains Graph 2: Tasting notes chart (notesChart)", "notesChart" in open('analytics.html', encoding='utf-8').read() and "TOP_NOTES" in open('analytics.html', encoding='utf-8').read()),
     ("analytics.html contains detail modal with 3 taste criteria breakdown", "detailOverlay" in open('analytics.html', encoding='utf-8').read() and "modalAwardScore" in open('analytics.html', encoding='utf-8').read()),
     ("analytics.html supports dual theme (dark/light) with theme toggle", "toggleTheme" in open('analytics.html', encoding='utf-8').read() and '[data-theme="light"]' in open('analytics.html', encoding='utf-8').read()),
+    ("analytics.html contains 100g price cap filter toolbar (table-price-filter-bar & setPriceFilter)", "table-price-filter-bar" in open('analytics.html', encoding='utf-8').read() and "setPriceFilter" in open('analytics.html', encoding='utf-8').read()),
     ("index.html contains link to analytics.html (analytics-promo-card)", "analytics-promo-card" in idx and "analytics.html" in idx),
 ]
 
