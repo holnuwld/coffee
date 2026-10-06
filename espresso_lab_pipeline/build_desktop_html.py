@@ -38,11 +38,29 @@ def render_table_rows(items):
         flag = get_flag(c['country'])
         img_url = c.get('image_url') or 'https://theespressolab.com/images/default-coffee.png'
         
-        # Format table cells cleanly
+        # Korea shop link rendering: only render link if legitimate URL exists
+        k_shop_content = ""
+        if c.get('korea_shop_link') and c['korea_shop_link'].startswith('http'):
+            k_shop_content = f"""
+            <a href="{c['korea_shop_link']}" target="_blank" class="korea-link">
+              🏬 {html.escape(c['korea_shop'])} ↗
+            </a>
+            <div class="text-xs text-muted mt-1">{html.escape(c['korea_price'])}</div>
+            """
+        else:
+            k_shop_content = f"""
+            <div class="no-import-tag">🚫 {html.escape(c['korea_shop'])}</div>
+            <div class="text-xs text-muted mt-1">{html.escape(c['korea_price'])}</div>
+            """
+
+        # Review link rendering
+        rev_link = c.get('review_link', 'https://www.reddit.com/r/pourover/')
+        rev_source = c.get('review_source', 'Reddit r/pourover')
+
         r = f"""
         <tr data-category="{html.escape(c['category'])}">
-          <td class="text-center font-mono text-muted">{idx}</td>
-          <td class="text-center">
+          <td class="text-center font-mono text-muted td-idx">{idx}</td>
+          <td class="text-center td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('{img_url}', '{html.escape(c['title'])}')">
               <img src="{img_url}" alt="{html.escape(c['title'])}" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Coffee'">
               <span class="zoom-icon">🔍</span>
@@ -50,8 +68,8 @@ def render_table_rows(items):
           </td>
           <td class="coffee-title-cell">
             <div class="font-bold text-primary">
-              <a href="{c['source_url']}" target="_blank" class="coffee-link">
-                {flag} {html.escape(c['title'])}
+              <a href="{c['source_url']}" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
+                {flag} {html.escape(c['title'])} ↗
               </a>
             </div>
             <div class="text-xs text-muted font-mono">{html.escape(c['handle'])}</div>
@@ -63,7 +81,7 @@ def render_table_rows(items):
           <td><span class="badge badge-variety">{html.escape(c['variety'])}</span></td>
           <td><span class="badge badge-process">{html.escape(c['process'])}</span></td>
           <td class="text-sm font-mono">{html.escape(c['altitude'])}</td>
-          <td><span class="badge badge-roast">🔥 {html.escape(c['roast'])}</span></td>
+          <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light Roast)</span></td>
           <td class="notes-cell">{html.escape(c['tasting_notes'])}</td>
           <td class="text-center font-mono font-bold">{html.escape(c['weight'])}</td>
           <td class="text-right font-mono price-cell">
@@ -75,10 +93,7 @@ def render_table_rows(items):
             <div class="text-xs text-muted">약 {c['price_per_100g_krw']:,}원</div>
           </td>
           <td class="korea-shop-cell">
-            <a href="{c['korea_shop_link']}" target="_blank" class="korea-link">
-              🏬 {html.escape(c['korea_shop'])}
-            </a>
-            <div class="text-xs text-muted mt-1">{html.escape(c['korea_price'])}</div>
+            {k_shop_content}
           </td>
           <td class="merit-cell">
             <div class="merit-text">{html.escape(c['merit'])}</div>
@@ -86,6 +101,9 @@ def render_table_rows(items):
           <td class="review-cell">
             <div class="score-badge">★ {c['score']}</div>
             <div class="review-text">{html.escape(c['community_review'])}</div>
+            <div class="mt-1">
+              <a href="{rev_link}" target="_blank" class="review-origin-link">🔗 {html.escape(rev_source)} ↗</a>
+            </div>
           </td>
           <td class="text-center">
             <span class="badge badge-verified">✓ PASS</span>
@@ -139,7 +157,7 @@ desktop_html_content = f"""<!DOCTYPE html>
 
   /* Top Navigation Bar */
   .top-nav {{
-    background: rgba(11, 15, 23, 0.85);
+    background: rgba(11, 15, 23, 0.9);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -215,16 +233,6 @@ desktop_html_content = f"""<!DOCTYPE html>
     position: relative;
     overflow: hidden;
   }}
-  .hero-card::after {{
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(210, 153, 34, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }}
   .hero-badge {{
     display: inline-flex;
     align-items: center;
@@ -282,6 +290,40 @@ desktop_html_content = f"""<!DOCTYPE html>
   }}
   .stat-value.highlight {{ color: var(--accent-gold); }}
   .stat-value.success {{ color: var(--success); }}
+
+  /* Official Roast Profile Callout */
+  .roast-callout {{
+    max-width: 1600px;
+    margin: 24px auto 0 auto;
+    padding: 0 32px;
+  }}
+  .roast-card {{
+    background: rgba(210, 153, 34, 0.08);
+    border: 1px solid rgba(210, 153, 34, 0.35);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }}
+  .roast-icon {{
+    font-size: 36px;
+    flex-shrink: 0;
+  }}
+  .roast-content h3 {{
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }}
+  .roast-content p {{
+    font-size: 13.5px;
+    color: #c9d1d9;
+    line-height: 1.6;
+  }}
 
   /* Recommendations Section */
   .section-container {{
@@ -351,8 +393,8 @@ desktop_html_content = f"""<!DOCTYPE html>
     align-items: flex-start;
   }}
   .rec-pkg-img {{
-    width: 100px;
-    height: 120px;
+    width: 105px;
+    height: 130px;
     object-fit: contain;
     background: #0b0f17;
     border-radius: var(--radius-md);
@@ -362,7 +404,8 @@ desktop_html_content = f"""<!DOCTYPE html>
     transition: transform 0.2s ease;
   }}
   .rec-pkg-img:hover {{
-    transform: scale(1.08);
+    transform: scale(1.06);
+    border-color: var(--accent);
   }}
   .rec-header-info {{
     flex: 1;
@@ -381,11 +424,17 @@ desktop_html_content = f"""<!DOCTYPE html>
   .rank-gold {{ background: var(--accent-glow); color: var(--accent-gold); border: 1px solid var(--accent); }}
   .rank-blue {{ background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue); }}
 
-  .rec-title {{
+  .rec-title-link {{
     font-size: 20px;
     font-weight: 800;
     line-height: 1.3;
     color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }}
+  .rec-title-link:hover {{
+    color: var(--accent-gold);
+    text-decoration: underline;
   }}
   .rec-origin {{
     font-size: 13px;
@@ -513,17 +562,20 @@ desktop_html_content = f"""<!DOCTYPE html>
     font-size: 14px;
   }}
 
-  /* Data Table Layout */
+  /* Data Table Layout - FIXED CLIPPING BUG */
   .table-responsive {{
     overflow-x: auto;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding-bottom: 12px;
   }}
   .data-table {{
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* FIX: Prevents top border clipping on sticky header */
+    border-spacing: 0;
     font-size: 13px;
     white-space: normal;
   }}
@@ -532,11 +584,11 @@ desktop_html_content = f"""<!DOCTYPE html>
     color: var(--text-secondary);
     font-weight: 700;
     text-align: left;
-    padding: 14px 16px;
+    padding: 16px 16px;
     border-bottom: 2px solid var(--border-color);
     position: sticky;
-    top: 61px;
-    z-index: 10;
+    top: 0;
+    z-index: 20;
     cursor: pointer;
     user-select: none;
     transition: color 0.15s ease;
@@ -559,6 +611,10 @@ desktop_html_content = f"""<!DOCTYPE html>
     border-bottom: 1px solid var(--border-color);
     vertical-align: middle;
   }}
+  /* FIX: Ensure 1st row has clear top spacing and never clipped */
+  .data-table tbody tr:first-child td {{
+    padding-top: 18px;
+  }}
   .data-table tr:hover td {{
     background: var(--bg-card-hover);
   }}
@@ -566,9 +622,9 @@ desktop_html_content = f"""<!DOCTYPE html>
   /* Table Cell Specifics */
   .pkg-img-wrap {{
     position: relative;
-    width: 54px;
-    height: 64px;
-    background: #0b0f17;
+    width: 58px;
+    height: 70px;
+    background: #070a10;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     display: flex;
@@ -581,13 +637,13 @@ desktop_html_content = f"""<!DOCTYPE html>
   }}
   .pkg-img-wrap:hover {{
     border-color: var(--accent);
-    transform: scale(1.05);
+    transform: scale(1.08);
   }}
   .pkg-thumb {{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 3px;
+    padding: 4px;
   }}
   .zoom-icon {{
     position: absolute;
@@ -643,6 +699,16 @@ desktop_html_content = f"""<!DOCTYPE html>
     margin-bottom: 4px;
     font-family: 'JetBrains Mono', monospace;
   }}
+  .review-origin-link {{
+    color: var(--blue);
+    font-size: 11px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+  }}
+  .review-origin-link:hover {{
+    text-decoration: underline;
+  }}
 
   .korea-shop-cell {{
     min-width: 180px;
@@ -655,6 +721,11 @@ desktop_html_content = f"""<!DOCTYPE html>
   }}
   .korea-link:hover {{
     text-decoration: underline;
+  }}
+  .no-import-tag {{
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 12px;
   }}
 
   /* Badges */
@@ -779,6 +850,19 @@ desktop_html_content = f"""<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- Roast Profile Explanation Banner -->
+  <div class="roast-callout">
+    <div class="roast-card">
+      <div class="roast-icon">🔥</div>
+      <div class="roast-content">
+        <h3>The Espresso Lab 공식 로스팅 포인트 (Filter Profile) 안내</h3>
+        <p>
+          The Espresso Lab의 <strong>'Filter'</strong> 배전도는 하리오 V60, 케멕스 등 푸어오버(Pour-over) 추출 시 생두 본연의 테루아, 화사한 과일 산미(Bright Acidity), 자스민·백차의 섬세한 꽃향 및 투명한 클린컵을 극대화하기 위해 설계된 <strong>정밀 라이트 로스트(Light Roast)</strong>입니다. 인위적인 로스팅 쓴맛이나 스모키함을 일절 배제하며, 로스터리 공식 권장사항으로 <strong>수령 후 3~7일간의 디게싱/안정화(Resting)</strong>를 거치면 가장 이상적인 단맛과 향미 밸런스를 즐기실 수 있습니다.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!-- Recommendations Section: User Taste Top 3 & Expert Special Top 3 -->
   <div class="section-container">
     <div class="section-header">
@@ -792,10 +876,14 @@ desktop_html_content = f"""<!DOCTYPE html>
       <!-- User Taste 1 -->
       <div class="rec-card user-taste">
         <div class="rec-card-header">
-          <img src="{recommendations['user_taste'][0]['image_url']}" alt="{recommendations['user_taste'][0]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][0]['title']}')">
+          <img src="{recommendations['user_taste'][0]['image_url']}" alt="{recommendations['user_taste'][0]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][0]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-gold">{recommendations['user_taste'][0]['rank']}</span>
-            <h3 class="rec-title">{recommendations['user_taste'][0]['title']}</h3>
+            <h3>
+              <a href="{recommendations['user_taste'][0]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['user_taste'][0]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇵🇦 {recommendations['user_taste'][0]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['user_taste'][0]['price']}</span>
@@ -821,8 +909,11 @@ desktop_html_content = f"""<!DOCTYPE html>
             <div class="rec-box-text">{recommendations['user_taste'][0]['merit_detail']}</div>
           </div>
           <div class="rec-box">
-            <div class="rec-box-title">💬 해외 커뮤니티 평가</div>
-            <div class="rec-box-text">{recommendations['user_taste'][0]['community']}</div>
+            <div class="rec-box-title">💬 해외 커뮤니티 평가 & 원문</div>
+            <div class="rec-box-text">
+              {recommendations['user_taste'][0]['community']}<br>
+              <a href="{recommendations['user_taste'][0]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Reddit r/pourover 실사용자 토론 원문 보기 ↗</a>
+            </div>
           </div>
           <div class="rec-box">
             <div class="rec-box-title blue">🧪 브루잉 가이드 (푸어오버)</div>
@@ -834,10 +925,14 @@ desktop_html_content = f"""<!DOCTYPE html>
       <!-- User Taste 2 -->
       <div class="rec-card user-taste">
         <div class="rec-card-header">
-          <img src="{recommendations['user_taste'][1]['image_url']}" alt="{recommendations['user_taste'][1]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][1]['title']}')">
+          <img src="{recommendations['user_taste'][1]['image_url']}" alt="{recommendations['user_taste'][1]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][1]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-gold">{recommendations['user_taste'][1]['rank']}</span>
-            <h3 class="rec-title">{recommendations['user_taste'][1]['title']}</h3>
+            <h3>
+              <a href="{recommendations['user_taste'][1]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['user_taste'][1]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇪🇹 {recommendations['user_taste'][1]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['user_taste'][1]['price']}</span>
@@ -863,8 +958,11 @@ desktop_html_content = f"""<!DOCTYPE html>
             <div class="rec-box-text">{recommendations['user_taste'][1]['merit_detail']}</div>
           </div>
           <div class="rec-box">
-            <div class="rec-box-title">💬 해외 커뮤니티 평가</div>
-            <div class="rec-box-text">{recommendations['user_taste'][1]['community']}</div>
+            <div class="rec-box-title">💬 해외 커뮤니티 평가 & 원문</div>
+            <div class="rec-box-text">
+              {recommendations['user_taste'][1]['community']}<br>
+              <a href="{recommendations['user_taste'][1]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Reddit r/pourover 실사용자 토론 원문 보기 ↗</a>
+            </div>
           </div>
           <div class="rec-box">
             <div class="rec-box-title blue">🧪 브루잉 가이드 (푸어오버)</div>
@@ -876,10 +974,14 @@ desktop_html_content = f"""<!DOCTYPE html>
       <!-- User Taste 3 -->
       <div class="rec-card user-taste">
         <div class="rec-card-header">
-          <img src="{recommendations['user_taste'][2]['image_url']}" alt="{recommendations['user_taste'][2]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][2]['title']}')">
+          <img src="{recommendations['user_taste'][2]['image_url']}" alt="{recommendations['user_taste'][2]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['user_taste'][2]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-gold">{recommendations['user_taste'][2]['rank']}</span>
-            <h3 class="rec-title">{recommendations['user_taste'][2]['title']}</h3>
+            <h3>
+              <a href="{recommendations['user_taste'][2]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['user_taste'][2]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇵🇦 {recommendations['user_taste'][2]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['user_taste'][2]['price']}</span>
@@ -905,8 +1007,11 @@ desktop_html_content = f"""<!DOCTYPE html>
             <div class="rec-box-text">{recommendations['user_taste'][2]['merit_detail']}</div>
           </div>
           <div class="rec-box">
-            <div class="rec-box-title">💬 해외 커뮤니티 평가</div>
-            <div class="rec-box-text">{recommendations['user_taste'][2]['community']}</div>
+            <div class="rec-box-title">💬 해외 커뮤니티 평가 & 원문</div>
+            <div class="rec-box-text">
+              {recommendations['user_taste'][2]['community']}<br>
+              <a href="{recommendations['user_taste'][2]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Reddit r/pourover 실사용자 토론 원문 보기 ↗</a>
+            </div>
           </div>
           <div class="rec-box">
             <div class="rec-box-title blue">🧪 브루잉 가이드 (푸어오버)</div>
@@ -928,10 +1033,14 @@ desktop_html_content = f"""<!DOCTYPE html>
       <!-- Expert 1 -->
       <div class="rec-card expert">
         <div class="rec-card-header">
-          <img src="{recommendations['expert_special'][0]['image_url']}" alt="{recommendations['expert_special'][0]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][0]['title']}')">
+          <img src="{recommendations['expert_special'][0]['image_url']}" alt="{recommendations['expert_special'][0]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][0]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-blue">{recommendations['expert_special'][0]['rank']}</span>
-            <h3 class="rec-title">{recommendations['expert_special'][0]['title']}</h3>
+            <h3>
+              <a href="{recommendations['expert_special'][0]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['expert_special'][0]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇨🇴 {recommendations['expert_special'][0]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['expert_special'][0]['price']}</span>
@@ -944,16 +1053,27 @@ desktop_html_content = f"""<!DOCTYPE html>
             <div class="rec-box-title blue">💎 큐레이터 선별 사유</div>
             <div class="rec-box-text"><strong>{recommendations['expert_special'][0]['badge']}</strong><br>{recommendations['expert_special'][0]['point']}</div>
           </div>
+          <div class="rec-box">
+            <div class="rec-box-title">💬 평가 & 토론 원문</div>
+            <div class="rec-box-text">
+              {recommendations['expert_special'][0].get('community', '')}<br>
+              <a href="{recommendations['expert_special'][0]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Reddit r/pourover 실사용자 토론 원문 보기 ↗</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Expert 2 -->
       <div class="rec-card expert">
         <div class="rec-card-header">
-          <img src="{recommendations['expert_special'][1]['image_url']}" alt="{recommendations['expert_special'][1]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][1]['title']}')">
+          <img src="{recommendations['expert_special'][1]['image_url']}" alt="{recommendations['expert_special'][1]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][1]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-blue">{recommendations['expert_special'][1]['rank']}</span>
-            <h3 class="rec-title">{recommendations['expert_special'][1]['title']}</h3>
+            <h3>
+              <a href="{recommendations['expert_special'][1]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['expert_special'][1]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇰🇪 {recommendations['expert_special'][1]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['expert_special'][1]['price']}</span>
@@ -966,16 +1086,27 @@ desktop_html_content = f"""<!DOCTYPE html>
             <div class="rec-box-title blue">💎 큐레이터 선별 사유</div>
             <div class="rec-box-text"><strong>{recommendations['expert_special'][1]['badge']}</strong><br>{recommendations['expert_special'][1]['point']}</div>
           </div>
+          <div class="rec-box">
+            <div class="rec-box-title">💬 평가 & 토론 원문</div>
+            <div class="rec-box-text">
+              {recommendations['expert_special'][1].get('community', '')}<br>
+              <a href="{recommendations['expert_special'][1]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Reddit r/pourover 실사용자 토론 원문 보기 ↗</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Expert 3 -->
       <div class="rec-card expert">
         <div class="rec-card-header">
-          <img src="{recommendations['expert_special'][2]['image_url']}" alt="{recommendations['expert_special'][2]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][2]['title']}')">
+          <img src="{recommendations['expert_special'][2]['image_url']}" alt="{recommendations['expert_special'][2]['title']}" class="rec-pkg-img" onclick="openLightbox(this.src, '{recommendations['expert_special'][2]['title']}')" onerror="this.src='https://via.placeholder.com/105x130?text=Package'">
           <div class="rec-header-info">
             <span class="rec-rank-badge rank-blue">{recommendations['expert_special'][2]['rank']}</span>
-            <h3 class="rec-title">{recommendations['expert_special'][2]['title']}</h3>
+            <h3>
+              <a href="{recommendations['expert_special'][2]['source_url']}" target="_blank" class="rec-title-link">
+                {recommendations['expert_special'][2]['title']} ↗
+              </a>
+            </h3>
             <div class="rec-origin">🇵🇦 {recommendations['expert_special'][2]['origin']}</div>
             <div class="rec-pricing">
               <span class="rec-price-main">{recommendations['expert_special'][2]['price']}</span>
@@ -987,6 +1118,13 @@ desktop_html_content = f"""<!DOCTYPE html>
           <div class="rec-box">
             <div class="rec-box-title blue">💎 큐레이터 선별 사유</div>
             <div class="rec-box-text"><strong>{recommendations['expert_special'][2]['badge']}</strong><br>{recommendations['expert_special'][2]['point']}</div>
+          </div>
+          <div class="rec-box">
+            <div class="rec-box-title">💬 평가 & 토론 원문</div>
+            <div class="rec-box-text">
+              {recommendations['expert_special'][2].get('community', '')}<br>
+              <a href="{recommendations['expert_special'][2]['review_link']}" target="_blank" class="review-origin-link mt-1">🔗 Home-Barista 포럼 토론 원문 보기 ↗</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1025,7 +1163,7 @@ desktop_html_content = f"""<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- Table Responsive Wrap -->
+    <!-- Table Responsive Wrap (FIXED CLIPPING) -->
     <div class="table-responsive">
       <table class="data-table" id="coffeeTable">
         <thead>
@@ -1047,7 +1185,7 @@ desktop_html_content = f"""<!DOCTYPE html>
             <th onclick="sortTable(14, 'num')" class="text-right">100g당 가격 (AED / 원화) <span class="sort-arrow"></span></th>
             <th>한국 판매처 (링크)</th>
             <th>한국 시세 & 구매 메리트</th>
-            <th onclick="sortTable(17, 'str')">커뮤니티 평점 & 후기 <span class="sort-arrow"></span></th>
+            <th onclick="sortTable(17, 'str')">커뮤니티 평점 & 후기 원문 <span class="sort-arrow"></span></th>
             <th class="text-center">검증</th>
           </tr>
         </thead>
@@ -1142,7 +1280,6 @@ desktop_html_content = f"""<!DOCTYPE html>
         let bVal = b.children[colIndex].innerText.trim();
 
         if (type === 'num') {{
-          // extract first numerical float
           const aMatch = aVal.match(/([0-9,.]+)/);
           const bMatch = bVal.match(/([0-9,.]+)/);
           const aNum = aMatch ? parseFloat(aMatch[1].replace(/,/g, '')) : 0;
@@ -1163,4 +1300,4 @@ desktop_html_content = f"""<!DOCTYPE html>
 with open(DESKTOP_OUTPUT, 'w', encoding='utf-8') as f:
     f.write(desktop_html_content)
 
-print(f"Generated Desktop Dashboard: {DESKTOP_OUTPUT} ({len(desktop_html_content)} bytes)")
+print(f"Generated Updated Desktop Dashboard: {DESKTOP_OUTPUT} ({len(desktop_html_content)} bytes)")

@@ -46,6 +46,22 @@ def render_mobile_cards(items):
                 is_rec = True
                 rec_tag = f'<div class="m-rec-badge blue">{rec["rank"]}</div>'
 
+        # Korea shop link rendering
+        k_shop_content = ""
+        if c.get('korea_shop_link') and c['korea_shop_link'].startswith('http'):
+            k_shop_content = f"""
+            <a href="{c['korea_shop_link']}" target="_blank" class="m-link">🏬 {html.escape(c['korea_shop'])} ↗</a>
+            <div class="text-xs text-muted">{html.escape(c['korea_price'])}</div>
+            """
+        else:
+            k_shop_content = f"""
+            <div class="m-no-import">🚫 {html.escape(c['korea_shop'])}</div>
+            <div class="text-xs text-muted">{html.escape(c['korea_price'])}</div>
+            """
+
+        rev_link = c.get('review_link', 'https://www.reddit.com/r/pourover/')
+        rev_source = c.get('review_source', 'Reddit r/pourover')
+
         card = f"""
         <div class="m-card" data-category="{html.escape(c['category'])}" data-country="{html.escape(c['country'])}" data-process="{html.escape(c['process'])}">
           {rec_tag}
@@ -57,13 +73,13 @@ def render_mobile_cards(items):
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">{flag}</span>
-                <a href="{c['source_url']}" target="_blank" class="m-title-link">{html.escape(c['title'])}</a>
+                <a href="{c['source_url']}" target="_blank" class="m-title-link">{html.escape(c['title'])} ↗</a>
               </div>
               <div class="m-sub-info">{html.escape(c['country'])} • {html.escape(c['location'])}</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">{html.escape(c['variety'])}</span>
                 <span class="m-badge process">{html.escape(c['process'])}</span>
-                <span class="m-badge roast">🔥 {html.escape(c['roast'])}</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">{c['price_aed']} AED</span>
@@ -94,21 +110,23 @@ def render_mobile_cards(items):
                 <span class="m-detail-val">{html.escape(c['altitude'])}</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="{c['korea_shop_link']}" target="_blank" class="m-link">🏬 {html.escape(c['korea_shop'])}</a>
-                  <div class="text-xs text-muted">{html.escape(c['korea_price'])}</div>
+                  {k_shop_content}
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">{html.escape(c['merit'])}</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ {c['score']}</span>
                   <div class="text-xs mt-1">{html.escape(c['community_review'])}</div>
+                  <div class="mt-1">
+                    <a href="{rev_link}" target="_blank" class="m-link text-xs">🔗 {html.escape(rev_source)} 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -252,19 +270,34 @@ mobile_html_content = f"""<!DOCTYPE html>
     margin-top: 2px;
   }}
 
-  /* Recommendations Carousel / Section */
+  /* Roast Point Banner */
+  .m-roast-banner {{
+    margin: 12px 16px;
+    background: rgba(210, 153, 34, 0.08);
+    border: 1px solid rgba(210, 153, 34, 0.3);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #c9d1d9;
+  }}
+  .m-roast-banner strong {{
+    color: var(--accent-gold);
+  }}
+
+  /* Recommendations Highlight Section */
   .m-section-header {{
-    padding: 20px 16px 10px 16px;
+    padding: 16px 16px 8px 16px;
   }}
   .m-section-title {{
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
     display: flex;
     align-items: center;
     gap: 6px;
   }}
   .m-section-sub {{
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--text-muted);
     margin-top: 2px;
   }}
@@ -359,8 +392,8 @@ mobile_html_content = f"""<!DOCTYPE html>
     align-items: flex-start;
   }}
   .m-card-img-wrap {{
-    width: 74px;
-    height: 90px;
+    width: 78px;
+    height: 96px;
     flex-shrink: 0;
     background: #070a10;
     border: 1px solid var(--border-color);
@@ -488,7 +521,6 @@ mobile_html_content = f"""<!DOCTYPE html>
   .m-details-content {{
     display: none;
     padding-top: 10px;
-    display: none;
     flex-direction: column;
     gap: 8px;
     font-size: 12px;
@@ -533,6 +565,10 @@ mobile_html_content = f"""<!DOCTYPE html>
   .m-link {{
     color: var(--blue);
     text-decoration: none;
+    font-weight: 600;
+  }}
+  .m-no-import {{
+    color: var(--text-secondary);
     font-weight: 600;
   }}
   .m-verify-tag {{
@@ -655,6 +691,12 @@ mobile_html_content = f"""<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- Roast Profile Explanation Banner -->
+  <div class="m-roast-banner">
+    <strong>🔥 에소랩 'Filter' 로스팅 포인트:</strong><br>
+    푸어오버(V60) 추출 전용 정밀 라이트 로스트(Light Roast)로, 생두 고유의 꽃향과 과일 산미를 보존하도록 설계되었습니다. (수령 후 3~7일 안정화 권장)
+  </div>
+
   <!-- Filter & Search Bar -->
   <div class="m-filters-wrap">
     <div class="m-search-wrap">
@@ -768,4 +810,4 @@ mobile_html_content = f"""<!DOCTYPE html>
 with open(MOBILE_OUTPUT, 'w', encoding='utf-8') as f:
     f.write(mobile_html_content)
 
-print(f"Generated Mobile Page: {MOBILE_OUTPUT} ({len(mobile_html_content)} bytes)")
+print(f"Generated Updated Mobile Page: {MOBILE_OUTPUT} ({len(mobile_html_content)} bytes)")

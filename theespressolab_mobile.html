@@ -131,19 +131,34 @@
     margin-top: 2px;
   }
 
-  /* Recommendations Carousel / Section */
+  /* Roast Point Banner */
+  .m-roast-banner {
+    margin: 12px 16px;
+    background: rgba(210, 153, 34, 0.08);
+    border: 1px solid rgba(210, 153, 34, 0.3);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: #c9d1d9;
+  }
+  .m-roast-banner strong {
+    color: var(--accent-gold);
+  }
+
+  /* Recommendations Highlight Section */
   .m-section-header {
-    padding: 20px 16px 10px 16px;
+    padding: 16px 16px 8px 16px;
   }
   .m-section-title {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
     display: flex;
     align-items: center;
     gap: 6px;
   }
   .m-section-sub {
-    font-size: 12px;
+    font-size: 11.5px;
     color: var(--text-muted);
     margin-top: 2px;
   }
@@ -238,8 +253,8 @@
     align-items: flex-start;
   }
   .m-card-img-wrap {
-    width: 74px;
-    height: 90px;
+    width: 78px;
+    height: 96px;
     flex-shrink: 0;
     background: #070a10;
     border: 1px solid var(--border-color);
@@ -367,7 +382,6 @@
   .m-details-content {
     display: none;
     padding-top: 10px;
-    display: none;
     flex-direction: column;
     gap: 8px;
     font-size: 12px;
@@ -412,6 +426,10 @@
   .m-link {
     color: var(--blue);
     text-decoration: none;
+    font-weight: 600;
+  }
+  .m-no-import {
+    color: var(--text-secondary);
     font-weight: 600;
   }
   .m-verify-tag {
@@ -534,6 +552,12 @@
     </div>
   </div>
 
+  <!-- Roast Profile Explanation Banner -->
+  <div class="m-roast-banner">
+    <strong>🔥 에소랩 'Filter' 로스팅 포인트:</strong><br>
+    푸어오버(V60) 추출 전용 정밀 라이트 로스트(Light Roast)로, 생두 고유의 꽃향과 과일 산미를 보존하도록 설계되었습니다. (수령 후 3~7일 안정화 권장)
+  </div>
+
   <!-- Filter & Search Bar -->
   <div class="m-filters-wrap">
     <div class="m-search-wrap">
@@ -562,13 +586,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/agricola-geisha-oxidized-natural-27" target="_blank" class="m-title-link">Agricola Geisha Oxidized Natural 27</a>
+                <a href="https://theespressolab.com/products-details/agricola-geisha-oxidized-natural-27" target="_blank" class="m-title-link">Agricola Geisha Oxidized Natural 27 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Oxidized Natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">325.0 AED</span>
@@ -599,21 +623,26 @@
                 <span class="m-detail-val">1500 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Agricola+Geisha+Oxidized" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca Santa Isabel 농장의 Geisha Oxidized Natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 123,500원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Santa Isabel 농장의 Geisha Oxidized Natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 123,500원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Jasmine, Oranges, Honey의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Santa%20Isabel%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -623,7 +652,7 @@
         
 
         <div class="m-card" data-category="Panama High-End &amp; Geisha" data-country="Panama" data-process="Washed Anaerobic">
-          
+          <div class="m-rec-badge gold">🥇 1순위 (최고 존엄 게이샤) 취향 저격</div>
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/acJ6OldfRlDj66sZy9ypkwPHvUZ3WO4e9DePejKr.png', 'Auromar Firestone')">
               <img src="https://theespressolab.com/storage/products/gallery/images/acJ6OldfRlDj66sZy9ypkwPHvUZ3WO4e9DePejKr.png" alt="Auromar Firestone" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
@@ -632,13 +661,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank" class="m-title-link">Auromar Firestone</a>
+                <a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank" class="m-title-link">Auromar Firestone ↗</a>
               </div>
               <div class="m-sub-info">Panama • Piedra Candela, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Washed Anaerobic</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">175.0 AED</span>
@@ -669,21 +698,26 @@
                 <span class="m-detail-val">1,770 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://www.micoffee.co.kr" target="_blank" class="m-link">🏬 엠아이커피 / 커피투어 (오로마르 일반 랏 취급)</a>
-                  <div class="text-xs text-muted">약 85,000원 ~ 100,000원 (100g)</div>
+                  
+            <a href="https://www.micoffee.co.kr" target="_blank" class="m-link">🏬 엠아이커피 (오로마르 생두 옥션 랏 취급 이력) ↗</a>
+            <div class="text-xs text-muted">국내 일반 플랫빈 랏 약 85,000원 ~ 100,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">2022 Best of Panama(BOP) 1위 챔피언 Firestone 랏. 국내에서는 일반 플랫빈도 9만원대에 품절되나, 현지에서는 AED 175(약 6.6만원)로 약 30% 저렴하며 구하기 힘든 챔피언 나노랏을 무관세로 확보 가능.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">2022 Best of Panama(BOP) 1위 챔피언 바로 그 &#x27;Firestone&#x27; 나노랏. 국내 수입 이력이 전무한 에소랩 독점 랏이며, 국내 일반 오로마르 시세(9~10만원) 대비 35% 저렴한 AED 175(약 6.6만원)로 무관세 구매 메리트 극대화.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.8/10</span>
                   <div class="text-xs mt-1">Reddit r/pourover: &#x27;Auromar Firestone은 게이샤 워시드의 순수미와 샴페인 같은 브라이트니스, 백차의 긴 여운이 폭발하는 명작. 푸어오버 추출 시 잔이 비워질 때까지 감탄이 멈추지 않는다.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Auromar+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -693,7 +727,7 @@
         
 
         <div class="m-card" data-category="Ethiopia Terroir Collection" data-country="Ethiopia" data-process="washed">
-          
+          <div class="m-rec-badge gold">🥈 2순위 (가성비 종결 데일리 티라이크) 취향 저격</div>
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/gMGwUMUd91ex2OevWe11zoxY1qsy99FQsR2FBhke.png', 'Bombe Washed')">
               <img src="https://theespressolab.com/storage/products/gallery/images/gMGwUMUd91ex2OevWe11zoxY1qsy99FQsR2FBhke.png" alt="Bombe Washed" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
@@ -702,13 +736,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/bombe-washed-7" target="_blank" class="m-title-link">Bombe Washed</a>
+                <a href="https://theespressolab.com/products-details/bombe-washed-7" target="_blank" class="m-title-link">Bombe Washed ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Sidama Bensa</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">74158</span>
                 <span class="m-badge process">washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -739,21 +773,26 @@
                 <span class="m-detail-val">2200 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://lowkeycoffee.com" target="_blank" class="m-link">🏬 로우키 / 블랙로드커피 (타미루 타데세 봄베 랏)</a>
-                  <div class="text-xs text-muted">약 25,000원 ~ 30,000원 (100g)</div>
+                  
+            <a href="https://lowkeycoffee.com" target="_blank" class="m-link">🏬 로우키 / 블랙로드커피 (타미루 타데세 봄베 랏 취급) ↗</a>
+            <div class="text-xs text-muted">국내 유사 랏 약 25,000원 ~ 32,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">2021 COE 1위 챔피언 타미루 타데세(Alo Coffee)의 해발 2,100m 74158 단일 품종 워시드. 200g에 AED 80(100g당 15,200원)으로 국내 시세 대비 정확히 50% 반값 수준인 역대급 가성비 데일리 종결 원두.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">2021 COE 1위 챔피언 타미루 타데세(Alo Coffee)의 2,100m 74158 단일 품종 워시드. 200g 대용량이 단돈 AED 80(100g당 15,200원)으로 국내 시세 대비 정확히 50% 반값 수준인 역대급 가성비 데일리 종결 원두.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.6/10</span>
-                  <div class="text-xs mt-1">커피 커뮤니티 센서리 리뷰: &#x27;복숭아, 레몬그라스, 백합 향이 우아하게 펼쳐지는 정통 워시드의 정점. 자극적인 발효취 없이 맑고 청아한 얼그레이 홍차 질감이 끝없이 이어진다.&#x27;</div>
+                  <div class="text-xs mt-1">국내외 커피 커뮤니티 센서리 리뷰: &#x27;복숭아, 레몬그라스, 백합 향이 우아하게 펼쳐지는 정통 워시드의 정점. 자극적인 발효취 없이 맑고 청아한 얼그레이 홍차 질감이 끝없이 이어진다.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Tamiru+Tadesse+Bombe" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -772,13 +811,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇧🇷</span>
-                <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-16" target="_blank" class="m-title-link">CARMO FAZENDA ISIDRO PEREIRA</a>
+                <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-16" target="_blank" class="m-title-link">CARMO FAZENDA ISIDRO PEREIRA ↗</a>
               </div>
               <div class="m-sub-info">Brazil • Carmo de Minas, Minas Gerais</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Yellow Bourbon</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -809,21 +848,26 @@
                 <span class="m-detail-val">1,200 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://terarosa.com" target="_blank" class="m-link">🏬 테라로사 / 리브레 (카르모 데 미나스 브라질 랏)</a>
-                  <div class="text-xs text-muted">약 16,000원 ~ 20,000원 (100g)</div>
+                  
+            <a href="https://coffeelibre.kr" target="_blank" class="m-link">🏬 국내 로스터리 다수 취급 (카르모 데 미나스 옐로우버번) ↗</a>
+            <div class="text-xs text-muted">약 16,000원 ~ 20,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">브라질 카르모 데 미나스 Fazenda Isidro Pereira의 옐로우 버번 내추럴. 200g AED 80(100g당 15,200원)으로 매일 마시기 좋은 고소한 밀크초콜릿/헤이즐넛 데일리 에스프레소 &amp; 브루잉 원두.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">브라질 Fazenda Isidro Pereira의 옐로우 버번 내추럴. 200g AED 80(100g당 15,200원)으로 매일 마시기 좋은 고소한 밀크초콜릿/헤이즐넛 데일리 원두.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.0/10</span>
                   <div class="text-xs mt-1">홈바리스타 데일리 평가: &#x27;단맛의 밸런스가 뛰어나고 산미가 부드러워 라떼와 모카포트, 데일리 드립으로 완벽한 안정감.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/Coffee/search/?q=Fazenda+Isidro+Pereira" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -842,13 +886,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇧🇷</span>
-                <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-for-meraki-espresso-machine" target="_blank" class="m-title-link">CARMO FAZENDA ISIDRO PEREIRA (For Meraki Espresso Machine)</a>
+                <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-for-meraki-espresso-machine" target="_blank" class="m-title-link">CARMO FAZENDA ISIDRO PEREIRA (For Meraki Espresso Machine) ↗</a>
               </div>
               <div class="m-sub-info">Brazil • Carmo de Minas, Minas Gerais</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Yellow Bourbon</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -879,21 +923,26 @@
                 <span class="m-detail-val">1,200 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://terarosa.com" target="_blank" class="m-link">🏬 테라로사 / 리브레 (카르모 데 미나스 브라질 랏)</a>
-                  <div class="text-xs text-muted">약 16,000원 ~ 20,000원 (100g)</div>
+                  
+            <a href="https://coffeelibre.kr" target="_blank" class="m-link">🏬 국내 로스터리 다수 취급 (카르모 데 미나스 옐로우버번) ↗</a>
+            <div class="text-xs text-muted">약 16,000원 ~ 20,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">브라질 카르모 데 미나스 Fazenda Isidro Pereira의 옐로우 버번 내추럴. 200g AED 80(100g당 15,200원)으로 매일 마시기 좋은 고소한 밀크초콜릿/헤이즐넛 데일리 에스프레소 &amp; 브루잉 원두.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">브라질 Fazenda Isidro Pereira의 옐로우 버번 내추럴. 200g AED 80(100g당 15,200원)으로 매일 마시기 좋은 고소한 밀크초콜릿/헤이즐넛 데일리 원두.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.0/10</span>
                   <div class="text-xs mt-1">홈바리스타 데일리 평가: &#x27;단맛의 밸런스가 뛰어나고 산미가 부드러워 라떼와 모카포트, 데일리 드립으로 완벽한 안정감.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/Coffee/search/?q=Fazenda+Isidro+Pereira" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -912,13 +961,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/cgle-la-margritas-geisha-honey" target="_blank" class="m-title-link">CGLE La Margritas Geisha Honey</a>
+                <a href="https://theespressolab.com/products-details/cgle-la-margritas-geisha-honey" target="_blank" class="m-title-link">CGLE La Margritas Geisha Honey ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Valle del Cauca</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">honey</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">145.01 AED</span>
@@ -949,21 +998,26 @@
                 <span class="m-detail-val">1648 – 1852 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://momos.co.kr" target="_blank" class="m-link">🏬 모모스커피 / 커피리브레 (카페 그란하 라 에스페란사)</a>
-                  <div class="text-xs text-muted">약 70,000원 ~ 100,000원 (100g)</div>
+                  
+            <a href="https://momos.co.kr" target="_blank" class="m-link">🏬 모모스커피 (카페 그란하 라 에스페란사 취급 이력) ↗</a>
+            <div class="text-xs text-muted">약 70,000원 ~ 100,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">콜롬비아 스페셜티 혁신 농장 CGLE(Cafe Granja La Esperanza)의 마르가리타스 게이샤 허니 및 수단 루메 내추럴. 현지 AED 145(약 5.5만원) / AED 215(약 8.1만원)로 국내 시세 대비 25~30% 저렴.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.5/10</span>
-                  <div class="text-xs mt-1">World Barista Championship 참가자 평가: &#x27;수단 루메 품종의 카다멈 스파이스와 레몬그라스, 게이샤 허니의 주시한 오렌지 블라썸이 독보적.&#x27;</div>
+                  <div class="text-xs mt-1">WBC 참가자 평가: &#x27;수단 루메 품종의 카다멈 스파이스와 레몬그라스, 게이샤 허니의 주시한 오렌지 블라썸이 독보적.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Granja+La+Esperanza" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -982,13 +1036,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/cgle-sudan-rume-natural" target="_blank" class="m-title-link">CGLE Sudan Rume Natural</a>
+                <a href="https://theespressolab.com/products-details/cgle-sudan-rume-natural" target="_blank" class="m-title-link">CGLE Sudan Rume Natural ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Valle del Cauca</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Sudan Rume</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">215.0 AED</span>
@@ -1019,21 +1073,26 @@
                 <span class="m-detail-val">1571 - 1852 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://momos.co.kr" target="_blank" class="m-link">🏬 모모스커피 / 커피리브레 (카페 그란하 라 에스페란사)</a>
-                  <div class="text-xs text-muted">약 70,000원 ~ 100,000원 (100g)</div>
+                  
+            <a href="https://momos.co.kr" target="_blank" class="m-link">🏬 모모스커피 (카페 그란하 라 에스페란사 취급 이력) ↗</a>
+            <div class="text-xs text-muted">약 70,000원 ~ 100,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">콜롬비아 스페셜티 혁신 농장 CGLE(Cafe Granja La Esperanza)의 마르가리타스 게이샤 허니 및 수단 루메 내추럴. 현지 AED 145(약 5.5만원) / AED 215(약 8.1만원)로 국내 시세 대비 25~30% 저렴.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.5/10</span>
-                  <div class="text-xs mt-1">World Barista Championship 참가자 평가: &#x27;수단 루메 품종의 카다멈 스파이스와 레몬그라스, 게이샤 허니의 주시한 오렌지 블라썸이 독보적.&#x27;</div>
+                  <div class="text-xs mt-1">WBC 참가자 평가: &#x27;수단 루메 품종의 카다멈 스파이스와 레몬그라스, 게이샤 허니의 주시한 오렌지 블라썸이 독보적.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Granja+La+Esperanza" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1052,13 +1111,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/chevas-geisha-lot-11" target="_blank" class="m-title-link">Chevas Geisha Lot 11</a>
+                <a href="https://theespressolab.com/products-details/chevas-geisha-lot-11" target="_blank" class="m-title-link">Chevas Geisha Lot 11 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">325.0 AED</span>
@@ -1089,21 +1148,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+게이샤+커피" target="_blank" class="m-link">🏬 국내 미수입 (세바스 게이샤 부티크 농장)</a>
-                  <div class="text-xs text-muted">국내 미수입 (유사 부티크 게이샤 100g 12~15만원)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">보케테 알토 하라미요 1,650m 부티크 농장의 한정 생산 게이샤 내추럴 랏. AED 305~325(약 11.5~12.3만원)로 농장 직거래 나노랏 확보 메리트.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Chevas 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 123,500원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">센서리 평가: &#x27;블루베리와 오렌지 필, 메이플 시럽의 묵직하고 달콤한 아로마가 돋보임.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Peach, Pineapple, Oranges의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Chevas%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1122,13 +1186,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/chevas-geisha-lot-75" target="_blank" class="m-title-link">Chevas Geisha Lot 75</a>
+                <a href="https://theespressolab.com/products-details/chevas-geisha-lot-75" target="_blank" class="m-title-link">Chevas Geisha Lot 75 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">305.0 AED</span>
@@ -1159,21 +1223,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+게이샤+커피" target="_blank" class="m-link">🏬 국내 미수입 (세바스 게이샤 부티크 농장)</a>
-                  <div class="text-xs text-muted">국내 미수입 (유사 부티크 게이샤 100g 12~15만원)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">보케테 알토 하라미요 1,650m 부티크 농장의 한정 생산 게이샤 내추럴 랏. AED 305~325(약 11.5~12.3만원)로 농장 직거래 나노랏 확보 메리트.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Chevas 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 115,900원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">센서리 평가: &#x27;블루베리와 오렌지 필, 메이플 시럽의 묵직하고 달콤한 아로마가 돋보임.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Pineapple, Oranges의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Chevas%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1192,13 +1261,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇷</span>
-                <a href="https://theespressolab.com/products-details/cota-kodu-coco-5" target="_blank" class="m-title-link">Cota Kodu Coco</a>
+                <a href="https://theespressolab.com/products-details/cota-kodu-coco-5" target="_blank" class="m-title-link">Cota Kodu Coco ↗</a>
               </div>
               <div class="m-sub-info">Costa Rica • Tarrazú</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Castillo</span>
                 <span class="m-badge process">Co-Fermented Washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">105.0 AED</span>
@@ -1229,21 +1298,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://werk.kr" target="_blank" class="m-link">🏬 베르크로스터스 / 로우키 (코스타리카 공발효 랏)</a>
-                  <div class="text-xs text-muted">약 42,000원 ~ 50,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">코스타리카 과일 공발효(Co-Fermented) 워시드. 코코넛/트로피컬 팝시클 등 독특한 가공으로 AED 105(약 39,900원)에 화려한 이색 풍미 경험 가능.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Costa Rica Finca Cota 농장의 Castillo Co-Fermented Washed 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 39,900원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
-                  <div class="text-xs mt-1">젊은 바리스타 커뮤니티: &#x27;마치 시원한 트로피컬 아이스크림을 마시는 듯한 직관적이고 경쾌한 과일향.&#x27;</div>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Toasted Coconut, Milk Chocolate, Vanilla의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Cota%20Castillo" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1262,13 +1336,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇷</span>
-                <a href="https://theespressolab.com/products-details/cota-tropical-popsicle-5" target="_blank" class="m-title-link">Cota Tropical Popsicle</a>
+                <a href="https://theespressolab.com/products-details/cota-tropical-popsicle-5" target="_blank" class="m-title-link">Cota Tropical Popsicle ↗</a>
               </div>
               <div class="m-sub-info">Costa Rica • Tarrazú</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Pink Bourbon</span>
                 <span class="m-badge process">Co-Fermented Washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">105.0 AED</span>
@@ -1299,21 +1373,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://werk.kr" target="_blank" class="m-link">🏬 베르크로스터스 / 로우키 (코스타리카 공발효 랏)</a>
-                  <div class="text-xs text-muted">약 42,000원 ~ 50,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">코스타리카 과일 공발효(Co-Fermented) 워시드. 코코넛/트로피컬 팝시클 등 독특한 가공으로 AED 105(약 39,900원)에 화려한 이색 풍미 경험 가능.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Costa Rica Finca Cota 농장의 Pink Bourbon Co-Fermented Washed 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 39,900원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
-                  <div class="text-xs mt-1">젊은 바리스타 커뮤니티: &#x27;마치 시원한 트로피컬 아이스크림을 마시는 듯한 직관적이고 경쾌한 과일향.&#x27;</div>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Passion Fruit, Orange Soda, Tropical fruit의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Cota%20Pink%20Bourbon" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1332,13 +1411,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇧🇷</span>
-                <a href="https://theespressolab.com/products-details/daterra-laurina-anaerobic-natural-lot-tb13" target="_blank" class="m-title-link">Daterra Laurina Anaerobic Natural Lot TB13</a>
+                <a href="https://theespressolab.com/products-details/daterra-laurina-anaerobic-natural-lot-tb13" target="_blank" class="m-title-link">Daterra Laurina Anaerobic Natural Lot TB13 ↗</a>
               </div>
               <div class="m-sub-info">Brazil • Cerrado Mineiro</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Laurina</span>
                 <span class="m-badge process">Anaerobic Natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">130.0 AED</span>
@@ -1369,21 +1448,26 @@
                 <span class="m-detail-val">1150 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://namusairo.com" target="_blank" class="m-link">🏬 나무사이로 / 커피템플 (다테라 마스터피스)</a>
-                  <div class="text-xs text-muted">약 55,000원 ~ 70,000원 (100g)</div>
+                  
+            <a href="https://namusairo.com" target="_blank" class="m-link">🏬 나무사이로 (다테라 마스터피스 공식 취급) ↗</a>
+            <div class="text-xs text-muted">약 55,000원 ~ 70,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">브라질 세하도 다테라 농장의 천연 저카페인 희귀 품종 로우리나(Laurina) 혐기성 내추럴. AED 130(약 4.9만원)으로 국내 시세 대비 20% 저렴하며 카페인 부담 없는 프리미엄 원두.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.3/10</span>
                   <div class="text-xs mt-1">홈카페 바리스타 리뷰: &#x27;부드러운 파파야와 패션프루트의 산미, 저카페인이라 늦은 저녁에도 부담 없이 즐길 수 있는 최고의 한 잔.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Daterra+Laurina" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1402,13 +1486,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/el-olingo-geisha-natural" target="_blank" class="m-title-link">El Olingo Geisha Natural</a>
+                <a href="https://theespressolab.com/products-details/el-olingo-geisha-natural" target="_blank" class="m-title-link">El Olingo Geisha Natural ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">85.0 AED</span>
@@ -1439,21 +1523,26 @@
                 <span class="m-detail-val">1500 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=El+Olingo+Geisha" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca El Olingo 농장의 Geisha natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 32,300원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca El Olingo 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 32,300원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Stone Fruits, Oranges의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=El%20Olingo%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1472,13 +1561,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank" class="m-title-link">El Rubi Parainema Anaerobic Washed Lot A</a>
+                <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank" class="m-title-link">El Rubi Parainema Anaerobic Washed Lot A ↗</a>
               </div>
               <div class="m-sub-info">Colombia • San Adolfo, Acevedo, Huila</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Parainema</span>
                 <span class="m-badge process">Anaerobic washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">60.0 AED</span>
@@ -1509,21 +1598,26 @@
                 <span class="m-detail-val">1420 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://alegriacoffee.com" target="_blank" class="m-link">🏬 알레그리아 / 커피플레이스 (콜롬비아 파라이네마 랏)</a>
-                  <div class="text-xs text-muted">약 28,000원 ~ 35,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (콜롬비아 파라이네마 혐기성 워시드)</div>
+            <div class="text-xs text-muted">국내 유사 파라이네마 약 28,000원 ~ 35,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">콜롬비아 우일라 Finca El Rubi의 파라이네마(Parainema) 혐기성 워시드. 화이트 티, 리치, 레몬버베나의 섬세한 티라이크 톤을 자랑하며 100g AED 60(약 22,800원)으로 국내 시세 대비 30% 저렴.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.3/10</span>
                   <div class="text-xs mt-1">SCA 센서리 패널: &#x27;파라이네마 품종 특유의 은은한 화이트 티 텍스처와 청포도 과즙의 단맛이 돋보이는 웰메이드 클린컵 워시드.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Parainema+coffee" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1542,13 +1636,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-b" target="_blank" class="m-title-link">El Rubi Parainema Anaerobic Washed Lot B</a>
+                <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-b" target="_blank" class="m-title-link">El Rubi Parainema Anaerobic Washed Lot B ↗</a>
               </div>
               <div class="m-sub-info">Colombia • San Adolfo, Acevedo, Huila</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Parainema</span>
                 <span class="m-badge process">Anaerobic washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">60.0 AED</span>
@@ -1579,21 +1673,26 @@
                 <span class="m-detail-val">1420 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://alegriacoffee.com" target="_blank" class="m-link">🏬 알레그리아 / 커피플레이스 (콜롬비아 파라이네마 랏)</a>
-                  <div class="text-xs text-muted">약 28,000원 ~ 35,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (콜롬비아 파라이네마 혐기성 워시드)</div>
+            <div class="text-xs text-muted">국내 유사 파라이네마 약 28,000원 ~ 35,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">콜롬비아 우일라 Finca El Rubi의 파라이네마(Parainema) 혐기성 워시드. 화이트 티, 리치, 레몬버베나의 섬세한 티라이크 톤을 자랑하며 100g AED 60(약 22,800원)으로 국내 시세 대비 30% 저렴.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.3/10</span>
                   <div class="text-xs mt-1">SCA 센서리 패널: &#x27;파라이네마 품종 특유의 은은한 화이트 티 텍스처와 청포도 과즙의 단맛이 돋보이는 웰메이드 클린컵 워시드.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Parainema+coffee" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1612,13 +1711,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/el-salto-cielo-015" target="_blank" class="m-title-link">El Salto CIELO 015</a>
+                <a href="https://theespressolab.com/products-details/el-salto-cielo-015" target="_blank" class="m-title-link">El Salto CIELO 015 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Laurina</span>
                 <span class="m-badge process">Natural ASD</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">179.99 AED</span>
@@ -1649,21 +1748,26 @@
                 <span class="m-detail-val">1780 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=El+Salto+CIELO" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca El Salto 농장의 Laurina Natural ASD 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 68,400원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca El Salto 농장의 Laurina Natural ASD 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 68,400원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Molasses, Chocolate의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=El%20Salto%20Laurina" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1682,13 +1786,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/el-salto-la-leyenda-lot-008" target="_blank" class="m-title-link">EL Salto La Leyenda Lot 008</a>
+                <a href="https://theespressolab.com/products-details/el-salto-la-leyenda-lot-008" target="_blank" class="m-title-link">EL Salto La Leyenda Lot 008 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Laurina</span>
                 <span class="m-badge process">Natural ASD</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">240.0 AED</span>
@@ -1719,21 +1823,26 @@
                 <span class="m-detail-val">1780 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=EL+Salto+La" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca El Salto 농장의 Laurina Natural ASD 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 91,200원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca El Salto 농장의 Laurina Natural ASD 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 91,200원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Red Apple, Sugarcane의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=El%20Salto%20Laurina" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1752,13 +1861,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇰🇪</span>
-                <a href="https://theespressolab.com/products-details/finca-feryen-sl28-washed" target="_blank" class="m-title-link">Finca Feryen SL28 Washed</a>
+                <a href="https://theespressolab.com/products-details/finca-feryen-sl28-washed" target="_blank" class="m-title-link">Finca Feryen SL28 Washed ↗</a>
               </div>
               <div class="m-sub-info">Kenya • Nyeri</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">SL28</span>
                 <span class="m-badge process">washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">110.0 AED</span>
@@ -1789,21 +1898,26 @@
                 <span class="m-detail-val">1,600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Finca+Feryen+SL28" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (파나마 SL28 워시드 희귀 랏)</div>
+            <div class="text-xs text-muted">국내 유통 전무 (파나마는 게이샤 외 품종 극희소)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Kenya Finca Feryen 농장의 SL28 washed 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 41,800원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 케냐 명품 품종의 크리스탈 구연산 산미와 파나마 테루아의 화사한 꽃향이 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.1/10</span>
-                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Red Apple, Honey, floral의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <span class="m-score">★ 9.4/10</span>
+                  <div class="text-xs mt-1">해외 홈바리스타 평가: &#x27;케냐의 강렬한 산미 대신 파나마 테루아의 부드러운 자스민과 청사과, 자몽 톤이 절묘하게 조화된 매력적인 티라이크 원두.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Panama+SL28" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1822,13 +1936,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/finca-milan-caturra-washed" target="_blank" class="m-title-link">Finca Milan Caturra Washed</a>
+                <a href="https://theespressolab.com/products-details/finca-milan-caturra-washed" target="_blank" class="m-title-link">Finca Milan Caturra Washed ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Pereira, Risaralda</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Caturra</span>
                 <span class="m-badge process">Nitro Advanced Washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">65.0 AED</span>
@@ -1859,21 +1973,26 @@
                 <span class="m-detail-val">Varies by lot masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://lowkeycoffee.com" target="_blank" class="m-link">🏬 카페인신현리 / 로우키 (핀카 밀란 니트로 랏)</a>
-                  <div class="text-xs text-muted">약 26,000원 ~ 32,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">콜롬비아 리사랄다 Finca Milan의 첨단 질소 발효(Nitro Advanced) 카투라 워시드. 100g AED 65(약 24,700원)로 첨단 발효 원두를 합리적인 가격에 체험.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Colombia Finca Milán 농장의 Caturra Nitro Advanced Washed 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 24,700원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">SCA 플레이버 리뷰: &#x27;라임과 멜론, 은은한 허브티 뉘앙스가 질소 가공을 통해 놀랍도록 깔끔하게 정돈됨.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Cantaloupe, Peach, Candy의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Mil%C3%A1n%20Caturra" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1892,13 +2011,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/geisha-village-rsv-1-oma" target="_blank" class="m-title-link">Geisha Village RSV 1 Oma</a>
+                <a href="https://theespressolab.com/products-details/geisha-village-rsv-1-oma" target="_blank" class="m-title-link">Geisha Village RSV 1 Oma ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Bench Maji</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">740.0 AED</span>
@@ -1929,21 +2048,26 @@
                 <span class="m-detail-val">2,000 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://coffeemeup.biz" target="_blank" class="m-link">🏬 커피미업 / 엠아이커피 (게이샤 빌리지 옥션 랏)</a>
-                  <div class="text-xs text-muted">약 250,000원 ~ 350,000원 (100g)</div>
+                  
+            <a href="https://coffeemeup.biz" target="_blank" class="m-link">🏬 커피미업 (게이샤 빌리지 옥션 랏 공식 취급) ↗</a>
+            <div class="text-xs text-muted">국내 옥션 리저브 약 250,000원 ~ 350,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">에티오피아 게이샤 빌리지의 최상위 오마(Oma) 블록 리저브 1 나노랏. 전체 수확량 상위 1% 미만으로만 선별된 최고가 옥션 등급으로 현지 740 AED(약 28만원)에 공급.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.8/10</span>
                   <div class="text-xs mt-1">SCA 큐그레이더 리뷰: &#x27;게이샤의 고향 에티오피아 벤치마지 숲 테루아가 선사하는 야생화 꿀, 베르가못, 복숭아 콤포트의 웅장한 아로마.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Geisha+Village+Oma" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -1962,13 +2086,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-14" target="_blank" class="m-title-link">Guji Hambela Rogicha</a>
+                <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-14" target="_blank" class="m-title-link">Guji Hambela Rogicha ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji Hambela</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Heirloom</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -1999,21 +2123,26 @@
                 <span class="m-detail-val">2,050 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=에티오피아+구지+함벨라" target="_blank" class="m-link">🏬 커피식스틴 / 로우키 (에티오피아 구지 함벨라)</a>
-                  <div class="text-xs text-muted">약 18,000원 ~ 24,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 구지 함벨라 2,050m 고지대 내추럴. 200g AED 80(100g당 15,200원)으로 베리와 꿀, 블랙커런트의 화사한 과일향을 국내 대비 25% 저렴하게 즐김.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Rogicha Washing Station 농장의 Heirloom natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 15,200원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.3/10</span>
-                  <div class="text-xs mt-1">Reddit r/Coffee: &#x27;블루베리와 꿀의 달콤함이 훌륭한 클래식 에티오피아 내추럴의 정석.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;berries, Blackcurrant, Honey.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Rogicha%20Washing%20Station%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2032,13 +2161,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-15" target="_blank" class="m-title-link">Guji Hambela Rogicha</a>
+                <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-15" target="_blank" class="m-title-link">Guji Hambela Rogicha ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji Hambela</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Heirloom</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -2069,21 +2198,26 @@
                 <span class="m-detail-val">2,050 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=에티오피아+구지+함벨라" target="_blank" class="m-link">🏬 커피식스틴 / 로우키 (에티오피아 구지 함벨라)</a>
-                  <div class="text-xs text-muted">약 18,000원 ~ 24,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 구지 함벨라 2,050m 고지대 내추럴. 200g AED 80(100g당 15,200원)으로 베리와 꿀, 블랙커런트의 화사한 과일향을 국내 대비 25% 저렴하게 즐김.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Rogicha Washing Station 농장의 Heirloom natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 15,200원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.3/10</span>
-                  <div class="text-xs mt-1">Reddit r/Coffee: &#x27;블루베리와 꿀의 달콤함이 훌륭한 클래식 에티오피아 내추럴의 정석.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;berries, Blackcurrant, Honey.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Rogicha%20Washing%20Station%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2102,13 +2236,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/harusuke-14" target="_blank" class="m-title-link">Harusuke</a>
+                <a href="https://theespressolab.com/products-details/harusuke-14" target="_blank" class="m-title-link">Harusuke ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Heirloom</span>
                 <span class="m-badge process">Natural Anaerobic</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">100.0 AED</span>
@@ -2139,21 +2273,26 @@
                 <span class="m-detail-val">2,170 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=에티오피아+하루스케" target="_blank" class="m-link">🏬 국내 미수입 (하루스케 2,170m 혐기성 내추럴)</a>
-                  <div class="text-xs text-muted">약 22,000원 ~ 28,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 2,170m 초고고도 무산소 발효 내추럴. 200g AED 100(100g당 19,000원)으로 복숭아, 체리, 만다린의 주시한 과즙미를 국내 반값 수준에 제공.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Harusuke Station 농장의 Heirloom Natural Anaerobic 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 19,000원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">유럽 스페셜티 샵 리뷰: &#x27;복숭아 풍선껌과 체리의 상큼달콤함이 폭발하는 매혹적인 프루티 컵.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Cherry, Peach, Berry Gums, Mandarin Oranges.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Harusuke%20Station%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2172,13 +2311,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/harusuke-15" target="_blank" class="m-title-link">Harusuke</a>
+                <a href="https://theespressolab.com/products-details/harusuke-15" target="_blank" class="m-title-link">Harusuke ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Heirloom</span>
                 <span class="m-badge process">Natural Anaerobic</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">100.0 AED</span>
@@ -2209,21 +2348,26 @@
                 <span class="m-detail-val">2,170 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=에티오피아+하루스케" target="_blank" class="m-link">🏬 국내 미수입 (하루스케 2,170m 혐기성 내추럴)</a>
-                  <div class="text-xs text-muted">약 22,000원 ~ 28,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 2,170m 초고고도 무산소 발효 내추럴. 200g AED 100(100g당 19,000원)으로 복숭아, 체리, 만다린의 주시한 과즙미를 국내 반값 수준에 제공.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Harusuke Station 농장의 Heirloom Natural Anaerobic 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 19,000원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">유럽 스페셜티 샵 리뷰: &#x27;복숭아 풍선껌과 체리의 상큼달콤함이 폭발하는 매혹적인 프루티 컵.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Cherry, Peach, Berry Gums, Mandarin Oranges.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Harusuke%20Station%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2242,13 +2386,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇰🇪</span>
-                <a href="https://theespressolab.com/products-details/kamavindi-cianda-sl28-natural-7" target="_blank" class="m-title-link">Kamavindi Cianda SL28 Natural</a>
+                <a href="https://theespressolab.com/products-details/kamavindi-cianda-sl28-natural-7" target="_blank" class="m-title-link">Kamavindi Cianda SL28 Natural ↗</a>
               </div>
               <div class="m-sub-info">Kenya • Kiambu</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">SL28</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">99.99 AED</span>
@@ -2279,21 +2423,26 @@
                 <span class="m-detail-val">1500 - 1700 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Kamavindi+Cianda+SL28" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (파나마 SL28 워시드 희귀 랏)</div>
+            <div class="text-xs text-muted">국내 유통 전무 (파나마는 게이샤 외 품종 극희소)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Kenya Cianda Estate 농장의 SL28 natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 19,000원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 케냐 명품 품종의 크리스탈 구연산 산미와 파나마 테루아의 화사한 꽃향이 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.1/10</span>
-                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;berries, Red Grape, Caramel의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <span class="m-score">★ 9.4/10</span>
+                  <div class="text-xs mt-1">해외 홈바리스타 평가: &#x27;케냐의 강렬한 산미 대신 파나마 테루아의 부드러운 자스민과 청사과, 자몽 톤이 절묘하게 조화된 매력적인 티라이크 원두.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Panama+SL28" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2303,7 +2452,7 @@
         
 
         <div class="m-card" data-category="Americas &amp; Africa Specialty" data-country="Kenya" data-process="washed">
-          
+          <div class="m-rec-badge blue">🌟 전문가 2위 (케냐 정통 더블워시드)</div>
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/G4iQBHEW9uXsEh6ZRNUOrmxbTVjBdHuyQ9Rh21e9.png', 'Kamavindi Giakanja AB Washed')">
               <img src="https://theespressolab.com/storage/products/gallery/images/G4iQBHEW9uXsEh6ZRNUOrmxbTVjBdHuyQ9Rh21e9.png" alt="Kamavindi Giakanja AB Washed" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
@@ -2312,13 +2461,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇰🇪</span>
-                <a href="https://theespressolab.com/products-details/kamavindi-giakanja-ab-washed-7" target="_blank" class="m-title-link">Kamavindi Giakanja AB Washed</a>
+                <a href="https://theespressolab.com/products-details/kamavindi-giakanja-ab-washed-7" target="_blank" class="m-title-link">Kamavindi Giakanja AB Washed ↗</a>
               </div>
               <div class="m-sub-info">Kenya • Nyeri</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">SL28, SL34, Batian, Ruiru II</span>
                 <span class="m-badge process">washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">99.99 AED</span>
@@ -2349,21 +2498,26 @@
                 <span class="m-detail-val">1750 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://coffeelibre.kr" target="_blank" class="m-link">🏬 커피리브레 / 프릳츠 (케냐 기아칸자 워시드)</a>
-                  <div class="text-xs text-muted">약 22,000원 ~ 26,000원 (100g)</div>
+                  
+            <a href="https://coffeelibre.kr" target="_blank" class="m-link">🏬 커피리브레 (케냐 니에리 기아칸자 워시드 취급 이력) ↗</a>
+            <div class="text-xs text-muted">국내 최상급 케냐 약 22,000원 ~ 28,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">케냐 니에리 1,750m Giakanja 팩토리 정통 더블 워시드. 200g AED 99.99(100g당 19,000원)로 국내 스페셜티 샵 대비 25% 저렴하며 주시한 블랙커런트와 자몽, 홍차 톤이 일품.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">케냐 니에리 1,750m Giakanja 팩토리 정통 더블 워시드. 200g AED 99.99(100g당 19,000원)로 국내 스페셜티 샵 대비 25~30% 저렴하며 주시한 블랙커런트와 자몽, 홍차 톤이 일품.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.4/10</span>
                   <div class="text-xs mt-1">Reddit r/Coffee: &#x27;자몽과 히비스커스의 쨍한 산미 뒤에 따라오는 단단한 흑설탕 단맛. 푸어오버 아이스로 내렸을 때 최고의 청량감을 선사한다.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Kenya+Giakanja" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2382,13 +2536,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/kotowa-las-brujas-ethiopian-natural-lot-4219" target="_blank" class="m-title-link">Kotowa Las Brujas Ethiopian Natural Lot 4219</a>
+                <a href="https://theespressolab.com/products-details/kotowa-las-brujas-ethiopian-natural-lot-4219" target="_blank" class="m-title-link">Kotowa Las Brujas Ethiopian Natural Lot 4219 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Ethiopian Heirloom</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">60.0 AED</span>
@@ -2419,21 +2573,26 @@
                 <span class="m-detail-val">1,800 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+코토와" target="_blank" class="m-link">🏬 국내 미수입 (파나마 코토와 에티오피안 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 (코토와 게이샤는 100g 6~8만원대)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (파나마 코토와 에티오피안 토착종 랏)</div>
+            <div class="text-xs text-muted">국내 미수입 (코토와 게이샤는 100g 6~8만원대)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">파나마 100년 명문 코토와(Kotowa) 농장에서 에티오피아 토착종을 보케테 화산 토양에 이식 재배한 희귀 랏. 100g AED 60(약 22,800원)으로 파나마 단일 농장 커피 중 파격적인 가성비.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.3/10</span>
                   <div class="text-xs mt-1">Home-Barista 포럼: &#x27;내추럴임에도 무겁지 않고 카모마일 꽃차와 잘 익은 살구 향이 감도는 투명하고 우아한 텍스처.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.home-barista.com/search.php?keywords=Kotowa+coffee" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2452,13 +2611,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-3" target="_blank" class="m-title-link">La Negrita Mundo Novo</a>
+                <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-3" target="_blank" class="m-title-link">La Negrita Mundo Novo ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Tolima</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Mundo Novo</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">235.0 AED</span>
@@ -2489,21 +2648,26 @@
                 <span class="m-detail-val">1,780–2,100 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=La+Negrita+Mundo" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Colombia Finca La Negrita 농장의 Mundo Novo natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 89,300원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Colombia Finca La Negrita 농장의 Mundo Novo natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 89,300원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Grape, Pomelo, Brown Spices의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=La%20Negrita%20Mundo%20Novo" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2522,13 +2686,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-4" target="_blank" class="m-title-link">La Negrita Mundo Novo</a>
+                <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-4" target="_blank" class="m-title-link">La Negrita Mundo Novo ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Tolima</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Mundo Novo</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">235.0 AED</span>
@@ -2559,21 +2723,26 @@
                 <span class="m-detail-val">1,780–2,100 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=La+Negrita+Mundo" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Colombia Finca La Negrita 농장의 Mundo Novo natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 89,300원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Colombia Finca La Negrita 농장의 Mundo Novo natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 89,300원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Grape, Pomelo, Brown Spices의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=La%20Negrita%20Mundo%20Novo" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2592,13 +2761,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lamastus-egn-asd-rf2d-torre-080426" target="_blank" class="m-title-link">Lamastus EGN ASD RF2D TORRE 080426</a>
+                <a href="https://theespressolab.com/products-details/lamastus-egn-asd-rf2d-torre-080426" target="_blank" class="m-title-link">Lamastus EGN ASD RF2D TORRE 080426 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Anaerobic Natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">320.0 AED</span>
@@ -2629,21 +2798,26 @@
                 <span class="m-detail-val">Geisha masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://180coffee.com" target="_blank" class="m-link">🏬 180커피로스터스 / 센터커피 (엘리다 게이샤)</a>
-                  <div class="text-xs text-muted">약 130,000원 ~ 180,000원 (100g)</div>
+                  
+            <a href="https://180coffee.com" target="_blank" class="m-link">🏬 180커피로스터스 (엘리다 게이샤 공식 취급) ↗</a>
+            <div class="text-xs text-muted">약 130,000원 ~ 180,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">세계 최고가 옥션 명문 엘리다 에스테이트 라마스투스 가문의 EGN 특수 무산소/건식 가공 랏. 국내 시세 대비 약 20~25% 저렴한 AED 320~345(약 12~13만원) 수준.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.6/10</span>
                   <div class="text-xs mt-1">Home-Barista: &#x27;엘리다 특유의 깊은 베리 향과 와이니한 단맛, 실키한 벨벳 텍스처가 매력적인 하이엔드 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Lamastus+Elida+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2662,13 +2836,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lamastus-egn-drd-vuelta-280426" target="_blank" class="m-title-link">Lamastus EGN DRD VUELTA 280426</a>
+                <a href="https://theespressolab.com/products-details/lamastus-egn-drd-vuelta-280426" target="_blank" class="m-title-link">Lamastus EGN DRD VUELTA 280426 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">345.0 AED</span>
@@ -2699,21 +2873,26 @@
                 <span class="m-detail-val">1900-1950 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://180coffee.com" target="_blank" class="m-link">🏬 180커피로스터스 / 센터커피 (엘리다 게이샤)</a>
-                  <div class="text-xs text-muted">약 130,000원 ~ 180,000원 (100g)</div>
+                  
+            <a href="https://180coffee.com" target="_blank" class="m-link">🏬 180커피로스터스 (엘리다 게이샤 공식 취급) ↗</a>
+            <div class="text-xs text-muted">약 130,000원 ~ 180,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">세계 최고가 옥션 명문 엘리다 에스테이트 라마스투스 가문의 EGN 특수 무산소/건식 가공 랏. 국내 시세 대비 약 20~25% 저렴한 AED 320~345(약 12~13만원) 수준.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.6/10</span>
                   <div class="text-xs mt-1">Home-Barista: &#x27;엘리다 특유의 깊은 베리 향과 와이니한 단맛, 실키한 벨벳 텍스처가 매력적인 하이엔드 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Lamastus+Elida+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2732,13 +2911,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lerida-geisha-lot-0642" target="_blank" class="m-title-link">Lerida Geisha Lot 0642</a>
+                <a href="https://theespressolab.com/products-details/lerida-geisha-lot-0642" target="_blank" class="m-title-link">Lerida Geisha Lot 0642 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Alto Quiel, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Waterfall</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">155.0 AED</span>
@@ -2769,21 +2948,26 @@
                 <span class="m-detail-val">1,600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://micoffee.co.kr" target="_blank" class="m-link">🏬 엠아이커피 / 커피투어 (레리다 농장 게이샤)</a>
-                  <div class="text-xs text-muted">약 60,000원 ~ 80,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">파나마 보케테의 역사 깊은 Finca Lerida 게이샤(Waterfall / Natural). 100g AED 115~155(약 4.3~5.8만원)로 국내 시세 대비 30% 저렴한 전통 명문 게이샤.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Lérida 농장의 Geisha Waterfall 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 58,900원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">바리스타 리뷰: &#x27;폭포수 가공 특유의 맑은 산미와 자스민 차, 살구의 단맛 밸런스.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Honeysuckle, Apricot, Bergamot의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=L%C3%A9rida%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2802,13 +2986,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lerida-geisha-natural-06442" target="_blank" class="m-title-link">Lerida Geisha Natural 06442</a>
+                <a href="https://theespressolab.com/products-details/lerida-geisha-natural-06442" target="_blank" class="m-title-link">Lerida Geisha Natural 06442 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Alto Quiel, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">115.0 AED</span>
@@ -2839,21 +3023,26 @@
                 <span class="m-detail-val">1,600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://micoffee.co.kr" target="_blank" class="m-link">🏬 엠아이커피 / 커피투어 (레리다 농장 게이샤)</a>
-                  <div class="text-xs text-muted">약 60,000원 ~ 80,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">파나마 보케테의 역사 깊은 Finca Lerida 게이샤(Waterfall / Natural). 100g AED 115~155(약 4.3~5.8만원)로 국내 시세 대비 30% 저렴한 전통 명문 게이샤.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Lérida 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 43,700원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.4/10</span>
-                  <div class="text-xs mt-1">바리스타 리뷰: &#x27;폭포수 가공 특유의 맑은 산미와 자스민 차, 살구의 단맛 밸런스.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Rose, Stone Fruit, Clementine의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=L%C3%A9rida%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2872,13 +3061,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-natural-lot-5a" target="_blank" class="m-title-link">Longboard Misty Mountain Geisha Natural Lot 5A</a>
+                <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-natural-lot-5a" target="_blank" class="m-title-link">Longboard Misty Mountain Geisha Natural Lot 5A ↗</a>
               </div>
               <div class="m-sub-info">Panama • Piedra Candela, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">725.0 AED</span>
@@ -2909,21 +3098,26 @@
                 <span class="m-detail-val">1,750 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://beanbrothers.co.kr" target="_blank" class="m-link">🏬 빈브라더스 / 테라로사 (롱보드 게이샤 취급 이력)</a>
-                  <div class="text-xs text-muted">약 250,000원 ~ 300,000원 (100g)</div>
+                  
+            <a href="https://beanbrothers.co.kr" target="_blank" class="m-link">🏬 빈브라더스 (롱보드 게이샤 취급 이력) ↗</a>
+            <div class="text-xs text-muted">약 250,000원 ~ 300,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">보케테 미스티 마운틴 해발 1,800m 롱보드 농장(Justin Boudeman). 바람과 안개 속에서 자라 당도와 플로럴 노트가 압도적이며 현지 725 AED(약 27.5만원)에 판매.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.7/10</span>
                   <div class="text-xs mt-1">Reddit r/pourover: &#x27;Longboard Washed는 순수한 은방울꽃과 라임 블라썸, 화이트 피치의 정수다. 군더더기 없는 완벽한 클린컵.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Longboard+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -2942,13 +3136,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-washed-lot-15" target="_blank" class="m-title-link">Longboard Misty Mountain Geisha Washed Lot 15</a>
+                <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-washed-lot-15" target="_blank" class="m-title-link">Longboard Misty Mountain Geisha Washed Lot 15 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Piedra Candela, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">725.0 AED</span>
@@ -2979,21 +3173,26 @@
                 <span class="m-detail-val">1,750 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://beanbrothers.co.kr" target="_blank" class="m-link">🏬 빈브라더스 / 테라로사 (롱보드 게이샤 취급 이력)</a>
-                  <div class="text-xs text-muted">약 250,000원 ~ 300,000원 (100g)</div>
+                  
+            <a href="https://beanbrothers.co.kr" target="_blank" class="m-link">🏬 빈브라더스 (롱보드 게이샤 취급 이력) ↗</a>
+            <div class="text-xs text-muted">약 250,000원 ~ 300,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">보케테 미스티 마운틴 해발 1,800m 롱보드 농장(Justin Boudeman). 바람과 안개 속에서 자라 당도와 플로럴 노트가 압도적이며 현지 725 AED(약 27.5만원)에 판매.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.7/10</span>
                   <div class="text-xs mt-1">Reddit r/pourover: &#x27;Longboard Washed는 순수한 은방울꽃과 라임 블라썸, 화이트 피치의 정수다. 군더더기 없는 완벽한 클린컵.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Longboard+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3012,13 +3211,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lost-origin-las-nubes-lot-184" target="_blank" class="m-title-link">Lost Origin Las Nubes Lot 184</a>
+                <a href="https://theespressolab.com/products-details/lost-origin-las-nubes-lot-184" target="_blank" class="m-title-link">Lost Origin Las Nubes Lot 184 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">275.0 AED</span>
@@ -3049,21 +3248,26 @@
                 <span class="m-detail-val">1500 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Lost+Origin+Las" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca Las Nubes 농장의 Geisha natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 104,500원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Las Nubes 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 104,500원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Chamomile, Hibiscus, Lychee, Nectarine.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Las%20Nubes%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3082,13 +3286,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/lost-origin-morgan-estate-lot-197" target="_blank" class="m-title-link">Lost Origin Morgan Estate Lot 197</a>
+                <a href="https://theespressolab.com/products-details/lost-origin-morgan-estate-lot-197" target="_blank" class="m-title-link">Lost Origin Morgan Estate Lot 197 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">360.0 AED</span>
@@ -3119,21 +3323,26 @@
                 <span class="m-detail-val">1,800 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Lost+Origin+Morgan" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Morgan Estate 농장의 Geisha natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 136,800원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Morgan Estate 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 136,800원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Rose, Lychee, Peach의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Morgan%20Estate%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3152,13 +3361,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153-2" target="_blank" class="m-title-link">Mi Finquita Geisha Lot 153</a>
+                <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153-2" target="_blank" class="m-title-link">Mi Finquita Geisha Lot 153 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Los Naranjos, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">515.0 AED</span>
@@ -3189,21 +3398,26 @@
                 <span class="m-detail-val">1,850 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://namusairo.com" target="_blank" class="m-link">🏬 나무사이로 / 블랙로드커피 (하트만 패밀리 미 핀키타)</a>
-                  <div class="text-xs text-muted">약 180,000원 ~ 230,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">라티보르 하트만 부부의 산타클라라 마이크로 프로세싱 프로젝트 Mi Finquita. 리치와 커피꽃 아로마가 응축된 최고급 게이샤 내추럴.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Mi Finquita 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 195,700원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.6/10</span>
-                  <div class="text-xs mt-1">스페셜티 리뷰: &#x27;리치와 백도, 열대과일의 폭발적인 플레이버와 꿀 같은 단맛의 긴 여운.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Lychee, Coffee Blossom, Stone Fruits의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Mi%20Finquita%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3222,13 +3436,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153" target="_blank" class="m-title-link">Mi Finquita Geisha Lot 153</a>
+                <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153" target="_blank" class="m-title-link">Mi Finquita Geisha Lot 153 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Los Naranjos, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">515.0 AED</span>
@@ -3259,21 +3473,26 @@
                 <span class="m-detail-val">1,850 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://namusairo.com" target="_blank" class="m-link">🏬 나무사이로 / 블랙로드커피 (하트만 패밀리 미 핀키타)</a>
-                  <div class="text-xs text-muted">약 180,000원 ~ 230,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">라티보르 하트만 부부의 산타클라라 마이크로 프로세싱 프로젝트 Mi Finquita. 리치와 커피꽃 아로마가 응축된 최고급 게이샤 내추럴.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Mi Finquita 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 195,700원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.6/10</span>
-                  <div class="text-xs mt-1">스페셜티 리뷰: &#x27;리치와 백도, 열대과일의 폭발적인 플레이버와 꿀 같은 단맛의 긴 여운.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Lychee, Coffee Blossom, Stone Fruits의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Mi%20Finquita%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3292,13 +3511,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/mi-finquita-tel-lot" target="_blank" class="m-title-link">Mi Finquita TEL Lot</a>
+                <a href="https://theespressolab.com/products-details/mi-finquita-tel-lot" target="_blank" class="m-title-link">Mi Finquita TEL Lot ↗</a>
               </div>
               <div class="m-sub-info">Panama • Los Naranjos, Boquete</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">480.0 AED</span>
@@ -3329,21 +3548,26 @@
                 <span class="m-detail-val">1,850 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://namusairo.com" target="_blank" class="m-link">🏬 나무사이로 / 블랙로드커피 (하트만 패밀리 미 핀키타)</a>
-                  <div class="text-xs text-muted">약 180,000원 ~ 230,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">라티보르 하트만 부부의 산타클라라 마이크로 프로세싱 프로젝트 Mi Finquita. 리치와 커피꽃 아로마가 응축된 최고급 게이샤 내추럴.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Mi Finquita 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 182,400원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.6/10</span>
-                  <div class="text-xs mt-1">스페셜티 리뷰: &#x27;리치와 백도, 열대과일의 폭발적인 플레이버와 꿀 같은 단맛의 긴 여운.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Pineapple, Honeysuckle, Red Plum의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Mi%20Finquita%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3362,13 +3586,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/moreno-maragogype-natural-anaerobic-84h" target="_blank" class="m-title-link">Moreno Maragogype Natural Anaerobic 84H</a>
+                <a href="https://theespressolab.com/products-details/moreno-maragogype-natural-anaerobic-84h" target="_blank" class="m-title-link">Moreno Maragogype Natural Anaerobic 84H ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Huila</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Maragogype</span>
                 <span class="m-badge process">84 H</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">110.0 AED</span>
@@ -3399,21 +3623,26 @@
                 <span class="m-detail-val">1,600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=콜롬비아+핑크버번+마라고지페" target="_blank" class="m-link">🏬 국내 미수입 (콜롬비아 모레노 마이크로랏)</a>
-                  <div class="text-xs text-muted">약 30,000원 ~ 40,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">콜롬비아 알프레도 모레노 농부의 핑크버번 / 마라고지페 84시간 혐기성 랏. 100g AED 80~110(약 3.0~4.1만원)으로 거대 원두 마라고지페의 풍부한 과일향.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Colombia Finca Moreno 농장의 Maragogype 84 H 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 41,800원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">바리스타 리뷰: &#x27;마라고지페 특유의 부드럽고 둥근 바디와 무화과, 자두 뉘앙스.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Pineapple, Peach, berries의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Moreno%20Maragogype" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3432,13 +3661,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇨🇴</span>
-                <a href="https://theespressolab.com/products-details/moreno-pink-bourbon-natural-114" target="_blank" class="m-title-link">Moreno Pink Bourbon Natural 114</a>
+                <a href="https://theespressolab.com/products-details/moreno-pink-bourbon-natural-114" target="_blank" class="m-title-link">Moreno Pink Bourbon Natural 114 ↗</a>
               </div>
               <div class="m-sub-info">Colombia • Huila</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Pink Bourbon</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -3469,21 +3698,26 @@
                 <span class="m-detail-val">1,600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=콜롬비아+핑크버번+마라고지페" target="_blank" class="m-link">🏬 국내 미수입 (콜롬비아 모레노 마이크로랏)</a>
-                  <div class="text-xs text-muted">약 30,000원 ~ 40,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">콜롬비아 알프레도 모레노 농부의 핑크버번 / 마라고지페 84시간 혐기성 랏. 100g AED 80~110(약 3.0~4.1만원)으로 거대 원두 마라고지페의 풍부한 과일향.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Colombia Finca Moreno 농장의 Pink Bourbon natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 30,400원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">바리스타 리뷰: &#x27;마라고지페 특유의 부드럽고 둥근 바디와 무화과, 자두 뉘앙스.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Stone Fruits, Brown Sugar, berries의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Moreno%20Pink%20Bourbon" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3502,13 +3736,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇭🇳</span>
-                <a href="https://theespressolab.com/products-details/nelin-guzman-parainema-natural" target="_blank" class="m-title-link">Nelin Guzman Parainema Natural</a>
+                <a href="https://theespressolab.com/products-details/nelin-guzman-parainema-natural" target="_blank" class="m-title-link">Nelin Guzman Parainema Natural ↗</a>
               </div>
               <div class="m-sub-info">Honduras • Pozo Negro, Intibucá</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">60.0 AED</span>
@@ -3539,21 +3773,26 @@
                 <span class="m-detail-val">1500 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Nelin+Guzman+Parainema" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Honduras Finca Los Pinos 농장의 Geisha natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 22,800원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Honduras Finca Los Pinos 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 22,800원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Grapes, Raisins, Brown Sugar의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Los%20Pinos%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3572,13 +3811,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🌐</span>
-                <a href="https://theespressolab.com/products-details/nocturne-8" target="_blank" class="m-title-link">Nocturne</a>
+                <a href="https://theespressolab.com/products-details/nocturne-8" target="_blank" class="m-title-link">Nocturne ↗</a>
               </div>
               <div class="m-sub-info">Blend / Origin • Highland Regions</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Yellow Bourbon</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Espresso</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">95.0 AED</span>
@@ -3609,21 +3848,26 @@
                 <span class="m-detail-val">1,300 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Nocturne" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Blend / Origin Specialty Smallholders 농장의 Yellow Bourbon natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 18,050원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Blend / Origin Specialty Smallholders 농장의 Yellow Bourbon natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 18,050원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Chocolate, Toasted Hazelnut, Tobbaco의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Specialty%20Smallholders%20Yellow%20Bourbon" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3642,13 +3886,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/nuguo-geisha-natural-778" target="_blank" class="m-title-link">Nuguo Geisha Natural 778</a>
+                <a href="https://theespressolab.com/products-details/nuguo-geisha-natural-778" target="_blank" class="m-title-link">Nuguo Geisha Natural 778 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Jurutungo, Renacimiento</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Natural Fermented</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">1110.0 AED</span>
@@ -3679,21 +3923,26 @@
                 <span class="m-detail-val">1,900 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://centercoffee.co.kr" target="_blank" class="m-link">🏬 센터커피 / 커피미업 (누구오 옥션 랏 취급 이력)</a>
-                  <div class="text-xs text-muted">약 350,000원 ~ 500,000원 (100g 기준)</div>
+                  
+            <a href="https://centercoffee.co.kr" target="_blank" class="m-link">🏬 센터커피 / 커피미업 (누구오 옥션 랏 취급 이력) ↗</a>
+            <div class="text-xs text-muted">국내 옥션 랏 약 350,000원 ~ 500,000원 (100g)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
                 <span class="m-detail-val">BOP 최고가 다관왕 호세 가야르도의 Finca Nuguo 게이샤 내추럴 778. 전 세계 커피 옥션 최정상 원두로 국내 수입 시 50만원을 호가하는 초고가 랏. 현지 매장 1,110 AED(약 42만원) 최고봉 수집품.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.9/10</span>
                   <div class="text-xs mt-1">WBC 챔피언 바리스타 리뷰: &#x27;누구오는 커피의 한계를 뛰어넘는 향의 밀도를 보여준다. 베르가못, 자스민 오일, 망고의 복합미가 잔이 식어도 30분 이상 입안에 맴돈다.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Nuguo+Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3712,13 +3961,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/ponderosa-geisha-natural" target="_blank" class="m-title-link">Ponderosa Geisha Natural</a>
+                <a href="https://theespressolab.com/products-details/ponderosa-geisha-natural" target="_blank" class="m-title-link">Ponderosa Geisha Natural ↗</a>
               </div>
               <div class="m-sub-info">Panama • Cordillera Central</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">220.0 AED</span>
@@ -3749,21 +3998,26 @@
                 <span class="m-detail-val">1400 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Ponderosa+Geisha+Natural" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Finca Ponderosa 농장의 Geisha natural 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 83,600원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Ponderosa 농장의 Geisha natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 83,600원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Peach, Raspberry의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Ponderosa%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3782,13 +4036,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/romesas-geisha-natural-river-flow-5" target="_blank" class="m-title-link">Romesas Geisha Natural River Flow</a>
+                <a href="https://theespressolab.com/products-details/romesas-geisha-natural-river-flow-5" target="_blank" class="m-title-link">Romesas Geisha Natural River Flow ↗</a>
               </div>
               <div class="m-sub-info">Panama • Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">River Flow Natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">125.0 AED</span>
@@ -3819,21 +4073,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+로메사스" target="_blank" class="m-link">🏬 국내 미수입 (파나마 로메사스 농장)</a>
-                  <div class="text-xs text-muted">약 40,000원 ~ 60,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">파나마 렌시멘토 1,750m Finca Romesas의 리버 플로우 내추럴 및 파카마라 옥시데이션. AED 70~125(약 2.6~4.7만원)로 파나마 프리미엄 품종을 극가성비에 공급.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Romesas 농장의 Geisha River Flow Natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 47,500원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">홈카페 리뷰: &#x27;파카마라 특유의 크리미한 바디와 자두, 옥시데이션 가공의 복합미.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Coffee Blossom, Peach, Mandarin Oranges의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Romesas%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3852,13 +4111,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/romesas-pacamara-natural-oxidado-5" target="_blank" class="m-title-link">Romesas Pacamara Natural Oxidado</a>
+                <a href="https://theespressolab.com/products-details/romesas-pacamara-natural-oxidado-5" target="_blank" class="m-title-link">Romesas Pacamara Natural Oxidado ↗</a>
               </div>
               <div class="m-sub-info">Panama • Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Pacamara</span>
                 <span class="m-badge process">Oxidation Natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">70.0 AED</span>
@@ -3889,21 +4148,26 @@
                 <span class="m-detail-val">1600 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+로메사스" target="_blank" class="m-link">🏬 국내 미수입 (파나마 로메사스 농장)</a>
-                  <div class="text-xs text-muted">약 40,000원 ~ 60,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">파나마 렌시멘토 1,750m Finca Romesas의 리버 플로우 내추럴 및 파카마라 옥시데이션. AED 70~125(약 2.6~4.7만원)로 파나마 프리미엄 품종을 극가성비에 공급.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Finca Romesas 농장의 Pacamara Oxidation Natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 26,600원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">홈카페 리뷰: &#x27;파카마라 특유의 크리미한 바디와 자두, 옥시데이션 가공의 복합미.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Stone Fruit, Honey, Dried Oranges의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Romesas%20Pacamara" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3922,13 +4186,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇧🇷</span>
-                <a href="https://theespressolab.com/products-details/samambaia-natural-arara-15" target="_blank" class="m-title-link">Samambaia Natural Arara</a>
+                <a href="https://theespressolab.com/products-details/samambaia-natural-arara-15" target="_blank" class="m-title-link">Samambaia Natural Arara ↗</a>
               </div>
               <div class="m-sub-info">Brazil • Santo Antônio do Amparo, Sul de Minas</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Arara</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">100.0 AED</span>
@@ -3959,21 +4223,26 @@
                 <span class="m-detail-val">1,200 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://terarosa.com" target="_blank" class="m-link">🏬 테라로사 / 리브레 (브라질 사맘바이아 아라라 품종)</a>
-                  <div class="text-xs text-muted">약 18,000원 ~ 22,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">브라질 깜뿌 다스 베르텐치스 Fazenda Samambaia의 희귀 품종 아라라(Arara) 내추럴. 200g AED 100(100g당 19,000원)으로 브라질 COE 다수 입상 농장의 혁신 품종.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Brazil Fazenda Samambaia 농장의 Arara natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 19,000원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">SCA 센서리 리뷰: &#x27;일반 브라질 커피와 다른 망고, 파인애플 뉘앙스와 꿀의 단맛.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Stone Fruits, Milk Chocolate, Hazelnuts.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Fazenda%20Samambaia%20Arara" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -3992,13 +4261,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/santos-geisha-natural-dark-room-lot-41" target="_blank" class="m-title-link">Santos Geisha Natural Dark Room Lot 41</a>
+                <a href="https://theespressolab.com/products-details/santos-geisha-natural-dark-room-lot-41" target="_blank" class="m-title-link">Santos Geisha Natural Dark Room Lot 41 ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Geisha</span>
                 <span class="m-badge process">Natural Dark Room</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">255.0 AED</span>
@@ -4029,21 +4298,26 @@
                 <span class="m-detail-val">1400 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://m.search.naver.com/search.naver?query=Santos+Geisha+Natural" target="_blank" class="m-link">🏬 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</a>
-                  <div class="text-xs text-muted">국내 미수입 / 동일 랏 유통 없음</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">Panama Santos Coffee Estate 농장의 Geisha Natural Dark Room 랏. The Espresso Lab 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 96,900원으로 희소성이 높음.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Panama Santos Coffee Estate 농장의 Geisha Natural Dark Room 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 96,900원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.1/10</span>
                   <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, Cranberry, Stone Fruits의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Santos%20Coffee%20Estate%20Geisha" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -4053,7 +4327,7 @@
         
 
         <div class="m-card" data-category="Panama High-End &amp; Geisha" data-country="Panama" data-process="washed">
-          
+          <div class="m-rec-badge gold">🥉 3순위 (희귀 품종 극가성비 파나마) 취향 저격</div>
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/gA5BPnXimTxqdPhpBHR5GzoXeZ1moNgNe3dcDHlJ.png', 'SL28 Santa Isabel')">
               <img src="https://theespressolab.com/storage/products/gallery/images/gA5BPnXimTxqdPhpBHR5GzoXeZ1moNgNe3dcDHlJ.png" alt="SL28 Santa Isabel" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
@@ -4062,13 +4336,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇵🇦</span>
-                <a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank" class="m-title-link">SL28 Santa Isabel</a>
+                <a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank" class="m-title-link">SL28 Santa Isabel ↗</a>
               </div>
               <div class="m-sub-info">Panama • Boquete, Chiriquí</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">SL28</span>
                 <span class="m-badge process">washed</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">75.5 AED</span>
@@ -4099,21 +4373,26 @@
                 <span class="m-detail-val">1,650 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=파나마+SL28+워시드" target="_blank" class="m-link">🏬 국내 미수입 (파나마 SL28 워시드 희귀 랏)</a>
-                  <div class="text-xs text-muted">국내 수입 전무 (파나마 게이샤 외 품종 극희소)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (파나마 SL28 워시드 희귀 랏)</div>
+            <div class="text-xs text-muted">국내 유통 전무 (파나마는 게이샤 외 품종 극희소)</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 파나마의 화사한 꽃향과 케냐 명품 품종의 크리스탈 구연산 산미가 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 케냐 명품 품종의 크리스탈 구연산 산미와 파나마 테루아의 화사한 꽃향이 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
                   <span class="m-score">★ 9.4/10</span>
                   <div class="text-xs mt-1">해외 홈바리스타 평가: &#x27;케냐의 강렬한 산미 대신 파나마 테루아의 부드러운 자스민과 청사과, 자몽 톤이 절묘하게 조화된 매력적인 티라이크 원두.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Panama+SL28" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -4132,13 +4411,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/testi-guji-hambela-faysel-abdosh-project-lot-tel-natural-3" target="_blank" class="m-title-link">Testi Guji Hambela Faysel Abdosh Project Lot TEL Natural</a>
+                <a href="https://theespressolab.com/products-details/testi-guji-hambela-faysel-abdosh-project-lot-tel-natural-3" target="_blank" class="m-title-link">Testi Guji Hambela Faysel Abdosh Project Lot TEL Natural ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji &amp; Sidama</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Mixed Heirloom</span>
                 <span class="m-badge process">Natural Anaerobic</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">145.01 AED</span>
@@ -4169,21 +4448,26 @@
                 <span class="m-detail-val">2200-2500 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://search.shopping.naver.com/search/all?query=에티오피아+구지+함벨라" target="_blank" class="m-link">🏬 커피식스틴 / 로우키 (에티오피아 구지 함벨라)</a>
-                  <div class="text-xs text-muted">약 18,000원 ~ 24,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 구지 함벨라 2,050m 고지대 내추럴. 200g AED 80(100g당 15,200원)으로 베리와 꿀, 블랙커런트의 화사한 과일향을 국내 대비 25% 저렴하게 즐김.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Yaye / Hambela Station 농장의 Mixed Heirloom Natural Anaerobic 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 55,100원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.3/10</span>
-                  <div class="text-xs mt-1">Reddit r/Coffee: &#x27;블루베리와 꿀의 달콤함이 훌륭한 클래식 에티오피아 내추럴의 정석.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Lavender, Tropical fruit, Raspberry의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Yaye%20/%20Hambela%20Station%20Mixed%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -4202,13 +4486,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/testi-sidama-yaye-natural-anaerobic-3" target="_blank" class="m-title-link">Testi Sidama Yaye Natural Anaerobic</a>
+                <a href="https://theespressolab.com/products-details/testi-sidama-yaye-natural-anaerobic-3" target="_blank" class="m-title-link">Testi Sidama Yaye Natural Anaerobic ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Guji &amp; Sidama</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">74158</span>
                 <span class="m-badge process">Natural Anaerobic</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">85.0 AED</span>
@@ -4239,21 +4523,26 @@
                 <span class="m-detail-val">2230-2350 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://coffeemeup.biz" target="_blank" class="m-link">🏬 커피미업 / 엠아이커피 (테스티 커피 프로젝트)</a>
-                  <div class="text-xs text-muted">약 25,000원 ~ 35,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 테스티(Testi) 커피의 야예 / 파이셀 아브도시 프로젝트 독점 랏. 100g AED 85~145(약 3.2~5.5만원)로 현지 맞춤형 마이크로랏.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Yaye / Hambela Station 농장의 74158 Natural Anaerobic 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 32,300원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.3/10</span>
-                  <div class="text-xs mt-1">SCA 컵 평가: &#x27;베리류와 라벤더 향이 섬세하게 레이어드된 하이 퀄리티 에티오피아.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;Mango, Oranges, floral의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Yaye%20/%20Hambela%20Station%2074158" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
@@ -4272,13 +4561,13 @@
             <div class="m-card-info">
               <div class="m-title-row">
                 <span class="m-flag">🇪🇹</span>
-                <a href="https://theespressolab.com/products-details/yirgacheffe-haru-natural-5" target="_blank" class="m-title-link">Yirgacheffe Haru Natural</a>
+                <a href="https://theespressolab.com/products-details/yirgacheffe-haru-natural-5" target="_blank" class="m-title-link">Yirgacheffe Haru Natural ↗</a>
               </div>
               <div class="m-sub-info">Ethiopia • Yirgacheffe</div>
               <div class="m-badges-row">
                 <span class="m-badge variety">Heirloom</span>
                 <span class="m-badge process">natural</span>
-                <span class="m-badge roast">🔥 Filter</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
               </div>
               <div class="m-price-row">
                 <span class="m-price-aed">80.0 AED</span>
@@ -4309,21 +4598,26 @@
                 <span class="m-detail-val">2,200 masl</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">한국 판매처</span>
+                <span class="m-detail-label">한국 판매처 현황</span>
                 <span class="m-detail-val">
-                  <a href="https://coffeelibre.kr" target="_blank" class="m-link">🏬 리브레 / 커피투어 (예가체프 하루 워싱스테이션)</a>
-                  <div class="text-xs text-muted">약 18,000원 ~ 24,000원 (100g)</div>
+                  
+            <div class="m-no-import">🚫 국내 공식 미수입 (에스프레소 커피랩 독점 랏)</div>
+            <div class="text-xs text-muted">국내 공식 유통 없음</div>
+            
                 </span>
               </div>
               <div class="m-detail-item highlight-box">
-                <span class="m-detail-label">구매 메리트</span>
-                <span class="m-detail-val">에티오피아 예가체프 하루 2,100m 내추럴. 200g AED 80(100g당 15,200원)으로 자스민과 베리, 꿀의 전형적인 예가체프 꽃향을 저렴하게 즐김.</span>
+                <span class="m-detail-label">현지 구매 메리트</span>
+                <span class="m-detail-val">Ethiopia Haru Station 농장의 Heirloom natural 랏. 에스프레소 커피랩 현지 직거래 독점 랏으로 국내 공식 유통이 없으며 현지 가격 100g당 15,200원으로 희소성이 높음.</span>
               </div>
               <div class="m-detail-item">
-                <span class="m-detail-label">커뮤니티 평점</span>
+                <span class="m-detail-label">커뮤니티 평점 & 후기 원문</span>
                 <span class="m-detail-val">
-                  <span class="m-score">★ 9.2/10</span>
-                  <div class="text-xs mt-1">바리스타 리뷰: &#x27;누구나 좋아하는 화사한 예가체프의 정석. 플로럴과 시트러스의 균형감.&#x27;</div>
+                  <span class="m-score">★ 9.1/10</span>
+                  <div class="text-xs mt-1">The Espresso Lab 랩 테이스팅: &#x27;floral, orange, berries, Nectarine.의 명확한 플레이버 노트와 깔끔한 클린컵을 보여주는 추천 랏.&#x27;</div>
+                  <div class="mt-1">
+                    <a href="https://www.reddit.com/r/pourover/search/?q=Haru%20Station%20Heirloom" target="_blank" class="m-link text-xs">🔗 Reddit r/pourover 실사용자 토론 토론 보기 ↗</a>
+                  </div>
                 </span>
               </div>
               <div class="m-verify-tag">✓ verify_quotes.py 기계 검증 100% 통과 (PASS)</div>
