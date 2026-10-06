@@ -6,15 +6,16 @@ Features & Updates:
 - Graph 1: Scatter plot (Price per 100g vs Score - Total/Taste/Rarity/Price)
   - Color encoded: Archers Comp (black), Reserve (blue), Selection (yellow), Espresso Lab (red)
   - Small point radius (4.5px) for clear separation in dense clusters
-  - Real-time Hover HUD Info Bar + Tooltip with 35px caretPadding to prevent covering nearby dots
-  - Point shape encoding by Country, Process, Altitude, or Default (*, x, o, triangle, rect)
+  - Strictly fixed height HUD Bar (44px) & fixed canvas wrapper (460px) to prevent vertical infinite resize loops!
+  - HUD update moved safely to onHover hook (isolated from tooltip rendering lifecycle)
+  - Tooltip with 35px caretPadding and pointer-events: none
+  - Axis-only wheel zoom: Wheel scrolling on the center of the graph allows normal page scroll; only scrolling directly on X/Y axes zooms!
   - Fixed absolute scale limits (X: 0~1150 AED, Y: score range) across filter changes
-  - Mouse wheel zoom & pan via chartjs-plugin-zoom with header-positioned "Fit to Size" button (no overlap)
-  - Multi-bean cluster dialog: clicking dense cluster with multiple dots opens selection list
+  - Header-aligned "Fit to Size" button with zero graph overlap
+  - Multi-bean cluster dialog: clicking dense spots with multiple dots displays list of all beans at that coordinate
   - Mobile 2-stage interaction: 1st tap shows preview card, 2nd tap/button opens full modal
-  - Explicit Enter key or Search button execution (no accidental laggy live inputs)
-  - Distinct active/inactive styles for lineup filter chips (sharp active vs 35% dashed inactive)
-  - Comprehensive Korean search support (country, process, farm, variety, tasting notes, roastery)
+  - Explicit Enter key or Search button execution (with reset button)
+  - Unified 2x2 grid control cards layout: fully standardized button sizes, alignments, and mobile responsiveness
 - Graph 2: Tasting notes distribution chart with dynamic recalculation based on active filters
   - Dedicated Origin and Process quick filter buttons
   - Real-time recalculation of flavor frequencies when origin/process/lineup filters change
@@ -595,62 +596,131 @@ def generate_html(items, stats):
       line-height: 1.45;
     }}
 
-    /* CONTROLS SECTION */
-    .controls-panel {{
+    /* ========================================================
+       UNIFIED 2x2 CONTROLS CARD GRID SYSTEM (PERFECT ALIGNMENT)
+       ======================================================== */
+    .controls-card-wrapper {{
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 20px;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 22px;
       display: flex;
       flex-direction: column;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }}
+
+    .controls-grid-2x2 {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }}
-    .control-row {{
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
+    @media (max-width: 900px) {{
+      .controls-grid-2x2 {{
+        grid-template-columns: 1fr;
+      }}
     }}
-    .control-group {{
+
+    .ctrl-subcard {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 14px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 8px;
+    }}
+    .ctrl-subcard-header {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .ctrl-icon {{
+      font-size: 14px;
+    }}
+    .ctrl-title {{
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.3px;
+    }}
+
+    .btn-group-grid {{
+      display: grid;
+      gap: 5px;
+      width: 100%;
+    }}
+    .btn-group-grid.grid-4 {{
+      grid-template-columns: repeat(4, 1fr);
+    }}
+    .btn-group-grid.grid-5 {{
+      grid-template-columns: repeat(5, 1fr);
+    }}
+    @media (max-width: 600px) {{
+      .btn-group-grid.grid-4 {{
+        grid-template-columns: repeat(2, 1fr);
+      }}
+      .btn-group-grid.grid-5 {{
+        grid-template-columns: repeat(3, 1fr);
+      }}
+    }}
+
+    .ctrl-btn {{
+      height: 34px;
+      padding: 0 8px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.15s ease;
+      user-select: none;
+    }}
+    .ctrl-btn:hover {{
+      color: var(--text-primary);
+      border-color: var(--accent-gold);
+    }}
+    .ctrl-btn.active {{
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+      font-weight: 800;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }}
+
+    /* BOTTOM ROW: LINEUPS & UNIFIED SEARCH */
+    .controls-bottom-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }}
+    .lineup-bar-left {{
+      display: flex;
+      align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
     }}
-    .control-label {{
-      font-size: 12.5px;
+    .ctrl-bottom-label {{
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-secondary);
       white-space: nowrap;
     }}
-    .btn-toggle-group {{
-      display: inline-flex;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 3px;
-      gap: 3px;
-      flex-wrap: wrap;
-    }}
-    .btn-toggle {{
-      background: transparent;
-      border: none;
-      color: var(--text-secondary);
-      padding: 6px 11px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-    }}
-    .btn-toggle.active {{
-      background: var(--accent-gold);
-      color: #000;
-      font-weight: 700;
-    }}
 
-    /* LINEUP FILTER CHIPS - SHARP CONTRAST */
     .filter-chips {{
       display: flex;
       gap: 8px;
@@ -658,11 +728,12 @@ def generate_html(items, stats):
       align-items: center;
     }}
     .chip {{
+      height: 34px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
-      border-radius: 20px;
+      padding: 0 12px;
+      border-radius: 18px;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
@@ -695,47 +766,68 @@ def generate_html(items, stats):
       opacity: 0.4;
     }}
 
-    /* SEARCH INPUT GROUP (ENTER / BUTTON) */
+    /* SEARCH INPUT GROUP WITH EXACT 34px HEIGHT */
+    .lineup-bar-right {{
+      display: flex;
+      align-items: center;
+    }}
+    @media (max-width: 900px) {{
+      .lineup-bar-right {{
+        width: 100%;
+      }}
+      .search-input-group {{
+        width: 100%;
+      }}
+      .search-input {{
+        flex: 1;
+      }}
+    }}
     .search-input-group {{
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }}
     .search-input {{
-      padding: 7px 12px;
-      background: var(--bg-primary);
+      height: 34px;
+      padding: 0 12px;
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 8px;
+      border-radius: 6px;
       color: var(--text-primary);
-      font-size: 13px;
-      min-width: 240px;
+      font-size: 12.5px;
+      min-width: 260px;
       outline: none;
+      transition: border-color 0.2s;
     }}
     .search-input:focus {{
       border-color: var(--accent-gold);
     }}
     .search-btn {{
-      padding: 7px 14px;
+      height: 34px;
+      padding: 0 14px;
       background: var(--accent-gold);
       color: #000;
       border: 1px solid var(--accent-gold);
-      border-radius: 8px;
-      font-size: 12.5px;
-      font-weight: 700;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
       cursor: pointer;
-      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       white-space: nowrap;
+      transition: opacity 0.2s;
     }}
     .search-btn:hover {{
       opacity: 0.9;
-      transform: translateY(-1px);
     }}
     .search-clear-btn {{
-      padding: 7px 10px;
-      background: var(--bg-primary);
+      height: 34px;
+      padding: 0 10px;
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-muted);
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 12px;
       cursor: pointer;
     }}
@@ -765,38 +857,46 @@ def generate_html(items, stats):
       color: var(--text-primary);
     }}
 
-    /* HOVER HUD BAR ABOVE CHART */
+    /* STRICT FIXED HEIGHT HUD BAR - PREVENTS RESIZE LOOP */
     .chart-hud-bar {{
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 9px 14px;
-      margin-bottom: 10px;
-      font-size: 12.5px;
+      padding: 0 14px;
+      margin-bottom: 12px;
+      height: 44px;
+      min-height: 44px;
+      max-height: 44px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 8px;
-      min-height: 42px;
+      box-sizing: border-box;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-      transition: background 0.2s;
     }}
     .chart-hud-idle {{
       color: var(--text-muted);
+      font-size: 12px;
       display: flex;
       align-items: center;
       gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }}
     .chart-hud-active {{
       color: var(--text-primary);
+      font-size: 12.5px;
       font-weight: 600;
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       width: 100%;
     }}
 
-    /* CHARTS LAYOUT */
+    /* CHARTS LAYOUT & STRICT FIXED HEIGHT CANVAS */
     .charts-main-grid {{
       display: grid;
       grid-template-columns: 2fr 1.1fr;
@@ -818,11 +918,12 @@ def generate_html(items, stats):
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow: hidden;
     }}
     .chart-box-header {{
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 12px;
       flex-wrap: wrap;
       gap: 8px;
@@ -839,11 +940,15 @@ def generate_html(items, stats):
       color: var(--text-secondary);
       margin-top: 2px;
     }}
+
+    /* STRICT 460px FIXED HEIGHT CANVAS WRAPPER - PREVENTS VERTICAL RESIZE LOOPS */
     .chart-canvas-wrapper {{
       position: relative;
-      flex: 1;
+      height: 460px;
       min-height: 460px;
+      max-height: 460px;
       width: 100%;
+      overflow: hidden;
     }}
 
     /* MOBILE PREVIEW CARD */
@@ -1205,87 +1310,96 @@ def generate_html(items, stats):
     </div>
   </div>
 
-  <!-- CONTROLS PANEL -->
-  <div class="controls-panel">
-    <!-- ROW 1: Y-METRIC & SHAPE ENCODER -->
-    <div class="control-row">
-      <!-- Y-Axis Metric -->
-      <div class="control-group">
-        <span class="control-label">📈 Y축 점수:</span>
-        <div class="btn-toggle-group">
-          <button class="btn-toggle active" onclick="setYMetric('total', this)">⭐ 종합점수 (100점)</button>
-          <button class="btn-toggle" onclick="setYMetric('taste', this)">☕ 맛 점수 (50점)</button>
-          <button class="btn-toggle" onclick="setYMetric('rarity', this)">💎 희소성 (20점)</button>
-          <button class="btn-toggle" onclick="setYMetric('price', this)">💰 가격점수 (30점)</button>
+  <!-- STANDARDIZED CONTROLS CARD WRAPPER (2x2 GRID + CLEAN BOTTOM BAR) -->
+  <div class="controls-card-wrapper">
+    <!-- TOP GRID: 2x2 STANDARDIZED CARDS -->
+    <div class="controls-grid-2x2">
+      <!-- 1. Y-Axis Metric -->
+      <div class="ctrl-subcard">
+        <div class="ctrl-subcard-header">
+          <span class="ctrl-icon">📈</span>
+          <span class="ctrl-title">Y축 점수 지표 선택</span>
+        </div>
+        <div class="btn-group-grid grid-4">
+          <button class="ctrl-btn active" onclick="setYMetric('total', this)">⭐ 종합점수</button>
+          <button class="ctrl-btn" onclick="setYMetric('taste', this)">☕ 맛 (50)</button>
+          <button class="ctrl-btn" onclick="setYMetric('rarity', this)">💎 희소 (20)</button>
+          <button class="ctrl-btn" onclick="setYMetric('price', this)">💰 가격 (30)</button>
         </div>
       </div>
 
-      <!-- Point Shape Encoder -->
-      <div class="control-group">
-        <span class="control-label">🔷 점 모양(심볼) 구분:</span>
-        <div class="btn-toggle-group">
-          <button class="btn-toggle active" onclick="setShapeMode('default', this)">기본 (● 원형)</button>
-          <button class="btn-toggle" onclick="setShapeMode('country', this)">원산지별 (에티오피아/파나마 등)</button>
-          <button class="btn-toggle" onclick="setShapeMode('process', this)">프로세스별 (워시드/내추럴 등)</button>
-          <button class="btn-toggle" onclick="setShapeMode('altitude', this)">고도별 (초고도/고고도)</button>
+      <!-- 2. Point Shape Mode -->
+      <div class="ctrl-subcard">
+        <div class="ctrl-subcard-header">
+          <span class="ctrl-icon">🔷</span>
+          <span class="ctrl-title">점 모양(심볼) 구분</span>
+        </div>
+        <div class="btn-group-grid grid-4">
+          <button class="ctrl-btn active" onclick="setShapeMode('default', this)">● 기본(원형)</button>
+          <button class="ctrl-btn" onclick="setShapeMode('country', this)">🌍 원산지별</button>
+          <button class="ctrl-btn" onclick="setShapeMode('process', this)">⚙️ 프로세스별</button>
+          <button class="ctrl-btn" onclick="setShapeMode('altitude', this)">⛰️ 고도별</button>
+        </div>
+      </div>
+
+      <!-- 3. Origin Quick Filter -->
+      <div class="ctrl-subcard">
+        <div class="ctrl-subcard-header">
+          <span class="ctrl-icon">🌍</span>
+          <span class="ctrl-title">원산지 빠른 필터 (Origin)</span>
+        </div>
+        <div class="btn-group-grid grid-5" id="originFilterGroup">
+          <button class="ctrl-btn active" onclick="setOriginFilter('all', this)">전체</button>
+          <button class="ctrl-btn" onclick="setOriginFilter('Ethiopia', this)">에티오피아</button>
+          <button class="ctrl-btn" onclick="setOriginFilter('Panama', this)">파나마</button>
+          <button class="ctrl-btn" onclick="setOriginFilter('Colombia', this)">콜롬비아</button>
+          <button class="ctrl-btn" onclick="setOriginFilter('Other', this)">기타</button>
+        </div>
+      </div>
+
+      <!-- 4. Process Quick Filter -->
+      <div class="ctrl-subcard">
+        <div class="ctrl-subcard-header">
+          <span class="ctrl-icon">⚙️</span>
+          <span class="ctrl-title">가공 방식 필터 (Process)</span>
+        </div>
+        <div class="btn-group-grid grid-5" id="processFilterGroup">
+          <button class="ctrl-btn active" onclick="setProcessFilter('all', this)">전체</button>
+          <button class="ctrl-btn" onclick="setProcessFilter('Washed', this)">워시드</button>
+          <button class="ctrl-btn" onclick="setProcessFilter('Natural', this)">내추럴</button>
+          <button class="ctrl-btn" onclick="setProcessFilter('Anaerobic/Fermented', this)">무산소</button>
+          <button class="ctrl-btn" onclick="setProcessFilter('Honey', this)">허니</button>
         </div>
       </div>
     </div>
 
-    <!-- ROW 2: ORIGIN & PROCESS QUICK FILTERS -->
-    <div class="control-row">
-      <!-- Origin Filter -->
-      <div class="control-group">
-        <span class="control-label">🌍 원산지 필터:</span>
-        <div class="btn-toggle-group" id="originFilterGroup">
-          <button class="btn-toggle active" onclick="setOriginFilter('all', this)">전체 원산지</button>
-          <button class="btn-toggle" onclick="setOriginFilter('Ethiopia', this)">에티오피아 (43)</button>
-          <button class="btn-toggle" onclick="setOriginFilter('Panama', this)">파나마 (76)</button>
-          <button class="btn-toggle" onclick="setOriginFilter('Colombia', this)">콜롬비아 (26)</button>
-          <button class="btn-toggle" onclick="setOriginFilter('Other', this)">코스타리카/기타 (26)</button>
-        </div>
-      </div>
-
-      <!-- Process Filter -->
-      <div class="control-group">
-        <span class="control-label">⚙️ 프로세스 필터:</span>
-        <div class="btn-toggle-group" id="processFilterGroup">
-          <button class="btn-toggle active" onclick="setProcessFilter('all', this)">전체 프로세스</button>
-          <button class="btn-toggle" onclick="setProcessFilter('Washed', this)">워시드 (Washed)</button>
-          <button class="btn-toggle" onclick="setProcessFilter('Natural', this)">내추럴 (Natural)</button>
-          <button class="btn-toggle" onclick="setProcessFilter('Anaerobic/Fermented', this)">무산소·발효</button>
-          <button class="btn-toggle" onclick="setProcessFilter('Honey', this)">허니 (Honey)</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROW 3: LINEUP CHIPS & SEARCH INPUT GROUP (ENTER / BUTTON) -->
-    <div class="control-row">
-      <!-- Roastery / Group Filters -->
-      <div class="control-group">
-        <span class="control-label">🏷️ 라인업 필터:</span>
+    <!-- BOTTOM ROW: LINEUPS & UNIFIED SEARCH -->
+    <div class="controls-bottom-bar">
+      <!-- Left: Lineup chips -->
+      <div class="lineup-bar-left">
+        <span class="ctrl-bottom-label">🏷️ 라인업 필터:</span>
         <div class="filter-chips">
           <div class="chip active" onclick="toggleGroupFilter('competition', this)" style="border-color:#8b949e; color:#f0f6fc;">
             <span class="chip-dot" style="background:#1f242d; border:1px solid #8b949e;"></span>
-            아처스 컴피티션 (85)
+            <span>아처스 컴피티션 (85)</span>
           </div>
           <div class="chip active" onclick="toggleGroupFilter('reserve', this)" style="border-color:#2563eb; color:#60a5fa;">
             <span class="chip-dot" style="background:#2563eb;"></span>
-            아처스 리저브 (20)
+            <span>아처스 리저브 (20)</span>
           </div>
           <div class="chip active" onclick="toggleGroupFilter('selection', this)" style="border-color:#d97706; color:#fbbf24;">
             <span class="chip-dot" style="background:#d97706;"></span>
-            아처스 셀렉션 (12)
+            <span>아처스 셀렉션 (12)</span>
           </div>
           <div class="chip active" onclick="toggleGroupFilter('esolab', this)" style="border-color:#dc2626; color:#f87171;">
             <span class="chip-dot" style="background:#dc2626;"></span>
-            에소랩 전체 (54)
+            <span>에소랩 전체 (54)</span>
           </div>
         </div>
       </div>
 
-      <!-- Search Input Group with Button & Enter key -->
-      <div class="control-group" style="margin-left:auto;">
+      <!-- Right: Search box with Enter/Button -->
+      <div class="lineup-bar-right">
         <div class="search-input-group">
           <input type="text" id="searchInput" class="search-input" placeholder="🔍 원두명, 생산국(예:에티오피아), 농장..." onkeydown="if(event.key==='Enter') executeSearch()">
           <button class="search-btn" onclick="executeSearch()">검색</button>
@@ -1294,7 +1408,7 @@ def generate_html(items, stats):
       </div>
     </div>
 
-    <!-- DYNAMIC SHAPE LEGEND BAR -->
+    <!-- SHAPE LEGEND -->
     <div class="shape-legend-bar" id="shapeLegendBar">
       <span style="font-weight:700; color:var(--accent-gold);">심볼 안내:</span>
       <span class="shape-item">● 전체 원두 (원형)</span>
@@ -1311,26 +1425,27 @@ def generate_html(items, stats):
             <span>🎯 100g당 가격 vs 점수 산점도 (Scatter Plot)</span>
           </div>
           <div class="chart-subtitle" id="scatterSubtitle">
-            마우스 휠 스크롤로 확대/축소, 드래그 이동 가능하며 점을 클릭하면 상세 정보가 열립니다.
+            X/Y축 위에서 휠 스크롤 시 축 확대/축소 가능 (가운데는 일반 스크롤 유지). 점 클릭 시 상세 확인.
           </div>
         </div>
-        <!-- FIT TO SIZE BUTTON MOVED OUT OF CANVAS TO HEADER -->
+        <!-- FIT TO SIZE BUTTON PROPERLY ALIGNED IN HEADER -->
         <div style="display:flex; align-items:center; gap:8px;">
           <span style="font-size:12px; color:var(--text-muted);">표시: <strong id="pointCountDisplay" style="color:var(--accent-gold);">171</strong>종</span>
-          <button class="nav-btn" onclick="resetScatterZoom()" style="padding:5px 11px; font-size:12px; font-weight:700; border-color:var(--accent-gold); color:var(--accent-gold);">
+          <button class="nav-btn" onclick="resetScatterZoom()" style="height:32px; padding:0 12px; font-size:12px; font-weight:700; border-color:var(--accent-gold); color:var(--accent-gold);">
             🔍 전체보기 (Fit)
           </button>
         </div>
       </div>
 
-      <!-- HOVER HUD BAR -->
+      <!-- STRICT FIXED 44px HEIGHT HUD BAR - NO VERTICAL EXPANSION -->
       <div class="chart-hud-bar" id="chartHudBar">
         <div class="chart-hud-idle" id="hudIdleText">
-          <span>💡</span> <span>점 위에 마우스를 올리면 원두 상세 요약이 여기에 실시간 표시됩니다. (밀집 구간 클릭 시 선택 목록 팝업)</span>
+          <span>💡</span> <span>점 위에 마우스를 올리면 원두 요약이 여기에 실시간 표시됩니다. (밀집 구간 클릭 시 선택 목록 팝업)</span>
         </div>
         <div class="chart-hud-active" id="hudActiveText" style="display:none;"></div>
       </div>
 
+      <!-- STRICT FIXED 460px HEIGHT CANVAS WRAPPER -->
       <div class="chart-canvas-wrapper">
         <canvas id="scatterChart"></canvas>
       </div>
@@ -1348,7 +1463,8 @@ def generate_html(items, stats):
           </div>
         </div>
       </div>
-      <div class="chart-canvas-wrapper">
+      <!-- STRICT FIXED 460px HEIGHT CANVAS WRAPPER -->
+      <div class="chart-canvas-wrapper" style="margin-top:56px;">
         <canvas id="notesChart"></canvas>
       </div>
     </div>
@@ -1646,10 +1762,10 @@ def generate_html(items, stats):
             titleFont: {{ size: 12.5, weight: 'bold' }},
             bodyFont: {{ size: 11.5, lineHeight: 1.4 }},
             callbacks: {{
+              // Pure text output only - NO DOM MANIPULATION HERE TO PREVENT RESIZE LOOPS
               label: function(ctx) {{
                 const raw = ctx.raw;
                 const c = raw.coffee;
-                updateHudBar(c);
                 return [
                   `☕ [${{c.roastery}}] ${{c.title}}`,
                   `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`,
@@ -1669,7 +1785,7 @@ def generate_html(items, stats):
             zoom: {{
               wheel: {{
                 enabled: true,
-                speed: 0.1
+                speed: 0.08
               }},
               pinch: {{
                 enabled: true
@@ -1684,7 +1800,7 @@ def generate_html(items, stats):
             max: 1150, // Fixed baseline representation for 171 beans
             title: {{
               display: true,
-              text: '100g당 가격 (AED) - 전체 171종 기준 고정 척도 (마우스 휠 스크롤로 확대/축소)',
+              text: '100g당 가격 (AED) - [X축 위에서 휠 스크롤 시 가격 확대/축소]',
               color: isDark ? '#8b949e' : '#57606a',
               font: {{ weight: 'bold', size: 11.5 }}
             }},
@@ -1696,7 +1812,7 @@ def generate_html(items, stats):
             max: yLimits.max,
             title: {{
               display: true,
-              text: getYAxisLabel(),
+              text: getYAxisLabel() + ' - [Y축 위에서 휠 스크롤 시 점수 확대/축소]',
               color: isDark ? '#8b949e' : '#57606a',
               font: {{ weight: 'bold', size: 11.5 }}
             }},
@@ -1705,7 +1821,14 @@ def generate_html(items, stats):
           }}
         }},
         onHover: (evt, activeEls) => {{
-          if (activeEls.length === 0) {{
+          // Safely update HUD outside of the tooltip rendering cycle
+          if (activeEls.length > 0) {{
+            const el = activeEls[0];
+            const pt = scatterChart.data.datasets[el.datasetIndex]?.data[el.index];
+            if (pt && pt.coffee) {{
+              updateHudBar(pt.coffee);
+            }}
+          }} else {{
             resetHudBar();
           }}
         }},
@@ -1714,6 +1837,29 @@ def generate_html(items, stats):
         }}
       }}
     }});
+
+    // AXIS-ONLY WHEEL ZOOM INTERCEPTOR:
+    // Prevents zooming when scrolling on the center plot area so normal page scrolling works smoothly!
+    const canvasEl = document.getElementById('scatterChart');
+    canvasEl.addEventListener('wheel', function(e) {{
+      if (!scatterChart) return;
+      const rect = canvasEl.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const area = scatterChart.chartArea;
+      if (!area) return;
+
+      // Check if mouse is inside the center data plotting area
+      const isInsidePlotArea = (mouseX >= area.left && mouseX <= area.right && mouseY >= area.top && mouseY <= area.bottom);
+
+      if (isInsidePlotArea) {{
+        // Stop zoom plugin from intercepting wheel events in the center of the graph
+        // This lets the browser perform normal page vertical scrolling!
+        e.stopImmediatePropagation();
+        return;
+      }}
+      // If mouse is on X-axis (below area.bottom) or Y-axis (left of area.left), zoom proceeds normally!
+    }}, {{ capture: true, passive: false }});
   }}
 
   // HUD Bar Real-time update
@@ -1724,15 +1870,15 @@ def generate_html(items, stats):
     idle.style.display = 'none';
     active.style.display = 'flex';
     active.innerHTML = `
-      <span style="color:${{c.color}}; font-weight:800;">[${{c.roastery}}]</span>
-      <span style="font-weight:700; color:var(--text-primary);">${{c.title}}</span>
+      <span style="color:${{c.color}}; font-weight:800; white-space:nowrap;">[${{c.roastery}}]</span>
+      <span style="font-weight:700; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:260px;">${{c.title}}</span>
       <span style="color:var(--text-muted);">|</span>
-      <span style="font-family:monospace; color:var(--accent-gold); font-weight:700;">100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)</span>
+      <span style="font-family:monospace; color:var(--accent-gold); font-weight:700; white-space:nowrap;">${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)</span>
       <span style="color:var(--text-muted);">|</span>
-      <span style="font-weight:800; color:var(--accent-gold);">⭐ ${{c.score_total}}점</span>
-      <span style="font-size:11.5px; color:var(--text-secondary);">(맛 ${{c.score_taste}} / 값 ${{c.score_price}} / 희 ${{c.score_rarity}})</span>
+      <span style="font-weight:800; color:var(--accent-gold); white-space:nowrap;">⭐ ${{c.score_total}}점</span>
+      <span style="font-size:11.5px; color:var(--text-secondary); white-space:nowrap;">(맛${{c.score_taste}}/값${{c.score_price}}/희${{c.score_rarity}})</span>
       <span style="color:var(--text-muted);">|</span>
-      <span style="font-size:12px; color:var(--text-secondary);">${{c.country}} (${{c.process}})</span>
+      <span style="font-size:12px; color:var(--text-secondary); white-space:nowrap;">${{c.country}} (${{c.process}})</span>
     `;
   }}
 
@@ -2115,7 +2261,7 @@ def generate_html(items, stats):
     if (scatterChart) {{
       const yLimits = getYScaleLimits();
       scatterChart.data.datasets = buildScatterDatasets();
-      scatterChart.options.scales.y.title.text = getYAxisLabel();
+      scatterChart.options.scales.y.title.text = getYAxisLabel() + ' - [Y축 위에서 휠 스크롤 시 점수 확대/축소]';
       // Keep baseline bounds fixed across filter selections unless zoomed
       scatterChart.options.scales.x.min = 0;
       scatterChart.options.scales.x.max = 1150;
@@ -2131,28 +2277,28 @@ def generate_html(items, stats):
   // Filter & Toggle handlers
   function setYMetric(metric, btn) {{
     currentYMetric = metric;
-    document.querySelectorAll('.control-row:first-child .control-group:first-child .btn-toggle').forEach(b => b.classList.remove('active'));
+    btn.parentElement.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
 
   function setShapeMode(mode, btn) {{
     currentShapeMode = mode;
-    document.querySelectorAll('.control-row:first-child .control-group:nth-child(2) .btn-toggle').forEach(b => b.classList.remove('active'));
+    btn.parentElement.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
 
   function setOriginFilter(origin, btn) {{
     currentOriginFilter = origin;
-    document.querySelectorAll('#originFilterGroup .btn-toggle').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#originFilterGroup .ctrl-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
 
   function setProcessFilter(proc, btn) {{
     currentProcessFilter = proc;
-    document.querySelectorAll('#processFilterGroup .btn-toggle').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     updateAll();
   }}
