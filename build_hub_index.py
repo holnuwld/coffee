@@ -32,10 +32,13 @@ def render_top20_rows():
         # Summary analysis from detailed review
         rev = c.get('detailed_review', {})
         t_analysis = rev.get('taste_analysis', '')
-        short_analysis = t_analysis[:110] + '...' if len(t_analysis) > 110 else t_analysis
+        short_analysis = t_analysis[:105] + '...' if len(t_analysis) > 105 else t_analysis
 
         r = f"""
-        <tr class="{row_cls}" data-status="{'active' if is_act else 'overlap'}" data-rank="{c['rank']}" data-total="{c['score_total']}" data-taste="{c['score_taste']}" data-price="{c['score_price']}" data-rarity="{c['score_rarity']}">
+        <tr class="{row_cls}" data-status="{'active' if is_act else 'overlap'}" data-rank="{c['rank']}" data-total="{c['score_total']}" data-taste="{c['score_taste']}" data-price="{c['score_price']}" data-rarity="{c['score_rarity']}" data-handle="{c['handle']}">
+          <td class="text-center cart-check-cell">
+            <input type="checkbox" class="cart-row-checkbox" data-idx="{idx}" data-price-aed="{c['price_aed']}" data-price-krw="{c['price_krw']}" data-is-active="{'1' if is_act else '0'}" onchange="updateCartToolbarState()">
+          </td>
           <td class="text-center font-mono">
             {rank_badge}
           </td>
@@ -117,7 +120,7 @@ content = f"""<!DOCTYPE html>
   }}
 
   .container {{
-    max-width: 1240px;
+    max-width: 1260px;
     margin: 0 auto;
   }}
 
@@ -155,7 +158,7 @@ content = f"""<!DOCTYPE html>
   .hub-desc {{
     color: var(--text-secondary);
     font-size: 16px;
-    max-width: 820px;
+    max-width: 840px;
     margin: 0 auto 24px auto;
     line-height: 1.7;
   }}
@@ -390,12 +393,12 @@ content = f"""<!DOCTYPE html>
   .top20-desc {{
     font-size: 15px;
     color: var(--text-secondary);
-    max-width: 900px;
+    max-width: 920px;
     margin: 0 auto 24px auto;
     line-height: 1.65;
   }}
 
-  /* Score Criteria Legend Box (UPDATED: 50 / 30 / 20) */
+  /* Score Criteria Legend Box (50 / 30 / 20) */
   .criteria-box {{
     background: var(--card-bg);
     border: 1px solid var(--border);
@@ -428,18 +431,115 @@ content = f"""<!DOCTYPE html>
     line-height: 1.5;
   }}
 
-  /* Interaction Guide Notice */
+  /* Interactive Navigation Tip */
   .interaction-guide {{
     background: rgba(88, 166, 255, 0.08);
     border: 1px solid rgba(88, 166, 255, 0.25);
     border-radius: 10px;
-    padding: 10px 18px;
+    padding: 12px 18px;
     font-size: 13px;
     color: var(--blue);
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+  }}
+
+  /* Cart Action Toolbar */
+  .cart-action-toolbar {{
+    background: #0f1622;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+  }}
+  .cart-action-toolbar.mt-3 {{
+    margin-top: 16px;
+    margin-bottom: 0;
+  }}
+  .cart-left-controls {{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }}
+  .cart-right-controls {{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }}
+  .cart-ctrl-btn {{
+    background: #162030;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }}
+  .cart-ctrl-btn:hover {{
+    color: var(--text-primary);
+    border-color: var(--border-light);
+    background: #1c283c;
+  }}
+  .cart-ctrl-btn.active-gold {{
+    background: var(--accent-glow);
+    color: var(--accent-gold);
+    border-color: var(--accent);
+  }}
+  .cart-ctrl-btn.active-gold:hover {{
+    background: rgba(210, 153, 34, 0.25);
+  }}
+
+  .cart-calc-box {{
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }}
+  .calc-count {{ color: #fff; font-weight: 700; }}
+  .calc-aed {{ color: var(--accent-gold); font-size: 15px; font-weight: 800; }}
+  .calc-krw {{ color: var(--text-muted); font-size: 12px; }}
+  .calc-sep {{ color: var(--border); }}
+
+  .cart-action-btn {{
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+  }}
+  .cart-action-btn.btn-add {{
+    background: #1e293b;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+  }}
+  .cart-action-btn.btn-add:hover {{
+    background: rgba(88, 166, 255, 0.18);
+    color: #fff;
+  }}
+  .cart-action-btn.btn-view {{
+    background: linear-gradient(135deg, #d29922, #b8860b);
+    border: 1px solid var(--accent);
+    color: #000;
+  }}
+  .cart-action-btn.btn-view:hover {{
+    background: linear-gradient(135deg, #e3b341, #c89617);
+    color: #000;
+    transform: translateY(-1px);
   }}
 
   /* Filter Controls */
@@ -449,7 +549,7 @@ content = f"""<!DOCTYPE html>
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }}
   .filter-btns {{
     display: flex;
@@ -511,6 +611,17 @@ content = f"""<!DOCTYPE html>
     vertical-align: middle;
   }}
 
+  /* Cart Checkbox Style */
+  .cart-check-cell {{
+    width: 45px;
+  }}
+  .cart-row-checkbox, #selectAllCheckbox {{
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: var(--accent-gold);
+  }}
+
   /* Active vs Overlap Styling */
   .active-pick-row {{
     background: rgba(19, 26, 38, 0.7);
@@ -557,7 +668,7 @@ content = f"""<!DOCTYPE html>
 
   /* Roastery Link Button in Table */
   .roastery-cell {{
-    min-width: 150px;
+    min-width: 145px;
   }}
   .roastery-link-btn {{
     display: inline-flex;
@@ -784,6 +895,29 @@ content = f"""<!DOCTYPE html>
     background: rgba(248, 81, 73, 0.1);
     color: #ff7b72;
     border: 1px solid rgba(248, 81, 73, 0.25);
+  }}
+
+  /* Toast Notification */
+  .cart-toast {{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #111a28;
+    border: 1px solid var(--accent);
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    font-size: 13.5px;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: toastFadeIn 0.2s ease;
+  }}
+  @keyframes toastFadeIn {{
+    from {{ opacity: 0; transform: translateY(12px); }}
+    to {{ opacity: 1; transform: translateY(0); }}
   }}
 
   /* ========================================================
@@ -1112,11 +1246,12 @@ content = f"""<!DOCTYPE html>
       <h2 class="top20-title">🏆 2대 로스터리 통합 100g 원두 랭킹 TOP 20<br>& 최종 엄선 10선 (Active Picks)</h2>
       <p class="top20-desc">
         두 로스터리의 100g 패키지 원두 131종 전체를 3대 기준(<strong>맛 50점 + 가격 합리성 30점 + 한국 희소성 20점 = 총 100점 만점</strong>)으로 정밀 평가했습니다.<br>
-        프로파일 중복 여부는 점수 산정에서 배제하고 순수 점수로 1~20위를 매긴 후, <strong>상위 순위와 농장 및 컵노트가 중복되는 하위 10종을 음영(톤다운) 처리</strong>하여 최종 10개 선택(Pick #1~#10)을 명확하게 도출했습니다.
+        프로파일 중복 여부는 점수 산정에서 배제하고 순수 점수로 1~20위를 매긴 후, <strong>7대 기준(지역, 농장, 프로듀서, 컵노트, 프로세스, 배전도, 고도) 유사도 프로파일</strong>을 적용하여 상위 순위와 겹치는 하위 10종을 음영(톤다운) 처리했습니다.<br>
+        <em>※ 동일 농장이더라도 컵노트가 다르면 중복 제외하지 않고 실질 추천 랏으로 당당히 선발했습니다.</em>
       </p>
     </div>
 
-    <!-- Criteria Breakdown Box (UPDATED TO 50 / 30 / 20) -->
+    <!-- Criteria Breakdown Box (50 / 30 / 20) -->
     <div class="criteria-box">
       <div class="criterion-item">
         <div class="crit-name">☕ 1. 맛이 좋은가 (50점 만점)</div>
@@ -1134,9 +1269,30 @@ content = f"""<!DOCTYPE html>
 
     <!-- Interactive Navigation Tip -->
     <div class="interaction-guide">
-      <span>💡 <strong>인터랙션 안내:</strong></span>
-      <span>• <strong>커피 이름</strong>을 클릭하시면 테루아, 센서리 노트, 국내 시세 비교, 브루잉 팁이 담긴 <strong>상세 분석 모달</strong>이 열립니다.</span>
-      <span>• <strong>로스터리 이름</strong>을 클릭하시면 해당 커피의 <strong>공식 웹스토어 판매 페이지</strong>로 새 창 이동합니다.</span>
+      <div>💡 <strong>인터랙션 안내:</strong></div>
+      <div>• <strong>표 좌측 체크박스</strong>로 원하는 원두를 선택한 뒤 <code>[🛒 장바구니 담기]</code> 및 <code>[📋 장바구니 보기]</code>를 누르면 <strong>공식 구매 발주서(cart.html)</strong>로 바로 연결됩니다.</div>
+      <div>• <strong>커피 이름</strong>을 클릭하면 <strong>7대 유사도 분석</strong>과 브루잉 팁이 담긴 <strong>상세 분석 모달</strong>이 열립니다.</div>
+      <div>• <strong>로스터리 이름</strong>을 클릭하면 해당 커피의 <strong>공식 웹스토어 판매 페이지</strong>로 새 창 이동합니다.</div>
+    </div>
+
+    <!-- Cart Action Toolbar (Top) -->
+    <div class="cart-action-toolbar" id="cartToolbarTop">
+      <div class="cart-left-controls">
+        <button type="button" class="cart-ctrl-btn" onclick="toggleSelectAllCart(true)">☑ 전체 선택</button>
+        <button type="button" class="cart-ctrl-btn active-gold" onclick="selectRecommended10()">🎯 추천 10선만 선택</button>
+        <button type="button" class="cart-ctrl-btn" onclick="clearCartSelection()">☐ 선택 해제</button>
+      </div>
+      <div class="cart-right-controls">
+        <div class="cart-calc-box">
+          <span class="calc-label">선택 항목:</span>
+          <strong id="selectedItemsCountTop" class="calc-count">0</strong>개
+          <span class="calc-sep">|</span>
+          <strong id="selectedTotalPriceAedTop" class="calc-aed">0.0</strong> AED 
+          <span class="calc-krw">(약 <strong id="selectedTotalPriceKrwTop">0</strong>원)</span>
+        </div>
+        <button type="button" class="cart-action-btn btn-add" onclick="saveSelectedToCart()">🛒 장바구니 담기</button>
+        <button type="button" class="cart-action-btn btn-view" onclick="openCartPage()">📋 장바구니 보기 (<span class="cart-badge-count">0</span>개) ↗</button>
+      </div>
     </div>
 
     <!-- Filter Buttons & Legend -->
@@ -1147,7 +1303,7 @@ content = f"""<!DOCTYPE html>
         <button class="f-btn" onclick="filterRanked('overlap', this)">🚫 중복 제외 10종 보기</button>
       </div>
       <div class="legend-note">
-        💡 <strong>안내:</strong> 점수는 순수 기준으로만 매겨졌으며, 음영 처리된 행은 상위 추천 원두와 농장/향미가 겹쳐 제외된 품목입니다.
+        💡 <strong>안내:</strong> 점수는 순수 기준으로만 매겨졌으며, 유사도 프로파일(7대 기준)을 적용하여 몇위 어느 커피와 몇% 유사한지 표기했습니다.
       </div>
     </div>
 
@@ -1156,7 +1312,10 @@ content = f"""<!DOCTYPE html>
       <table class="top20-table" id="top20Table">
         <thead>
           <tr>
-            <th class="text-center">선정 / 순위</th>
+            <th style="width:45px; text-align:center;">
+              <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAllCart(this.checked)" title="전체 선택/해제">
+            </th>
+            <th class="text-center" style="width:110px;">선정 / 순위</th>
             <th>로스터리 (공식 링크 ↗)</th>
             <th>커피 이름 (클릭 시 분석 모달 🔍) & 스펙</th>
             <th class="text-right">100g 가격</th>
@@ -1178,13 +1337,33 @@ content = f"""<!DOCTYPE html>
                 </span>
               </div>
             </th>
-            <th>검토 내용 요약 & 선발 / 중복 사유</th>
+            <th>검토 내용 요약 & 선발 / 중복 사유 (유사도 %)</th>
           </tr>
         </thead>
         <tbody>
           {render_top20_rows()}
         </tbody>
       </table>
+    </div>
+
+    <!-- Cart Action Toolbar (Bottom) -->
+    <div class="cart-action-toolbar mt-3" id="cartToolbarBottom">
+      <div class="cart-left-controls">
+        <button type="button" class="cart-ctrl-btn" onclick="toggleSelectAllCart(true)">☑ 전체 선택</button>
+        <button type="button" class="cart-ctrl-btn active-gold" onclick="selectRecommended10()">🎯 추천 10선만 선택</button>
+        <button type="button" class="cart-ctrl-btn" onclick="clearCartSelection()">☐ 선택 해제</button>
+      </div>
+      <div class="cart-right-controls">
+        <div class="cart-calc-box">
+          <span class="calc-label">선택 항목:</span>
+          <strong id="selectedItemsCountBottom" class="calc-count">0</strong>개
+          <span class="calc-sep">|</span>
+          <strong id="selectedTotalPriceAedBottom" class="calc-aed">0.0</strong> AED 
+          <span class="calc-krw">(약 <strong id="selectedTotalPriceKrwBottom">0</strong>원)</span>
+        </div>
+        <button type="button" class="cart-action-btn btn-add" onclick="saveSelectedToCart()">🛒 장바구니 담기</button>
+        <button type="button" class="cart-action-btn btn-view" onclick="openCartPage()">📋 장바구니 보기 (<span class="cart-badge-count">0</span>개) ↗</button>
+      </div>
     </div>
   </section>
 
@@ -1224,6 +1403,12 @@ content = f"""<!DOCTYPE html>
       <!-- Terroir & Specs Grid -->
       <div class="m-specs-grid" id="mSpecsGrid"></div>
 
+      <!-- 7-Item Similarity Analysis Section -->
+      <div class="m-section" id="mSimilaritySection">
+        <div class="m-section-title">📊 7대 기준 유사도 프로파일 분석 (Similarity Breakdown)</div>
+        <div class="m-section-body" id="mSimilarityBody"></div>
+      </div>
+
       <!-- Sensory Notes Section -->
       <div class="m-section">
         <div class="m-section-title">🍓 센서리 테이스팅 노트 (Sensory Profile)</div>
@@ -1258,6 +1443,9 @@ content = f"""<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- Toast Notification -->
+  <div id="cartToast" class="cart-toast"></div>
+
   <!-- Footer -->
   <footer>
     <p>
@@ -1276,15 +1464,19 @@ content = f"""<!DOCTYPE html>
   let currentSortDir = 'desc';
   let currentFilter = 'all';
 
+  function initPage() {{
+    updateCartCountBadge();
+    selectRecommended10();
+  }}
+
   function sortTableByScore(key) {{
     if (currentSortKey === key) {{
       currentSortDir = (currentSortDir === 'desc') ? 'asc' : 'desc';
     }} else {{
       currentSortKey = key;
-      currentSortDir = 'desc'; // default to highest score first
+      currentSortDir = 'desc';
     }}
 
-    // Update Header Active UI and Indicators
     const keys = ['total', 'taste', 'price', 'rarity'];
     keys.forEach(k => {{
       const el = document.getElementById('sortTrigger_' + k);
@@ -1327,6 +1519,7 @@ content = f"""<!DOCTYPE html>
 
     rows.forEach(r => tbody.appendChild(r));
     applyFilter(currentFilter);
+    updateCartToolbarState();
   }}
 
   function filterRanked(type, btn) {{
@@ -1350,6 +1543,129 @@ content = f"""<!DOCTYPE html>
     }});
   }}
 
+  /* ========================================================
+     CART MANAGEMENT FUNCTIONS
+     ======================================================== */
+  function toggleSelectAllCart(checked) {{
+    const boxes = document.querySelectorAll('.cart-row-checkbox');
+    boxes.forEach(b => {{
+      // Only select visible rows if filtered
+      const tr = b.closest('tr');
+      if (tr && tr.style.display !== 'none') {{
+        b.checked = checked;
+      }}
+    }});
+    const masterBox = document.getElementById('selectAllCheckbox');
+    if (masterBox) masterBox.checked = checked;
+    updateCartToolbarState();
+  }}
+
+  function selectRecommended10() {{
+    const boxes = document.querySelectorAll('.cart-row-checkbox');
+    boxes.forEach(b => {{
+      const isAct = b.getAttribute('data-is-active') === '1';
+      b.checked = isAct;
+    }});
+    updateCartToolbarState();
+  }}
+
+  function clearCartSelection() {{
+    const boxes = document.querySelectorAll('.cart-row-checkbox');
+    boxes.forEach(b => b.checked = false);
+    const masterBox = document.getElementById('selectAllCheckbox');
+    if (masterBox) masterBox.checked = false;
+    updateCartToolbarState();
+  }}
+
+  function updateCartToolbarState() {{
+    const boxes = document.querySelectorAll('.cart-row-checkbox:checked');
+    let totalCount = boxes.length;
+    let totalAed = 0;
+    let totalKrw = 0;
+
+    boxes.forEach(b => {{
+      totalAed += parseFloat(b.getAttribute('data-price-aed') || 0);
+      totalKrw += parseInt(b.getAttribute('data-price-krw') || 0);
+    }});
+
+    // Update Top toolbar
+    document.getElementById('selectedItemsCountTop').textContent = totalCount;
+    document.getElementById('selectedTotalPriceAedTop').textContent = totalAed.toFixed(1);
+    document.getElementById('selectedTotalPriceKrwTop').textContent = totalKrw.toLocaleString();
+
+    // Update Bottom toolbar
+    document.getElementById('selectedItemsCountBottom').textContent = totalCount;
+    document.getElementById('selectedTotalPriceAedBottom').textContent = totalAed.toFixed(1);
+    document.getElementById('selectedTotalPriceKrwBottom').textContent = totalKrw.toLocaleString();
+  }}
+
+  function getSelectedCoffees() {{
+    const boxes = document.querySelectorAll('.cart-row-checkbox:checked');
+    const selected = [];
+    boxes.forEach(b => {{
+      const idx = parseInt(b.getAttribute('data-idx'));
+      if (COFFEES[idx]) {{
+        selected.push(COFFEES[idx]);
+      }}
+    }});
+    return selected;
+  }}
+
+  function saveSelectedToCart() {{
+    const items = getSelectedCoffees();
+    if (!items.length) {{
+      showToast('⚠️ 선택된 커피가 없습니다. 체크박스를 선택해주세요.');
+      return;
+    }}
+    try {{
+      localStorage.setItem('coffee_cart', JSON.stringify(items));
+      updateCartCountBadge();
+      showToast(`🛒 ${{items.length}}개의 원두가 장바구니에 담겼습니다! [장바구니 보기]를 눌러 구매 발주서를 확인하세요.`);
+    }} catch (e) {{
+      console.error(e);
+      showToast('장바구니 저장 중 오류가 발생했습니다.');
+    }}
+  }}
+
+  function updateCartCountBadge() {{
+    let count = 0;
+    try {{
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {{
+        const arr = JSON.parse(stored);
+        count = arr.length;
+      }}
+    }} catch (e) {{
+      console.error(e);
+    }}
+    document.querySelectorAll('.cart-badge-count').forEach(el => {{
+      el.textContent = count;
+    }});
+  }}
+
+  function openCartPage() {{
+    const items = getSelectedCoffees();
+    if (items.length > 0) {{
+      // Automatically save selected items before opening
+      try {{
+        localStorage.setItem('coffee_cart', JSON.stringify(items));
+      }} catch (e) {{}}
+    }}
+    window.location.href = 'cart.html';
+  }}
+
+  function showToast(msg) {{
+    const toast = document.getElementById('cartToast');
+    toast.textContent = msg;
+    toast.style.display = 'flex';
+    setTimeout(() => {{
+      toast.style.display = 'none';
+    }}, 3500);
+  }}
+
+  /* ========================================================
+     MODAL FUNCTIONS
+     ======================================================== */
   function openCoffeeModal(idx) {{
     const c = COFFEES[idx];
     if (!c) return;
@@ -1387,6 +1703,40 @@ content = f"""<!DOCTYPE html>
       <div class="spec-row"><span class="spec-k">패키지 용량 & 가격</span><span class="spec-v">${{c.price_aed}} AED (약 ${{Number(c.price_krw).toLocaleString()}}원) / 100g</span></div>
     `;
     document.getElementById('mSpecsGrid').innerHTML = specsHtml;
+
+    // 7-Item Similarity Profile
+    const simBody = document.getElementById('mSimilarityBody');
+    if (c.similar_target_rank) {{
+      const dt = c.similar_details || {{}};
+      const simColor = isAct ? 'var(--success)' : 'var(--danger)';
+      simBody.innerHTML = `
+        <div style="margin-bottom:10px; font-weight:700; color:#fff;">
+          🔍 가장 유사한 상위 원두: <span style="color:var(--accent-gold);">#${{c.similar_target_rank}}위 ${{c.similar_target_title}}</span> 
+          (종합 유사도: <strong style="color:${{simColor}};">${{c.max_prior_sim}}%</strong>)
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:8px; font-size:12.5px; background:#080c13; padding:12px; border-radius:8px; border:1px solid var(--border);">
+          <div>🌍 지역 (14.3%): <strong>${{dt.region || 0}}%</strong></div>
+          <div>🏡 농장 (14.3%): <strong>${{dt.farm || 0}}%</strong></div>
+          <div>👨‍🌾 프로듀서 (14.3%): <strong>${{dt.producer || 0}}%</strong></div>
+          <div>🍓 컵노트 (14.3%): <strong>${{dt.notes || 0}}%</strong> <span style="font-size:11px; color:var(--text-muted);">(자카드 ${{dt.notes_jaccard || 0}}%)</span></div>
+          <div>⚙️ 프로세스 (14.3%): <strong>${{dt.process || 0}}%</strong></div>
+          <div>🔥 배전도 (14.3%): <strong>14.3%</strong></div>
+          <div>⛰️ 고도 (14.3%): <strong>${{dt.altitude || 0}}%</strong></div>
+        </div>
+        <div style="margin-top:8px; font-size:12px; color:var(--text-secondary);">
+          ${{isAct 
+            ? '💡 <strong>선발 근거:</strong> 동일 농장이더라도 컵노트가 상이하거나 독자적인 프로세스/테루아를 지녀 최종 10선으로 당당히 선발되었습니다.' 
+            : '💡 <strong>음영 근거:</strong> 상위 랏과 7대 항목 전반에서 높은 유사도를 보여, 맛의 다양성 확보를 위해 음영 처리되었습니다.'}}
+        </div>
+      `;
+    }} else {{
+      simBody.innerHTML = `
+        <div style="font-weight:700; color:var(--accent-gold);">★ 전체 1위 기준 원두 (비교 대조군 없음)</div>
+        <div style="font-size:12.5px; color:var(--text-secondary); margin-top:4px;">
+          최상위 94점을 획득한 에티오피아 사마 워시드로, 모든 후속 원두의 향미 및 테루아 평가 기준점이 됩니다.
+        </div>
+      `;
+    }}
 
     // Tasting Notes
     document.getElementById('mNotesBody').innerHTML = `
@@ -1440,6 +1790,8 @@ content = f"""<!DOCTYPE html>
       closeCoffeeModal();
     }}
   }});
+
+  window.addEventListener('DOMContentLoaded', initPage);
 </script>
 
 </body>
@@ -1449,4 +1801,4 @@ content = f"""<!DOCTYPE html>
 with open(INDEX_HTML, 'w', encoding='utf-8') as f:
     f.write(content)
 
-print(f"Generated Updated index.html: {INDEX_HTML} ({len(content)} bytes)")
+print(f"Generated Updated index.html with Cart System & Similarity: {INDEX_HTML} ({len(content)} bytes)")
