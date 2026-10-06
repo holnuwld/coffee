@@ -1198,128 +1198,209 @@ def generate_html(items, stats):
       cursor: pointer;
     }}
 
-    /* TABLE PRICE FILTER TOOLBAR */
-    .table-price-filter-bar {{
+    /* MULTI-METRIC RANGE FILTER PANEL */
+    .table-filter-panel {{
       margin-top: 14px;
-      margin-bottom: 6px;
-      padding: 12px 14px;
+      margin-bottom: 10px;
+      padding: 16px 18px;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 10px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }}
+    .tfp-top-header {{
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-    }}
-    .tpf-left {{
-      display: flex;
-      align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
     }}
-    .tpf-label {{
-      font-size: 12.5px;
+    .tfp-title {{
+      font-size: 13.5px;
       font-weight: 700;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }}
-    .tpf-chips {{
+      color: var(--text-primary);
       display: flex;
+      align-items: center;
       gap: 6px;
       flex-wrap: wrap;
     }}
-    .tpf-chip {{
-      height: 32px;
-      padding: 0 11px;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
+    .tfp-top-actions {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }}
+    .tfp-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+    }}
+    .tfp-card {{
       background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }}
+    .tfp-card-header {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
       color: var(--text-secondary);
-      font-size: 11.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
+    }}
+    .tfp-range-row {{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .tfp-input-box {{
+      flex: 1;
       display: inline-flex;
       align-items: center;
+      height: 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0 6px;
+      gap: 4px;
+      transition: border-color 0.2s;
     }}
-    .tpf-chip:hover {{
+    .tfp-input-box:focus-within {{
+      border-color: var(--accent-gold);
+    }}
+    .tfp-num-input {{
+      width: 100%;
+      height: 24px;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 700;
+      outline: none;
+      padding: 0;
+    }}
+    .tfp-num-input::placeholder {{
+      color: var(--text-muted);
+      font-weight: normal;
+      font-size: 11px;
+    }}
+    .tfp-unit-tag {{
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }}
+    .tfp-range-sep {{
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 700;
+    }}
+    .tfp-preset-row {{
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }}
+    .tfp-preset-btn {{
+      height: 24px;
+      padding: 0 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }}
+    .tfp-preset-btn:hover {{
       border-color: var(--accent-gold);
       color: var(--text-primary);
     }}
-    .tpf-chip.active {{
+    .tfp-preset-btn.active {{
       background: var(--accent-gold);
       color: #000;
       border-color: var(--accent-gold);
       font-weight: 800;
     }}
-    .tpf-right {{
+    .tfp-bottom-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-color);
+    }}
+    .tfp-active-tags {{
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 6px;
       flex-wrap: wrap;
     }}
-    .tpf-input-group {{
+    .tfp-tag {{
       display: inline-flex;
       align-items: center;
-      height: 32px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 0 6px;
-      gap: 6px;
-    }}
-    .tpf-input {{
-      width: 90px;
-      height: 26px;
-      background: transparent;
-      border: none;
-      color: var(--text-primary);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 0 4px;
-      outline: none;
-    }}
-    .tpf-input::placeholder {{
-      color: var(--text-muted);
-      font-weight: normal;
-      font-size: 11px;
-    }}
-    .tpf-unit {{
+      gap: 5px;
       font-size: 11.5px;
-      color: var(--text-muted);
-      font-weight: 600;
-      white-space: nowrap;
+      font-weight: 700;
+      color: var(--accent-gold);
+      background: var(--accent-gold-bg);
+      border: 1px solid var(--accent-gold);
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
     }}
-    .tpf-apply-btn {{
-      height: 24px;
-      padding: 0 10px;
+    .tfp-tag:hover {{
+      background: rgba(227, 179, 65, 0.25);
+    }}
+    .tfp-tag-del {{
+      font-weight: 800;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }}
+    .tfp-tag-del:hover {{
+      color: var(--accent-red);
+    }}
+    .tfp-btn-apply {{
+      height: 32px;
+      padding: 0 14px;
       background: var(--accent-gold);
       color: #000;
       border: none;
-      border-radius: 4px;
-      font-size: 11.5px;
-      font-weight: 700;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
       cursor: pointer;
       transition: opacity 0.2s;
     }}
-    .tpf-apply-btn:hover {{
+    .tfp-btn-apply:hover {{
       opacity: 0.9;
     }}
-    .tpf-reset-btn {{
-      height: 24px;
-      padding: 0 6px;
-      background: transparent;
-      color: var(--text-muted);
-      border: none;
+    .tfp-btn-reset {{
+      height: 30px;
+      padding: 0 10px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 12px;
+      transition: all 0.2s;
     }}
-    .tpf-reset-btn:hover {{
+    .tfp-btn-reset:hover {{
+      border-color: var(--accent-red);
       color: var(--accent-red);
     }}
     .tpf-sync-label {{
@@ -1359,17 +1440,16 @@ def generate_html(items, stats):
       gap: 4px;
     }}
     @media (max-width: 768px) {{
-      .table-price-filter-bar {{
+      .tfp-top-header {{
         flex-direction: column;
         align-items: flex-start;
       }}
-      .tpf-left, .tpf-right {{
-        width: 100%;
+      .tfp-grid {{
+        grid-template-columns: 1fr;
       }}
-      .tpf-chips {{
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
+      .tfp-bottom-bar {{
+        flex-direction: column;
+        align-items: flex-start;
       }}
     }}
   </style>
@@ -1656,31 +1736,161 @@ def generate_html(items, stats):
       <div style="font-size:12px; color:var(--text-muted);">행을 클릭하면 상세 분석 모달이 열립니다.</div>
     </div>
 
-    <!-- 100g Price Cap Filter Toolbar -->
-    <div class="table-price-filter-bar">
-      <div class="tpf-left">
-        <span class="tpf-label">💰 100g당 가격 필터:</span>
-        <div class="tpf-chips" id="pricePresetChips">
-          <button class="tpf-chip active" onclick="setPriceFilter(null, this)">전체</button>
-          <button class="tpf-chip" onclick="setPriceFilter(40, this)">40 AED 이하 (~1.5만)</button>
-          <button class="tpf-chip" onclick="setPriceFilter(60, this)">60 AED 이하 (~2.3만)</button>
-          <button class="tpf-chip" onclick="setPriceFilter(70, this)">70 AED 이하 (스위트스팟)</button>
-          <button class="tpf-chip" onclick="setPriceFilter(100, this)">100 AED 이하 (~3.8만)</button>
-          <button class="tpf-chip" onclick="setPriceFilter(150, this)">150 AED 이하 (~5.7만)</button>
-          <button class="tpf-chip" onclick="setPriceFilter(200, this)">200 AED 이하 (~7.6만)</button>
+    <!-- MULTI-METRIC RANGE FILTER PANEL -->
+    <div class="table-filter-panel">
+      <!-- Panel Top Header -->
+      <div class="tfp-top-header">
+        <div class="tfp-title">
+          <span>🎛️ 수치 & 점수 다차원 정밀 필터 (가격 · 종합점수 · 맛 · 가성비 · 희소성)</span>
+          <span style="font-size:11.5px; font-weight:normal; color:var(--text-muted); margin-left:6px;">각 지표별 최소(이상) 및 최대(이하) 범위를 자유롭게 지정할 수 있습니다.</span>
+        </div>
+        <div class="tfp-top-actions">
+          <label class="tpf-sync-label" title="체크 시 상단 산점도 및 컵노트 차트에도 해당 범위 필터가 함께 적용됩니다.">
+            <input type="checkbox" id="syncPriceWithChartsCheckbox" checked onchange="toggleSyncPriceWithCharts(this)">
+            <span>📊 상단 차트 동시 연동</span>
+          </label>
+          <button class="tfp-btn-reset" onclick="resetAllRangeFilters()" title="모든 범위 필터 초기화">✕ 필터 전체 초기화</button>
         </div>
       </div>
-      <div class="tpf-right">
-        <div class="tpf-input-group">
-          <input type="number" id="priceMaxInput" class="tpf-input" placeholder="금액 직접입력" min="10" max="2000" step="5" onkeydown="if(event.key==='Enter') applyCustomPriceFilter()">
-          <span class="tpf-unit">AED 이하</span>
-          <button class="tpf-apply-btn" onclick="applyCustomPriceFilter()">적용</button>
-          <button class="tpf-reset-btn" id="priceResetBtn" onclick="resetPriceFilter()" style="display:none;" title="가격 필터 초기화">✕</button>
+
+      <!-- 5 Metric Filter Cards Grid -->
+      <div class="tfp-grid">
+        <!-- 1. Price 100g -->
+        <div class="tfp-card">
+          <div class="tfp-card-header">
+            <span>💰 100g당 가격 (AED)</span>
+            <span style="font-size:10.5px; color:var(--text-muted);">28 ~ 1,110 AED</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box">
+              <input type="number" id="filter_price_min" class="tfp-num-input" placeholder="최소" min="0" max="1500" step="5" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이상</span>
+            </div>
+            <span class="tfp-range-sep">~</span>
+            <div class="tfp-input-box">
+              <input type="number" id="filter_price_max" class="tfp-num-input" placeholder="최대" min="0" max="1500" step="5" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이하</span>
+            </div>
+          </div>
+          <div class="tfp-preset-row">
+            <button class="tfp-preset-btn" onclick="setPreset('price_100g_aed', null, 40, this)">≤40</button>
+            <button class="tfp-preset-btn" onclick="setPreset('price_100g_aed', null, 70, this)">≤70 (스위트)</button>
+            <button class="tfp-preset-btn" onclick="setPreset('price_100g_aed', 30, 70, this)">30~70</button>
+            <button class="tfp-preset-btn" onclick="setPreset('price_100g_aed', null, 100, this)">≤100</button>
+            <button class="tfp-preset-btn" onclick="setPreset('price_100g_aed', null, 150, this)">≤150</button>
+          </div>
         </div>
-        <label class="tpf-sync-label" title="체크 시 상단 산점도 및 컵노트 차트에도 해당 가격 제한이 함께 적용됩니다.">
-          <input type="checkbox" id="syncPriceWithChartsCheckbox" checked onchange="toggleSyncPriceWithCharts(this)">
-          <span>📊 상단 차트 동시 적용</span>
-        </label>
+
+        <!-- 2. Total Score -->
+        <div class="tfp-card">
+          <div class="tfp-card-header">
+            <span>⭐ 종합점수 (100점)</span>
+            <span style="font-size:10.5px; color:var(--text-muted);">평균 79.4점</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box">
+              <input type="number" id="filter_total_min" class="tfp-num-input" placeholder="최소" min="0" max="100" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이상</span>
+            </div>
+            <span class="tfp-range-sep">~</span>
+            <div class="tfp-input-box">
+              <input type="number" id="filter_total_max" class="tfp-num-input" placeholder="최대" min="0" max="100" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이하</span>
+            </div>
+          </div>
+          <div class="tfp-preset-row">
+            <button class="tfp-preset-btn" onclick="setPreset('score_total', 85, null, this)">≥85 (최상위)</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_total', 80, null, this)">≥80</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_total', 75, null, this)">≥75</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_total', 80, 90, this)">80~90</button>
+          </div>
+        </div>
+
+        <!-- 3. Taste Score -->
+        <div class="tfp-card">
+          <div class="tfp-card-header">
+            <span>☕ 맛 점수 (50점)</span>
+            <span style="font-size:10.5px; color:var(--accent-blue);">COE20+테루아15+평가15</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box">
+              <input type="number" id="filter_taste_min" class="tfp-num-input" placeholder="최소" min="0" max="50" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이상</span>
+            </div>
+            <span class="tfp-range-sep">~</span>
+            <div class="tfp-input-box">
+              <input type="number" id="filter_taste_max" class="tfp-num-input" placeholder="최대" min="0" max="50" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이하</span>
+            </div>
+          </div>
+          <div class="tfp-preset-row">
+            <button class="tfp-preset-btn" onclick="setPreset('score_taste', 42, null, this)">≥42 (명품)</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_taste', 38, null, this)">≥38</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_taste', 35, null, this)">≥35</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_taste', 35, 45, this)">35~45</button>
+          </div>
+        </div>
+
+        <!-- 4. Price Score (Value) -->
+        <div class="tfp-card">
+          <div class="tfp-card-header">
+            <span>💰 가격/가성비 (30점)</span>
+            <span style="font-size:10.5px; color:var(--accent-green);">저렴할수록 고득점</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box">
+              <input type="number" id="filter_price_score_min" class="tfp-num-input" placeholder="최소" min="0" max="30" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이상</span>
+            </div>
+            <span class="tfp-range-sep">~</span>
+            <div class="tfp-input-box">
+              <input type="number" id="filter_price_score_max" class="tfp-num-input" placeholder="최대" min="0" max="30" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이하</span>
+            </div>
+          </div>
+          <div class="tfp-preset-row">
+            <button class="tfp-preset-btn" onclick="setPreset('score_price', 28, null, this)">≥28 (극가성비)</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_price', 25, null, this)">≥25</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_price', 20, null, this)">≥20</button>
+          </div>
+        </div>
+
+        <!-- 5. Rarity Score -->
+        <div class="tfp-card">
+          <div class="tfp-card-header">
+            <span>💎 희소성 (20점)</span>
+            <span style="font-size:10.5px; color:#a855f7;">마이크로랏/게이샤</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box">
+              <input type="number" id="filter_rarity_min" class="tfp-num-input" placeholder="최소" min="0" max="20" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이상</span>
+            </div>
+            <span class="tfp-range-sep">~</span>
+            <div class="tfp-input-box">
+              <input type="number" id="filter_rarity_max" class="tfp-num-input" placeholder="최대" min="0" max="20" step="1" onkeydown="if(event.key==='Enter') applyRangeFilters()">
+              <span class="tfp-unit-tag">이하</span>
+            </div>
+          </div>
+          <div class="tfp-preset-row">
+            <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 18, null, this)">≥18 (극희귀)</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 15, null, this)">≥15</button>
+            <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 10, null, this)">≥10</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel Bottom Actions & Active Filter Badges -->
+      <div class="tfp-bottom-bar">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <span style="font-size:12px; font-weight:700; color:var(--text-secondary);">적용 조건:</span>
+          <div class="tfp-active-tags" id="activeFilterTags">
+            <span style="font-size:11.5px; color:var(--text-muted);">(조건 없음 - 전체 원두 표시 중)</span>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="tfp-btn-apply" onclick="applyRangeFilters()">🔍 조건 필터 적용</button>
+        </div>
       </div>
     </div>
 
@@ -1862,10 +2072,29 @@ def generate_html(items, stats):
   let selectedCoffeeId = null;
   let mobilePreviewCoffeeId = null;
   let highlightedNote = null;
-  let maxPriceFilter = null; // null or number (AED cap)
-  let syncPriceWithCharts = true; // whether to sync price cap with charts
+  let syncPriceWithCharts = true; // whether to sync range filters with charts
   let sortKey = 'score_total';
   let sortAsc = false;
+
+  // Multi-Metric Range Filters State (min / max)
+  let rangeFilters = {{
+    price_100g_aed: {{ min: null, max: null }},
+    score_total:    {{ min: null, max: null }},
+    score_taste:    {{ min: null, max: null }},
+    score_price:    {{ min: null, max: null }},
+    score_rarity:   {{ min: null, max: null }}
+  }};
+
+  // Helper: check if a coffee item matches all active range filters
+  function matchesRangeFilters(c) {{
+    for (const [key, range] of Object.entries(rangeFilters)) {{
+      const val = c[key];
+      if (val === undefined || val === null) continue;
+      if (range.min !== null && val < range.min) return false;
+      if (range.max !== null && val > range.max) return false;
+    }}
+    return true;
+  }}
 
   // Chart references
   let scatterChart = null;
@@ -1931,9 +2160,9 @@ def generate_html(items, stats):
         if (!hasNote) return false;
       }}
 
-      // 6. 100g Price Cap Filter (applied to dataset when chart sync is active)
-      if (syncPriceWithCharts && maxPriceFilter !== null) {{
-        if (c.price_100g_aed > maxPriceFilter) return false;
+      // 6. Multi-Metric Range Filters (applied to dataset when chart sync is active)
+      if (syncPriceWithCharts && !matchesRangeFilters(c)) {{
+        return false;
       }}
 
       return true;
@@ -2437,9 +2666,9 @@ def generate_html(items, stats):
   function renderTable() {{
     let filtered = getFilteredCoffees();
 
-    // If charts sync is OFF but price filter is active, filter table only
-    if (!syncPriceWithCharts && maxPriceFilter !== null) {{
-      filtered = filtered.filter(c => c.price_100g_aed <= maxPriceFilter);
+    // If charts sync is OFF but range filters are active, filter table only
+    if (!syncPriceWithCharts) {{
+      filtered = filtered.filter(c => matchesRangeFilters(c));
     }}
 
     const sorted = [...filtered].sort((a, b) => {{
@@ -2451,91 +2680,224 @@ def generate_html(items, stats):
       return sortAsc ? valA - valB : valB - valA;
     }});
 
+    const hasPriceF = rangeFilters.price_100g_aed.min !== null || rangeFilters.price_100g_aed.max !== null;
+    const hasTasteF = rangeFilters.score_taste.min !== null || rangeFilters.score_taste.max !== null;
+    const hasPriceScoreF = rangeFilters.score_price.min !== null || rangeFilters.score_price.max !== null;
+    const hasRarityF = rangeFilters.score_rarity.min !== null || rangeFilters.score_rarity.max !== null;
+    const hasTotalF = rangeFilters.score_total.min !== null || rangeFilters.score_total.max !== null;
+
     const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = sorted.map(c => {{
-      const isPriceHighlighted = maxPriceFilter !== null && c.price_100g_aed <= maxPriceFilter;
-      return `
+    tbody.innerHTML = sorted.map(c => `
       <tr onclick="openDetailModalById('${{c.id}}')">
         <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
         <td><strong style="word-break:keep-all;">${{c.title}}</strong></td>
         <td>${{c.country}}</td>
         <td>${{c.process}}</td>
-        <td style="font-weight:700; font-family:monospace; ${{isPriceHighlighted ? 'color:var(--accent-gold); font-weight:800;' : ''}}">${{c.price_100g_aed}} AED</td>
-        <td style="font-family:monospace; color:var(--accent-blue);">${{c.score_taste}}</td>
-        <td style="font-family:monospace; color:var(--accent-green);">${{c.score_price}}</td>
-        <td style="font-family:monospace; color:#a855f7;">${{c.score_rarity}}</td>
-        <td style="font-weight:800; font-family:monospace; color:var(--accent-gold);">${{c.score_total}}</td>
+        <td style="font-family:monospace; ${{hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}}">${{c.price_100g_aed}} AED</td>
+        <td style="font-family:monospace; color:var(--accent-blue); ${{hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_taste}}</td>
+        <td style="font-family:monospace; color:var(--accent-green); ${{hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_price}}</td>
+        <td style="font-family:monospace; color:#a855f7; ${{hasRarityF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_rarity}}</td>
+        <td style="font-family:monospace; color:var(--accent-gold); ${{hasTotalF ? 'font-size:14px; font-weight:900;' : 'font-weight:800;'}}">${{c.score_total}}</td>
       </tr>
-      `;
-    }}).join('');
+    `).join('');
 
     document.getElementById('tableCountDisplay').textContent = sorted.length;
     document.getElementById('pointCountDisplay').textContent = getFilteredCoffees().length;
 
-    // Active price filter badge in table header
-    const badge = document.getElementById('priceFilterActiveBadge');
-    if (badge) {{
-      if (maxPriceFilter !== null) {{
-        badge.style.display = 'inline-flex';
-        badge.textContent = `🏷️ 100g당 ${{maxPriceFilter}} AED 이하 (${{sorted.length}}종)`;
-      }} else {{
-        badge.style.display = 'none';
+    updateActiveFilterBadges(sorted.length);
+  }}
+
+  // Update Active Filter Tags & Table Header Badge
+  function updateActiveFilterBadges(matchCount) {{
+    const container = document.getElementById('activeFilterTags');
+    const headerBadge = document.getElementById('priceFilterActiveBadge');
+    if (!container) return;
+
+    const tags = [];
+    const rf = rangeFilters;
+
+    if (rf.price_100g_aed.min !== null && rf.price_100g_aed.max !== null) {{
+      tags.push({{ key: 'price_100g_aed', text: `💰 가격: ${{rf.price_100g_aed.min}}~${{rf.price_100g_aed.max}} AED` }});
+    }} else if (rf.price_100g_aed.min !== null) {{
+      tags.push({{ key: 'price_100g_aed', text: `💰 가격: ≥${{rf.price_100g_aed.min}} AED` }});
+    }} else if (rf.price_100g_aed.max !== null) {{
+      tags.push({{ key: 'price_100g_aed', text: `💰 가격: ≤${{rf.price_100g_aed.max}} AED` }});
+    }}
+
+    if (rf.score_total.min !== null && rf.score_total.max !== null) {{
+      tags.push({{ key: 'score_total', text: `⭐ 종합: ${{rf.score_total.min}}~${{rf.score_total.max}}점` }});
+    }} else if (rf.score_total.min !== null) {{
+      tags.push({{ key: 'score_total', text: `⭐ 종합: ≥${{rf.score_total.min}}점` }});
+    }} else if (rf.score_total.max !== null) {{
+      tags.push({{ key: 'score_total', text: `⭐ 종합: ≤${{rf.score_total.max}}점` }});
+    }}
+
+    if (rf.score_taste.min !== null && rf.score_taste.max !== null) {{
+      tags.push({{ key: 'score_taste', text: `☕ 맛: ${{rf.score_taste.min}}~${{rf.score_taste.max}}점` }});
+    }} else if (rf.score_taste.min !== null) {{
+      tags.push({{ key: 'score_taste', text: `☕ 맛: ≥${{rf.score_taste.min}}점` }});
+    }} else if (rf.score_taste.max !== null) {{
+      tags.push({{ key: 'score_taste', text: `☕ 맛: ≤${{rf.score_taste.max}}점` }});
+    }}
+
+    if (rf.score_price.min !== null && rf.score_price.max !== null) {{
+      tags.push({{ key: 'score_price', text: `🏷️ 값: ${{rf.score_price.min}}~${{rf.score_price.max}}점` }});
+    }} else if (rf.score_price.min !== null) {{
+      tags.push({{ key: 'score_price', text: `🏷️ 값: ≥${{rf.score_price.min}}점` }});
+    }} else if (rf.score_price.max !== null) {{
+      tags.push({{ key: 'score_price', text: `🏷️ 값: ≤${{rf.score_price.max}}점` }});
+    }}
+
+    if (rf.score_rarity.min !== null && rf.score_rarity.max !== null) {{
+      tags.push({{ key: 'score_rarity', text: `💎 희: ${{rf.score_rarity.min}}~${{rf.score_rarity.max}}점` }});
+    }} else if (rf.score_rarity.min !== null) {{
+      tags.push({{ key: 'score_rarity', text: `💎 희: ≥${{rf.score_rarity.min}}점` }});
+    }} else if (rf.score_rarity.max !== null) {{
+      tags.push({{ key: 'score_rarity', text: `💎 희: ≤${{rf.score_rarity.max}}점` }});
+    }}
+
+    if (tags.length === 0) {{
+      container.innerHTML = '<span style="font-size:11.5px; color:var(--text-muted);">(조건 없음 - 전체 원두 표시 중)</span>';
+      if (headerBadge) headerBadge.style.display = 'none';
+    }} else {{
+      container.innerHTML = tags.map(t => `
+        <span class="tfp-tag" onclick="clearSingleRangeFilter('${{t.key}}')" title="클릭 시 이 조건 해제">
+          <span>${{t.text}}</span>
+          <span class="tfp-tag-del">✕</span>
+        </span>
+      `).join('');
+      if (headerBadge) {{
+        headerBadge.style.display = 'inline-flex';
+        headerBadge.textContent = `🏷️ 조건 ${{tags.length}}개 적용 (${{matchCount}}종)`;
       }}
     }}
   }}
 
-  // 100g Price Cap Filter Handlers
-  function setPriceFilter(maxVal, btn) {{
-    maxPriceFilter = maxVal;
+  // Read Inputs and Apply Range Filters
+  function applyRangeFilters() {{
+    const pMin = parseFloat(document.getElementById('filter_price_min').value);
+    const pMax = parseFloat(document.getElementById('filter_price_max').value);
+    const tMin = parseFloat(document.getElementById('filter_total_min').value);
+    const tMax = parseFloat(document.getElementById('filter_total_max').value);
+    const sMin = parseFloat(document.getElementById('filter_taste_min').value);
+    const sMax = parseFloat(document.getElementById('filter_taste_max').value);
+    const psMin = parseFloat(document.getElementById('filter_price_score_min').value);
+    const psMax = parseFloat(document.getElementById('filter_price_score_max').value);
+    const rMin = parseFloat(document.getElementById('filter_rarity_min').value);
+    const rMax = parseFloat(document.getElementById('filter_rarity_max').value);
 
-    document.querySelectorAll('#pricePresetChips .tpf-chip').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-
-    const input = document.getElementById('priceMaxInput');
-    const resetBtn = document.getElementById('priceResetBtn');
-    if (maxVal !== null) {{
-      if (input) input.value = maxVal;
-      if (resetBtn) resetBtn.style.display = 'inline-flex';
-    }} else {{
-      if (input) input.value = '';
-      if (resetBtn) resetBtn.style.display = 'none';
-    }}
+    rangeFilters.price_100g_aed = {{ min: isNaN(pMin) ? null : pMin, max: isNaN(pMax) ? null : pMax }};
+    rangeFilters.score_total    = {{ min: isNaN(tMin) ? null : tMin, max: isNaN(tMax) ? null : tMax }};
+    rangeFilters.score_taste    = {{ min: isNaN(sMin) ? null : sMin, max: isNaN(sMax) ? null : sMax }};
+    rangeFilters.score_price    = {{ min: isNaN(psMin) ? null : psMin, max: isNaN(psMax) ? null : psMax }};
+    rangeFilters.score_rarity   = {{ min: isNaN(rMin) ? null : rMin, max: isNaN(rMax) ? null : rMax }};
 
     updateAll();
   }}
 
-  function applyCustomPriceFilter() {{
-    const input = document.getElementById('priceMaxInput');
-    const val = parseFloat(input.value);
-    if (isNaN(val) || val <= 0) {{
-      alert('유효한 100g당 가격(AED)을 숫자로 입력해주세요.');
+  // Preset Button Handler
+  function setPreset(key, min, max, btn) {{
+    const card = btn.closest('.tfp-card');
+    const isAlreadyActive = btn.classList.contains('active');
+
+    if (isAlreadyActive) {{
+      // Toggle off
+      btn.classList.remove('active');
+      clearSingleRangeFilter(key);
       return;
     }}
 
-    maxPriceFilter = val;
+    card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-    document.querySelectorAll('#pricePresetChips .tpf-chip').forEach(b => {{
-      b.classList.remove('active');
-      const onclickAttr = b.getAttribute('onclick') || '';
-      if (onclickAttr.includes(`setPriceFilter(${{val}},`)) {{
-        b.classList.add('active');
-      }}
-    }});
+    // Sync input values
+    if (key === 'price_100g_aed') {{
+      document.getElementById('filter_price_min').value = min !== null ? min : '';
+      document.getElementById('filter_price_max').value = max !== null ? max : '';
+    }} else if (key === 'score_total') {{
+      document.getElementById('filter_total_min').value = min !== null ? min : '';
+      document.getElementById('filter_total_max').value = max !== null ? max : '';
+    }} else if (key === 'score_taste') {{
+      document.getElementById('filter_taste_min').value = min !== null ? min : '';
+      document.getElementById('filter_taste_max').value = max !== null ? max : '';
+    }} else if (key === 'score_price') {{
+      document.getElementById('filter_price_score_min').value = min !== null ? min : '';
+      document.getElementById('filter_price_score_max').value = max !== null ? max : '';
+    }} else if (key === 'score_rarity') {{
+      document.getElementById('filter_rarity_min').value = min !== null ? min : '';
+      document.getElementById('filter_rarity_max').value = max !== null ? max : '';
+    }}
 
-    const resetBtn = document.getElementById('priceResetBtn');
-    if (resetBtn) resetBtn.style.display = 'inline-flex';
+    rangeFilters[key] = {{ min, max }};
+    updateAll();
+  }}
+
+  // Clear Single Range Filter
+  function clearSingleRangeFilter(key) {{
+    rangeFilters[key] = {{ min: null, max: null }};
+
+    if (key === 'price_100g_aed') {{
+      document.getElementById('filter_price_min').value = '';
+      document.getElementById('filter_price_max').value = '';
+      const card = document.querySelectorAll('.tfp-card')[0];
+      if (card) card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    }} else if (key === 'score_total') {{
+      document.getElementById('filter_total_min').value = '';
+      document.getElementById('filter_total_max').value = '';
+      const card = document.querySelectorAll('.tfp-card')[1];
+      if (card) card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    }} else if (key === 'score_taste') {{
+      document.getElementById('filter_taste_min').value = '';
+      document.getElementById('filter_taste_max').value = '';
+      const card = document.querySelectorAll('.tfp-card')[2];
+      if (card) card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    }} else if (key === 'score_price') {{
+      document.getElementById('filter_price_score_min').value = '';
+      document.getElementById('filter_price_score_max').value = '';
+      const card = document.querySelectorAll('.tfp-card')[3];
+      if (card) card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    }} else if (key === 'score_rarity') {{
+      document.getElementById('filter_rarity_min').value = '';
+      document.getElementById('filter_rarity_max').value = '';
+      const card = document.querySelectorAll('.tfp-card')[4];
+      if (card) card.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    }}
 
     updateAll();
   }}
 
-  function resetPriceFilter() {{
-    const firstChip = document.querySelector('#pricePresetChips .tpf-chip');
-    setPriceFilter(null, firstChip);
+  // Reset All Range Filters
+  function resetAllRangeFilters() {{
+    rangeFilters = {{
+      price_100g_aed: {{ min: null, max: null }},
+      score_total:    {{ min: null, max: null }},
+      score_taste:    {{ min: null, max: null }},
+      score_price:    {{ min: null, max: null }},
+      score_rarity:   {{ min: null, max: null }}
+    }};
+
+    ['filter_price_min', 'filter_price_max', 'filter_total_min', 'filter_total_max', 
+     'filter_taste_min', 'filter_taste_max', 'filter_price_score_min', 'filter_price_score_max',
+     'filter_rarity_min', 'filter_rarity_max'].forEach(id => {{
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    }});
+
+    document.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    updateAll();
   }}
 
   function toggleSyncPriceWithCharts(cb) {{
     syncPriceWithCharts = cb.checked;
     updateAll();
+  }}
+
+  // Backward compatibility stubs
+  function setPriceFilter(maxVal, btn) {{
+    setPreset('price_100g_aed', null, maxVal, btn || document.createElement('button'));
+  }}
+  function resetPriceFilter() {{
+    clearSingleRangeFilter('price_100g_aed');
   }}
 
   function sortTable(key) {{
