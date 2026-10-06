@@ -5,12 +5,16 @@ Features & Updates:
 - Statistical summary & insights (Pearson correlation, sweet-spots, pricing tiers)
 - Graph 1: Scatter plot (Price per 100g vs Score - Total/Taste/Rarity/Price)
   - Color encoded: Archers Comp (black), Reserve (blue), Selection (yellow), Espresso Lab (red)
-  - Smaller point radius (4.5px) for clear separation in dense clusters
-  - Tooltip caret padding (20px) away from cursor to avoid covering nearby dots
+  - Small point radius (4.5px) for clear separation in dense clusters
+  - Real-time Hover HUD Info Bar + Tooltip with 35px caretPadding to prevent covering nearby dots
   - Point shape encoding by Country, Process, Altitude, or Default (*, x, o, triangle, rect)
-  - Mouse wheel zoom & pan via chartjs-plugin-zoom with floating "Fit to Size" button
-  - Distinct active/inactive styles for lineup filter chips
-  - Korean search support (country, process, farm, variety, tasting notes, roastery)
+  - Fixed absolute scale limits (X: 0~1150 AED, Y: score range) across filter changes
+  - Mouse wheel zoom & pan via chartjs-plugin-zoom with header-positioned "Fit to Size" button (no overlap)
+  - Multi-bean cluster dialog: clicking dense cluster with multiple dots opens selection list
+  - Mobile 2-stage interaction: 1st tap shows preview card, 2nd tap/button opens full modal
+  - Explicit Enter key or Search button execution (no accidental laggy live inputs)
+  - Distinct active/inactive styles for lineup filter chips (sharp active vs 35% dashed inactive)
+  - Comprehensive Korean search support (country, process, farm, variety, tasting notes, roastery)
 - Graph 2: Tasting notes distribution chart with dynamic recalculation based on active filters
   - Dedicated Origin and Process quick filter buttons
   - Real-time recalculation of flavor frequencies when origin/process/lineup filters change
@@ -129,7 +133,6 @@ def generate_korean_keywords(c, roastery, group_key):
     if 'pacamara' in combined: kr.append('파카마라')
     if 'eugenioides' in combined: kr.append('에우제니오이데스')
 
-    # Common farm names
     farm_l = str(c.get('farm', '')).lower() + ' ' + str(c.get('producer', '')).lower() + ' ' + title_l
     if 'auromar' in farm_l: kr.append('오로마')
     if 'elida' in farm_l: kr.append('엘리다')
@@ -342,7 +345,6 @@ def calculate_statistics(items):
         'corr_price_rarity': round(pearson(prices, rarities), 3),
     }
 
-    # Groups stats
     group_stats = {}
     for g_key in ['competition', 'reserve', 'selection', 'esolab']:
         sub = [it for it in items if it['group_key'] == g_key]
@@ -693,6 +695,12 @@ def generate_html(items, stats):
       opacity: 0.4;
     }}
 
+    /* SEARCH INPUT GROUP (ENTER / BUTTON) */
+    .search-input-group {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }}
     .search-input {{
       padding: 7px 12px;
       background: var(--bg-primary);
@@ -705,6 +713,35 @@ def generate_html(items, stats):
     }}
     .search-input:focus {{
       border-color: var(--accent-gold);
+    }}
+    .search-btn {{
+      padding: 7px 14px;
+      background: var(--accent-gold);
+      color: #000;
+      border: 1px solid var(--accent-gold);
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }}
+    .search-btn:hover {{
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }}
+    .search-clear-btn {{
+      padding: 7px 10px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 8px;
+      font-size: 12px;
+      cursor: pointer;
+    }}
+    .search-clear-btn:hover {{
+      color: var(--text-primary);
+      border-color: var(--accent-red);
     }}
 
     /* SHAPE LEGEND BANNER */
@@ -726,6 +763,37 @@ def generate_html(items, stats):
       gap: 5px;
       font-weight: 600;
       color: var(--text-primary);
+    }}
+
+    /* HOVER HUD BAR ABOVE CHART */
+    .chart-hud-bar {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 9px 14px;
+      margin-bottom: 10px;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      transition: background 0.2s;
+    }}
+    .chart-hud-idle {{
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .chart-hud-active {{
+      color: var(--text-primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      width: 100%;
     }}
 
     /* CHARTS LAYOUT */
@@ -755,7 +823,7 @@ def generate_html(items, stats):
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       flex-wrap: wrap;
       gap: 8px;
     }}
@@ -778,30 +846,23 @@ def generate_html(items, stats):
       width: 100%;
     }}
 
-    /* FLOATING FIT BUTTON */
-    .chart-fit-btn {{
-      position: absolute;
-      left: 14px;
-      bottom: 24px;
-      z-index: 10;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.2s;
+    /* MOBILE PREVIEW CARD */
+    .mobile-preview-card {{
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: var(--bg-secondary);
+      border: 2px solid var(--accent-gold);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      z-index: 999;
+      animation: slideUpPreview 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }}
-    .chart-fit-btn:hover {{
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
-      transform: scale(1.04);
+    @keyframes slideUpPreview {{
+      from {{ transform: translateY(100%); opacity: 0; }}
+      to {{ transform: translateY(0); opacity: 1; }}
     }}
 
     /* DETAIL MODAL / PANEL */
@@ -864,6 +925,25 @@ def generate_html(items, stats):
       display: flex;
       flex-direction: column;
       gap: 18px;
+    }}
+
+    /* CLUSTER MULTI-ITEM CARD */
+    .cluster-item-card {{
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }}
+    .cluster-item-card:hover {{
+      border-color: var(--accent-gold);
+      background: var(--bg-primary);
+      transform: translateX(3px);
     }}
 
     /* DETAIL ELEMENTS */
@@ -1179,7 +1259,7 @@ def generate_html(items, stats):
       </div>
     </div>
 
-    <!-- ROW 3: LINEUP CHIPS & SEARCH INPUT -->
+    <!-- ROW 3: LINEUP CHIPS & SEARCH INPUT GROUP (ENTER / BUTTON) -->
     <div class="control-row">
       <!-- Roastery / Group Filters -->
       <div class="control-group">
@@ -1204,9 +1284,13 @@ def generate_html(items, stats):
         </div>
       </div>
 
-      <!-- Search Input with Korean support -->
+      <!-- Search Input Group with Button & Enter key -->
       <div class="control-group" style="margin-left:auto;">
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 원두명, 생산국(예:에티오피아), 품종, 농장 검색..." oninput="handleSearch(this.value)">
+        <div class="search-input-group">
+          <input type="text" id="searchInput" class="search-input" placeholder="🔍 원두명, 생산국(예:에티오피아), 농장..." onkeydown="if(event.key==='Enter') executeSearch()">
+          <button class="search-btn" onclick="executeSearch()">검색</button>
+          <button class="search-clear-btn" id="searchResetBtn" onclick="clearSearch()" style="display:none;" title="검색어 초기화">✕</button>
+        </div>
       </div>
     </div>
 
@@ -1227,18 +1311,28 @@ def generate_html(items, stats):
             <span>🎯 100g당 가격 vs 점수 산점도 (Scatter Plot)</span>
           </div>
           <div class="chart-subtitle" id="scatterSubtitle">
-            마우스 휠 스크롤로 확대/축소, 드래그로 이동 가능하며 점을 클릭하면 상세 정보가 열립니다.
+            마우스 휠 스크롤로 확대/축소, 드래그 이동 가능하며 점을 클릭하면 상세 정보가 열립니다.
           </div>
         </div>
-        <div style="font-size:12px; color:var(--text-muted);">
-          현재 표시: <span id="pointCountDisplay" style="font-weight:700; color:var(--accent-gold);">171</span>종
+        <!-- FIT TO SIZE BUTTON MOVED OUT OF CANVAS TO HEADER -->
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:12px; color:var(--text-muted);">표시: <strong id="pointCountDisplay" style="color:var(--accent-gold);">171</strong>종</span>
+          <button class="nav-btn" onclick="resetScatterZoom()" style="padding:5px 11px; font-size:12px; font-weight:700; border-color:var(--accent-gold); color:var(--accent-gold);">
+            🔍 전체보기 (Fit)
+          </button>
         </div>
       </div>
+
+      <!-- HOVER HUD BAR -->
+      <div class="chart-hud-bar" id="chartHudBar">
+        <div class="chart-hud-idle" id="hudIdleText">
+          <span>💡</span> <span>점 위에 마우스를 올리면 원두 상세 요약이 여기에 실시간 표시됩니다. (밀집 구간 클릭 시 선택 목록 팝업)</span>
+        </div>
+        <div class="chart-hud-active" id="hudActiveText" style="display:none;"></div>
+      </div>
+
       <div class="chart-canvas-wrapper">
         <canvas id="scatterChart"></canvas>
-        <button class="chart-fit-btn" onclick="resetScatterZoom()" title="확대/축소 리셋 및 전체보기">
-          🔍 전체보기 (Fit to Size)
-        </button>
       </div>
     </div>
 
@@ -1287,6 +1381,43 @@ def generate_html(items, stats):
       </table>
     </div>
   </div>
+</div>
+
+<!-- CLUSTER MULTI-BEAN SELECTION MODAL -->
+<div class="detail-overlay" id="clusterOverlay" onclick="closeClusterModal(event)">
+  <div class="detail-modal" style="max-width: 520px;" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="detail-badge" style="color:var(--accent-gold); border-color:var(--accent-gold);">밀집 구간 원두 선택</div>
+        <h2 class="detail-title" style="font-size:18px; margin-top:4px;" id="clusterTitle">선택 지점 원두 목록</h2>
+      </div>
+      <button class="modal-close-btn" onclick="closeClusterModal()">&times;</button>
+    </div>
+    <div class="modal-body" style="padding:16px;">
+      <p style="font-size:12.5px; color:var(--text-secondary); margin-bottom:12px;">
+        선택하신 지점에 여러 원두가 겹쳐 있습니다. 확인하실 원두를 선택해주세요:
+      </p>
+      <div id="clusterList" style="display:flex; flex-direction:column; gap:8px; max-height:380px; overflow-y:auto;">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE 1-TAP PREVIEW CARD -->
+<div id="mobilePreviewCard" class="mobile-preview-card" style="display:none;">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+    <div id="mpBadges" style="display:flex; gap:4px; flex-wrap:wrap;"></div>
+    <button onclick="closeMobilePreview()" style="background:transparent; border:none; color:var(--text-muted); font-size:20px; line-height:1; cursor:pointer;">&times;</button>
+  </div>
+  <div id="mpTitle" style="font-size:15px; font-weight:800; color:var(--text-primary); margin-bottom:6px; line-height:1.3;"></div>
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:13px;">
+    <span id="mpPrice" style="font-weight:700; color:var(--accent-gold); font-family:monospace;"></span>
+    <span id="mpScore" style="font-weight:800; color:var(--text-primary);"></span>
+  </div>
+  <button id="mpDetailBtn" class="nav-btn" style="width:100%; justify-content:center; background:linear-gradient(135deg, #e3b341, #d97706); color:#000; font-weight:800; font-size:13px; border:none;">
+    👉 터치하여 상세 스펙 전체보기
+  </button>
 </div>
 
 <!-- COFFEE DETAIL MODAL -->
@@ -1405,6 +1536,7 @@ def generate_html(items, stats):
   let activeGroups = new Set(['competition', 'reserve', 'selection', 'esolab']);
   let searchQuery = '';
   let selectedCoffeeId = null;
+  let mobilePreviewCoffeeId = null;
   let highlightedNote = null;
   let sortKey = 'score_total';
   let sortAsc = false;
@@ -1476,10 +1608,19 @@ def generate_html(items, stats):
     }});
   }}
 
+  // Scale bounds: FIXED globally to represent all 171 beans consistently
+  function getYScaleLimits() {{
+    if (currentYMetric === 'taste') return {{ min: 20, max: 50 }};
+    if (currentYMetric === 'price') return {{ min: 0, max: 30 }};
+    if (currentYMetric === 'rarity') return {{ min: 0, max: 20 }};
+    return {{ min: 50, max: 100 }}; // total score
+  }}
+
   // Initialize Scatter Chart
   function initScatterChart() {{
     const ctx = document.getElementById('scatterChart').getContext('2d');
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    const yLimits = getYScaleLimits();
 
     scatterChart = new Chart(ctx, {{
       type: 'scatter',
@@ -1487,17 +1628,18 @@ def generate_html(items, stats):
       options: {{
         responsive: true,
         maintainAspectRatio: false,
-        animation: {{ duration: 300 }},
+        animation: {{ duration: 250 }},
         plugins: {{
           legend: {{ display: false }},
           tooltip: {{
+            enabled: true,
             backgroundColor: isDark ? 'rgba(22, 27, 34, 0.96)' : 'rgba(255, 255, 255, 0.98)',
             titleColor: isDark ? '#f0f6fc' : '#1f2328',
             bodyColor: isDark ? '#8b949e' : '#57606a',
             borderColor: isDark ? '#30363d' : '#d0d7de',
             borderWidth: 1,
             padding: 10,
-            caretPadding: 20, // Keep tooltip away from cursor and dense points
+            caretPadding: 35, // Generous offset away from pointer to avoid covering dots
             caretSize: 8,
             xAlign: 'center',
             yAlign: 'bottom',
@@ -1507,12 +1649,13 @@ def generate_html(items, stats):
               label: function(ctx) {{
                 const raw = ctx.raw;
                 const c = raw.coffee;
+                updateHudBar(c);
                 return [
                   `☕ [${{c.roastery}}] ${{c.title}}`,
                   `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`,
                   `⭐ 종합: ${{c.score_total}}점 (맛 ${{c.score_taste}} / 값 ${{c.score_price}} / 희 ${{c.score_rarity}})`,
-                  `🌍 원산지: ${{c.country}} | 가공: ${{c.process}}`,
-                  `👉 클릭하여 상세 스펙 열기`
+                  `🌍 ${{c.country}} | 가공: ${{c.process}}`,
+                  `👉 클릭 시 상세/목록 확인`
                 ];
               }}
             }}
@@ -1537,9 +1680,11 @@ def generate_html(items, stats):
         }},
         scales: {{
           x: {{
+            min: 0,
+            max: 1150, // Fixed baseline representation for 171 beans
             title: {{
               display: true,
-              text: '100g당 가격 (AED) - 마우스 휠 스크롤로 확대/축소 가능',
+              text: '100g당 가격 (AED) - 전체 171종 기준 고정 척도 (마우스 휠 스크롤로 확대/축소)',
               color: isDark ? '#8b949e' : '#57606a',
               font: {{ weight: 'bold', size: 11.5 }}
             }},
@@ -1547,6 +1692,8 @@ def generate_html(items, stats):
             ticks: {{ color: isDark ? '#8b949e' : '#57606a' }}
           }},
           y: {{
+            min: yLimits.min,
+            max: yLimits.max,
             title: {{
               display: true,
               text: getYAxisLabel(),
@@ -1557,23 +1704,170 @@ def generate_html(items, stats):
             ticks: {{ color: isDark ? '#8b949e' : '#57606a' }}
           }}
         }},
-        onClick: (evt, activeEls) => {{
-          if (activeEls.length > 0) {{
-            const el = activeEls[0];
-            const dataset = scatterChart.data.datasets[el.datasetIndex];
-            const pointData = dataset.data[el.index];
-            if (pointData && pointData.coffee) {{
-              openDetailModal(pointData.coffee);
-            }}
+        onHover: (evt, activeEls) => {{
+          if (activeEls.length === 0) {{
+            resetHudBar();
           }}
+        }},
+        onClick: (evt, activeEls) => {{
+          handleScatterClick(evt);
         }}
       }}
     }});
   }}
 
+  // HUD Bar Real-time update
+  function updateHudBar(c) {{
+    const idle = document.getElementById('hudIdleText');
+    const active = document.getElementById('hudActiveText');
+    if (!idle || !active) return;
+    idle.style.display = 'none';
+    active.style.display = 'flex';
+    active.innerHTML = `
+      <span style="color:${{c.color}}; font-weight:800;">[${{c.roastery}}]</span>
+      <span style="font-weight:700; color:var(--text-primary);">${{c.title}}</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span style="font-family:monospace; color:var(--accent-gold); font-weight:700;">100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span style="font-weight:800; color:var(--accent-gold);">⭐ ${{c.score_total}}점</span>
+      <span style="font-size:11.5px; color:var(--text-secondary);">(맛 ${{c.score_taste}} / 값 ${{c.score_price}} / 희 ${{c.score_rarity}})</span>
+      <span style="color:var(--text-muted);">|</span>
+      <span style="font-size:12px; color:var(--text-secondary);">${{c.country}} (${{c.process}})</span>
+    `;
+  }}
+
+  function resetHudBar() {{
+    const idle = document.getElementById('hudIdleText');
+    const active = document.getElementById('hudActiveText');
+    if (!idle || !active) return;
+    idle.style.display = 'flex';
+    active.style.display = 'none';
+  }}
+
+  // Handle Scatter Click: Handles multi-dot clusters and mobile 2-stage interaction
+  function handleScatterClick(evt) {{
+    const rect = scatterChart.canvas.getBoundingClientRect();
+    const clickX = evt.x !== undefined ? evt.x : (evt.native ? evt.native.clientX - rect.left : 0);
+    const clickY = evt.y !== undefined ? evt.y : (evt.native ? evt.native.clientY - rect.top : 0);
+
+    // Find all beans within 18px radius on canvas
+    const nearby = [];
+    scatterChart.data.datasets.forEach((ds, dsIdx) => {{
+      const meta = scatterChart.getDatasetMeta(dsIdx);
+      if (!meta.hidden) {{
+        meta.data.forEach((element, idx) => {{
+          const dist = Math.hypot(element.x - clickX, element.y - clickY);
+          if (dist <= 18) {{
+            nearby.push(ds.data[idx].coffee);
+          }}
+        }});
+      }}
+    }});
+
+    if (nearby.length === 0) return;
+
+    if (nearby.length > 1) {{
+      // Multiple beans in dense cluster: open multi-select cluster modal
+      openClusterModal(nearby);
+      return;
+    }}
+
+    // Exactly 1 bean clicked
+    const singleCoffee = nearby[0];
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {{
+      // Mobile 2-stage tap flow:
+      if (mobilePreviewCoffeeId === singleCoffee.id) {{
+        // Second tap on the same bean: open full modal!
+        closeMobilePreview();
+        openDetailModal(singleCoffee);
+      }} else {{
+        // First tap: show preview card
+        showMobilePreview(singleCoffee);
+      }}
+    }} else {{
+      // Desktop: directly open detail modal
+      openDetailModal(singleCoffee);
+    }}
+  }}
+
+  // Multi-item cluster modal
+  function openClusterModal(coffeeList) {{
+    document.getElementById('clusterTitle').textContent = `선택 지점 원두 (${{coffeeList.length}}종)`;
+    const listEl = document.getElementById('clusterList');
+    listEl.innerHTML = coffeeList.map(c => `
+      <div class="cluster-item-card" onclick="openDetailFromCluster('${{c.id}}')">
+        <div style="flex:1;">
+          <div style="display:flex; gap:6px; align-items:center; margin-bottom:4px;">
+            <span class="detail-badge" style="color:${{c.color}}; border-color:${{c.color}}; font-weight:800;">${{c.roastery}}</span>
+            <span class="detail-badge">${{c.country}}</span>
+            <span class="detail-badge">${{c.process}}</span>
+          </div>
+          <div style="font-weight:700; font-size:13.5px; color:var(--text-primary); line-height:1.3;">${{c.title}}</div>
+        </div>
+        <div style="text-align:right; white-space:nowrap;">
+          <div style="font-weight:800; font-size:15px; color:var(--accent-gold); font-family:monospace;">⭐ ${{c.score_total}}점</div>
+          <div style="font-size:12px; color:var(--text-muted); font-family:monospace;">${{c.price_100g_aed}} AED</div>
+          <div style="font-size:11px; color:var(--accent-blue); font-weight:700; margin-top:2px;">상세보기 ➔</div>
+        </div>
+      </div>
+    `).join('');
+
+    document.getElementById('clusterOverlay').classList.add('active');
+  }}
+
+  function closeClusterModal() {{
+    document.getElementById('clusterOverlay').classList.remove('active');
+  }}
+
+  function openDetailFromCluster(coffeeId) {{
+    closeClusterModal();
+    const c = ALL_COFFEES.find(x => x.id === coffeeId);
+    if (c) openDetailModal(c);
+  }}
+
+  // Mobile 1-Tap Preview Sheet
+  function showMobilePreview(c) {{
+    mobilePreviewCoffeeId = c.id;
+    selectedCoffeeId = c.id;
+    updateNotesChart();
+
+    const card = document.getElementById('mobilePreviewCard');
+    document.getElementById('mpBadges').innerHTML = `
+      <span class="detail-badge" style="color:${{c.color}}; border-color:${{c.color}}; font-weight:800;">${{c.roastery}}</span>
+      <span class="detail-badge">${{c.country}}</span>
+      <span class="detail-badge">${{c.process}}</span>
+    `;
+    document.getElementById('mpTitle').textContent = c.title;
+    document.getElementById('mpPrice').textContent = `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`;
+    document.getElementById('mpScore').textContent = `⭐ ${{c.score_total}}점 (맛${{c.score_taste}}/값${{c.score_price}}/희${{c.score_rarity}})`;
+
+    const btn = document.getElementById('mpDetailBtn');
+    btn.onclick = () => {{
+      closeMobilePreview();
+      openDetailModal(c);
+    }};
+
+    card.style.display = 'block';
+  }}
+
+  function closeMobilePreview() {{
+    const card = document.getElementById('mobilePreviewCard');
+    if (card) card.style.display = 'none';
+    mobilePreviewCoffeeId = null;
+  }}
+
+  // Reset Zoom & Fit to size
   function resetScatterZoom() {{
     if (scatterChart) {{
       scatterChart.resetZoom();
+      const yLimits = getYScaleLimits();
+      scatterChart.options.scales.x.min = 0;
+      scatterChart.options.scales.x.max = 1150;
+      scatterChart.options.scales.y.min = yLimits.min;
+      scatterChart.options.scales.y.max = yLimits.max;
+      scatterChart.update();
     }}
   }}
 
@@ -1610,7 +1904,6 @@ def generate_html(items, stats):
         }};
       }});
 
-      // Point styles array explicitly defined for Chart.js dataset
       const pointStyles = items.map(c => getPointStyle(c, currentShapeMode));
       const pointRadii = items.map(c => (selectedCoffeeId === c.id ? 8.5 : 4.5));
 
@@ -1650,7 +1943,7 @@ def generate_html(items, stats):
         indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
-        animation: {{ duration: 300 }},
+        animation: {{ duration: 250 }},
         plugins: {{
           legend: {{ display: false }},
           tooltip: {{
@@ -1686,7 +1979,6 @@ def generate_html(items, stats):
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     const selCoffee = ALL_COFFEES.find(c => c.id === selectedCoffeeId);
 
-    // Count occurrences within filtered coffees
     const noteCountMap = {{}};
     TOP_NOTES_VOCAB.forEach(n => {{ noteCountMap[n] = 0; }});
 
@@ -1698,7 +1990,6 @@ def generate_html(items, stats):
       }});
     }});
 
-    // Sort notes by count descending, take top 14
     const sorted = Object.entries(noteCountMap)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 14);
@@ -1722,7 +2013,6 @@ def generate_html(items, stats):
     notesChart.data.datasets[0].backgroundColor = data.colors;
     notesChart.update();
 
-    // Update subtitle
     const sub = document.getElementById('notesChartSubtitle');
     if (sub) {{
       let filterDesc = [];
@@ -1823,8 +2113,14 @@ def generate_html(items, stats):
 
   function updateAll() {{
     if (scatterChart) {{
+      const yLimits = getYScaleLimits();
       scatterChart.data.datasets = buildScatterDatasets();
       scatterChart.options.scales.y.title.text = getYAxisLabel();
+      // Keep baseline bounds fixed across filter selections unless zoomed
+      scatterChart.options.scales.x.min = 0;
+      scatterChart.options.scales.x.max = 1150;
+      scatterChart.options.scales.y.min = yLimits.min;
+      scatterChart.options.scales.y.max = yLimits.max;
       scatterChart.update();
     }}
     updateNotesChart();
@@ -1873,8 +2169,20 @@ def generate_html(items, stats):
     updateAll();
   }}
 
-  function handleSearch(val) {{
-    searchQuery = val.trim();
+  // Search by Enter or Click
+  function executeSearch() {{
+    const val = document.getElementById('searchInput').value.trim();
+    searchQuery = val;
+    const rBtn = document.getElementById('searchResetBtn');
+    if (rBtn) rBtn.style.display = val ? 'inline-flex' : 'none';
+    updateAll();
+  }}
+
+  function clearSearch() {{
+    document.getElementById('searchInput').value = '';
+    searchQuery = '';
+    const rBtn = document.getElementById('searchResetBtn');
+    if (rBtn) rBtn.style.display = 'none';
     updateAll();
   }}
 
@@ -1887,6 +2195,7 @@ def generate_html(items, stats):
   function openDetailModal(c) {{
     selectedCoffeeId = c.id;
     updateNotesChart();
+    updateHudBar(c);
 
     document.getElementById('modalBadges').innerHTML = `
       <span class="detail-badge roastery" style="color:${{c.color}}; border-color:${{c.color}};">${{c.roastery}}</span>
