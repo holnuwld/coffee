@@ -1293,6 +1293,22 @@ def generate_html(items, stats):
       font-weight: normal;
       font-size: 11px;
     }}
+    .tfp-text-input {{
+      width: 100%;
+      height: 24px;
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      outline: none;
+      padding: 0 4px;
+    }}
+    .tfp-text-input::placeholder {{
+      color: var(--text-muted);
+      font-weight: normal;
+      font-size: 11px;
+    }}
     .tfp-unit-tag {{
       font-size: 10.5px;
       color: var(--text-muted);
@@ -1741,8 +1757,8 @@ def generate_html(items, stats):
       <!-- Panel Top Header -->
       <div class="tfp-top-header">
         <div class="tfp-title">
-          <span>🎛️ 수치 & 점수 다차원 정밀 필터 (가격 · 종합점수 · 맛 · 가성비 · 희소성)</span>
-          <span style="font-size:11.5px; font-weight:normal; color:var(--text-muted); margin-left:6px;">각 지표별 최소(이상) 및 최대(이하) 범위를 자유롭게 지정할 수 있습니다.</span>
+          <span>🎛️ 원두 리스트 다차원 정밀 필터 (수치 범위 · 컵노트 · 프로세스)</span>
+          <span style="font-size:11.5px; font-weight:normal; color:var(--text-muted); margin-left:6px;">지표별 범위 및 컵노트(주관식), 프로세스(객관식) 조건을 복합 적용할 수 있습니다.</span>
         </div>
         <div class="tfp-top-actions">
           <label class="tpf-sync-label" title="체크 시 상단 산점도 및 컵노트 차트에도 해당 범위 필터가 함께 적용됩니다.">
@@ -1876,6 +1892,46 @@ def generate_html(items, stats):
             <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 18, null, this)">≥18 (극희귀)</button>
             <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 15, null, this)">≥15</button>
             <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 10, null, this)">≥10</button>
+          </div>
+        </div>
+
+        <!-- 6. Cup Notes (Subjective Free-text & Popular Presets) -->
+        <div class="tfp-card" style="border-left: 3px solid var(--accent-gold);">
+          <div class="tfp-card-header">
+            <span>🍒 컵노트 검색 (주관식)</span>
+            <span style="font-size:10.5px; color:var(--accent-gold);">한글/영문 자유 입력</span>
+          </div>
+          <div class="tfp-range-row">
+            <div class="tfp-input-box" style="position:relative; width:100%;">
+              <input type="text" id="filter_note_input" class="tfp-text-input" placeholder="원하는 향미 입력 (예: 복숭아, peach, 자스민, 파파야...)" oninput="applyNoteFilterInput()" onkeydown="if(event.key==='Enter') applyNoteFilterInput()">
+              <button type="button" id="noteClearBtn" onclick="clearNoteInput()" style="display:none; position:absolute; right:6px; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:13px; padding:0 4px;" title="지우기">✕</button>
+            </div>
+          </div>
+          <div class="tfp-preset-row" id="notePresetRow">
+            <button class="tfp-preset-btn" onclick="setNotePreset('복숭아', this)">복숭아</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('자스민', this)">자스민</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('베르가못', this)">베르가못</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('만다린', this)">만다린</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('파파야', this)">파파야</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('유자', this)">유자</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('망고', this)">망고</button>
+            <button class="tfp-preset-btn" onclick="setNotePreset('초콜릿', this)">초콜릿</button>
+          </div>
+        </div>
+
+        <!-- 7. Processing Method (Objective Multiple-Choice Filter) -->
+        <div class="tfp-card" style="border-left: 3px solid var(--accent-blue);">
+          <div class="tfp-card-header">
+            <span>⚙️ 가공 프로세스 (객관식)</span>
+            <span style="font-size:10.5px; color:var(--accent-blue);">가공 방식 선택</span>
+          </div>
+          <div class="tfp-preset-row" id="tfpProcessBtnGroup" style="gap:5px; margin-top:2px;">
+            <button class="tfp-preset-btn active" data-proc="all" onclick="setTfpProcessFilter('all', this)">전체</button>
+            <button class="tfp-preset-btn" data-proc="Washed" onclick="setTfpProcessFilter('Washed', this)">워시드 (Washed)</button>
+            <button class="tfp-preset-btn" data-proc="Natural" onclick="setTfpProcessFilter('Natural', this)">내추럴 (Natural)</button>
+            <button class="tfp-preset-btn" data-proc="Anaerobic/Fermented" onclick="setTfpProcessFilter('Anaerobic/Fermented', this)">무산소/발효 (Anaerobic)</button>
+            <button class="tfp-preset-btn" data-proc="Honey" onclick="setTfpProcessFilter('Honey', this)">허니 (Honey)</button>
+            <button class="tfp-preset-btn" data-proc="Other" onclick="setTfpProcessFilter('Other', this)">기타 (Other)</button>
           </div>
         </div>
       </div>
@@ -2072,9 +2128,71 @@ def generate_html(items, stats):
   let selectedCoffeeId = null;
   let mobilePreviewCoffeeId = null;
   let highlightedNote = null;
+  let noteFilterQuery = ''; // Subjective free-text cup note filter
   let syncPriceWithCharts = true; // whether to sync range filters with charts
   let sortKey = 'score_total';
   let sortAsc = false;
+
+  // Korean to English cup note synonym mapping
+  const KR_NOTE_MAP = {{
+    '복숭아': ['peach'], '피치': ['peach'], '백도': ['white peach', 'peach'], '황도': ['yellow peach', 'peach'],
+    '자스민': ['jasmine'], '재스민': ['jasmine'],
+    '베르가못': ['bergamot'], '베르가모트': ['bergamot'],
+    '만다린': ['mandarin', 'mandarine'], '오렌지': ['orange'], '감귤': ['mandarin', 'citrus'], '귤': ['mandarin', 'citrus'],
+    '유자': ['yuzu'], '레몬': ['lemon'], '라임': ['lime'], '시트러스': ['citrus'],
+    '플로럴': ['floral', 'flower', 'blossom'], '꽃': ['floral', 'flower', 'blossom'], '블라썸': ['blossom'],
+    '파파야': ['papaya'], '망고': ['mango'], '패션후르츠': ['passion fruit', 'passionfruit'], '리치': ['lychee'],
+    '딸기': ['strawberry'], '스트로베리': ['strawberry'], '블루베리': ['blueberry'], '라즈베리': ['raspberry'], '베리': ['berry'],
+    '포도': ['grape', 'grapes'], '청포도': ['white grape', 'white grapes'], '와인': ['wine'],
+    '서양배': ['pear'], '배': ['pear'], '사과': ['apple'], '살구': ['apricot'], '자두': ['plum'], '체리': ['cherry'],
+    '꿀': ['honey'], '허니': ['honey'], '사탕수수': ['sugarcane', 'sugar cane'],
+    '초콜릿': ['chocolate', 'cacao', 'cocoa'], '초콜렛': ['chocolate', 'cacao', 'cocoa'], '카카오': ['cacao', 'chocolate'],
+    '카라멜': ['caramel', 'toffee'], '캐러멜': ['caramel', 'toffee'], '바닐라': ['vanilla'],
+    '아몬드': ['almond', 'nut'], '견과류': ['nut', 'almond', 'hazelnut'],
+    '얼그레이': ['earl grey', 'tea'], '홍차': ['black tea', 'tea'], '녹차': ['green tea', 'tea'],
+    '열대과일': ['tropical', 'mango', 'papaya', 'passion fruit', 'guava']
+  }};
+
+  function checkCoffeeMatchesNote(c, query) {{
+    if (!query) return true;
+    const q = query.toLowerCase().trim();
+    if (!q) return true;
+    const directText = (c.tasting_notes + ' ' + c.notes_list.join(' ') + ' ' + (c.search_kr || '')).toLowerCase();
+    if (directText.includes(q)) return true;
+    for (const [krWord, enEquivs] of Object.entries(KR_NOTE_MAP)) {{
+      if (q.includes(krWord) || krWord.includes(q)) {{
+        if (enEquivs.some(en => directText.includes(en))) return true;
+      }}
+    }}
+    return false;
+  }}
+
+  function formatNotesHighlight(notesStr, query) {{
+    if (!query || !notesStr) return notesStr || '-';
+    try {{
+      const q = query.trim().toLowerCase();
+      if (!q) return notesStr;
+      let words = [q];
+      for (const [krWord, enList] of Object.entries(KR_NOTE_MAP)) {{
+        if (q.includes(krWord) || krWord.includes(q)) {{
+          words.push(...enList);
+        }}
+      }}
+      let result = notesStr;
+      for (const w of words) {{
+        if (!w || w.length < 2) continue;
+        const idx = result.toLowerCase().indexOf(w.toLowerCase());
+        if (idx !== -1) {{
+          const matched = result.substr(idx, w.length);
+          result = result.substring(0, idx) + '<mark style="background:var(--accent-gold-bg); color:var(--accent-gold); padding:0 3px; border-radius:3px; font-weight:700;">' + matched + '</mark>' + result.substring(idx + w.length);
+          break;
+        }}
+      }}
+      return result;
+    }} catch(e) {{
+      return notesStr;
+    }}
+  }}
 
   // Multi-Metric Range Filters State (min / max)
   let rangeFilters = {{
@@ -2162,6 +2280,11 @@ def generate_html(items, stats):
 
       // 6. Multi-Metric Range Filters (applied to dataset when chart sync is active)
       if (syncPriceWithCharts && !matchesRangeFilters(c)) {{
+        return false;
+      }}
+
+      // 7. Cup note subjective search filter (applied to dataset when chart sync is active)
+      if (syncPriceWithCharts && noteFilterQuery && !checkCoffeeMatchesNote(c, noteFilterQuery)) {{
         return false;
       }}
 
@@ -2609,9 +2732,10 @@ def generate_html(items, stats):
       let filterDesc = [];
       if (currentOriginFilter !== 'all') filterDesc.push(`원산지:${{currentOriginFilter}}`);
       if (currentProcessFilter !== 'all') filterDesc.push(`가공:${{currentProcessFilter}}`);
+      if (noteFilterQuery) filterDesc.push(`노트:'${{noteFilterQuery}}'`);
       if (syncPriceWithCharts) {{
         const activeCount = Object.values(rangeFilters).filter(r => r.min !== null || r.max !== null).length;
-        if (activeCount > 0) filterDesc.push(`정밀필터 ${{activeCount}}개 적용`);
+        if (activeCount > 0) filterDesc.push(`수치필터 ${{activeCount}}개 적용`);
       }}
       if (searchQuery) filterDesc.push(`검색:'${{searchQuery}}'`);
       const extra = filterDesc.length > 0 ? ` (${{filterDesc.join(', ')}} 적용)` : '';
@@ -2669,9 +2793,12 @@ def generate_html(items, stats):
   function renderTable() {{
     let filtered = getFilteredCoffees();
 
-    // If charts sync is OFF but range filters are active, filter table only
+    // If charts sync is OFF but range filters or note filter are active, filter table only
     if (!syncPriceWithCharts) {{
       filtered = filtered.filter(c => matchesRangeFilters(c));
+      if (noteFilterQuery) {{
+        filtered = filtered.filter(c => checkCoffeeMatchesNote(c, noteFilterQuery));
+      }}
     }}
 
     const sorted = [...filtered].sort((a, b) => {{
@@ -2696,9 +2823,12 @@ def generate_html(items, stats):
       tbody.innerHTML = sorted.map(c => `
         <tr onclick="openDetailModalById('${{c.id}}')">
           <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
-          <td><strong style="word-break:keep-all;">${{c.title}}</strong></td>
+          <td>
+            <strong style="word-break:keep-all;">${{c.title}}</strong>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">✨ ${{formatNotesHighlight(c.tasting_notes, noteFilterQuery)}}</div>
+          </td>
           <td>${{c.country}}</td>
-          <td>${{c.process}}</td>
+          <td><span style="font-size:11.5px; font-weight:600; ${{currentProcessFilter !== 'all' ? 'color:var(--accent-blue); font-weight:800;' : ''}}">${{c.process}}</span></td>
           <td style="font-family:monospace; ${{hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}}">${{c.price_100g_aed}} AED</td>
           <td style="font-family:monospace; color:var(--accent-blue); ${{hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_taste}}</td>
           <td style="font-family:monospace; color:var(--accent-green); ${{hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}}">${{c.score_price}}</td>
@@ -2763,6 +2893,24 @@ def generate_html(items, stats):
       tags.push({{ key: 'score_rarity', text: `💎 희: ≤${{rf.score_rarity.max}}점` }});
     }}
 
+    // Note Search Tag
+    if (noteFilterQuery) {{
+      tags.push({{ key: 'note', text: `🍒 컵노트: "${{noteFilterQuery}}"` }});
+    }}
+
+    // Process Filter Tag
+    if (currentProcessFilter !== 'all') {{
+      const procKoNames = {{
+        'Washed': '워시드',
+        'Natural': '내추럴',
+        'Anaerobic/Fermented': '무산소/발효',
+        'Honey': '허니',
+        'Other': '기타'
+      }};
+      const pKo = procKoNames[currentProcessFilter] || currentProcessFilter;
+      tags.push({{ key: 'process', text: `⚙️ 가공: ${{pKo}}` }});
+    }}
+
     if (tags.length === 0) {{
       container.innerHTML = '<span style="font-size:11.5px; color:var(--text-muted);">(조건 없음 - 전체 원두 표시 중)</span>';
       if (headerBadge) headerBadge.style.display = 'none';
@@ -2799,7 +2947,61 @@ def generate_html(items, stats):
     rangeFilters.score_price    = {{ min: isNaN(psMin) ? null : psMin, max: isNaN(psMax) ? null : psMax }};
     rangeFilters.score_rarity   = {{ min: isNaN(rMin) ? null : rMin, max: isNaN(rMax) ? null : rMax }};
 
+    const nInput = document.getElementById('filter_note_input');
+    if (nInput) {{
+      noteFilterQuery = nInput.value.trim();
+    }}
+
     updateAll();
+  }}
+
+  // 컵노트 주관식 입력 처리
+  function applyNoteFilterInput() {{
+    const val = (document.getElementById('filter_note_input')?.value || '').trim();
+    noteFilterQuery = val;
+    const btn = document.getElementById('noteClearBtn');
+    if (btn) btn.style.display = val ? 'inline-block' : 'none';
+
+    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => {{
+      b.classList.toggle('active', b.textContent === val);
+    }});
+
+    updateAll();
+  }}
+
+  function setNotePreset(noteName, btn) {{
+    const input = document.getElementById('filter_note_input');
+    const isAlreadyActive = btn.classList.contains('active');
+
+    if (isAlreadyActive) {{
+      btn.classList.remove('active');
+      if (input) input.value = '';
+      noteFilterQuery = '';
+      const cBtn = document.getElementById('noteClearBtn');
+      if (cBtn) cBtn.style.display = 'none';
+    }} else {{
+      document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (input) input.value = noteName;
+      noteFilterQuery = noteName;
+      const cBtn = document.getElementById('noteClearBtn');
+      if (cBtn) cBtn.style.display = 'inline-block';
+    }}
+    updateAll();
+  }}
+
+  function clearNoteInput() {{
+    const input = document.getElementById('filter_note_input');
+    if (input) input.value = '';
+    noteFilterQuery = '';
+    const btn = document.getElementById('noteClearBtn');
+    if (btn) btn.style.display = 'none';
+    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    updateAll();
+  }}
+
+  function setTfpProcessFilter(proc, btn) {{
+    setProcessFilter(proc, btn);
   }}
 
   // Preset Button Handler
@@ -2841,6 +3043,14 @@ def generate_html(items, stats):
 
   // Clear Single Range Filter
   function clearSingleRangeFilter(key) {{
+    if (key === 'note') {{
+      clearNoteInput();
+      return;
+    }}
+    if (key === 'process') {{
+      setProcessFilter('all');
+      return;
+    }}
     rangeFilters[key] = {{ min: null, max: null }};
 
     if (key === 'price_100g_aed') {{
@@ -2890,7 +3100,24 @@ def generate_html(items, stats):
       if (el) el.value = '';
     }});
 
-    document.querySelectorAll('.tfp-preset-btn').forEach(b => b.classList.remove('active'));
+    // Reset note search
+    const nInput = document.getElementById('filter_note_input');
+    if (nInput) nInput.value = '';
+    noteFilterQuery = '';
+    const nClearBtn = document.getElementById('noteClearBtn');
+    if (nClearBtn) nClearBtn.style.display = 'none';
+    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
+
+    // Reset process filter to 'all'
+    currentProcessFilter = 'all';
+    document.querySelectorAll('#tfpProcessBtnGroup .tfp-preset-btn').forEach(b => {{
+      b.classList.toggle('active', b.getAttribute('data-proc') === 'all');
+    }});
+    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => {{
+      b.classList.toggle('active', (b.getAttribute('onclick') || '').includes("'all'"));
+    }});
+
+    document.querySelectorAll('.tfp-preset-btn:not(#tfpProcessBtnGroup .tfp-preset-btn):not(#notePresetRow .tfp-preset-btn)').forEach(b => b.classList.remove('active'));
     updateAll();
   }}
 
@@ -2958,8 +3185,13 @@ def generate_html(items, stats):
 
   function setProcessFilter(proc, btn) {{
     currentProcessFilter = proc;
-    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => {{
+      const onclickAttr = b.getAttribute('onclick') || '';
+      b.classList.toggle('active', onclickAttr.includes(`'${{proc}}'`));
+    }});
+    document.querySelectorAll('#tfpProcessBtnGroup .tfp-preset-btn').forEach(b => {{
+      b.classList.toggle('active', b.getAttribute('data-proc') === proc);
+    }});
     updateAll();
   }}
 
