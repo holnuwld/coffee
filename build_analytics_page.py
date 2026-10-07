@@ -1895,27 +1895,35 @@ def generate_html(items, stats):
           </div>
         </div>
 
-        <!-- 6. Cup Notes (Subjective Free-text & Popular Presets) -->
+        <!-- 6. Cup Notes (Objective Multi-Select Presets & Subjective Free-Text Search) -->
         <div class="tfp-card" style="border-left: 3px solid var(--accent-gold);">
-          <div class="tfp-card-header">
-            <span>🍒 컵노트 검색 (주관식)</span>
-            <span style="font-size:10.5px; color:var(--accent-gold);">한글/영문 자유 입력</span>
+          <div class="tfp-card-header" style="display:flex; justify-content:space-between; align-items:center;">
+            <span>🍒 컵노트 (객관식 다중선택 / 검색)</span>
+            <div style="display:flex; align-items:center; gap:5px;">
+              <button type="button" id="noteMatchModeBtn" onclick="toggleNoteMatchMode()" style="font-size:11px; font-weight:700; padding:2px 8px; height:22px; border-radius:12px; background:var(--card-bg); border:1px solid var(--accent-gold); color:var(--accent-gold); cursor:pointer;" title="다중 선택 시 매칭 모드 전환: OR(하나라도 포함) / AND(모두 포함)">
+                조건: OR (하나라도) ↕
+              </button>
+            </div>
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box" style="position:relative; width:100%;">
-              <input type="text" id="filter_note_input" class="tfp-text-input" placeholder="원하는 향미 입력 (예: 복숭아, peach, 자스민, 파파야...)" oninput="applyNoteFilterInput()" onkeydown="if(event.key==='Enter') applyNoteFilterInput()">
+              <input type="text" id="filter_note_input" class="tfp-text-input" placeholder="직접 검색 (예: 복숭아, peach, 자스민, 딸기...)" oninput="applyNoteFilterInput()" onkeydown="if(event.key==='Enter') applyNoteFilterInput()">
               <button type="button" id="noteClearBtn" onclick="clearNoteInput()" style="display:none; position:absolute; right:6px; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:13px; padding:0 4px;" title="지우기">✕</button>
             </div>
           </div>
-          <div class="tfp-preset-row" id="notePresetRow">
-            <button class="tfp-preset-btn" onclick="setNotePreset('복숭아', this)">복숭아</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('자스민', this)">자스민</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('베르가못', this)">베르가못</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('만다린', this)">만다린</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('파파야', this)">파파야</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('유자', this)">유자</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('망고', this)">망고</button>
-            <button class="tfp-preset-btn" onclick="setNotePreset('초콜릿', this)">초콜릿</button>
+          <div class="tfp-preset-row" id="notePresetRow" style="gap:5px; flex-wrap:wrap;">
+            <button class="tfp-preset-btn" data-note="복숭아" onclick="toggleNotePreset('복숭아', this)">복숭아</button>
+            <button class="tfp-preset-btn" data-note="자스민" onclick="toggleNotePreset('자스민', this)">자스민</button>
+            <button class="tfp-preset-btn" data-note="베르가못" onclick="toggleNotePreset('베르가못', this)">베르가못</button>
+            <button class="tfp-preset-btn" data-note="만다린" onclick="toggleNotePreset('만다린', this)">만다린</button>
+            <button class="tfp-preset-btn" data-note="오렌지" onclick="toggleNotePreset('오렌지', this)">오렌지</button>
+            <button class="tfp-preset-btn" data-note="파파야" onclick="toggleNotePreset('파파야', this)">파파야</button>
+            <button class="tfp-preset-btn" data-note="망고" onclick="toggleNotePreset('망고', this)">망고</button>
+            <button class="tfp-preset-btn" data-note="유자" onclick="toggleNotePreset('유자', this)">유자</button>
+            <button class="tfp-preset-btn" data-note="플로럴" onclick="toggleNotePreset('플로럴', this)">플로럴</button>
+            <button class="tfp-preset-btn" data-note="서양배" onclick="toggleNotePreset('서양배', this)">서양배</button>
+            <button class="tfp-preset-btn" data-note="살구" onclick="toggleNotePreset('살구', this)">살구</button>
+            <button class="tfp-preset-btn" data-note="초콜릿" onclick="toggleNotePreset('초콜릿', this)">초콜릿</button>
           </div>
         </div>
 
@@ -2129,6 +2137,8 @@ def generate_html(items, stats):
   let mobilePreviewCoffeeId = null;
   let highlightedNote = null;
   let noteFilterQuery = ''; // Subjective free-text cup note filter
+  let selectedPresetNotes = new Set(); // Multi-select objective cup note presets
+  let noteMatchMode = 'or'; // 'or' (at least one) | 'and' (must match all)
   let syncPriceWithCharts = true; // whether to sync range filters with charts
   let sortKey = 'score_total';
   let sortAsc = false;
@@ -2167,28 +2177,51 @@ def generate_html(items, stats):
     return false;
   }}
 
-  function formatNotesHighlight(notesStr, query) {{
-    if (!query || !notesStr) return notesStr || '-';
+  // Multi-cup-note matcher combining objective presets (OR / AND) and subjective text input
+  function checkCoffeeMatchesActiveNotes(c) {{
+    // 1. Objective multi-selected presets
+    if (selectedPresetNotes.size > 0) {{
+      const presets = Array.from(selectedPresetNotes);
+      if (noteMatchMode === 'and') {{
+        const allMatch = presets.every(n => checkCoffeeMatchesNote(c, n));
+        if (!allMatch) return false;
+      }} else {{
+        const anyMatch = presets.some(n => checkCoffeeMatchesNote(c, n));
+        if (!anyMatch) return false;
+      }}
+    }}
+    // 2. Subjective direct text search input
+    if (noteFilterQuery) {{
+      if (!checkCoffeeMatchesNote(c, noteFilterQuery)) return false;
+    }}
+    return true;
+  }}
+
+  function formatNotesHighlight(notesStr) {{
+    if (!notesStr) return '-';
     try {{
-      const q = query.trim().toLowerCase();
-      if (!q) return notesStr;
-      let words = [q];
-      for (const [krWord, enList] of Object.entries(KR_NOTE_MAP)) {{
-        if (q.includes(krWord) || krWord.includes(q)) {{
-          words.push(...enList);
+      const activeQueries = [];
+      if (noteFilterQuery) activeQueries.push(noteFilterQuery.trim().toLowerCase());
+      selectedPresetNotes.forEach(n => activeQueries.push(n.trim().toLowerCase()));
+      if (activeQueries.length === 0) return notesStr;
+
+      let words = [];
+      activeQueries.forEach(q => {{
+        if (!q) return;
+        words.push(q);
+        for (const [krWord, enList] of Object.entries(KR_NOTE_MAP)) {{
+          if (q.includes(krWord) || krWord.includes(q)) {{
+            words.push(...enList);
+          }}
         }}
-      }}
-      let result = notesStr;
-      for (const w of words) {{
-        if (!w || w.length < 2) continue;
-        const idx = result.toLowerCase().indexOf(w.toLowerCase());
-        if (idx !== -1) {{
-          const matched = result.substr(idx, w.length);
-          result = result.substring(0, idx) + '<mark style="background:var(--accent-gold-bg); color:var(--accent-gold); padding:0 3px; border-radius:3px; font-weight:700;">' + matched + '</mark>' + result.substring(idx + w.length);
-          break;
-        }}
-      }}
-      return result;
+      }});
+
+      words = Array.from(new Set(words)).filter(w => w && w.length >= 2).sort((a, b) => b.length - a.length);
+      if (words.length === 0) return notesStr;
+
+      const escaped = words.map(w => w.split('').map(ch => ('-/^$*+?.()|[]{{}}'.includes(ch) ? '\\\\' + ch : ch)).join('')).join('|');
+      const regex = new RegExp('(' + escaped + ')', 'gi');
+      return notesStr.replace(regex, '<mark style="background:var(--accent-gold-bg); color:var(--accent-gold); padding:0 3px; border-radius:3px; font-weight:700;">$1</mark>');
     }} catch(e) {{
       return notesStr;
     }}
@@ -2283,8 +2316,8 @@ def generate_html(items, stats):
         return false;
       }}
 
-      // 7. Cup note subjective search filter (applied to dataset when chart sync is active)
-      if (syncPriceWithCharts && noteFilterQuery && !checkCoffeeMatchesNote(c, noteFilterQuery)) {{
+      // 7. Cup note multi-presets & search filter (applied to dataset when chart sync is active)
+      if (syncPriceWithCharts && !checkCoffeeMatchesActiveNotes(c)) {{
         return false;
       }}
 
@@ -2732,7 +2765,10 @@ def generate_html(items, stats):
       let filterDesc = [];
       if (currentOriginFilter !== 'all') filterDesc.push(`원산지:${{currentOriginFilter}}`);
       if (currentProcessFilter !== 'all') filterDesc.push(`가공:${{currentProcessFilter}}`);
-      if (noteFilterQuery) filterDesc.push(`노트:'${{noteFilterQuery}}'`);
+      if (selectedPresetNotes.size > 0) {{
+        filterDesc.push(`선택노트:${{Array.from(selectedPresetNotes).join(',')}}(${{noteMatchMode.toUpperCase()}})`);
+      }}
+      if (noteFilterQuery) filterDesc.push(`노트검색:'${{noteFilterQuery}}'`);
       if (syncPriceWithCharts) {{
         const activeCount = Object.values(rangeFilters).filter(r => r.min !== null || r.max !== null).length;
         if (activeCount > 0) filterDesc.push(`수치필터 ${{activeCount}}개 적용`);
@@ -2796,9 +2832,7 @@ def generate_html(items, stats):
     // If charts sync is OFF but range filters or note filter are active, filter table only
     if (!syncPriceWithCharts) {{
       filtered = filtered.filter(c => matchesRangeFilters(c));
-      if (noteFilterQuery) {{
-        filtered = filtered.filter(c => checkCoffeeMatchesNote(c, noteFilterQuery));
-      }}
+      filtered = filtered.filter(c => checkCoffeeMatchesActiveNotes(c));
     }}
 
     const sorted = [...filtered].sort((a, b) => {{
@@ -2825,7 +2859,7 @@ def generate_html(items, stats):
           <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
           <td>
             <strong style="word-break:keep-all;">${{c.title}}</strong>
-            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">✨ ${{formatNotesHighlight(c.tasting_notes, noteFilterQuery)}}</div>
+            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">✨ ${{formatNotesHighlight(c.tasting_notes)}}</div>
           </td>
           <td>${{c.country}}</td>
           <td><span style="font-size:11.5px; font-weight:600; ${{currentProcessFilter !== 'all' ? 'color:var(--accent-blue); font-weight:800;' : ''}}">${{c.process}}</span></td>
@@ -2893,9 +2927,17 @@ def generate_html(items, stats):
       tags.push({{ key: 'score_rarity', text: `💎 희: ≤${{rf.score_rarity.max}}점` }});
     }}
 
+    // Note Presets Multi-Selection Tags
+    if (selectedPresetNotes.size > 0) {{
+      const modeText = noteMatchMode.toUpperCase();
+      selectedPresetNotes.forEach(note => {{
+        tags.push({{ key: 'preset_note_' + note, text: `🍒 컵노트(${{modeText}}): ${{note}}` }});
+      }});
+    }}
+
     // Note Search Tag
     if (noteFilterQuery) {{
-      tags.push({{ key: 'note', text: `🍒 컵노트: "${{noteFilterQuery}}"` }});
+      tags.push({{ key: 'note', text: `🔍 컵노트검색: "${{noteFilterQuery}}"` }});
     }}
 
     // Process Filter Tag
@@ -2961,31 +3003,46 @@ def generate_html(items, stats):
     noteFilterQuery = val;
     const btn = document.getElementById('noteClearBtn');
     if (btn) btn.style.display = val ? 'inline-block' : 'none';
-
-    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => {{
-      b.classList.toggle('active', b.textContent === val);
-    }});
-
     updateAll();
   }}
 
-  function setNotePreset(noteName, btn) {{
-    const input = document.getElementById('filter_note_input');
-    const isAlreadyActive = btn.classList.contains('active');
-
-    if (isAlreadyActive) {{
-      btn.classList.remove('active');
-      if (input) input.value = '';
-      noteFilterQuery = '';
-      const cBtn = document.getElementById('noteClearBtn');
-      if (cBtn) cBtn.style.display = 'none';
+  // 컵노트 객관식 프리셋 다중 선택 토글
+  function toggleNotePreset(noteName, btn) {{
+    if (selectedPresetNotes.has(noteName)) {{
+      selectedPresetNotes.delete(noteName);
+      if (btn) btn.classList.remove('active');
     }} else {{
-      document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (input) input.value = noteName;
-      noteFilterQuery = noteName;
-      const cBtn = document.getElementById('noteClearBtn');
-      if (cBtn) cBtn.style.display = 'inline-block';
+      selectedPresetNotes.add(noteName);
+      if (btn) btn.classList.add('active');
+    }}
+    updateAll();
+  }}
+
+  // 하단 태그에서 특정 프리셋 컵노트 1개 해제
+  function removeSinglePresetNote(noteName) {{
+    selectedPresetNotes.delete(noteName);
+    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => {{
+      if (b.getAttribute('data-note') === noteName || b.textContent.trim() === noteName) {{
+        b.classList.remove('active');
+      }}
+    }});
+    updateAll();
+  }}
+
+  // 다중 컵노트 매칭 조건 (OR / AND) 토글
+  function toggleNoteMatchMode() {{
+    noteMatchMode = (noteMatchMode === 'or') ? 'and' : 'or';
+    const btn = document.getElementById('noteMatchModeBtn');
+    if (btn) {{
+      if (noteMatchMode === 'and') {{
+        btn.textContent = '조건: AND (모두) ↕';
+        btn.style.borderColor = 'var(--accent-blue)';
+        btn.style.color = 'var(--accent-blue)';
+      }} else {{
+        btn.textContent = '조건: OR (하나라도) ↕';
+        btn.style.borderColor = 'var(--accent-gold)';
+        btn.style.color = 'var(--accent-gold)';
+      }}
     }}
     updateAll();
   }}
@@ -2996,7 +3053,6 @@ def generate_html(items, stats):
     noteFilterQuery = '';
     const btn = document.getElementById('noteClearBtn');
     if (btn) btn.style.display = 'none';
-    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
     updateAll();
   }}
 
@@ -3043,6 +3099,11 @@ def generate_html(items, stats):
 
   // Clear Single Range Filter
   function clearSingleRangeFilter(key) {{
+    if (key.startsWith('preset_note_')) {{
+      const n = key.replace('preset_note_', '');
+      removeSinglePresetNote(n);
+      return;
+    }}
     if (key === 'note') {{
       clearNoteInput();
       return;
@@ -3100,13 +3161,22 @@ def generate_html(items, stats):
       if (el) el.value = '';
     }});
 
-    // Reset note search
+    // Reset note multi-presets & search
+    selectedPresetNotes.clear();
+    noteMatchMode = 'or';
+    const modeBtn = document.getElementById('noteMatchModeBtn');
+    if (modeBtn) {{
+      modeBtn.textContent = '조건: OR (하나라도) ↕';
+      modeBtn.style.borderColor = 'var(--accent-gold)';
+      modeBtn.style.color = 'var(--accent-gold)';
+    }}
+    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
+
     const nInput = document.getElementById('filter_note_input');
     if (nInput) nInput.value = '';
     noteFilterQuery = '';
     const nClearBtn = document.getElementById('noteClearBtn');
     if (nClearBtn) nClearBtn.style.display = 'none';
-    document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => b.classList.remove('active'));
 
     // Reset process filter to 'all'
     currentProcessFilter = 'all';
