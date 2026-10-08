@@ -1639,6 +1639,56 @@
     border-color: rgba(37, 99, 235, 0.3);
   }
 
+
+  /* TABLE HEADER TODAY NEW FILTER BUTTON */
+  .th-today-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.2;
+    text-transform: none;
+  }
+  .th-today-filter-btn:hover {
+    background: rgba(56, 139, 253, 0.3);
+    border-color: #58a6ff;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .th-today-filter-btn.active {
+    background: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+    box-shadow: 0 0 10px rgba(46, 160, 67, 0.4);
+  }
+  [data-theme="light"] .th-today-filter-btn {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+  [data-theme="light"] .th-today-filter-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    color: #1d4ed8;
+    border-color: #2563eb;
+  }
+  [data-theme="light"] .th-today-filter-btn.active {
+    background: #16a34a !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
+  }
+
 </style>
 </head>
 <body>
@@ -1746,8 +1796,8 @@
           샤르자 및 두바이를 거점으로 전 세계 유명 바리스타들과 직거래하는 UAE 최대 스페셜티 로스터리. 컴피티션, 마이크로랏 리저브, 셀렉션 3대 컬렉션 완비.
         </p>
         <ul class="r-highlights">
-          <li><span>🌟</span> <strong class="today-new-coffee-title">Panama - Finca Deborah, Terroir</strong> <span class="badge-new-date">1025</span>: WBC 챔피언 명문 크리스탈 클린컵 게이샤</li>
-          <li><span>🌟</span> <strong class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume</strong> <span class="badge-new-date">1214</span>: 희귀 야생종 수단 루메 극가성비 랏</li>
+          <li><span>🌟</span> <strong class="today-new-coffee-title">Panama - Finca Deborah, Terroir</strong> <span class="badge-new-date">1008</span>: WBC 챔피언 명문 크리스탈 클린컵 게이샤</li>
+          <li><span>🌟</span> <strong class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume</strong> <span class="badge-new-date">1008</span>: 희귀 야생종 수단 루메 극가성비 랏</li>
           <li><span>📷</span> <strong>패키지 실물 사진 전수 탑재:</strong> 146종 전수 실물 사진 & 라이트박스 확대 지원</li>
           <li><span>🥇</span> <strong>Auromar Geisha Washed Peaberry:</strong> 아처스 독점 피베리 나노랏</li>
           <li><span>🥈</span> <strong>Hamasho Village Washed:</strong> 다예 벤사 독점 랏 (100g 1.2만원대)</li>
@@ -1863,6 +1913,7 @@
         <button class="f-btn active" onclick="filterRanked('all', this)">전체 20개 보기 (중복 음영 포함)</button>
         <button class="f-btn" onclick="filterRanked('active', this)">🎯 최종 추천 10선만 모아보기</button>
         <button class="f-btn" onclick="filterRanked('overlap', this)">🚫 중복 제외 10종 보기</button>
+        <button class="f-btn" id="btnFilterTodayNew" onclick="filterRanked('today_new', this)">✨ 오늘 출시 랏 (1008 신규 4선)</button>
       </div>
       <div class="legend-note">
         💡 <strong>안내:</strong> 점수는 순수 기준으로만 매겨졌으며, 3대 유사도 프로파일(컵노트 50%, 테루아 30%, 프로세스 20%)을 적용하여 상위 커피와의 유사도 %를 산출했습니다.
@@ -1889,7 +1940,17 @@
             </th>
             <th class="text-center">선정 /<br>순위</th>
             <th class="text-center">로스터리<br>↗</th>
-            <th>커피 이름 & 스펙<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(클릭 시 분석 모달 🔍)</span></th>
+            <th style="min-width:270px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <div>
+                  커피 이름 &amp; 스펙<br>
+                  <span style="font-size:11px; font-weight:normal; opacity:0.8;">(클릭 시 분석 모달 🔍)</span>
+                </div>
+                <button type="button" id="todayFilterBtnIndex" class="th-today-filter-btn" onclick="toggleTodayNewFilterIndex(event)" title="오늘(1008) 출시된 신규 원두(4선)만 보기 필터 토글">
+                  ✨ 1008 신규만
+                </button>
+              </div>
+            </th>
             <th>✨ 컵노트<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(Tasting Notes)</span></th>
             <th class="text-right">100g 가격<br><span style="font-size:11px; font-weight:normal; opacity:0.8;">(AED/원화)</span></th>
             <th class="text-center score-col-header">
@@ -2874,6 +2935,200 @@
           </td>
         </tr>
         
+        
+        <!-- TODAY NEW RELEASED COFFEES (1008) -->
+        <tr class="active-pick-row today-new-curation-row" data-status="today_new" data-today-new="true" data-rank="NEW" data-total="88.5" data-taste="44.5" data-price="24.0" data-rarity="20.0" data-handle="panama-terroir-finca-deborah" style="display:none;">
+          <td class="text-center cart-check-cell">
+            <input type="checkbox" class="cart-row-checkbox" data-idx="20" data-price-aed="165.0" data-price-krw="62700" data-is-active="1" onchange="updateCartToolbarState()">
+          </td>
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank" style="background:rgba(56,139,253,0.2); color:#58a6ff; border:1px solid #58a6ff;">NEW 1008</span>
+          </td>
+          <td class="roastery-cell">
+            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" rel="noopener noreferrer" class="roastery-link-btn archers-btn" title="클릭 시 공식 웹스토어로 이동">
+              🏹 Archers <span class="out-icon">↗</span>
+            </a>
+          </td>
+          <td class="coffee-name-cell">
+            <button type="button" class="coffee-modal-btn" onclick="openCoffeeModal(20)" title="클릭 시 상세 분석 및 브루잉 가이드 보기">
+              <span class="btn-coffee-title today-new-coffee-title">Panama - Finca Deborah, Terroir</span>
+              <span class="badge-new-date">1008</span>
+              <span class="view-detail-chip">🔍 상세분석</span>
+            </button>
+            <div class="c-spec-sub">
+              Panama • Volcan, Boquete • Geisha (Classic Washed)
+            </div>
+          </td>
+          <td class="notes-cell">
+            <div class="table-notes-tag">✨ White Floral, Bergamot, Meyer Lemon, Jasmine Tea</div>
+            <div class="table-flavor-cat">Floral &amp; Citrus Tea</div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">165.0 AED</div>
+            <div class="krw-price">약 62,700원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (50점 만점)">맛 44.5/50</span><br>
+              <span title="가격 점수 (30점 만점)">가격 24.0/30</span> • 
+              <span title="한국 희소성 (20점 만점)">희소 20.0/20</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">88.5</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">WBC 챔피언 사샤 세스틱의 Finca Deborah 정통 클래식 워시드 게이샤. 해발 1900m 바루 화산의 극한 일교차와 테루아 본연의 투명함을 담아낸 크리스탈 클린컵.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> ★ 오늘(1008) 신규 추가 | WBC 우승 명문 테루아 게이샤
+            </div>
+          </td>
+        </tr>
+
+        <tr class="active-pick-row today-new-curation-row" data-status="today_new" data-today-new="true" data-rank="NEW" data-total="74.5" data-taste="34.0" data-price="20.5" data-rarity="20.0" data-handle="caballero-bomba-de-fruta-1-6" style="display:none;">
+          <td class="text-center cart-check-cell">
+            <input type="checkbox" class="cart-row-checkbox" data-idx="21" data-price-aed="76.19" data-price-krw="28950" data-is-active="1" onchange="updateCartToolbarState()">
+          </td>
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank" style="background:rgba(56,139,253,0.2); color:#58a6ff; border:1px solid #58a6ff;">NEW 1008</span>
+          </td>
+          <td class="roastery-cell">
+            <a href="https://theespressolab.com/products-details/caballero-bomba-de-fruta-1-6" target="_blank" rel="noopener noreferrer" class="roastery-link-btn" style="background:linear-gradient(135deg, #e11d48, #be123c); color:#fff;" title="클릭 시 공식 웹스토어로 이동">
+              ☕ Esolab <span class="out-icon">↗</span>
+            </a>
+          </td>
+          <td class="coffee-name-cell">
+            <button type="button" class="coffee-modal-btn" onclick="openCoffeeModal(21)" title="클릭 시 상세 분석 및 브루잉 가이드 보기">
+              <span class="btn-coffee-title today-new-coffee-title">Caballero Bomba de Fruta #1</span>
+              <span class="badge-new-date">1008</span>
+              <span class="view-detail-chip">🔍 상세분석</span>
+            </button>
+            <div class="c-spec-sub">
+              Honduras • Marcala, La Paz • Catuai / Java (Anaerobic Natural)
+            </div>
+          </td>
+          <td class="notes-cell">
+            <div class="table-notes-tag">✨ Passionfruit, Mango, Dark Cherry, Brown Sugar, Rum</div>
+            <div class="table-flavor-cat">Tropical &amp; Boozy Fruit</div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">76.19 AED</div>
+            <div class="krw-price">약 28,950원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (50점 만점)">맛 34.0/50</span><br>
+              <span title="가격 점수 (30점 만점)">가격 20.5/30</span> • 
+              <span title="한국 희소성 (20점 만점)">희소 20.0/20</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">74.5</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">온두라스 COE 1위 카바예로 부부의 정밀 무산소 내추럴 배치. 패션후르츠, 망고, 다크체리의 폭발적인 과일향과 럼의 농밀한 단맛이 돋보이는 프루티 랏.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> ★ 오늘(1008) 신규 추가 | COE 1위 과일폭탄 무산소 랏
+            </div>
+          </td>
+        </tr>
+
+        <tr class="active-pick-row today-new-curation-row" data-status="today_new" data-today-new="true" data-rank="NEW" data-total="82.3" data-taste="41.3" data-price="21.0" data-rarity="20.0" data-handle="brazil-santuario-sul-sudan-rume-washed" style="display:none;">
+          <td class="text-center cart-check-cell">
+            <input type="checkbox" class="cart-row-checkbox" data-idx="22" data-price-aed="55.0" data-price-krw="20900" data-is-active="1" onchange="updateCartToolbarState()">
+          </td>
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank" style="background:rgba(56,139,253,0.2); color:#58a6ff; border:1px solid #58a6ff;">NEW 1008</span>
+          </td>
+          <td class="roastery-cell">
+            <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" rel="noopener noreferrer" class="roastery-link-btn archers-btn" title="클릭 시 공식 웹스토어로 이동">
+              🏹 Archers <span class="out-icon">↗</span>
+            </a>
+          </td>
+          <td class="coffee-name-cell">
+            <button type="button" class="coffee-modal-btn" onclick="openCoffeeModal(22)" title="클릭 시 상세 분석 및 브루잉 가이드 보기">
+              <span class="btn-coffee-title today-new-coffee-title">Brazil - Santuario Sul Sudan Rume</span>
+              <span class="badge-new-date">1008</span>
+              <span class="view-detail-chip">🔍 상세분석</span>
+            </button>
+            <div class="c-spec-sub">
+              Brazil • Mantiqueira de Minas • Sudan Rume (Washed)
+            </div>
+          </td>
+          <td class="notes-cell">
+            <div class="table-notes-tag">✨ Lemon Verbena, Lemongrass, Floral, Green Tea</div>
+            <div class="table-flavor-cat">Herb Tea &amp; Elegant Floral</div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">55.0 AED</div>
+            <div class="krw-price">약 20,900원 (250g)</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (50점 만점)">맛 41.3/50</span><br>
+              <span title="가격 점수 (30점 만점)">가격 21.0/30</span> • 
+              <span title="한국 희소성 (20점 만점)">희소 20.0/20</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">82.3</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">브라질 최고 혁신 농장 Santuario Sul의 전설적인 수단 루메(Sudan Rume) 품종. 레몬버베나와 레몬그라스의 상쾌한 허브티 뉘앙스를 자랑하는 가성비 극상 랏.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> ★ 오늘(1008) 신규 추가 | 희귀 야생종 수단루메 가성비 랏
+            </div>
+          </td>
+        </tr>
+
+        <tr class="active-pick-row today-new-curation-row" data-status="today_new" data-today-new="true" data-rank="NEW" data-total="73.8" data-taste="33.3" data-price="20.5" data-rarity="20.0" data-handle="samambaia-natural-yellow-catucai" style="display:none;">
+          <td class="text-center cart-check-cell">
+            <input type="checkbox" class="cart-row-checkbox" data-idx="23" data-price-aed="76.19" data-price-krw="28950" data-is-active="1" onchange="updateCartToolbarState()">
+          </td>
+          <td class="text-center font-mono">
+            <span class="rank-badge active-rank" style="background:rgba(56,139,253,0.2); color:#58a6ff; border:1px solid #58a6ff;">NEW 1008</span>
+          </td>
+          <td class="roastery-cell">
+            <a href="https://theespressolab.com/products-details/samambaia-natural-yellow-catucai" target="_blank" rel="noopener noreferrer" class="roastery-link-btn" style="background:linear-gradient(135deg, #e11d48, #be123c); color:#fff;" title="클릭 시 공식 웹스토어로 이동">
+              ☕ Esolab <span class="out-icon">↗</span>
+            </a>
+          </td>
+          <td class="coffee-name-cell">
+            <button type="button" class="coffee-modal-btn" onclick="openCoffeeModal(23)" title="클릭 시 상세 분석 및 브루잉 가이드 보기">
+              <span class="btn-coffee-title today-new-coffee-title">Samambaia Natural Yellow Catucai</span>
+              <span class="badge-new-date">1008</span>
+              <span class="view-detail-chip">🔍 상세분석</span>
+            </button>
+            <div class="c-spec-sub">
+              Brazil • Sul de Minas • Yellow Catucai (Natural)
+            </div>
+          </td>
+          <td class="notes-cell">
+            <div class="table-notes-tag">✨ Milk Chocolate, Hazelnut, Yellow Plum, Caramel Sweetness</div>
+            <div class="table-flavor-cat">Nutty Chocolate &amp; Sweet Plum</div>
+          </td>
+          <td class="text-right font-mono price-col">
+            <div class="aed-price">76.19 AED</div>
+            <div class="krw-price">약 28,950원</div>
+          </td>
+          <td class="text-center font-mono score-col">
+            <div class="score-breakdown">
+              <span title="맛 점수 (50점 만점)">맛 33.3/50</span><br>
+              <span title="가격 점수 (30점 만점)">가격 20.5/30</span> • 
+              <span title="한국 희소성 (20점 만점)">희소 20.0/20</span>
+            </div>
+            <div class="total-score-box">
+              <span class="total-score">73.8</span><span class="total-max">/100</span>
+            </div>
+          </td>
+          <td class="analysis-cell">
+            <div class="review-desc">120년 역사의 브라질 명문 Fazenda Samambaia의 희귀 옐로우 카투카이. 밀크초콜릿과 헤이즐넛, 황자두의 달콤하고 편안한 밸런스가 뛰어난 올라운더 랏.</div>
+            <div class="overlap-reason act-reason mt-1">
+              <strong>판정:</strong> ★ 오늘(1008) 신규 추가 | 120년 명문 농장 밸런스 랏
+            </div>
+          </td>
+        </tr>
+
         </tbody>
       </table>
     </div>
@@ -3088,6 +3343,30 @@
     applyFilter(currentFilter);
     updateCartToolbarState();
   }
+  let isTodayNewFilterActiveIndex = false;
+
+  function toggleTodayNewFilterIndex(e) {
+    if (e) e.stopPropagation();
+    isTodayNewFilterActiveIndex = !isTodayNewFilterActiveIndex;
+    const btn = document.getElementById('todayFilterBtnIndex');
+    const fBtn = document.getElementById('btnFilterTodayNew');
+    
+    if (isTodayNewFilterActiveIndex) {
+      if (btn) {
+        btn.classList.add('active');
+        btn.innerHTML = '✨ 1008 신규 (4종 ON)';
+      }
+      filterRanked('today_new', fBtn);
+    } else {
+      if (btn) {
+        btn.classList.remove('active');
+        btn.innerHTML = '✨ 1008 신규만';
+      }
+      const allBtn = document.querySelector('.f-btn');
+      filterRanked('all', allBtn);
+    }
+  }
+
 
   function filterRanked(type, btn) {
     currentFilter = type;
@@ -3098,14 +3377,29 @@
 
   function applyFilter(type) {
     const rows = document.querySelectorAll('#top20Table tbody tr');
+    const headerBtn = document.getElementById('todayFilterBtnIndex');
+    if (headerBtn) {
+      if (type === 'today_new') {
+        headerBtn.classList.add('active');
+        headerBtn.innerHTML = '✨ 1008 신규 (4종 ON)';
+        isTodayNewFilterActiveIndex = true;
+      } else {
+        headerBtn.classList.remove('active');
+        headerBtn.innerHTML = '✨ 1008 신규만';
+        isTodayNewFilterActiveIndex = false;
+      }
+    }
     rows.forEach(row => {
       const st = row.getAttribute('data-status');
+      const isToday = row.getAttribute('data-today-new') === 'true';
       if (type === 'all') {
-        row.style.display = '';
+        row.style.display = (st === 'today_new') ? 'none' : '';
       } else if (type === 'active') {
         row.style.display = (st === 'active') ? '' : 'none';
       } else if (type === 'overlap') {
         row.style.display = (st === 'overlap') ? '' : 'none';
+      } else if (type === 'today_new') {
+        row.style.display = isToday ? '' : 'none';
       }
     });
   }

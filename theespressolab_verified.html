@@ -911,6 +911,56 @@
     border-color: rgba(37, 99, 235, 0.3);
   }
 
+
+  /* TABLE HEADER TODAY NEW FILTER BUTTON */
+  .th-today-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.2;
+    text-transform: none;
+  }
+  .th-today-filter-btn:hover {
+    background: rgba(56, 139, 253, 0.3);
+    border-color: #58a6ff;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .th-today-filter-btn.active {
+    background: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+    box-shadow: 0 0 10px rgba(46, 160, 67, 0.4);
+  }
+  [data-theme="light"] .th-today-filter-btn {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+  [data-theme="light"] .th-today-filter-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    color: #1d4ed8;
+    border-color: #2563eb;
+  }
+  [data-theme="light"] .th-today-filter-btn.active {
+    background: #16a34a !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
+  }
+
 </style>
 </head>
 <body>
@@ -1327,7 +1377,17 @@
               <span onclick="sortScoreCol('rarity')" id="sortTrigger_tel_rarity" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="희소성(20점 만점) 정렬">희<span id="sortInd_tel_rarity" style="font-size:9px;">↕</span></span>
             </div>
           </th>
-            <th onclick="sortTable(3, 'str')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(원문 링크 ↗)</span><span class="sort-arrow"></span></th>
+            <th style="min-width:180px; text-align:left;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <div onclick="sortTable(3, 'str')" style="cursor:pointer;" title="커피 이름 기준 정렬">
+                  커피 이름 <span class="sort-arrow"></span><br>
+                  <span style="font-size:10px; font-weight:normal; opacity:0.8;">(원문 링크 ↗)</span>
+                </div>
+                <button type="button" id="todayFilterBtnTel" class="th-today-filter-btn" onclick="toggleTodayNewFilter(event)" title="오늘(1008) 출시된 신규 원두(2종)만 보기 필터 토글">
+                  ✨ 1008 신규만
+                </button>
+              </div>
+            </th>
             <th onclick="sortTable(4, 'str')" style="width:60px;">국가<span class="sort-arrow"></span></th>
             <th onclick="sortTable(5, 'str')" style="width:75px;">지역<span class="sort-arrow"></span></th>
             <th onclick="sortTable(6, 'str')" style="width:80px;">농장<span class="sort-arrow"></span></th>
@@ -4345,8 +4405,7 @@
             <span class="badge badge-verified">✓ PASS</span>
           </td>
         </tr>
-        
-        <tr data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
+<tr data-today-new="true" data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
           <td class="text-muted text-xs font-mono">55</td>
           <td>
             <div class="pkg-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Samambaia Natural Yellow Catucai')">
@@ -4393,102 +4452,7 @@
           </td>
           <td class="text-center"><span class="badge-pass">PASS</span></td>
         </tr>
-        <tr data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
-          <td class="text-muted text-xs font-mono">56</td>
-          <td>
-            <div class="pkg-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Caballero Bomba de Fruta #1')">
-              <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Caballero Bomba de Fruta #1" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Coffee'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="73.9" data-total="73.9" data-taste="27.0" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.9</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 26.9 / 희 20.0</div>
-          </td>
-          <td>
-            <div class="coffee-title-cell">
-              <a href="https://theespressolab.com/products-details/caballero-bomba-de-fruta-1-6" target="_blank" class="coffee-link today-new-coffee-title" title="공식 스토어로 이동">
-                🇭🇳 Caballero Bomba de Fruta #1 <span class="badge-new-date">1008</span> ↗
-              </a>
-            </div>
-            <div class="text-xs text-muted font-mono">caballero-bomba-de-fruta-1-6</div>
-          </td>
-          <td class="text-sm font-medium">Finca El Puente</td>
-          <td class="text-xs">Marysabel Caballero & Moises Herrera</td>
-          <td class="text-xs font-mono">Honduras</td>
-          <td class="text-xs">Marcala, La Paz</td>
-          <td class="text-xs font-mono">1,600 masl</td>
-          <td><span class="process-tag">Anaerobic Natural</span></td>
-          <td class="text-xs">Catuai / Java</td>
-          <td class="text-xs font-medium" style="color:var(--accent);">Filter (Light Roast)</td>
-          <td class="notes-cell">Passionfruit, Mango, Dark Cherry, Brown Sugar, Rum</td>
-          <td class="text-xs font-mono">100g</td>
-          <td class="price-cell">
-            <span class="price-aed">76.19 AED</span>
-            <span class="price-krw">약 28,950원</span>
-          </td>
-          <td class="price-cell">
-            <span class="price-aed">76.19 AED</span>
-            <span class="price-krw">약 28,950원</span>
-          </td>
-          <td><span class="status-badge na">미수입</span></td>
-          <td>
-            <div class="merit-text">온두라스 최고봉 카바예로 농장의 과일 폭탄(Bomba de Fruta) 시리즈 신규 랏. 열대과일과 럼의 화려한 플레이버.</div>
-          </td>
-          <td>
-            <div class="review-text">이름 그대로 폭발적인 과일 향미와 달콤한 브라운슈가의 밸런스를 보여주는 수작.</div>
-          </td>
-          <td class="text-center"><span class="badge-pass">PASS</span></td>
-        </tr>
-      
-        <tr data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
-          <td class="text-muted text-xs font-mono">55</td>
-          <td>
-            <div class="pkg-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Samambaia Natural Yellow Catucai')">
-              <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Samambaia Natural Yellow Catucai" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Coffee'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="73.9" data-total="73.9" data-taste="27.0" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.9</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 26.9 / 희 20.0</div>
-          </td>
-          <td>
-            <div class="coffee-title-cell">
-              <a href="https://theespressolab.com/products-details/samambaia-natural-yellow-catucai" target="_blank" class="coffee-link today-new-coffee-title" title="공식 스토어로 이동">
-                🇧🇷 Samambaia Natural Yellow Catucai <span class="badge-new-date">1008</span> ↗
-              </a>
-            </div>
-            <div class="text-xs text-muted font-mono">samambaia-natural-yellow-catucai</div>
-          </td>
-          <td class="text-sm font-medium">Fazenda Samambaia</td>
-          <td class="text-xs">Henrique Dias Cambraia</td>
-          <td class="text-xs font-mono">Brazil</td>
-          <td class="text-xs">Sul de Minas</td>
-          <td class="text-xs font-mono">1,200 masl</td>
-          <td><span class="process-tag">Natural</span></td>
-          <td class="text-xs">Yellow Catucai</td>
-          <td class="text-xs font-medium" style="color:var(--accent);">Omni / Light-Medium Roast</td>
-          <td class="notes-cell">Milk Chocolate, Hazelnut, Yellow Plum, Caramel Sweetness</td>
-          <td class="text-xs font-mono">100g</td>
-          <td class="price-cell">
-            <span class="price-aed">76.19 AED</span>
-            <span class="price-krw">약 28,950원</span>
-          </td>
-          <td class="price-cell">
-            <span class="price-aed">76.19 AED</span>
-            <span class="price-krw">약 28,950원</span>
-          </td>
-          <td><span class="status-badge na">미수입</span></td>
-          <td>
-            <div class="merit-text">브라질 명문 Samambaia 농장의 희귀 Yellow Catucai 내추럴 랏. 100g 2.8만원대의 뛰어난 밸런스.</div>
-          </td>
-          <td>
-            <div class="review-text">밀크초콜릿과 카라멜의 달콤한 여운, 황자두의 부드러운 산미가 돋보이는 신규 입고 랏.</div>
-          </td>
-          <td class="text-center"><span class="badge-pass">PASS</span></td>
-        </tr>
-        <tr data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
+<tr data-today-new="true" data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural" data-taste="27.0" data-price="26.9" data-rarity="20.0">
           <td class="text-muted text-xs font-mono">56</td>
           <td>
             <div class="pkg-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Caballero Bomba de Fruta #1')">
@@ -4583,6 +4547,24 @@
     function filterSearch() {
       applyFilters();
     }
+    let isTodayNewFilterActive = false;
+
+    function toggleTodayNewFilter(e) {
+      if (e) e.stopPropagation();
+      isTodayNewFilterActive = !isTodayNewFilterActive;
+      const btn = document.getElementById('todayFilterBtnTel');
+      if (btn) {
+        if (isTodayNewFilterActive) {
+          btn.classList.add('active');
+          btn.innerHTML = '✨ 1008 신규 (2종 ON)';
+        } else {
+          btn.classList.remove('active');
+          btn.innerHTML = '✨ 1008 신규만';
+        }
+      }
+      applyFilters();
+    }
+
 
     function applyFilters() {
       const query = document.getElementById('searchInput').value.toLowerCase();
@@ -4595,7 +4577,10 @@
         const matchCat = (currentCategory === 'ALL' || rowCategory === currentCategory);
         const matchSearch = text.includes(query);
 
-        if (matchCat && matchSearch) {
+        const isToday = row.getAttribute('data-today-new') === 'true' || !!row.querySelector('.today-new-coffee-title, .badge-new-date');
+        const matchToday = !isTodayNewFilterActive || isToday;
+
+        if (matchCat && matchSearch && matchToday) {
           row.style.display = '';
         } else {
           row.style.display = 'none';

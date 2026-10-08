@@ -749,6 +749,7 @@
       <input type="text" id="mSearch" class="m-search-input" placeholder="원두명, 품종, 컵노트 검색..." onkeyup="applyMobileFilters()">
     </div>
     <div class="m-chips">
+      <button class="m-chip" id="mTodayFilterBtnTel" onclick="setChipFilter('TODAY_NEW', this)">✨ 1008 신규 (2)</button>
       <button class="m-chip active" onclick="setChipFilter('ALL', this)">전체 (54)</button>
       <button class="m-chip" onclick="setChipFilter('Panama High-End & Geisha', this)">🇵🇦 파나마 (25)</button>
       <button class="m-chip" onclick="setChipFilter('Ethiopia Terroir Collection', this)">🇪🇹 에티오피아 (9)</button>
@@ -760,7 +761,7 @@
   <!-- Coffee Cards List -->
   <div class="m-cards-list" id="mCardsList">
 
-        <div class="m-card" data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural">
+        <div class="m-card" data-today-new="true" data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural">
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Caballero Bomba de Fruta #1')">
               <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Caballero Bomba de Fruta #1" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
@@ -788,7 +789,7 @@
           <div class="m-card-merit">💡 <strong>과일 폭탄 랏:</strong> 온두라스 COE 1위 카바예로 부부의 정밀 무산소 내추럴 최신 릴리즈.</div>
         </div>
 
-        <div class="m-card" data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural">
+        <div class="m-card" data-today-new="true" data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural">
           <div class="m-card-top">
             <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Samambaia Natural Yellow Catucai')">
               <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Samambaia Natural Yellow Catucai" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">

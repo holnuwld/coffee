@@ -165,35 +165,35 @@ def generate_korean_keywords(c, roastery, group_key):
     return ' '.join(set(kr))
 
 TODAY_NEW_HANDLES_MAP = {
-    'colombia-mandela-vieux': '1010',
-    'panama-altieri-coffee-alessa-020425': '0112',
-    'panama-altieri-coffee-alessa-190325-cold-dry-ferment': '0112',
-    'panama-ale-241223-gw-altieri-coffee': '1025',
-    'panama-sakura-geisha-washed-bambito-estate': '1025',
-    'panama-enigma-finca-deborah': '0304',
-    'panama-interstellar-finca-deborah': '1025',
-    'panama-nirvana': '0304',
-    'panama-terroir-finca-deborah': '1025',
-    'hacienda-la-esmeralda-tomaco-4-anc': '0509',
-    'panama-janson-family-geisha-honey-los-alpes-lot-503': '0217',
-    'panama-mil-cumbres-lot-omo-0702-geisha-washed': '1025',
-    'panama-tierra-blanca-geisha-washed': '1025',
-    'brazil-fazenda-ip-natural': '1012',
-    'brazil-santa-ines': '0111',
-    'brazil-santuario-sul-sudan-rume-washed': '1214',
-    'burundi-kivuvuma-natural': '0331',
-    'colombia-condor-decaf': '1004',
-    'el-salvador-finca-el-cerro-pacas-washed': '0610',
-    'el-salvador-finca-majahual': '0316',
-    'ethiopia-alo-coffee-mewa-village': '0920',
-    'ethiopia-banko-chelchele-chelbesa-natural-1': '1004',
-    'guatemala-guatemala-finca-santa-rita': '0224',
-    'honduras-finca-cascaritas-lot-19': '0715',
-    'honduras-finca-mira-flores-lot-22': '0715',
-    'indonesia-central-sumatera-bener-kelipah-natural': '0224',
-    'kenya-karimikui-aa': '1130',
-    'panama-michella-estate-typica-washed-finca-lerida': '0528',
-    'rwanda-muzo-lot-04': '0317',
+    'colombia-mandela-vieux': '1008',
+    'panama-altieri-coffee-alessa-020425': '1008',
+    'panama-altieri-coffee-alessa-190325-cold-dry-ferment': '1008',
+    'panama-ale-241223-gw-altieri-coffee': '1008',
+    'panama-sakura-geisha-washed-bambito-estate': '1008',
+    'panama-enigma-finca-deborah': '1008',
+    'panama-interstellar-finca-deborah': '1008',
+    'panama-nirvana': '1008',
+    'panama-terroir-finca-deborah': '1008',
+    'hacienda-la-esmeralda-tomaco-4-anc': '1008',
+    'panama-janson-family-geisha-honey-los-alpes-lot-503': '1008',
+    'panama-mil-cumbres-lot-omo-0702-geisha-washed': '1008',
+    'panama-tierra-blanca-geisha-washed': '1008',
+    'brazil-fazenda-ip-natural': '1008',
+    'brazil-santa-ines': '1008',
+    'brazil-santuario-sul-sudan-rume-washed': '1008',
+    'burundi-kivuvuma-natural': '1008',
+    'colombia-condor-decaf': '1008',
+    'el-salvador-finca-el-cerro-pacas-washed': '1008',
+    'el-salvador-finca-majahual': '1008',
+    'ethiopia-alo-coffee-mewa-village': '1008',
+    'ethiopia-banko-chelchele-chelbesa-natural-1': '1008',
+    'guatemala-guatemala-finca-santa-rita': '1008',
+    'honduras-finca-cascaritas-lot-19': '1008',
+    'honduras-finca-mira-flores-lot-22': '1008',
+    'indonesia-central-sumatera-bener-kelipah-natural': '1008',
+    'kenya-karimikui-aa': '1008',
+    'panama-michella-estate-typica-washed-finca-lerida': '1008',
+    'rwanda-muzo-lot-04': '1008',
     'samambaia-natural-yellow-catucai': '1008',
     'caballero-bomba-de-fruta-1-6': '1008'
 }
@@ -1542,7 +1542,57 @@ def generate_html(items, stats):
         align-items: flex-start;
       }}
     }}
-  </style>
+  
+  /* TABLE HEADER TODAY NEW FILTER BUTTON */
+  .th-today-filter-btn {{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.2;
+    text-transform: none;
+  }}
+  .th-today-filter-btn:hover {{
+    background: rgba(56, 139, 253, 0.3);
+    border-color: #58a6ff;
+    color: #fff;
+    transform: translateY(-1px);
+  }}
+  .th-today-filter-btn.active {{
+    background: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+    box-shadow: 0 0 10px rgba(46, 160, 67, 0.4);
+  }}
+  [data-theme="light"] .th-today-filter-btn {{
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.35);
+  }}
+  [data-theme="light"] .th-today-filter-btn:hover {{
+    background: rgba(37, 99, 235, 0.2);
+    color: #1d4ed8;
+    border-color: #2563eb;
+  }}
+  [data-theme="light"] .th-today-filter-btn.active {{
+    background: #16a34a !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
+  }}
+
+</style>
 </head>
 <body>
 
@@ -2037,7 +2087,14 @@ def generate_html(items, stats):
         <thead>
           <tr>
             <th onclick="sortTable('roastery')">로스터리 ↕</th>
-            <th onclick="sortTable('title')">원두명 ↕</th>
+            <th style="min-width:190px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <span onclick="sortTable('title')" style="cursor:pointer;" title="원두명 정렬">원두명 ↕</span>
+                <button type="button" id="todayFilterBtnAnalytics" class="th-today-filter-btn" onclick="toggleTodayNewFilter(event)" title="오늘(1008) 출시된 신규 원두(31종)만 보기 필터 토글">
+                  ✨ 1008 신규만
+                </button>
+              </div>
+            </th>
             <th onclick="sortTable('country')">원산지 ↕</th>
             <th onclick="sortTable('process')">프로세스 ↕</th>
             <th onclick="sortTable('price_100g_aed')">100g 가격 (AED) ↕</th>
@@ -2377,6 +2434,11 @@ def generate_html(items, stats):
         const q = searchQuery.toLowerCase();
         const text = (c.title + ' ' + c.country + ' ' + c.farm + ' ' + c.producer + ' ' + c.process + ' ' + c.variety + ' ' + c.tasting_notes + ' ' + (c.search_kr || '')).toLowerCase();
         if (!text.includes(q)) return false;
+      }}
+
+      // 5. Today new filter
+      if (filterOnlyTodayNew) {{
+        if (!c.is_today_new) return false;
       }}
 
       // 5. Note cross-filtering
@@ -2904,6 +2966,27 @@ def generate_html(items, stats):
   }}
 
   // Render Data Table
+  let filterOnlyTodayNew = false;
+
+  function toggleTodayNewFilter(e) {{
+    if (e) e.stopPropagation();
+    filterOnlyTodayNew = !filterOnlyTodayNew;
+    const btn = document.getElementById('todayFilterBtnAnalytics');
+    if (btn) {{
+      if (filterOnlyTodayNew) {{
+        btn.classList.add('active');
+        btn.innerHTML = '✨ 1008 신규 (31종 ON)';
+      }} else {{
+        btn.classList.remove('active');
+        btn.innerHTML = '✨ 1008 신규만';
+      }}
+    }}
+    renderTable();
+    if (typeof updateCharts === 'function') {{
+      updateCharts();
+    }}
+  }}
+
   function renderTable() {{
     let filtered = getFilteredCoffees();
 

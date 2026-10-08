@@ -820,6 +820,56 @@
     border-color: rgba(37, 99, 235, 0.3);
   }
 
+
+  /* TABLE HEADER TODAY NEW FILTER BUTTON */
+  .th-today-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(56, 139, 253, 0.15);
+    color: #58a6ff;
+    border: 1px solid rgba(56, 139, 253, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+    vertical-align: middle;
+    line-height: 1.2;
+    text-transform: none;
+  }
+  .th-today-filter-btn:hover {
+    background: rgba(56, 139, 253, 0.3);
+    border-color: #58a6ff;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+  .th-today-filter-btn.active {
+    background: #238636 !important;
+    color: #ffffff !important;
+    border-color: #2ea043 !important;
+    box-shadow: 0 0 10px rgba(46, 160, 67, 0.4);
+  }
+  [data-theme="light"] .th-today-filter-btn {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.35);
+  }
+  [data-theme="light"] .th-today-filter-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    color: #1d4ed8;
+    border-color: #2563eb;
+  }
+  [data-theme="light"] .th-today-filter-btn.active {
+    background: #16a34a !important;
+    color: #ffffff !important;
+    border-color: #15803d !important;
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
+  }
+
 </style>
 </head>
 <body>
@@ -1089,7 +1139,7 @@
             </div>
           </div>
           <div class="rec-title">
-            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir (Classic Washed Geisha) <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir (Classic Washed Geisha) <span class="badge-new-date">1008</span> ↗</a>
           </div>
           <div class="rec-specs-grid">
             <div>국가: <span>Panama</span></div>
@@ -1473,7 +1523,17 @@
             </div>
           </th>
           <th onclick="sortTable(3, 'string')" style="width:75px;">컬렉션<span class="sort-icon">▲▼</span></th>
-          <th onclick="sortTable(4, 'string')" style="min-width:140px; text-align:left;">커피 이름<br><span style="font-size:10px; font-weight:normal; opacity:0.8;">(공식몰 링크 ↗)</span><span class="sort-icon">▲▼</span></th>
+          <th style="min-width:180px; text-align:left;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <div onclick="sortTable(4, 'string')" style="cursor:pointer;" title="커피 이름 기준 정렬">
+                커피 이름 <span class="sort-icon">▲▼</span><br>
+                <span style="font-size:10px; font-weight:normal; opacity:0.8;">(공식몰 링크 ↗)</span>
+              </div>
+              <button type="button" id="todayFilterBtnArchers" class="th-today-filter-btn" onclick="toggleTodayNewFilter(event)" title="오늘(1008) 출시된 신규 원두(29종)만 보기 필터 토글">
+                ✨ 1008 신규만
+              </button>
+            </div>
+          </th>
           <th onclick="sortTable(5, 'string')" style="width:60px;">국가<span class="sort-icon">▲▼</span></th>
           <th onclick="sortTable(6, 'string')" style="width:75px;">지역<span class="sort-icon">▲▼</span></th>
           <th onclick="sortTable(7, 'string')" style="width:80px;">농장/<br>스테이션<span class="sort-icon">▲▼</span></th>
@@ -6174,8 +6234,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-      
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="118">118</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CGLE_Mandela_La_Esperanza_Box.png?v=1728570826', 'colombia-mandela-vieux')">
@@ -6189,7 +6248,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/colombia-mandela-vieux" target="_blank" class="today-new-coffee-title">Colombia - Mandela - Cafe Granja La Esperanza <span class="badge-new-date">1010</span> ↗</a>
+            <a href="https://archerscoffee.com/products/colombia-mandela-vieux" target="_blank" class="today-new-coffee-title">Colombia - Mandela - Cafe Granja La Esperanza <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
           <td>Colombia</td>
@@ -6218,7 +6277,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="119">119</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFM-ALESSA-020425Box-01_ea0017fc-4f1b-48fb-aba9-357172e9a09f.png?v=1768135532', 'panama-altieri-coffee-alessa-020425')">
@@ -6232,7 +6291,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-020425" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 020425 <span class="badge-new-date">0112</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-020425" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 020425 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6261,7 +6320,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="120">120</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFC-ALESSA-190325Box-01.png?v=1768112358', 'panama-altieri-coffee-alessa-190325-cold-dry-ferment')">
@@ -6275,7 +6334,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-190325-cold-dry-ferment" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment <span class="badge-new-date">0112</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-190325-cold-dry-ferment" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6304,7 +6363,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="121">121</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffeeALE241223GWBox.png?v=1729783220', 'panama-ale-241223-gw-altieri-coffee')">
@@ -6318,7 +6377,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-ale-241223-gw-altieri-coffee" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee, ALE 241223 GW <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-ale-241223-gw-altieri-coffee" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee, ALE 241223 GW <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6347,7 +6406,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="122">122</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BambitoSakuraBox.png?v=1729784296', 'panama-sakura-geisha-washed-bambito-estate')">
@@ -6361,7 +6420,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-sakura-geisha-washed-bambito-estate" target="_blank" class="today-new-coffee-title">Panama - Bambito Sakura, Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-sakura-geisha-washed-bambito-estate" target="_blank" class="today-new-coffee-title">Panama - Bambito Sakura, Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6390,7 +6449,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="123">123</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahEnigmaBox-01.png?v=1772631653', 'panama-enigma-finca-deborah')">
@@ -6404,7 +6463,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-enigma-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Enigma <span class="badge-new-date">0304</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-enigma-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Enigma <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6433,7 +6492,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="124">124</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahInterstellarBox.png?v=1729783568', 'panama-interstellar-finca-deborah')">
@@ -6447,7 +6506,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-interstellar-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Interstellar <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-interstellar-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Interstellar <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6476,7 +6535,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="125">125</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahNirvanaBox-01.png?v=1772630793', 'panama-nirvana')">
@@ -6490,7 +6549,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-nirvana" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Nirvana <span class="badge-new-date">0304</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-nirvana" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Nirvana <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6519,7 +6578,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="126">126</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Terroir_1.png?v=1742549870', 'panama-terroir-finca-deborah')">
@@ -6533,7 +6592,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6562,7 +6621,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="127">127</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EsmeraldaTumaco.png?v=1740581126', 'hacienda-la-esmeralda-tomaco-4-anc')">
@@ -6576,7 +6635,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/hacienda-la-esmeralda-tomaco-4-anc" target="_blank" class="today-new-coffee-title">Panama - Hacienda La Esmeralda - Tumaco 4 ANC <span class="badge-new-date">0509</span> ↗</a>
+            <a href="https://archerscoffee.com/products/hacienda-la-esmeralda-tomaco-4-anc" target="_blank" class="today-new-coffee-title">Panama - Hacienda La Esmeralda - Tumaco 4 ANC <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6605,7 +6664,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="128">128</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Losalpes503BoxMockUp-01_9cb0ea2d-959d-401a-ba0d-f037b47d9a0c.png?v=1739021532', 'panama-janson-family-geisha-honey-los-alpes-lot-503')">
@@ -6619,7 +6678,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-janson-family-geisha-honey-los-alpes-lot-503" target="_blank" class="today-new-coffee-title">Panama - Janson Geisha Los Alpes Lot 503 Honey <span class="badge-new-date">0217</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-janson-family-geisha-honey-los-alpes-lot-503" target="_blank" class="today-new-coffee-title">Panama - Janson Geisha Los Alpes Lot 503 Honey <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6648,7 +6707,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="129">129</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresLotOMO0702Box.png?v=1729784144', 'panama-mil-cumbres-lot-omo-0702-geisha-washed')">
@@ -6662,7 +6721,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-mil-cumbres-lot-omo-0702-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Mil Cumbres Lot OMO 0702 Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-mil-cumbres-lot-omo-0702-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Mil Cumbres Lot OMO 0702 Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6691,7 +6750,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Competition Series 2025">
+<tr data-today-new="true" data-collection="Competition Series 2025">
           <td style="color:#6e7681; font-weight:600;" data-value="130">130</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TierraBlancaWashedBox.png?v=1729784391', 'panama-tierra-blanca-geisha-washed')">
@@ -6705,7 +6764,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-tierra-blanca-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Tierra Blanca Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-tierra-blanca-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Tierra Blanca Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -6734,7 +6793,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="131">131</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilFazendaIP.png?v=1715758626', 'brazil-fazenda-ip-natural')">
@@ -6748,7 +6807,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-fazenda-ip-natural" target="_blank" class="today-new-coffee-title">Brazil - Fazenda IP <span class="badge-new-date">1012</span> ↗</a>
+            <a href="https://archerscoffee.com/products/brazil-fazenda-ip-natural" target="_blank" class="today-new-coffee-title">Brazil - Fazenda IP <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
           <td>Brazil</td>
@@ -6777,7 +6836,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="132">132</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilSantaInes.png?v=1715758890', 'brazil-santa-ines')">
@@ -6791,7 +6850,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-santa-ines" target="_blank" class="today-new-coffee-title">Brazil - Santa Ines <span class="badge-new-date">0111</span> ↗</a>
+            <a href="https://archerscoffee.com/products/brazil-santa-ines" target="_blank" class="today-new-coffee-title">Brazil - Santa Ines <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
           <td>Brazil</td>
@@ -6820,7 +6879,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="133">133</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Brazil-SantuarioSulSundanRumeWashedBag.png?v=1765550277', 'brazil-santuario-sul-sudan-rume-washed')">
@@ -6834,7 +6893,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume Washed <span class="badge-new-date">1214</span> ↗</a>
+            <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
           <td>Brazil</td>
@@ -6863,7 +6922,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="134">134</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BurundiKivuvumaNatural.png?v=1715758964', 'burundi-kivuvuma-natural')">
@@ -6877,7 +6936,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/burundi-kivuvuma-natural" target="_blank" class="today-new-coffee-title">Burundi - Burundi - Kivuvuma Natural <span class="badge-new-date">0331</span> ↗</a>
+            <a href="https://archerscoffee.com/products/burundi-kivuvuma-natural" target="_blank" class="today-new-coffee-title">Burundi - Burundi - Kivuvuma Natural <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Burundi</strong></td>
           <td>Burundi</td>
@@ -6906,7 +6965,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="135">135</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ColombiaCondorDecaf.png?v=1715671033', 'colombia-condor-decaf')">
@@ -6920,7 +6979,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/colombia-condor-decaf" target="_blank" class="today-new-coffee-title">Colombia - Condor, Decaf <span class="badge-new-date">1004</span> ↗</a>
+            <a href="https://archerscoffee.com/products/colombia-condor-decaf" target="_blank" class="today-new-coffee-title">Colombia - Condor, Decaf <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
           <td>Colombia</td>
@@ -6949,7 +7008,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="136">136</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaelCerroPacasWashedWhiteBag.png?v=1749221445', 'el-salvador-finca-el-cerro-pacas-washed')">
@@ -6963,7 +7022,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/el-salvador-finca-el-cerro-pacas-washed" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca El Cerro Pacas Washed <span class="badge-new-date">0610</span> ↗</a>
+            <a href="https://archerscoffee.com/products/el-salvador-finca-el-cerro-pacas-washed" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca El Cerro Pacas Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>El Salvador</strong></td>
           <td>El Salvador</td>
@@ -6992,7 +7051,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="137">137</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElSalvadorFincaMajahual2024.png?v=1710498093', 'el-salvador-finca-majahual')">
@@ -7006,7 +7065,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/el-salvador-finca-majahual" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca Majahual <span class="badge-new-date">0316</span> ↗</a>
+            <a href="https://archerscoffee.com/products/el-salvador-finca-majahual" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca Majahual <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>El Salvador</strong></td>
           <td>El Salvador</td>
@@ -7035,7 +7094,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="138">138</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EthiopiaAloMewaVillageWhiteBag.png?v=1758366586', 'ethiopia-alo-coffee-mewa-village')">
@@ -7049,7 +7108,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-mewa-village" target="_blank" class="today-new-coffee-title">Ethiopia - Ethiopia  - Alo Coffee Mewa Village <span class="badge-new-date">0920</span> ↗</a>
+            <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-mewa-village" target="_blank" class="today-new-coffee-title">Ethiopia - Ethiopia  - Alo Coffee Mewa Village <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
           <td>Ethiopia</td>
@@ -7078,7 +7137,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="139">139</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EDNChelbesa2025WhiteBag.png?v=1754999618', 'ethiopia-banko-chelchele-chelbesa-natural-1')">
@@ -7092,7 +7151,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/ethiopia-banko-chelchele-chelbesa-natural-1" target="_blank" class="today-new-coffee-title">Ethiopia - Banko Chelchele Chelbesa Natural <span class="badge-new-date">1004</span> ↗</a>
+            <a href="https://archerscoffee.com/products/ethiopia-banko-chelchele-chelbesa-natural-1" target="_blank" class="today-new-coffee-title">Ethiopia - Banko Chelchele Chelbesa Natural <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
           <td>Ethiopia</td>
@@ -7121,7 +7180,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="140">140</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Guatemala_FInca_Santa_Rita_White_Bag_2.png?v=1772959273', 'guatemala-guatemala-finca-santa-rita')">
@@ -7135,7 +7194,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/guatemala-guatemala-finca-santa-rita" target="_blank" class="today-new-coffee-title">Guatemala - Guatemala - Guatemala Finca Santa Rita <span class="badge-new-date">0224</span> ↗</a>
+            <a href="https://archerscoffee.com/products/guatemala-guatemala-finca-santa-rita" target="_blank" class="today-new-coffee-title">Guatemala - Guatemala - Guatemala Finca Santa Rita <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Guatemala</strong></td>
           <td>Guatemala</td>
@@ -7164,7 +7223,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="141">141</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasCascaritasLot19.png?v=1721027381', 'honduras-finca-cascaritas-lot-19')">
@@ -7178,7 +7237,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/honduras-finca-cascaritas-lot-19" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Cascaritas Lot 19 <span class="badge-new-date">0715</span> ↗</a>
+            <a href="https://archerscoffee.com/products/honduras-finca-cascaritas-lot-19" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Cascaritas Lot 19 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Honduras</strong></td>
           <td>Honduras</td>
@@ -7207,7 +7266,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="142">142</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasMiraFloresLot22.png?v=1721027384', 'honduras-finca-mira-flores-lot-22')">
@@ -7221,7 +7280,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/honduras-finca-mira-flores-lot-22" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Mira Flores Lot 22 <span class="badge-new-date">0715</span> ↗</a>
+            <a href="https://archerscoffee.com/products/honduras-finca-mira-flores-lot-22" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Mira Flores Lot 22 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Honduras</strong></td>
           <td>Honduras</td>
@@ -7250,7 +7309,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="143">143</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/IndonesiaBenerKelipahWhiteBag.png?v=1740407105', 'indonesia-central-sumatera-bener-kelipah-natural')">
@@ -7264,7 +7323,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/indonesia-central-sumatera-bener-kelipah-natural" target="_blank" class="today-new-coffee-title">Indonesia - Indonesia - Bener Kelipah, Central Sumatera Coffee <span class="badge-new-date">0224</span> ↗</a>
+            <a href="https://archerscoffee.com/products/indonesia-central-sumatera-bener-kelipah-natural" target="_blank" class="today-new-coffee-title">Indonesia - Indonesia - Bener Kelipah, Central Sumatera Coffee <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Indonesia</strong></td>
           <td>Indonesia</td>
@@ -7293,7 +7352,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="144">144</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/karimikuiwhitebag.png?v=1719297403', 'kenya-karimikui-aa')">
@@ -7307,7 +7366,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/kenya-karimikui-aa" target="_blank" class="today-new-coffee-title">Kenya - Kenya - Karimikui AA <span class="badge-new-date">1130</span> ↗</a>
+            <a href="https://archerscoffee.com/products/kenya-karimikui-aa" target="_blank" class="today-new-coffee-title">Kenya - Kenya - Karimikui AA <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Kenya</strong></td>
           <td>Kenya</td>
@@ -7336,7 +7395,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="145">145</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Panama-Michella-Estate-Typica-Lerida.png?v=1716895836', 'panama-michella-estate-typica-washed-finca-lerida')">
@@ -7350,7 +7409,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-michella-estate-typica-washed-finca-lerida" target="_blank" class="today-new-coffee-title">Panama - Michella Estate Typica Washed <span class="badge-new-date">0528</span> ↗</a>
+            <a href="https://archerscoffee.com/products/panama-michella-estate-typica-washed-finca-lerida" target="_blank" class="today-new-coffee-title">Panama - Michella Estate Typica Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
           <td>Panama</td>
@@ -7379,7 +7438,7 @@
           </td>
           <td><span class="badge-pass">VERIFIED</span></td>
         </tr>
-<tr data-collection="Specialty Selection 2026">
+<tr data-today-new="true" data-collection="Specialty Selection 2026">
           <td style="color:#6e7681; font-weight:600;" data-value="146">146</td>
           <td class="td-pkg">
             <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-RwandaMuzoLot04.png?v=1715759499', 'rwanda-muzo-lot-04')">
@@ -7393,1255 +7452,7 @@
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
           <td class="cell-title">
-            <a href="https://archerscoffee.com/products/rwanda-muzo-lot-04" target="_blank" class="today-new-coffee-title">Rwanda - Rwanda - Muzo Lot 04 <span class="badge-new-date">0317</span> ↗</a>
-          </td>
-          <td><strong>Rwanda</strong></td>
-          <td>Rwanda</td>
-          <td>Rwanda - Muzo Lot 04</td>
-          <td>Rwanda - Muzo Lot 04</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.8 AED)</td>
-          <td class="cell-merit">Rwanda Rwanda - Muzo Lot 04 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Rwanda Rwanda - Muzo Lot 04에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/rwanda-muzo-lot-04" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-      
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="118">118</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CGLE_Mandela_La_Esperanza_Box.png?v=1728570826', 'colombia-mandela-vieux')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/CGLE_Mandela_La_Esperanza_Box.png?v=1728570826" alt="colombia-mandela-vieux" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="73.8" data-total="73.8" data-taste="27.0" data-price="26.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.8</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 26.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/colombia-mandela-vieux" target="_blank" class="today-new-coffee-title">Colombia - Mandela - Cafe Granja La Esperanza <span class="badge-new-date">1010</span> ↗</a>
-          </td>
-          <td><strong>Colombia</strong></td>
-          <td>Colombia</td>
-          <td>La Esperanza (CGLE)</td>
-          <td>Cafe Granja La Esperanza</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Mandela</div></td>
-          <td>Natural XO</td>
-          <td>1,760 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Blackberry, Rum, Dark Cherry, Brown Sugar, Cacao</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="80.0">
-            AED 80.0
-            <div class="cell-price-krw">약 30,400원</div>
-          </td>
-          <td class="cell-price" data-value="80.0">
-            AED 80.0
-            <div class="cell-price-krw">약 30,400원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 80.0 AED)</td>
-          <td class="cell-merit">콜롬비아 최고봉 CGLE 농장 희귀 만델라 품종 XO 발효 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 카페 그란하 라 에스페란사의 희귀 만델라 품종 Natural XO 랏. <br>
-            <a href="https://archerscoffee.com/products/colombia-mandela-vieux" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="119">119</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFM-ALESSA-020425Box-01_ea0017fc-4f1b-48fb-aba9-357172e9a09f.png?v=1768135532', 'panama-altieri-coffee-alessa-020425')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFM-ALESSA-020425Box-01_ea0017fc-4f1b-48fb-aba9-357172e9a09f.png?v=1768135532" alt="panama-altieri-coffee-alessa-020425" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.7" data-total="79.7" data-taste="37.5" data-price="22.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.7</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 22.2 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-020425" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 020425 <span class="badge-new-date">0112</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Mima Estate (Alessa Lot)</td>
-          <td>Altieri Family</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Dry Fermentation Macerated (DFM)</td>
-          <td>1,850 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Orange Blossom, Bergamot, White Peach, Mandarin, Honey</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="170.0">
-            AED 170.0
-            <div class="cell-price-krw">약 64,600원</div>
-          </td>
-          <td class="cell-price" data-value="170.0">
-            AED 170.0
-            <div class="cell-price-krw">약 64,600원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 170.0 AED)</td>
-          <td class="cell-merit">BOP 단골 입상 명문 알티에리 패밀리 신규 게이샤 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 보케테 알티에리 패밀리의 Mima Estate Alessa 랏. 드라이 발효 머신(DFM) 게이샤. <br>
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-020425" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="120">120</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFC-ALESSA-190325Box-01.png?v=1768112358', 'panama-altieri-coffee-alessa-190325-cold-dry-ferment')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffee-GN-DFC-ALESSA-190325Box-01.png?v=1768112358" alt="panama-altieri-coffee-alessa-190325-cold-dry-ferment" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="71.7" data-total="71.7" data-taste="29.5" data-price="22.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 71.7</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 22.2 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-190325-cold-dry-ferment" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment <span class="badge-new-date">0112</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment</td>
-          <td>Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Cold Dry</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="170.0">
-            AED 170.0
-            <div class="cell-price-krw">약 64,600원</div>
-          </td>
-          <td class="cell-price" data-value="170.0">
-            AED 170.0
-            <div class="cell-price-krw">약 64,600원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 170.0 AED)</td>
-          <td class="cell-merit">Panama Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Panama Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment에서 정성껏 가공된 Geisha Cold Dry 원두. <br>
-            <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-190325-cold-dry-ferment" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="121">121</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffeeALE241223GWBox.png?v=1729783220', 'panama-ale-241223-gw-altieri-coffee')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/AltieriCoffeeALE241223GWBox.png?v=1729783220" alt="panama-ale-241223-gw-altieri-coffee" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="73.3" data-total="73.3" data-taste="29.5" data-price="23.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.3</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 23.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-ale-241223-gw-altieri-coffee" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee, ALE 241223 GW <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Panama - Altieri Coffee, ALE 241223 GW</td>
-          <td>Panama - Altieri Coffee, ALE 241223 GW</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="140.0">
-            AED 140.0
-            <div class="cell-price-krw">약 53,200원</div>
-          </td>
-          <td class="cell-price" data-value="140.0">
-            AED 140.0
-            <div class="cell-price-krw">약 53,200원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 140.0 AED)</td>
-          <td class="cell-merit">Panama Panama - Altieri Coffee, ALE 241223 GW 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Panama Panama - Altieri Coffee, ALE 241223 GW에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/panama-ale-241223-gw-altieri-coffee" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="122">122</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BambitoSakuraBox.png?v=1729784296', 'panama-sakura-geisha-washed-bambito-estate')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/BambitoSakuraBox.png?v=1729784296" alt="panama-sakura-geisha-washed-bambito-estate" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="72.0" data-total="72.0" data-taste="29.5" data-price="22.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 72.0</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 22.5 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-sakura-geisha-washed-bambito-estate" target="_blank" class="today-new-coffee-title">Panama - Bambito Sakura, Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Bambito Estate Coffee</td>
-          <td>Priscilla Amar Sittón</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Classic Washed</td>
-          <td>1,800 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Cherry Blossom, Jasmine, White Tea, Peach, Tangerine</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="165.0">
-            AED 165.0
-            <div class="cell-price-krw">약 62,700원</div>
-          </td>
-          <td class="cell-price" data-value="165.0">
-            AED 165.0
-            <div class="cell-price-krw">약 62,700원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 165.0 AED)</td>
-          <td class="cell-merit">밤비토 에스테이트 벚꽃 에디션 클래식 워시드 게이샤</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 티에라스 알타스 밤비토 에스테이트의 사쿠라 워시드 게이샤. 벚꽃과 화이트 티의 극상 티라이크. <br>
-            <a href="https://archerscoffee.com/products/panama-sakura-geisha-washed-bambito-estate" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="123">123</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahEnigmaBox-01.png?v=1772631653', 'panama-enigma-finca-deborah')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahEnigmaBox-01.png?v=1772631653" alt="panama-enigma-finca-deborah" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="80.5" data-total="80.5" data-taste="39.5" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.5</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.0 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-enigma-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Enigma <span class="badge-new-date">0304</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Finca Deborah</td>
-          <td>Jamison Savage</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural Carbonic Maceration</td>
-          <td>1,900 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Wild Strawberry, Blackberry, Dark Floral, Red Wine, Dark Chocolate</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="195.0">
-            AED 195.0
-            <div class="cell-price-krw">약 74,100원</div>
-          </td>
-          <td class="cell-price" data-value="195.0">
-            AED 195.0
-            <div class="cell-price-krw">약 74,100원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 195.0 AED)</td>
-          <td class="cell-merit">데보라의 대표 탄산침용 내추럴 게이샤 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 탄산 침용(Carbonic Maceration) 내추럴 게이샤의 전설. 와이니하고 농밀한 베리류의 폭발적인 복합미. <br>
-            <a href="https://archerscoffee.com/products/panama-enigma-finca-deborah" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="124">124</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahInterstellarBox.png?v=1729783568', 'panama-interstellar-finca-deborah')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahInterstellarBox.png?v=1729783568" alt="panama-interstellar-finca-deborah" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="81.0" data-total="81.0" data-taste="39.5" data-price="21.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.0</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.5 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-interstellar-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Interstellar <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Finca Deborah</td>
-          <td>Jamison Savage</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural Yeast Inoculation</td>
-          <td>1,900 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">White Peach, Lychee, Jasmine Blossom, Lemongrass, Floral Honey</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="185.0">
-            AED 185.0
-            <div class="cell-price-krw">약 70,300원</div>
-          </td>
-          <td class="cell-price" data-value="185.0">
-            AED 185.0
-            <div class="cell-price-krw">약 70,300원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 185.0 AED)</td>
-          <td class="cell-merit">데보라 효모 접종 발효 게이샤 독점 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 특수 효모 접종(Yeast Inoculation) 내추럴 게이샤. 리치와 백도의 달콤한 과즙 뉘앙스. <br>
-            <a href="https://archerscoffee.com/products/panama-interstellar-finca-deborah" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="125">125</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahNirvanaBox-01.png?v=1772630793', 'panama-nirvana')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaDeborahNirvanaBox-01.png?v=1772630793" alt="panama-nirvana" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="80.5" data-total="80.5" data-taste="39.5" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.5</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.0 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-nirvana" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Nirvana <span class="badge-new-date">0304</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Finca Deborah</td>
-          <td>Jamison Savage</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural Nitrogen Macerated</td>
-          <td>1,900 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Candied Citrus, Lavender, Passionfruit, Jasmine, Champagne Acidity</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="195.0">
-            AED 195.0
-            <div class="cell-price-krw">약 74,100원</div>
-          </td>
-          <td class="cell-price" data-value="195.0">
-            AED 195.0
-            <div class="cell-price-krw">약 74,100원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 195.0 AED)</td>
-          <td class="cell-merit">세계 바리스타 챔피언십 결선 전용 질소 발효 게이샤 최고봉</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 질소 무산소 침용(Nitrogen Macerated) 기법을 세계 최초로 정립한 데보라의 시그니처 랏. <br>
-            <a href="https://archerscoffee.com/products/panama-nirvana" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="126">126</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Terroir_1.png?v=1742549870', 'panama-terroir-finca-deborah')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Terroir_1.png?v=1742549870" alt="panama-terroir-finca-deborah" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="82.0" data-total="82.0" data-taste="39.5" data-price="22.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 82.0</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 22.5 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Finca Deborah</td>
-          <td>Jamison Savage</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Classic Washed</td>
-          <td>1,900 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">White Floral, Bergamot, Meyer Lemon, Jasmine Tea, White Peach</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="165.0">
-            AED 165.0
-            <div class="cell-price-krw">약 62,700원</div>
-          </td>
-          <td class="cell-price" data-value="165.0">
-            AED 165.0
-            <div class="cell-price-krw">약 62,700원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 165.0 AED)</td>
-          <td class="cell-merit">WBC 세계 챔피언십 우승 농장 핀카 데보라 클래식 워시드 독점 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. WBC 챔피언 제이미슨 새비지의 1,900m 화산 테루아 정통 워시드 게이샤. 백호은침 백차와 베르가못의 극상 클린컵. <br>
-            <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="127">127</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EsmeraldaTumaco.png?v=1740581126', 'hacienda-la-esmeralda-tomaco-4-anc')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EsmeraldaTumaco.png?v=1740581126" alt="hacienda-la-esmeralda-tomaco-4-anc" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="75.2" data-total="75.2" data-taste="35.8" data-price="21.4" data-rarity="18.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 35.8 / 값 21.4 / 희 18.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/hacienda-la-esmeralda-tomaco-4-anc" target="_blank" class="today-new-coffee-title">Panama - Hacienda La Esmeralda - Tumaco 4 ANC <span class="badge-new-date">0509</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Canas Verdes (Hacienda La Esmeralda)</td>
-          <td>Peterson Family</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural Anaerobic (ANC)</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine Blossom, Sweet Mango, Papaya, Apricot, Honeyed Citrus</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="188.0">
-            AED 188.0
-            <div class="cell-price-krw">약 71,440원</div>
-          </td>
-          <td class="cell-price" data-value="188.0">
-            AED 188.0
-            <div class="cell-price-krw">약 71,440원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 188.0 AED)</td>
-          <td class="cell-merit">전설의 아시엔다 라 에스메랄다 내추럴 게이샤 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 게이샤의 원조 에스메랄다 농장 Canas Verdes 랏의 천연 무산소 내추럴(ANC). 압도적 화려함. <br>
-            <a href="https://archerscoffee.com/products/hacienda-la-esmeralda-tomaco-4-anc" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="128">128</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Losalpes503BoxMockUp-01_9cb0ea2d-959d-401a-ba0d-f037b47d9a0c.png?v=1739021532', 'panama-janson-family-geisha-honey-los-alpes-lot-503')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Losalpes503BoxMockUp-01_9cb0ea2d-959d-401a-ba0d-f037b47d9a0c.png?v=1739021532" alt="panama-janson-family-geisha-honey-los-alpes-lot-503" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="81.4" data-total="81.4" data-taste="37.5" data-price="23.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.4</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 23.9 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-janson-family-geisha-honey-los-alpes-lot-503" target="_blank" class="today-new-coffee-title">Panama - Janson Geisha Los Alpes Lot 503 Honey <span class="badge-new-date">0217</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Los Alpes (Janson Coffee)</td>
-          <td>Janson Family</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Green Tip Geisha</div></td>
-          <td>Honey</td>
-          <td>1,700 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Orange Blossom, Honey, Stone Fruit, Bergamot, Sweet Lemon</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="138.0">
-            AED 138.0
-            <div class="cell-price-krw">약 52,440원</div>
-          </td>
-          <td class="cell-price" data-value="138.0">
-            AED 138.0
-            <div class="cell-price-krw">약 52,440원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 138.0 AED)</td>
-          <td class="cell-merit">BOP 챔피언 얀손 패밀리 그린팁 허니 게이샤</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 얀손 패밀리 Los Alpes 랏 503번 그린팁 허니 게이샤. 꿀과 핵과류의 부드러운 단맛. <br>
-            <a href="https://archerscoffee.com/products/panama-janson-family-geisha-honey-los-alpes-lot-503" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="129">129</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresLotOMO0702Box.png?v=1729784144', 'panama-mil-cumbres-lot-omo-0702-geisha-washed')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/MilCumbresLotOMO0702Box.png?v=1729784144" alt="panama-mil-cumbres-lot-omo-0702-geisha-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="81.0" data-total="81.0" data-taste="37.5" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.0</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 23.5 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-mil-cumbres-lot-omo-0702-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Mil Cumbres Lot OMO 0702 Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Mil Cumbres</td>
-          <td>Mario Fonseca Imendia</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>2,000 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Lemongrass, Peach, Green Apple, Cane Sugar</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="145.0">
-            AED 145.0
-            <div class="cell-price-krw">약 55,100원</div>
-          </td>
-          <td class="cell-price" data-value="145.0">
-            AED 145.0
-            <div class="cell-price-krw">약 55,100원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 145.0 AED)</td>
-          <td class="cell-merit">해발 2,000m 초고고도 밀 쿰브레스 워시드 게이샤</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 콜디예라 볼칸 2,000m 최고도 밀 쿰브레스 농장의 정통 워시드 게이샤. <br>
-            <a href="https://archerscoffee.com/products/panama-mil-cumbres-lot-omo-0702-geisha-washed" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Competition Series 2025">
-          <td style="color:#6e7681; font-weight:600;" data-value="130">130</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TierraBlancaWashedBox.png?v=1729784391', 'panama-tierra-blanca-geisha-washed')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/TierraBlancaWashedBox.png?v=1729784391" alt="panama-tierra-blanca-geisha-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="74.7" data-total="74.7" data-taste="29.5" data-price="25.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 74.7</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 25.2 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-tierra-blanca-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Tierra Blanca Geisha Washed <span class="badge-new-date">1025</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Tierra Blanca Coffee</td>
-          <td>Kyle Snider</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,800 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">White Peach, Jasmine, Citrus, Floral Tea, Sweet Crisp</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="110.0">
-            AED 110.0
-            <div class="cell-price-krw">약 41,800원</div>
-          </td>
-          <td class="cell-price" data-value="110.0">
-            AED 110.0
-            <div class="cell-price-krw">약 41,800원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 110.0 AED)</td>
-          <td class="cell-merit">100g 110 AED 극가성비 파나마 정통 워시드 게이샤</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. 티에라 블랑카 1,800m 청정 랏의 110 AED 극가성비 파나마 워시드 게이샤. <br>
-            <a href="https://archerscoffee.com/products/panama-tierra-blanca-geisha-washed" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="131">131</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilFazendaIP.png?v=1715758626', 'brazil-fazenda-ip-natural')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilFazendaIP.png?v=1715758626" alt="brazil-fazenda-ip-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.4" data-total="79.4" data-taste="29.5" data-price="29.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.4</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.9 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-fazenda-ip-natural" target="_blank" class="today-new-coffee-title">Brazil - Fazenda IP <span class="badge-new-date">1012</span> ↗</a>
-          </td>
-          <td><strong>Brazil</strong></td>
-          <td>Brazil</td>
-          <td>Brazil - Fazenda IP</td>
-          <td>Brazil - Fazenda IP</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="16.8">
-            AED 16.8
-            <div class="cell-price-krw">약 6,384원</div>
-          </td>
-          <td class="cell-price" data-value="16.8">
-            AED 16.8
-            <div class="cell-price-krw">약 6,384원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 16.8 AED)</td>
-          <td class="cell-merit">Brazil Brazil - Fazenda IP 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Brazil Brazil - Fazenda IP에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/brazil-fazenda-ip-natural" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="132">132</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilSantaInes.png?v=1715758890', 'brazil-santa-ines')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BrazilSantaInes.png?v=1715758890" alt="brazil-santa-ines" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.4" data-total="79.4" data-taste="29.5" data-price="29.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.4</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.9 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-santa-ines" target="_blank" class="today-new-coffee-title">Brazil - Santa Ines <span class="badge-new-date">0111</span> ↗</a>
-          </td>
-          <td><strong>Brazil</strong></td>
-          <td>Brazil</td>
-          <td>Brazil - Santa Ines</td>
-          <td>Brazil - Santa Ines</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="16.8">
-            AED 16.8
-            <div class="cell-price-krw">약 6,384원</div>
-          </td>
-          <td class="cell-price" data-value="16.8">
-            AED 16.8
-            <div class="cell-price-krw">약 6,384원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 16.8 AED)</td>
-          <td class="cell-merit">Brazil Brazil - Santa Ines 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Brazil Brazil - Santa Ines에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/brazil-santa-ines" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="133">133</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Brazil-SantuarioSulSundanRumeWashedBag.png?v=1765550277', 'brazil-santuario-sul-sudan-rume-washed')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Brazil-SantuarioSulSundanRumeWashedBag.png?v=1765550277" alt="brazil-santuario-sul-sudan-rume-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="76.6" data-total="76.6" data-taste="27.0" data-price="29.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.6</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.6 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume Washed <span class="badge-new-date">1214</span> ↗</a>
-          </td>
-          <td><strong>Brazil</strong></td>
-          <td>Brazil</td>
-          <td>Brazil - Santuario Sul Sudan Rume Washed</td>
-          <td>Brazil - Santuario Sul Sudan Rume Washed</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Sudan Rume</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 22.0 AED)</td>
-          <td class="cell-merit">Brazil Brazil - Santuario Sul Sudan Rume Washed 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Brazil Brazil - Santuario Sul Sudan Rume Washed에서 정성껏 가공된 Sudan Rume Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="134">134</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BurundiKivuvumaNatural.png?v=1715758964', 'burundi-kivuvuma-natural')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-BurundiKivuvumaNatural.png?v=1715758964" alt="burundi-kivuvuma-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.3" data-total="79.3" data-taste="29.5" data-price="29.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.3</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/burundi-kivuvuma-natural" target="_blank" class="today-new-coffee-title">Burundi - Burundi - Kivuvuma Natural <span class="badge-new-date">0331</span> ↗</a>
-          </td>
-          <td><strong>Burundi</strong></td>
-          <td>Burundi</td>
-          <td>Burundi - Kivuvuma Natural</td>
-          <td>Burundi - Kivuvuma Natural</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.0">
-            AED 20.0
-            <div class="cell-price-krw">약 7,600원</div>
-          </td>
-          <td class="cell-price" data-value="20.0">
-            AED 20.0
-            <div class="cell-price-krw">약 7,600원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.0 AED)</td>
-          <td class="cell-merit">Burundi Burundi - Kivuvuma Natural 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Burundi Burundi - Kivuvuma Natural에서 정성껏 가공된 Geisha Natural 원두. <br>
-            <a href="https://archerscoffee.com/products/burundi-kivuvuma-natural" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="135">135</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ColombiaCondorDecaf.png?v=1715671033', 'colombia-condor-decaf')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ColombiaCondorDecaf.png?v=1715671033" alt="colombia-condor-decaf" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="78.9" data-total="78.9" data-taste="29.5" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.9</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.4 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/colombia-condor-decaf" target="_blank" class="today-new-coffee-title">Colombia - Condor, Decaf <span class="badge-new-date">1004</span> ↗</a>
-          </td>
-          <td><strong>Colombia</strong></td>
-          <td>Colombia</td>
-          <td>Colombia - Condor, Decaf</td>
-          <td>Colombia - Condor, Decaf</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="26.0">
-            AED 26.0
-            <div class="cell-price-krw">약 9,880원</div>
-          </td>
-          <td class="cell-price" data-value="26.0">
-            AED 26.0
-            <div class="cell-price-krw">약 9,880원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 26.0 AED)</td>
-          <td class="cell-merit">Colombia Colombia - Condor, Decaf 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Colombia Colombia - Condor, Decaf에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/colombia-condor-decaf" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="136">136</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaelCerroPacasWashedWhiteBag.png?v=1749221445', 'el-salvador-finca-el-cerro-pacas-washed')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaelCerroPacasWashedWhiteBag.png?v=1749221445" alt="el-salvador-finca-el-cerro-pacas-washed" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="76.8" data-total="76.8" data-taste="27.0" data-price="29.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.8</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/el-salvador-finca-el-cerro-pacas-washed" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca El Cerro Pacas Washed <span class="badge-new-date">0610</span> ↗</a>
-          </td>
-          <td><strong>El Salvador</strong></td>
-          <td>El Salvador</td>
-          <td>El Salvador - Finca El Cerro Pacas Washed</td>
-          <td>El Salvador - Finca El Cerro Pacas Washed</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Pacas</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="19.2">
-            AED 19.2
-            <div class="cell-price-krw">약 7,296원</div>
-          </td>
-          <td class="cell-price" data-value="19.2">
-            AED 19.2
-            <div class="cell-price-krw">약 7,296원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 19.2 AED)</td>
-          <td class="cell-merit">El Salvador El Salvador - Finca El Cerro Pacas Washed 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. El Salvador El Salvador - Finca El Cerro Pacas Washed에서 정성껏 가공된 Pacas Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/el-salvador-finca-el-cerro-pacas-washed" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="137">137</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElSalvadorFincaMajahual2024.png?v=1710498093', 'el-salvador-finca-majahual')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/ElSalvadorFincaMajahual2024.png?v=1710498093" alt="el-salvador-finca-majahual" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="29.5" data-price="29.7" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/el-salvador-finca-majahual" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca Majahual <span class="badge-new-date">0316</span> ↗</a>
-          </td>
-          <td><strong>El Salvador</strong></td>
-          <td>El Salvador</td>
-          <td>El Salvador - Finca Majahual</td>
-          <td>El Salvador - Finca Majahual</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.8 AED)</td>
-          <td class="cell-merit">El Salvador El Salvador - Finca Majahual 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. El Salvador El Salvador - Finca Majahual에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/el-salvador-finca-majahual" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="138">138</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EthiopiaAloMewaVillageWhiteBag.png?v=1758366586', 'ethiopia-alo-coffee-mewa-village')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EthiopiaAloMewaVillageWhiteBag.png?v=1758366586" alt="ethiopia-alo-coffee-mewa-village" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.1" data-total="79.1" data-taste="29.5" data-price="29.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.1</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.6 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-mewa-village" target="_blank" class="today-new-coffee-title">Ethiopia - Ethiopia  - Alo Coffee Mewa Village <span class="badge-new-date">0920</span> ↗</a>
-          </td>
-          <td><strong>Ethiopia</strong></td>
-          <td>Ethiopia</td>
-          <td>Ethiopia - Alo Coffee Mewa Village</td>
-          <td>Ethiopia - Alo Coffee Mewa Village</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 22.0 AED)</td>
-          <td class="cell-merit">Ethiopia Ethiopia - Alo Coffee Mewa Village 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Ethiopia Ethiopia - Alo Coffee Mewa Village에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-mewa-village" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="139">139</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EDNChelbesa2025WhiteBag.png?v=1754999618', 'ethiopia-banko-chelchele-chelbesa-natural-1')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/EDNChelbesa2025WhiteBag.png?v=1754999618" alt="ethiopia-banko-chelchele-chelbesa-natural-1" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="29.5" data-price="29.7" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/ethiopia-banko-chelchele-chelbesa-natural-1" target="_blank" class="today-new-coffee-title">Ethiopia - Banko Chelchele Chelbesa Natural <span class="badge-new-date">1004</span> ↗</a>
-          </td>
-          <td><strong>Ethiopia</strong></td>
-          <td>Ethiopia</td>
-          <td>Ethiopia - Banko Chelchele Chelbesa Natural</td>
-          <td>EDN Coffee, Smallholder</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Natural</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.8 AED)</td>
-          <td class="cell-merit">Ethiopia Ethiopia - Banko Chelchele Chelbesa Natural 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Ethiopia Ethiopia - Banko Chelchele Chelbesa Natural에서 정성껏 가공된 Geisha Natural 원두. <br>
-            <a href="https://archerscoffee.com/products/ethiopia-banko-chelchele-chelbesa-natural-1" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="140">140</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Guatemala_FInca_Santa_Rita_White_Bag_2.png?v=1772959273', 'guatemala-guatemala-finca-santa-rita')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Guatemala_FInca_Santa_Rita_White_Bag_2.png?v=1772959273" alt="guatemala-guatemala-finca-santa-rita" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="29.5" data-price="29.7" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/guatemala-guatemala-finca-santa-rita" target="_blank" class="today-new-coffee-title">Guatemala - Guatemala - Guatemala Finca Santa Rita <span class="badge-new-date">0224</span> ↗</a>
-          </td>
-          <td><strong>Guatemala</strong></td>
-          <td>Guatemala</td>
-          <td>Guatemala - Guatemala Finca Santa Rita</td>
-          <td>Guatemala - Guatemala Finca Santa Rita</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.8 AED)</td>
-          <td class="cell-merit">Guatemala Guatemala - Guatemala Finca Santa Rita 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Guatemala Guatemala - Guatemala Finca Santa Rita에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/guatemala-guatemala-finca-santa-rita" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="141">141</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasCascaritasLot19.png?v=1721027381', 'honduras-finca-cascaritas-lot-19')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasCascaritasLot19.png?v=1721027381" alt="honduras-finca-cascaritas-lot-19" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.3" data-total="79.3" data-taste="29.5" data-price="29.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.3</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/honduras-finca-cascaritas-lot-19" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Cascaritas Lot 19 <span class="badge-new-date">0715</span> ↗</a>
-          </td>
-          <td><strong>Honduras</strong></td>
-          <td>Honduras</td>
-          <td>Honduras - Finca Cascaritas Lot 19</td>
-          <td>Honduras - Finca Cascaritas Lot 19</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="19.2">
-            AED 19.2
-            <div class="cell-price-krw">약 7,296원</div>
-          </td>
-          <td class="cell-price" data-value="19.2">
-            AED 19.2
-            <div class="cell-price-krw">약 7,296원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 19.2 AED)</td>
-          <td class="cell-merit">Honduras Honduras - Finca Cascaritas Lot 19 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Honduras Honduras - Finca Cascaritas Lot 19에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/honduras-finca-cascaritas-lot-19" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="142">142</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasMiraFloresLot22.png?v=1721027384', 'honduras-finca-mira-flores-lot-22')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/HondurasMiraFloresLot22.png?v=1721027384" alt="honduras-finca-mira-flores-lot-22" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="29.5" data-price="29.7" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/honduras-finca-mira-flores-lot-22" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Mira Flores Lot 22 <span class="badge-new-date">0715</span> ↗</a>
-          </td>
-          <td><strong>Honduras</strong></td>
-          <td>Honduras</td>
-          <td>Honduras - Finca Mira Flores Lot 22</td>
-          <td>Honduras - Finca Mira Flores Lot 22</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-price" data-value="20.8">
-            AED 20.8
-            <div class="cell-price-krw">약 7,904원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.8 AED)</td>
-          <td class="cell-merit">Honduras Honduras - Finca Mira Flores Lot 22 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Honduras Honduras - Finca Mira Flores Lot 22에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/honduras-finca-mira-flores-lot-22" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="143">143</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/IndonesiaBenerKelipahWhiteBag.png?v=1740407105', 'indonesia-central-sumatera-bener-kelipah-natural')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/IndonesiaBenerKelipahWhiteBag.png?v=1740407105" alt="indonesia-central-sumatera-bener-kelipah-natural" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.1" data-total="79.1" data-taste="29.5" data-price="29.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.1</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.6 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/indonesia-central-sumatera-bener-kelipah-natural" target="_blank" class="today-new-coffee-title">Indonesia - Indonesia - Bener Kelipah, Central Sumatera Coffee <span class="badge-new-date">0224</span> ↗</a>
-          </td>
-          <td><strong>Indonesia</strong></td>
-          <td>Indonesia</td>
-          <td>Indonesia - Bener Kelipah, Central Sumatera Coffee</td>
-          <td>Indonesia - Bener Kelipah, Central Sumatera Coffee</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-price" data-value="22.0">
-            AED 22.0
-            <div class="cell-price-krw">약 8,360원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 22.0 AED)</td>
-          <td class="cell-merit">Indonesia Indonesia - Bener Kelipah, Central Sumatera Coffee 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Indonesia Indonesia - Bener Kelipah, Central Sumatera Coffee에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/indonesia-central-sumatera-bener-kelipah-natural" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="144">144</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/karimikuiwhitebag.png?v=1719297403', 'kenya-karimikui-aa')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/karimikuiwhitebag.png?v=1719297403" alt="kenya-karimikui-aa" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="78.9" data-total="78.9" data-taste="29.5" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.9</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.4 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/kenya-karimikui-aa" target="_blank" class="today-new-coffee-title">Kenya - Kenya - Karimikui AA <span class="badge-new-date">1130</span> ↗</a>
-          </td>
-          <td><strong>Kenya</strong></td>
-          <td>Kenya</td>
-          <td>Kenya - Karimikui AA</td>
-          <td>Rung'eto</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Geisha</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="26.0">
-            AED 26.0
-            <div class="cell-price-krw">약 9,880원</div>
-          </td>
-          <td class="cell-price" data-value="26.0">
-            AED 26.0
-            <div class="cell-price-krw">약 9,880원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 26.0 AED)</td>
-          <td class="cell-merit">Kenya Kenya - Karimikui AA 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Kenya Kenya - Karimikui AA에서 정성껏 가공된 Geisha Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/kenya-karimikui-aa" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="145">145</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Panama-Michella-Estate-Typica-Lerida.png?v=1716895836', 'panama-michella-estate-typica-washed-finca-lerida')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-Panama-Michella-Estate-Typica-Lerida.png?v=1716895836" alt="panama-michella-estate-typica-washed-finca-lerida" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="76.8" data-total="76.8" data-taste="27.0" data-price="29.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.8</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.8 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/panama-michella-estate-typica-washed-finca-lerida" target="_blank" class="today-new-coffee-title">Panama - Michella Estate Typica Washed <span class="badge-new-date">0528</span> ↗</a>
-          </td>
-          <td><strong>Panama</strong></td>
-          <td>Panama</td>
-          <td>Panama - Michella Estate Typica Washed</td>
-          <td>Panama - Michella Estate Typica Washed</td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Typica</div></td>
-          <td>Washed</td>
-          <td>1,750 masl</td>
-          <td>라이트-미디엄 (Filter | Espresso) [▪▫▫]</td>
-          <td class="cell-notes">Jasmine, Peach, Bergamot, Tropical Fruits</td>
-          <td style="white-space:nowrap;">100g</td>
-          <td class="cell-price" data-value="20.0">
-            AED 20.0
-            <div class="cell-price-krw">약 7,600원</div>
-          </td>
-          <td class="cell-price" data-value="20.0">
-            AED 20.0
-            <div class="cell-price-krw">약 7,600원</div>
-          </td>
-          <td class="cell-korea">국내 미수입 독점 랏</td>
-          <td style="color:#8b949e; word-break:keep-all; line-height:1.25;">국내 미수입 (현지 20.0 AED)</td>
-          <td class="cell-merit">Panama Panama - Michella Estate Typica Washed 직거래 스페셜티 랏</td>
-          <td class="cell-review">
-            아처스 공식 최신 릴리즈 랏. Panama Panama - Michella Estate Typica Washed에서 정성껏 가공된 Typica Washed 원두. <br>
-            <a href="https://archerscoffee.com/products/panama-michella-estate-typica-washed-finca-lerida" target="_blank" style="font-size:11px; color:#58a6ff;">[공식 링크 ↗]</a>
-          </td>
-          <td><span class="badge-pass">VERIFIED</span></td>
-        </tr>
-<tr data-collection="Specialty Selection 2026">
-          <td style="color:#6e7681; font-weight:600;" data-value="146">146</td>
-          <td class="td-pkg">
-            <div class="pkg-img-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-RwandaMuzoLot04.png?v=1715759499', 'rwanda-muzo-lot-04')">
-              <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Archers-Coffee-RwandaMuzoLot04.png?v=1715759499" alt="rwanda-muzo-lot-04" class="pkg-thumb" loading="lazy" onerror="this.src='https://via.placeholder.com/68x86?text=Archers'">
-              <span class="zoom-icon">🔍</span>
-            </div>
-          </td>
-          <td class="td-score" data-value="79.2" data-total="79.2" data-taste="29.5" data-price="29.7" data-rarity="20.0" style="text-align:center; vertical-align:middle;">
-            <div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div>
-            <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
-          </td>
-          <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
-            <a href="https://archerscoffee.com/products/rwanda-muzo-lot-04" target="_blank" class="today-new-coffee-title">Rwanda - Rwanda - Muzo Lot 04 <span class="badge-new-date">0317</span> ↗</a>
+            <a href="https://archerscoffee.com/products/rwanda-muzo-lot-04" target="_blank" class="today-new-coffee-title">Rwanda - Rwanda - Muzo Lot 04 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Rwanda</strong></td>
           <td>Rwanda</td>
@@ -8695,6 +7506,24 @@
     });
     filterTable();
   }
+  let isTodayNewFilterActive = false;
+
+  function toggleTodayNewFilter(e) {
+    if (e) e.stopPropagation();
+    isTodayNewFilterActive = !isTodayNewFilterActive;
+    const btn = document.getElementById('todayFilterBtnArchers');
+    if (btn) {
+      if (isTodayNewFilterActive) {
+        btn.classList.add('active');
+        btn.innerHTML = '✨ 1008 신규 (29종 ON)';
+      } else {
+        btn.classList.remove('active');
+        btn.innerHTML = '✨ 1008 신규만';
+      }
+    }
+    filterTable();
+  }
+
 
   function filterTable() {
     const query = document.getElementById('searchInput').value.toLowerCase();
@@ -8707,7 +7536,10 @@
       const tabMatch = (currentTab === 'all') || (col === currentTab);
       const searchMatch = !query || text.includes(query);
 
-      if (tabMatch && searchMatch) {
+      const isToday = row.getAttribute('data-today-new') === 'true' || !!row.querySelector('.today-new-coffee-title, .badge-new-date');
+      const todayMatch = !isTodayNewFilterActive || isToday;
+
+      if (tabMatch && searchMatch && todayMatch) {
         row.style.display = '';
       } else {
         row.style.display = 'none';
