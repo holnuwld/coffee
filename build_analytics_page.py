@@ -164,6 +164,40 @@ def generate_korean_keywords(c, roastery, group_key):
     
     return ' '.join(set(kr))
 
+TODAY_NEW_HANDLES_MAP = {
+    'colombia-mandela-vieux': '1010',
+    'panama-altieri-coffee-alessa-020425': '0112',
+    'panama-altieri-coffee-alessa-190325-cold-dry-ferment': '0112',
+    'panama-ale-241223-gw-altieri-coffee': '1025',
+    'panama-sakura-geisha-washed-bambito-estate': '1025',
+    'panama-enigma-finca-deborah': '0304',
+    'panama-interstellar-finca-deborah': '1025',
+    'panama-nirvana': '0304',
+    'panama-terroir-finca-deborah': '1025',
+    'hacienda-la-esmeralda-tomaco-4-anc': '0509',
+    'panama-janson-family-geisha-honey-los-alpes-lot-503': '0217',
+    'panama-mil-cumbres-lot-omo-0702-geisha-washed': '1025',
+    'panama-tierra-blanca-geisha-washed': '1025',
+    'brazil-fazenda-ip-natural': '1012',
+    'brazil-santa-ines': '0111',
+    'brazil-santuario-sul-sudan-rume-washed': '1214',
+    'burundi-kivuvuma-natural': '0331',
+    'colombia-condor-decaf': '1004',
+    'el-salvador-finca-el-cerro-pacas-washed': '0610',
+    'el-salvador-finca-majahual': '0316',
+    'ethiopia-alo-coffee-mewa-village': '0920',
+    'ethiopia-banko-chelchele-chelbesa-natural-1': '1004',
+    'guatemala-guatemala-finca-santa-rita': '0224',
+    'honduras-finca-cascaritas-lot-19': '0715',
+    'honduras-finca-mira-flores-lot-22': '0715',
+    'indonesia-central-sumatera-bener-kelipah-natural': '0224',
+    'kenya-karimikui-aa': '1130',
+    'panama-michella-estate-typica-washed-finca-lerida': '0528',
+    'rwanda-muzo-lot-04': '0317',
+    'samambaia-natural-yellow-catucai': '1008',
+    'caballero-bomba-de-fruta-1-6': '1008'
+}
+
 def build_data():
     with open('c:/cowork/coffee/new_pipeline/raw_collected_coffees.json', encoding='utf-8') as f:
         archers_raw = json.load(f)
@@ -175,6 +209,9 @@ def build_data():
     # Archers (117)
     for idx, c in enumerate(archers_raw):
         sc = score_coffee_item(c, 'Archers')
+        h = c.get('handle', '')
+        is_new = h in TODAY_NEW_HANDLES_MAP
+        rel_date = TODAY_NEW_HANDLES_MAP.get(h, '1008') if is_new else ''
         col = c.get('collection', '')
         if 'Competition' in col:
             group_key = 'competition'
@@ -243,12 +280,18 @@ def build_data():
             'korea_seller': c.get('korea_seller', '-'),
             'korea_price': k_price_str,
             'merit': c.get('purchase_merit', '-'),
-            'search_kr': kr_keywords
+            'search_kr': kr_keywords,
+            'handle': h,
+            'is_today_new': is_new,
+            'release_date': rel_date
         })
 
     # Espresso Lab (54)
     for idx, c in enumerate(tel_raw):
         sc = score_coffee_item(c, 'The Espresso Lab')
+        h = c.get('handle', '')
+        is_new = h in TODAY_NEW_HANDLES_MAP
+        rel_date = TODAY_NEW_HANDLES_MAP.get(h, '1008') if is_new else ''
         group_key = 'esolab'
         group_name = '더 에스프레소 랩 (The Espresso Lab)'
         color = '#dc2626' # vibrant red
@@ -307,7 +350,10 @@ def build_data():
             'korea_seller': c.get('korea_shop', '-'),
             'korea_price': k_price_str,
             'merit': c.get('merit', '-'),
-            'search_kr': kr_keywords
+            'search_kr': kr_keywords,
+            'handle': h,
+            'is_today_new': is_new,
+            'release_date': rel_date
         })
 
     return all_items
@@ -1049,6 +1095,34 @@ def generate_html(items, stats):
       border-color: var(--accent-gold);
       background: var(--bg-primary);
       transform: translateX(3px);
+    }}
+
+    /* NEW COFFEE HIGHLIGHTS */
+    .today-new-coffee-title {{
+      color: #388bfd !important;
+      font-weight: 700;
+    }}
+    [data-theme="light"] .today-new-coffee-title {{
+      color: #2563eb !important;
+    }}
+    .badge-new-date {{
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      background: rgba(56, 139, 253, 0.15);
+      color: #388bfd;
+      border: 1px solid rgba(56, 139, 253, 0.35);
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-left: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }}
+    [data-theme="light"] .badge-new-date {{
+      background: rgba(37, 99, 235, 0.1);
+      color: #2563eb;
+      border-color: rgba(37, 99, 235, 0.3);
     }}
 
     /* DETAIL ELEMENTS */
@@ -2368,7 +2442,7 @@ def generate_html(items, stats):
                 const raw = ctx.raw;
                 const c = raw.coffee;
                 return [
-                  `☕ [${{c.roastery}}] ${{c.title}}`,
+                  `☕ [${{c.roastery}}] ${{c.title}}${{c.is_today_new ? ' [NEW ' + (c.release_date || '1008') + ']' : ''}}`,
                   `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`,
                   `⭐ 종합: ${{c.score_total}}점 (맛 ${{c.score_taste}} / 값 ${{c.score_price}} / 희 ${{c.score_rarity}})`,
                   `🌍 ${{c.country}} | 가공: ${{c.process}}`,
@@ -2472,7 +2546,7 @@ def generate_html(items, stats):
     active.style.display = 'flex';
     active.innerHTML = `
       <span style="color:${{c.color}}; font-weight:800; white-space:nowrap;">[${{c.roastery}}]</span>
-      <span style="font-weight:700; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:260px;">${{c.title}}</span>
+      <span style="font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:260px;" class="${{c.is_today_new ? 'today-new-coffee-title' : ''}}">${{c.title}}${{c.is_today_new ? '<span class=\"badge-new-date\">' + (c.release_date || '1008') + '</span>' : ''}}</span>
       <span style="color:var(--text-muted);">|</span>
       <span style="font-family:monospace; color:var(--accent-gold); font-weight:700; white-space:nowrap;">${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)</span>
       <span style="color:var(--text-muted);">|</span>
@@ -2551,7 +2625,7 @@ def generate_html(items, stats):
             <span class="detail-badge">${{c.country}}</span>
             <span class="detail-badge">${{c.process}}</span>
           </div>
-          <div style="font-weight:700; font-size:13.5px; color:var(--text-primary); line-height:1.3;">${{c.title}}</div>
+          <div style="font-weight:700; font-size:13.5px; line-height:1.3;" class="${{c.is_today_new ? 'today-new-coffee-title' : ''}}">${{c.title}}${{c.is_today_new ? '<span class="badge-new-date">' + (c.release_date || '1008') + '</span>' : ''}}</div>
         </div>
         <div style="text-align:right; white-space:nowrap;">
           <div style="font-weight:800; font-size:15px; color:var(--accent-gold); font-family:monospace;">⭐ ${{c.score_total}}점</div>
@@ -2586,7 +2660,11 @@ def generate_html(items, stats):
       <span class="detail-badge">${{c.country}}</span>
       <span class="detail-badge">${{c.process}}</span>
     `;
-    document.getElementById('mpTitle').textContent = c.title;
+    if (c.is_today_new) {{
+      document.getElementById('mpTitle').innerHTML = `<span class="today-new-coffee-title">${{c.title}}</span><span class="badge-new-date">${{c.release_date || '1008'}}</span>`;
+    }} else {{
+      document.getElementById('mpTitle').textContent = c.title;
+    }}
     document.getElementById('mpPrice').textContent = `💰 100g: ${{c.price_100g_aed}} AED (~${{c.price_100g_krw.toLocaleString()}}원)`;
     document.getElementById('mpScore').textContent = `⭐ ${{c.score_total}}점 (맛${{c.score_taste}}/값${{c.score_price}}/희${{c.score_rarity}})`;
 
@@ -2858,7 +2936,7 @@ def generate_html(items, stats):
         <tr onclick="openDetailModalById('${{c.id}}')">
           <td><strong style="color:${{c.color}};">${{c.roastery}}</strong></td>
           <td>
-            <strong style="word-break:keep-all;">${{c.title}}</strong>
+            <strong style="word-break:keep-all;" class="${{c.is_today_new ? 'today-new-coffee-title' : ''}}">${{c.title}}</strong>${{c.is_today_new ? '<span class=\"badge-new-date\">' + (c.release_date || '1008') + '</span>' : ''}}
             <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">✨ ${{formatNotesHighlight(c.tasting_notes)}}</div>
           </td>
           <td>${{c.country}}</td>
@@ -3311,7 +3389,11 @@ def generate_html(items, stats):
       <span class="detail-badge">${{c.country}}</span>
       <span class="detail-badge">${{c.process}}</span>
     `;
-    document.getElementById('modalTitle').textContent = c.title;
+    if (c.is_today_new) {{
+      document.getElementById('modalTitle').innerHTML = `<span class="today-new-coffee-title">${{c.title}}</span><span class="badge-new-date">${{c.release_date || '1008'}}</span>`;
+    }} else {{
+      document.getElementById('modalTitle').textContent = c.title;
+    }}
 
     document.getElementById('modalScoreTotal').textContent = c.score_total;
     document.getElementById('modalScoreTaste').textContent = c.score_taste;

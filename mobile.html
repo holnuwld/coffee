@@ -687,6 +687,35 @@
     cursor: pointer;
   }
 
+
+  /* TODAY NEW COFFEES HIGHLIGHT */
+  .today-new-coffee-title {
+    color: #388bfd !important;
+    font-weight: 700;
+  }
+  [data-theme="light"] .today-new-coffee-title {
+    color: #2563eb !important;
+  }
+  .badge-new-date {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    background: rgba(56, 139, 253, 0.15);
+    color: #388bfd;
+    border: 1px solid rgba(56, 139, 253, 0.35);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  [data-theme="light"] .badge-new-date {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
 </style>
 </head>
 <body>
@@ -723,7 +752,7 @@
 
 <!-- SORT & STATUS BAR -->
 <div class="sort-bar">
-  <span id="matchCount">117개 원두 표시 중</span>
+  <span id="matchCount">146개 원두 표시 중</span>
   <div>
     정렬:
     <select id="mSort" class="sort-select" onchange="sortMobileCards()">
@@ -741,7 +770,23 @@
   <!-- TOP PICKS SWIPER -->
   <div class="sec-title">👑 현지 머스트 바이 추천 Best 6 (좌우 스크롤)</div>
   <div class="top-swipe-container">
+    
     <div class="top-card">
+      <span class="top-card-badge" style="background:rgba(56,139,253,0.2); color:#58a6ff; border-color:#58a6ff;">🌟 NEW 릴리즈 | WBC 우승 명문 핀카 데보라</span>
+      <div class="top-card-header-flex">
+        <div class="top-card-pkg-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Terroir_1.png?v=1742549870', 'Panama - Finca Deborah, Terroir')">
+          <img src="https://cdn.shopify.com/s/files/1/0260/4302/3426/files/Terroir_1.png?v=1742549870" alt="Panama - Finca Deborah, Terroir" class="top-card-pkg-img" loading="lazy" onerror="this.src='https://via.placeholder.com/72x90?text=Archers'">
+          <span class="m-zoom-pill">🔍 확대</span>
+        </div>
+        <div class="top-card-header-body">
+          <div class="top-card-title today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1025</span></div>
+          <div class="top-card-price">AED 165.0 (100g) <span style="font-size:12px; color:#8b949e;">약 62,700원</span></div>
+        </div>
+      </div>
+      <div class="top-card-notes">🌸 화이트플로럴, 베르가못, 레몬, 자스민티, 백도</div>
+      <div class="top-card-merit">💡 <strong>크리스탈 클린:</strong> 해발 1,900m 바루 화산의 극한 일교차와 테루아 본연의 투명함을 담아낸 정통 클래식 워시드 게이샤.</div>
+    </div>
+<div class="top-card">
       <span class="top-card-badge">🥇 취향 1위 | BOP 챔피언 독점 피베리</span>
       <div class="top-card-header-flex">
         <div class="top-card-pkg-wrap" onclick="openLightbox('https://cdn.shopify.com/s/files/1/0260/4302/3426/files/FincaAuromarGWPeaberryBox-01.png?v=1751022113', 'Panama Auromar Geisha Washed Peaberry')">
@@ -799,7 +844,7 @@
   </div>
 
   <!-- ALL 117 COFFEES MOBILE LIST -->
-  <div class="sec-title">📋 전체 117개 원두 리스트 (탭하여 상세 보기)</div>
+  <div class="sec-title">📋 전체 146개 원두 리스트 (탭하여 상세 보기)</div>
   <div class="coffee-list" id="coffeeList">
 
     <div class="coffee-card" 
@@ -7939,12 +7984,883 @@
       </div>
     </div>
     
-  </div>
+  
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Colombia" 
+         data-process="Natural XO" 
+         data-price="80.0" 
+         data-p100="80.0" 
+         data-index="118">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 73.8점 (맛27.0/값26.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Colombia</span>
+          <span class="tag" style="color:#6e7681;">#118</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 80.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 30,400원 (100g당 80.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Colombia - Mandela - Cafe Granja La Esperanza <span class="badge-new-date">1010</span></div>
+      <div class="card-notes">🌸 Blackberry, Rum, Dark Cherry, Brown Sugar, Cacao</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Mandela</span></div>
+        <div>가공: <span>Natural XO</span></div>
+        <div>고도: <span>1,760 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Dry Fermentation Macerated (DFM)" 
+         data-price="170.0" 
+         data-p100="170.0" 
+         data-index="119">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.7점 (맛37.5/값22.2/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#119</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 170.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 64,600원 (100g당 170.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Altieri Coffee Alessa 020425 <span class="badge-new-date">0112</span></div>
+      <div class="card-notes">🌸 Orange Blossom, Bergamot, White Peach, Mandarin, Honey</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Dry Fermentation Macerated (DFM)</span></div>
+        <div>고도: <span>1,850 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Cold Dry" 
+         data-price="170.0" 
+         data-p100="170.0" 
+         data-index="120">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 71.7점 (맛29.5/값22.2/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#120</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 170.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 64,600원 (100g당 170.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment <span class="badge-new-date">0112</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Cold Dry</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Washed" 
+         data-price="140.0" 
+         data-p100="140.0" 
+         data-index="121">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 73.3점 (맛29.5/값23.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#121</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 140.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 53,200원 (100g당 140.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Altieri Coffee, ALE 241223 GW <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Classic Washed" 
+         data-price="165.0" 
+         data-p100="165.0" 
+         data-index="122">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 72.0점 (맛29.5/값22.5/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#122</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 165.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 62,700원 (100g당 165.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Bambito Sakura, Geisha Washed <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 Cherry Blossom, Jasmine, White Tea, Peach, Tangerine</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Classic Washed</span></div>
+        <div>고도: <span>1,800 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Natural Carbonic Maceration" 
+         data-price="195.0" 
+         data-p100="195.0" 
+         data-index="123">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 80.5점 (맛39.5/값21.0/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#123</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 195.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 74,100원 (100g당 195.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Finca Deborah, Enigma <span class="badge-new-date">0304</span></div>
+      <div class="card-notes">🌸 Wild Strawberry, Blackberry, Dark Floral, Red Wine, Dark Chocolate</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural Carbonic Maceration</span></div>
+        <div>고도: <span>1,900 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Natural Yeast Inoculation" 
+         data-price="185.0" 
+         data-p100="185.0" 
+         data-index="124">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 81.0점 (맛39.5/값21.5/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#124</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 185.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 70,300원 (100g당 185.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Finca Deborah, Interstellar <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 White Peach, Lychee, Jasmine Blossom, Lemongrass, Floral Honey</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural Yeast Inoculation</span></div>
+        <div>고도: <span>1,900 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Natural Nitrogen Macerated" 
+         data-price="195.0" 
+         data-p100="195.0" 
+         data-index="125">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 80.5점 (맛39.5/값21.0/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#125</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 195.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 74,100원 (100g당 195.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Finca Deborah, Nirvana <span class="badge-new-date">0304</span></div>
+      <div class="card-notes">🌸 Candied Citrus, Lavender, Passionfruit, Jasmine, Champagne Acidity</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural Nitrogen Macerated</span></div>
+        <div>고도: <span>1,900 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Classic Washed" 
+         data-price="165.0" 
+         data-p100="165.0" 
+         data-index="126">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 82.0점 (맛39.5/값22.5/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#126</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 165.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 62,700원 (100g당 165.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 White Floral, Bergamot, Meyer Lemon, Jasmine Tea, White Peach</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Classic Washed</span></div>
+        <div>고도: <span>1,900 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Natural Anaerobic (ANC)" 
+         data-price="188.0" 
+         data-p100="188.0" 
+         data-index="127">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 75.2점 (맛35.8/값21.4/희18.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#127</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 188.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 71,440원 (100g당 188.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Hacienda La Esmeralda - Tumaco 4 ANC <span class="badge-new-date">0509</span></div>
+      <div class="card-notes">🌸 Jasmine Blossom, Sweet Mango, Papaya, Apricot, Honeyed Citrus</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural Anaerobic (ANC)</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Honey" 
+         data-price="138.0" 
+         data-p100="138.0" 
+         data-index="128">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 81.4점 (맛37.5/값23.9/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#128</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 138.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 52,440원 (100g당 138.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Janson Geisha Los Alpes Lot 503 Honey <span class="badge-new-date">0217</span></div>
+      <div class="card-notes">🌸 Orange Blossom, Honey, Stone Fruit, Bergamot, Sweet Lemon</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Green Tip Geisha</span></div>
+        <div>가공: <span>Honey</span></div>
+        <div>고도: <span>1,700 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Washed" 
+         data-price="145.0" 
+         data-p100="145.0" 
+         data-index="129">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 81.0점 (맛37.5/값23.5/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#129</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 145.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 55,100원 (100g당 145.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Mil Cumbres Lot OMO 0702 Geisha Washed <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 Jasmine, Lemongrass, Peach, Green Apple, Cane Sugar</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>2,000 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Competition Series 2025" 
+         data-country="Panama" 
+         data-process="Washed" 
+         data-price="110.0" 
+         data-p100="110.0" 
+         data-index="130">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 74.7점 (맛29.5/값25.2/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#130</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 110.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 41,800원 (100g당 110.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Tierra Blanca Geisha Washed <span class="badge-new-date">1025</span></div>
+      <div class="card-notes">🌸 White Peach, Jasmine, Citrus, Floral Tea, Sweet Crisp</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,800 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Brazil" 
+         data-process="Washed" 
+         data-price="16.8" 
+         data-p100="16.8" 
+         data-index="131">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.4점 (맛29.5/값29.9/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Brazil</span>
+          <span class="tag" style="color:#6e7681;">#131</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 16.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 6,384원 (100g당 16.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Brazil - Fazenda IP <span class="badge-new-date">1012</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Brazil" 
+         data-process="Washed" 
+         data-price="16.8" 
+         data-p100="16.8" 
+         data-index="132">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.4점 (맛29.5/값29.9/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Brazil</span>
+          <span class="tag" style="color:#6e7681;">#132</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 16.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 6,384원 (100g당 16.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Brazil - Santa Ines <span class="badge-new-date">0111</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Brazil" 
+         data-process="Washed" 
+         data-price="22.0" 
+         data-p100="22.0" 
+         data-index="133">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 76.6점 (맛27.0/값29.6/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Brazil</span>
+          <span class="tag" style="color:#6e7681;">#133</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 22.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 8,360원 (100g당 22.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Brazil - Santuario Sul Sudan Rume Washed <span class="badge-new-date">1214</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Sudan Rume</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Burundi" 
+         data-process="Natural" 
+         data-price="20.0" 
+         data-p100="20.0" 
+         data-index="134">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.3점 (맛29.5/값29.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Burundi</span>
+          <span class="tag" style="color:#6e7681;">#134</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,600원 (100g당 20.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Burundi - Burundi - Kivuvuma Natural <span class="badge-new-date">0331</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Colombia" 
+         data-process="Washed" 
+         data-price="26.0" 
+         data-p100="26.0" 
+         data-index="135">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 78.9점 (맛29.5/값29.4/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Colombia</span>
+          <span class="tag" style="color:#6e7681;">#135</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 26.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 9,880원 (100g당 26.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Colombia - Condor, Decaf <span class="badge-new-date">1004</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="El Salvador" 
+         data-process="Washed" 
+         data-price="19.2" 
+         data-p100="19.2" 
+         data-index="136">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 76.8점 (맛27.0/값29.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">El Salvador</span>
+          <span class="tag" style="color:#6e7681;">#136</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 19.2 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,296원 (100g당 19.2 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">El Salvador - El Salvador - Finca El Cerro Pacas Washed <span class="badge-new-date">0610</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Pacas</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="El Salvador" 
+         data-process="Washed" 
+         data-price="20.8" 
+         data-p100="20.8" 
+         data-index="137">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.2점 (맛29.5/값29.7/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">El Salvador</span>
+          <span class="tag" style="color:#6e7681;">#137</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,904원 (100g당 20.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">El Salvador - El Salvador - Finca Majahual <span class="badge-new-date">0316</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Ethiopia" 
+         data-process="Washed" 
+         data-price="22.0" 
+         data-p100="22.0" 
+         data-index="138">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.1점 (맛29.5/값29.6/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Ethiopia</span>
+          <span class="tag" style="color:#6e7681;">#138</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 22.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 8,360원 (100g당 22.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Ethiopia - Ethiopia  - Alo Coffee Mewa Village <span class="badge-new-date">0920</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Ethiopia" 
+         data-process="Natural" 
+         data-price="20.8" 
+         data-p100="20.8" 
+         data-index="139">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.2점 (맛29.5/값29.7/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Ethiopia</span>
+          <span class="tag" style="color:#6e7681;">#139</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,904원 (100g당 20.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Ethiopia - Banko Chelchele Chelbesa Natural <span class="badge-new-date">1004</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Natural</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Guatemala" 
+         data-process="Washed" 
+         data-price="20.8" 
+         data-p100="20.8" 
+         data-index="140">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.2점 (맛29.5/값29.7/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Guatemala</span>
+          <span class="tag" style="color:#6e7681;">#140</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,904원 (100g당 20.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Guatemala - Guatemala - Guatemala Finca Santa Rita <span class="badge-new-date">0224</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Honduras" 
+         data-process="Washed" 
+         data-price="19.2" 
+         data-p100="19.2" 
+         data-index="141">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.3점 (맛29.5/값29.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Honduras</span>
+          <span class="tag" style="color:#6e7681;">#141</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 19.2 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,296원 (100g당 19.2 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Honduras - Honduras - Finca Cascaritas Lot 19 <span class="badge-new-date">0715</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Honduras" 
+         data-process="Washed" 
+         data-price="20.8" 
+         data-p100="20.8" 
+         data-index="142">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.2점 (맛29.5/값29.7/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Honduras</span>
+          <span class="tag" style="color:#6e7681;">#142</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,904원 (100g당 20.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Honduras - Honduras - Finca Mira Flores Lot 22 <span class="badge-new-date">0715</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Indonesia" 
+         data-process="Washed" 
+         data-price="22.0" 
+         data-p100="22.0" 
+         data-index="143">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.1점 (맛29.5/값29.6/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Indonesia</span>
+          <span class="tag" style="color:#6e7681;">#143</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 22.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 8,360원 (100g당 22.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Indonesia - Indonesia - Bener Kelipah, Central Sumatera Coffee <span class="badge-new-date">0224</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Kenya" 
+         data-process="Washed" 
+         data-price="26.0" 
+         data-p100="26.0" 
+         data-index="144">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 78.9점 (맛29.5/값29.4/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Kenya</span>
+          <span class="tag" style="color:#6e7681;">#144</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 26.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 9,880원 (100g당 26.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Kenya - Kenya - Karimikui AA <span class="badge-new-date">1130</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Panama" 
+         data-process="Washed" 
+         data-price="20.0" 
+         data-p100="20.0" 
+         data-index="145">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 76.8점 (맛27.0/값29.8/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Panama</span>
+          <span class="tag" style="color:#6e7681;">#145</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.0 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,600원 (100g당 20.0 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Panama - Michella Estate Typica Washed <span class="badge-new-date">0528</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Typica</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    <div class="coffee-card" 
+         data-collection="Specialty Selection 2026" 
+         data-country="Rwanda" 
+         data-process="Washed" 
+         data-price="20.8" 
+         data-p100="20.8" 
+         data-index="146">
+      <div class="card-top">
+        <div class="card-meta-tags">
+          <span class="tag score-tag" style="background:rgba(210,153,34,0.18); color:#d29922; font-weight:800; border:1px solid rgba(210,153,34,0.35);">⭐ 79.2점 (맛29.5/값29.7/희20.0)</span>
+          <span class="tag col-micro">NEW 릴리즈</span>
+          <span class="tag country">Rwanda</span>
+          <span class="tag" style="color:#6e7681;">#146</span>
+        </div>
+        <div class="card-price-box">
+          <div class="price-aed">AED 20.8 <span style="font-size:10px; color:#8b949e;">(100g)</span></div>
+          <div class="price-krw">약 7,904원 (100g당 20.8 AED)</div>
+        </div>
+      </div>
+
+      <div class="card-title today-new-coffee-title">Rwanda - Rwanda - Muzo Lot 04 <span class="badge-new-date">0317</span></div>
+      <div class="card-notes">🌸 Jasmine, Peach, Bergamot, Tropical Fruits</div>
+
+      <div class="card-quick-specs">
+        <div>품종: <span>Geisha</span></div>
+        <div>가공: <span>Washed</span></div>
+        <div>고도: <span>1,750 masl</span></div>
+        <div>배전: <span>라이트-미디엄 (Filter | Espresso) [▪▫▫]</span></div>
+      </div>
+    </div>
+    </div>
 </div>
 
 <!-- FLOATING BOTTOM BAR -->
 <div class="floating-bottom">
-  <div class="count-text" id="floatingCount">117개 원두 표시 중</div>
+  <div class="count-text" id="floatingCount">146개 원두 표시 중</div>
   <button class="btn-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">맨 위로 ↑</button>
 </div>
 

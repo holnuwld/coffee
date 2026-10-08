@@ -666,6 +666,35 @@
   .m-nav-icon {
     font-size: 16px;
   }
+
+  /* TODAY NEW COFFEES HIGHLIGHT */
+  .today-new-coffee-title {
+    color: #388bfd !important;
+    font-weight: 700;
+  }
+  [data-theme="light"] .today-new-coffee-title {
+    color: #2563eb !important;
+  }
+  .badge-new-date {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    background: rgba(56, 139, 253, 0.15);
+    color: #388bfd;
+    border: 1px solid rgba(56, 139, 253, 0.35);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  [data-theme="light"] .badge-new-date {
+    background: rgba(37, 99, 235, 0.1);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
 </style>
 </head>
 <body>
@@ -730,6 +759,62 @@
 
   <!-- Coffee Cards List -->
   <div class="m-cards-list" id="mCardsList">
+
+        <div class="m-card" data-category="Latin America Special Lots" data-country="Honduras" data-process="Anaerobic Natural">
+          <div class="m-card-top">
+            <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Caballero Bomba de Fruta #1')">
+              <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Caballero Bomba de Fruta #1" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
+              <span class="m-zoom-pill">🔍 확대</span>
+            </div>
+            <div class="m-card-info">
+              <div class="m-score-badge" style="display:inline-block; margin-bottom:5px; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:800; background:rgba(210,153,34,0.18); color:#d29922; border:1px solid rgba(210,153,34,0.35);">⭐ 74.5점 (맛 34.0 / 값 20.5 / 희 20.0)</div>
+              <div class="m-title-row">
+                <span class="m-flag">🇭🇳</span>
+                <a href="https://theespressolab.com/products-details/caballero-bomba-de-fruta-1-6" target="_blank" class="m-title-link today-new-coffee-title">Caballero Bomba de Fruta #1 <span class="badge-new-date">1008</span> ↗</a>
+              </div>
+              <div class="m-sub-info">Honduras • Marcala, La Paz (1600m)</div>
+              <div class="m-badges-row">
+                <span class="m-badge variety">Catuai / Java</span>
+                <span class="m-badge process">Anaerobic Natural</span>
+                <span class="m-badge roast" title="푸어오버 전용 정밀 라이트 로스트">🔥 Filter (Light)</span>
+              </div>
+              <div class="m-price-row">
+                <span class="m-price-aed">76.19 AED</span>
+                <span class="m-price-krw">약 28,950원 (100g)</span>
+              </div>
+            </div>
+          </div>
+          <div class="m-card-notes">🌸 Passionfruit, Mango, Dark Cherry, Brown Sugar, Rum</div>
+          <div class="m-card-merit">💡 <strong>과일 폭탄 랏:</strong> 온두라스 COE 1위 카바예로 부부의 정밀 무산소 내추럴 최신 릴리즈.</div>
+        </div>
+
+        <div class="m-card" data-category="Latin America Special Lots" data-country="Brazil" data-process="Natural">
+          <div class="m-card-top">
+            <div class="m-card-img-wrap" onclick="openLightbox('https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png', 'Samambaia Natural Yellow Catucai')">
+              <img src="https://theespressolab.com/storage/products/gallery/images/LCP2RJikX6y4mYR7GQuAwzWb764oGDOIGek3lBeD.png" alt="Samambaia Natural Yellow Catucai" class="m-card-img" loading="lazy" onerror="this.src='https://via.placeholder.com/80?text=Coffee'">
+              <span class="m-zoom-pill">🔍 확대</span>
+            </div>
+            <div class="m-card-info">
+              <div class="m-score-badge" style="display:inline-block; margin-bottom:5px; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:800; background:rgba(210,153,34,0.18); color:#d29922; border:1px solid rgba(210,153,34,0.35);">⭐ 73.8점 (맛 33.3 / 값 20.5 / 희 20.0)</div>
+              <div class="m-title-row">
+                <span class="m-flag">🇧🇷</span>
+                <a href="https://theespressolab.com/products-details/samambaia-natural-yellow-catucai" target="_blank" class="m-title-link today-new-coffee-title">Samambaia Natural Yellow Catucai <span class="badge-new-date">1008</span> ↗</a>
+              </div>
+              <div class="m-sub-info">Brazil • Sul de Minas (1200m)</div>
+              <div class="m-badges-row">
+                <span class="m-badge variety">Yellow Catucai</span>
+                <span class="m-badge process">Natural</span>
+                <span class="m-badge roast" title="드립 & 에스프레소 옴니 로스트">🔥 Omni (Light-Med)</span>
+              </div>
+              <div class="m-price-row">
+                <span class="m-price-aed">76.19 AED</span>
+                <span class="m-price-krw">약 28,950원 (100g)</span>
+              </div>
+            </div>
+          </div>
+          <div class="m-card-notes">🌸 Milk Chocolate, Hazelnut, Yellow Plum, Caramel Sweetness</div>
+          <div class="m-card-merit">💡 <strong>명문 농장 밸런스:</strong> 120년 전통 Samambaia 농장의 희귀 옐로우 카투카이 내추럴.</div>
+        </div>
     
         <div class="m-card" data-category="Panama High-End &amp; Geisha" data-country="Panama" data-process="Oxidized Natural">
           
