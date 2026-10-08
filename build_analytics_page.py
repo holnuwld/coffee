@@ -1057,7 +1057,39 @@ def generate_html(items, stats):
       background: var(--bg-secondary);
       z-index: 2;
     }}
-    .modal-close-btn {{
+    .modal-star-btn {{
+      border-color: var(--accent-gold) !important;
+      color: var(--accent-gold) !important;
+      font-weight: 700 !important;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }}
+    .modal-star-btn:hover {{
+      background: rgba(210, 153, 34, 0.2) !important;
+      transform: translateY(-1px);
+    }}
+    .modal-star-btn.active-in-cart {{
+      background: var(--accent-gold) !important;
+      color: #0d1117 !important;
+      box-shadow: 0 0 10px rgba(210, 153, 34, 0.5) !important;
+    }}
+    .modal-star-btn-sm {{
+      padding: 4px 10px !important;
+      font-size: 12px !important;
+      border-color: var(--accent-gold) !important;
+      color: var(--accent-gold) !important;
+      font-weight: 700 !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }}
+    .modal-star-btn-sm:hover {{
+      background: rgba(210, 153, 34, 0.2) !important;
+    }}
+    .modal-star-btn-sm.active-in-cart {{
+      background: var(--accent-gold) !important;
+      color: #0d1117 !important;
+    }}
+  .modal-close-btn {{
       background: transparent;
       border: none;
       font-size: 22px;
@@ -1601,7 +1633,7 @@ def generate_html(items, stats):
   <div class="header-nav">
     <div class="nav-links">
       <a href="index.html" class="nav-btn">← 메인 허브 (Top 20)</a>
-      <a href="cart.html" class="nav-btn">🛒 장바구니</a>
+      <a href="cart.html" class="nav-btn" style="border-color:var(--accent-gold); color:var(--accent-gold); font-weight:700;">📋 장바구니 (<span class="cart-badge-count">0</span>개) ↗</a>
       <a href="archers_coffee_clean_verified.html" class="nav-btn">🏛️ 아처스 대시보드</a>
       <a href="theespressolab_verified.html" class="nav-btn">🔬 에소랩 대시보드</a>
     </div>
@@ -2157,7 +2189,10 @@ def generate_html(items, stats):
         <div class="detail-badges" id="modalBadges"></div>
         <h2 class="detail-title" id="modalTitle" style="margin-top:6px;"></h2>
       </div>
-      <button class="modal-close-btn" onclick="closeDetailModal()">&times;</button>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button id="modalStarBtnAnalyticsHeader" class="nav-btn modal-star-btn-sm" onclick="toggleCartFromModalAnalytics()" title="장바구니 담기 토글">⭐ 담기</button>
+        <button class="modal-close-btn" onclick="closeDetailModal()">&times;</button>
+      </div>
     </div>
     <div class="modal-body">
       <!-- SCORES -->
@@ -2246,6 +2281,7 @@ def generate_html(items, stats):
       </div>
     </div>
     <div class="modal-footer">
+      <button id="modalStarBtnAnalytics" class="nav-btn modal-star-btn" onclick="toggleCartFromModalAnalytics()">⭐ 장바구니 담기</button>
       <a id="modalSourceBtn" href="#" target="_blank" class="nav-btn" style="border-color:var(--accent-gold); color:var(--accent-gold);">공식 사이트 원문 보기 ↗</a>
       <button class="nav-btn" onclick="closeDetailModal()">닫기</button>
     </div>
@@ -3510,7 +3546,124 @@ def generate_html(items, stats):
     const srcBtn = document.getElementById('modalSourceBtn');
     srcBtn.href = c.source_url;
 
+    currentAnalyticsModalCoffee = c;
+    updateModalStarBtnAnalytics(c);
+
     document.getElementById('detailOverlay').classList.add('active');
+  }}
+
+  let currentAnalyticsModalCoffee = null;
+
+  function updateModalStarBtnAnalytics(c) {{
+    const btn = document.getElementById('modalStarBtnAnalytics');
+    const btnH = document.getElementById('modalStarBtnAnalyticsHeader');
+    if (!c) return;
+    let inCart = false;
+    try {{
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {{
+        const cart = JSON.parse(stored);
+        inCart = cart.some(x => (x.handle && x.handle === c.handle) || x.title === c.title);
+      }}
+    }} catch(e) {{}}
+
+    if (btn) {{
+      if (inCart) {{
+        btn.innerHTML = '★ 장바구니 담김';
+        btn.classList.add('active-in-cart');
+      }} else {{
+        btn.innerHTML = '⭐ 장바구니 담기';
+        btn.classList.remove('active-in-cart');
+      }}
+    }}
+    if (btnH) {{
+      if (inCart) {{
+        btnH.innerHTML = '★ 담김';
+        btnH.classList.add('active-in-cart');
+      }} else {{
+        btnH.innerHTML = '⭐ 담기';
+        btnH.classList.remove('active-in-cart');
+      }}
+    }}
+  }}
+
+  function toggleCartFromModalAnalytics() {{
+    if (!currentAnalyticsModalCoffee) return;
+    const c = currentAnalyticsModalCoffee;
+    let cart = [];
+    try {{
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) cart = JSON.parse(stored);
+    }} catch(e) {{}}
+
+    const existingIdx = cart.findIndex(x => (x.handle && x.handle === c.handle) || x.title === c.title);
+    if (existingIdx >= 0) {{
+      cart.splice(existingIdx, 1);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateModalStarBtnAnalytics(c);
+      updateCartCountBadge();
+      showAnalyticsToast(`🗑️ '${{c.title}}' 원두가 장바구니에서 삭제되었습니다.`);
+    }} else {{
+      const pAed = parseFloat(c.price_aed) || (c.price_100g_aed ? parseFloat(c.price_100g_aed) : 0);
+      const pKrw = parseInt(c.price_krw) || (c.price_100g_krw ? parseInt(c.price_100g_krw) : Math.round(pAed * 380));
+      const itemToAdd = {{
+        title: c.title,
+        handle: c.handle,
+        roastery: c.roastery.includes('Archers') ? 'Archers Coffee' : 'The Espresso Lab',
+        roastery_badge: c.roastery.includes('Archers') ? '🏹 Archers' : '☕ Esolab',
+        source_url: c.source_url,
+        price_aed: pAed,
+        price_krw: pKrw,
+        weight: c.weight || '100g',
+        roast: c.roast || 'Filter Light Roast',
+        country: c.country,
+        farm: c.farm,
+        producer: c.producer,
+        variety: c.variety,
+        process: c.process,
+        altitude: c.altitude,
+        notes: c.tasting_notes || (c.notes_list ? c.notes_list.join(', ') : ''),
+        overlap_note: c.merit || '애널리틱스 분석 추천 랏',
+        detailed_review: {{
+          taste_analysis: `${{c.roastery}} - ${{c.country}} ${{c.variety}} (${{c.process}}). 종합점수 ${{c.score_total}}점 (맛 ${{c.score_taste}}/50). ${{c.merit || ''}}`
+        }},
+        added_at: Date.now()
+      }};
+      cart.push(itemToAdd);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateModalStarBtnAnalytics(c);
+      updateCartCountBadge();
+      showAnalyticsToast(`🛒 '${{c.title}}' 원두가 장바구니에 담겼습니다!`);
+    }}
+  }}
+
+  function updateCartCountBadge() {{
+    let count = 0;
+    try {{
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {{
+        const arr = JSON.parse(stored);
+        count = arr.length;
+      }}
+    }} catch (e) {{}}
+    document.querySelectorAll('.cart-badge-count').forEach(el => {{
+      el.textContent = count;
+    }});
+  }}
+
+  function showAnalyticsToast(msg) {{
+    let toast = document.getElementById('analyticsToast');
+    if (!toast) {{
+      toast = document.createElement('div');
+      toast.id = 'analyticsToast';
+      toast.style.cssText = 'position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:rgba(22,27,34,0.95); border:1px solid #d29922; color:#f0f6fc; padding:12px 24px; border-radius:10px; font-size:14px; font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,0.5); z-index:99999; display:none; align-items:center; gap:8px;';
+      document.body.appendChild(toast);
+    }}
+    toast.textContent = msg;
+    toast.style.display = 'flex';
+    setTimeout(() => {{
+      toast.style.display = 'none';
+    }}, 3500);
   }}
 
   function closeDetailModal(e) {{
@@ -3563,6 +3716,7 @@ def generate_html(items, stats):
     initNotesChart();
     updateShapeLegend();
     renderTable();
+    updateCartCountBadge();
   }});
 </script>
 

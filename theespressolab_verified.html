@@ -961,6 +961,115 @@
     box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
   }
 
+
+  /* ROASTERY DETAIL MODAL & STAR BUTTON */
+  .roastery-detail-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-gold, #d29922);
+    background: rgba(210, 153, 34, 0.12);
+    border: 1px solid rgba(210, 153, 34, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    margin-right: 6px;
+  }
+  .roastery-detail-chip:hover {
+    background: rgba(210, 153, 34, 0.28);
+    transform: translateY(-1px);
+    border-color: var(--accent-gold, #d29922);
+  }
+  [data-theme="light"] .roastery-detail-chip {
+    color: #b45309;
+    background: #fffbeb;
+    border-color: #f59e0b;
+  }
+  .roastery-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 16px;
+  }
+  .roastery-modal-overlay.active {
+    display: flex;
+  }
+  .roastery-modal-window {
+    background: var(--bg-card, #161b22);
+    border: 1px solid var(--border, #30363d);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    position: relative;
+    color: var(--text-primary, #f0f6fc);
+  }
+  [data-theme="light"] .roastery-modal-window {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #0f172a;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+  }
+  .roastery-modal-star-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--accent-gold, #d29922);
+    background: rgba(210, 153, 34, 0.12);
+    border: 1px solid var(--accent-gold, #d29922);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .roastery-modal-star-btn:hover {
+    background: rgba(210, 153, 34, 0.25);
+    transform: translateY(-1px);
+  }
+  .roastery-modal-star-btn.active-in-cart {
+    background: var(--accent-gold, #d29922);
+    color: #0d1117;
+    border-color: var(--accent-gold, #d29922);
+    box-shadow: 0 0 12px rgba(210, 153, 34, 0.5);
+  }
+  .roastery-cart-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(22, 27, 34, 0.95);
+    border: 1px solid var(--accent-gold, #d29922);
+    color: #f0f6fc;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+  [data-theme="light"] .roastery-cart-toast {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
 </style>
 </head>
 <body>
@@ -976,6 +1085,7 @@
         <span class="theme-icon">☀️</span>
         <span class="theme-label">브라이트 모드</span>
       </button>
+      <a href="cart.html" class="nav-btn" style="color:var(--accent); font-weight:700; border-color:var(--accent);">📋 장바구니 (<span class="cart-badge-count">0</span>개) ↗</a>
       <a href="theespressolab_mobile.html" class="nav-btn">📱 모바일 뷰</a>
       <a href="archers_coffee_clean_verified.html" class="nav-btn">☕ 아처스 커피 대시보드</a>
       <a href="index.html" class="nav-btn primary">🏠 허브 메인</a>
@@ -1416,7 +1526,7 @@
             </div>
           </td>
           <td class="td-score" data-value="70.0" data-total="70.0" data-taste="35.5" data-price="14.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 14.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/agricola-geisha-oxidized-natural-27" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Agricola Geisha Oxidized Natural 27 ↗
@@ -1471,7 +1581,7 @@
             </div>
           </td>
           <td class="td-score" data-value="86.3" data-total="86.3" data-taste="45.8" data-price="22.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 45.8 / 값 22.5 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Auromar Firestone ↗
@@ -1528,7 +1638,7 @@
             </div>
           </td>
           <td class="td-score" data-value="83.8" data-total="83.8" data-taste="38.5" data-price="29.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 83.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 38.5 / 값 29.8 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/bombe-washed-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Bombe Washed ↗
@@ -1585,7 +1695,7 @@
             </div>
           </td>
           <td class="td-score" data-value="73.8" data-total="73.8" data-taste="29.5" data-price="28.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-16" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇧🇷 CARMO FAZENDA ISIDRO PEREIRA ↗
@@ -1642,7 +1752,7 @@
             </div>
           </td>
           <td class="td-score" data-value="73.8" data-total="73.8" data-taste="29.5" data-price="28.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/carmo-fazenda-isidro-pereira-for-meraki-espresso-machine" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇧🇷 CARMO FAZENDA ISIDRO PEREIRA (For Meraki Espresso Machine) ↗
@@ -1699,7 +1809,7 @@
             </div>
           </td>
           <td class="td-score" data-value="73.5" data-total="73.5" data-taste="32.0" data-price="23.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 73.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.5 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cgle-la-margritas-geisha-honey" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 CGLE La Margritas Geisha Honey ↗
@@ -1756,7 +1866,7 @@
             </div>
           </td>
           <td class="td-score" data-value="65.5" data-total="65.5" data-taste="27.5" data-price="20.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 65.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.5 / 값 20.0 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cgle-sudan-rume-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 CGLE Sudan Rume Natural ↗
@@ -1813,7 +1923,7 @@
             </div>
           </td>
           <td class="td-score" data-value="74.5" data-total="74.5" data-taste="40.0" data-price="14.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 14.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/chevas-geisha-lot-11" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Chevas Geisha Lot 11 ↗
@@ -1868,7 +1978,7 @@
             </div>
           </td>
           <td class="td-score" data-value="75.5" data-total="75.5" data-taste="40.0" data-price="15.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 15.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/chevas-geisha-lot-75" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Chevas Geisha Lot 75 ↗
@@ -1923,7 +2033,7 @@
             </div>
           </td>
           <td class="td-score" data-value="80.0" data-total="80.0" data-taste="34.5" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cota-kodu-coco-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇷 Cota Kodu Coco ↗
@@ -1978,7 +2088,7 @@
             </div>
           </td>
           <td class="td-score" data-value="80.0" data-total="80.0" data-taste="34.5" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.5 / 값 25.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/cota-tropical-popsicle-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇷 Cota Tropical Popsicle ↗
@@ -2033,7 +2143,7 @@
             </div>
           </td>
           <td class="td-score" data-value="62.7" data-total="62.7" data-taste="23.0" data-price="24.2" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 62.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 23.0 / 값 24.2 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/daterra-laurina-anaerobic-natural-lot-tb13" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇧🇷 Daterra Laurina Anaerobic Natural Lot TB13 ↗
@@ -2090,7 +2200,7 @@
             </div>
           </td>
           <td class="td-score" data-value="76.5" data-total="76.5" data-taste="30.0" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 26.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-olingo-geisha-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 El Olingo Geisha Natural ↗
@@ -2145,7 +2255,7 @@
             </div>
           </td>
           <td class="td-score" data-value="80.8" data-total="80.8" data-taste="33.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 El Rubi Parainema Anaerobic Washed Lot A ↗
@@ -2200,7 +2310,7 @@
             </div>
           </td>
           <td class="td-score" data-value="80.8" data-total="80.8" data-taste="33.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 27.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-b" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 El Rubi Parainema Anaerobic Washed Lot B ↗
@@ -2255,7 +2365,7 @@
             </div>
           </td>
           <td class="td-score" data-value="71.3" data-total="71.3" data-taste="29.5" data-price="21.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 71.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 21.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-salto-cielo-015" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 El Salto CIELO 015 ↗
@@ -2310,7 +2420,7 @@
             </div>
           </td>
           <td class="td-score" data-value="68.3" data-total="68.3" data-taste="29.5" data-price="18.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 18.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/el-salto-la-leyenda-lot-008" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 EL Salto La Leyenda Lot 008 ↗
@@ -2365,7 +2475,7 @@
             </div>
           </td>
           <td class="td-score" data-value="79.4" data-total="79.4" data-taste="34.2" data-price="25.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 79.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 34.2 / 값 25.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/finca-feryen-sl28-washed" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇰🇪 Finca Feryen SL28 Washed ↗
@@ -2420,7 +2530,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.0" data-total="77.0" data-taste="29.5" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/finca-milan-caturra-washed" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 Finca Milan Caturra Washed ↗
@@ -2475,7 +2585,7 @@
             </div>
           </td>
           <td class="td-score" data-value="55.0" data-total="55.0" data-taste="29.5" data-price="10.0" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 55.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 10.0 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/geisha-village-rsv-1-oma" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Geisha Village RSV 1 Oma ↗
@@ -2532,7 +2642,7 @@
             </div>
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-14" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Guji Hambela Rogicha ↗
@@ -2587,7 +2697,7 @@
             </div>
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/guji-hambela-rogicha-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Guji Hambela Rogicha ↗
@@ -2642,7 +2752,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/harusuke-14" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Harusuke ↗
@@ -2697,7 +2807,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/harusuke-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Harusuke ↗
@@ -2752,7 +2862,7 @@
             </div>
           </td>
           <td class="td-score" data-value="80.4" data-total="80.4" data-taste="32.2" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 80.4</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.2 / 값 28.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kamavindi-cianda-sl28-natural-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇰🇪 Kamavindi Cianda SL28 Natural ↗
@@ -2807,7 +2917,7 @@
             </div>
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="32.0" data-price="28.2" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.2</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 28.2 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kamavindi-giakanja-ab-washed-7" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇰🇪 Kamavindi Giakanja AB Washed ↗
@@ -2864,7 +2974,7 @@
             </div>
           </td>
           <td class="td-score" data-value="74.8" data-total="74.8" data-taste="27.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 27.0 / 값 27.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/kotowa-las-brujas-ethiopian-natural-lot-4219" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Kotowa Las Brujas Ethiopian Natural Lot 4219 ↗
@@ -2919,7 +3029,7 @@
             </div>
           </td>
           <td class="td-score" data-value="68.5" data-total="68.5" data-taste="29.5" data-price="19.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 La Negrita Mundo Novo ↗
@@ -2974,7 +3084,7 @@
             </div>
           </td>
           <td class="td-score" data-value="68.5" data-total="68.5" data-taste="29.5" data-price="19.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 19.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/la-negrita-mundo-novo-4" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 La Negrita Mundo Novo ↗
@@ -3029,7 +3139,7 @@
             </div>
           </td>
           <td class="td-score" data-value="69.8" data-total="69.8" data-taste="39.5" data-price="14.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 14.8 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lamastus-egn-asd-rf2d-torre-080426" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lamastus EGN ASD RF2D TORRE 080426 ↗
@@ -3086,7 +3196,7 @@
             </div>
           </td>
           <td class="td-score" data-value="68.5" data-total="68.5" data-taste="39.5" data-price="13.5" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.5 / 값 13.5 / 희 15.5</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lamastus-egn-drd-vuelta-280426" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lamastus EGN DRD VUELTA 280426 ↗
@@ -3143,7 +3253,7 @@
             </div>
           </td>
           <td class="td-score" data-value="75.0" data-total="75.0" data-taste="32.0" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 75.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 23.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lerida-geisha-lot-0642" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lerida Geisha Lot 0642 ↗
@@ -3198,7 +3308,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.0" data-total="77.0" data-taste="32.0" data-price="25.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 25.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lerida-geisha-natural-06442" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lerida Geisha Natural 06442 ↗
@@ -3253,7 +3363,7 @@
             </div>
           </td>
           <td class="td-score" data-value="63.8" data-total="63.8" data-taste="35.8" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-natural-lot-5a" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Longboard Misty Mountain Geisha Natural Lot 5A ↗
@@ -3310,7 +3420,7 @@
             </div>
           </td>
           <td class="td-score" data-value="63.8" data-total="63.8" data-taste="35.8" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 63.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.8 / 값 10.0 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/longboard-misty-mountain-geisha-washed-lot-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Longboard Misty Mountain Geisha Washed Lot 15 ↗
@@ -3367,7 +3477,7 @@
             </div>
           </td>
           <td class="td-score" data-value="67.0" data-total="67.0" data-taste="30.0" data-price="17.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 67.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 17.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lost-origin-las-nubes-lot-184" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lost Origin Las Nubes Lot 184 ↗
@@ -3422,7 +3532,7 @@
             </div>
           </td>
           <td class="td-score" data-value="64.8" data-total="64.8" data-taste="32.0" data-price="12.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 64.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 12.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/lost-origin-morgan-estate-lot-197" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Lost Origin Morgan Estate Lot 197 ↗
@@ -3477,7 +3587,7 @@
             </div>
           </td>
           <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153-2" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Mi Finquita Geisha Lot 153 ↗
@@ -3532,7 +3642,7 @@
             </div>
           </td>
           <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-geisha-lot-153" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Mi Finquita Geisha Lot 153 ↗
@@ -3587,7 +3697,7 @@
             </div>
           </td>
           <td class="td-score" data-value="70.0" data-total="70.0" data-taste="40.0" data-price="10.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 40.0 / 값 10.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/mi-finquita-tel-lot" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Mi Finquita TEL Lot ↗
@@ -3642,7 +3752,7 @@
             </div>
           </td>
           <td class="td-score" data-value="74.7" data-total="74.7" data-taste="29.5" data-price="25.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 74.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 25.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/moreno-maragogype-natural-anaerobic-84h" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 Moreno Maragogype Natural Anaerobic 84H ↗
@@ -3697,7 +3807,7 @@
             </div>
           </td>
           <td class="td-score" data-value="76.3" data-total="76.3" data-taste="29.5" data-price="26.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 26.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/moreno-pink-bourbon-natural-114" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇨🇴 Moreno Pink Bourbon Natural 114 ↗
@@ -3752,7 +3862,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.8" data-total="77.8" data-taste="30.0" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 27.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nelin-guzman-parainema-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇭🇳 Nelin Guzman Parainema Natural ↗
@@ -3807,7 +3917,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.9" data-total="77.9" data-taste="29.5" data-price="28.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.9</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.4 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nocturne-8" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🌐 Nocturne ↗
@@ -3862,7 +3972,7 @@
             </div>
           </td>
           <td class="td-score" data-value="70.0" data-total="70.0" data-taste="42.0" data-price="10.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 70.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 42.0 / 값 10.0 / 희 18.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/nuguo-geisha-natural-778" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Nuguo Geisha Natural 778 ↗
@@ -3919,7 +4029,7 @@
             </div>
           </td>
           <td class="td-score" data-value="69.8" data-total="69.8" data-taste="30.0" data-price="19.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 69.8</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 19.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/ponderosa-geisha-natural" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Ponderosa Geisha Natural ↗
@@ -3974,7 +4084,7 @@
             </div>
           </td>
           <td class="td-score" data-value="76.5" data-total="76.5" data-taste="32.0" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 32.0 / 값 24.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/romesas-geisha-natural-river-flow-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Romesas Geisha Natural River Flow ↗
@@ -4029,7 +4139,7 @@
             </div>
           </td>
           <td class="td-score" data-value="76.7" data-total="76.7" data-taste="29.5" data-price="27.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 27.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/romesas-pacamara-natural-oxidado-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Romesas Pacamara Natural Oxidado ↗
@@ -4084,7 +4194,7 @@
             </div>
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="29.5" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 77.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.2 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/samambaia-natural-arara-15" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇧🇷 Samambaia Natural Arara ↗
@@ -4139,7 +4249,7 @@
             </div>
           </td>
           <td class="td-score" data-value="68.0" data-total="68.0" data-taste="30.0" data-price="18.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 68.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 30.0 / 값 18.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/santos-geisha-natural-dark-room-lot-41" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 Santos Geisha Natural Dark Room Lot 41 ↗
@@ -4194,7 +4304,7 @@
             </div>
           </td>
           <td class="td-score" data-value="86.7" data-total="86.7" data-taste="39.7" data-price="27.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 86.7</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 39.7 / 값 27.0 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇵🇦 SL28 Santa Isabel ↗
@@ -4249,7 +4359,7 @@
             </div>
           </td>
           <td class="td-score" data-value="76.5" data-total="76.5" data-taste="33.0" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 76.5</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 33.0 / 값 23.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/testi-guji-hambela-faysel-abdosh-project-lot-tel-natural-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Testi Guji Hambela Faysel Abdosh Project Lot TEL Natural ↗
@@ -4304,7 +4414,7 @@
             </div>
           </td>
           <td class="td-score" data-value="82.0" data-total="82.0" data-taste="35.5" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 82.0</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 35.5 / 값 26.5 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/testi-sidama-yaye-natural-anaerobic-3" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Testi Sidama Yaye Natural Anaerobic ↗
@@ -4359,7 +4469,7 @@
             </div>
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div class="font-bold" style="color:var(--accent); font-size:14px;">⭐ 78.3</div><div class="text-xs text-muted" style="white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
-          <td class="coffee-title-cell">
+          <td class="coffee-title-cell"><div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;"><button type="button" class="roastery-detail-chip" onclick="openEsolabModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button></div>
             <div class="font-bold text-primary">
               <a href="https://theespressolab.com/products-details/yirgacheffe-haru-natural-5" target="_blank" class="coffee-link" title="에스프레소 커피랩 공식 상품 페이지 열기">
                 🇪🇹 Yirgacheffe Haru Natural ↗
@@ -4709,7 +4819,295 @@
       applyTheme(nextTheme);
     }
 
-    window.addEventListener('DOMContentLoaded', initTheme);
+    
+  // ROASTERY MODAL & CART FUNCTIONS
+  let currentRoasteryCoffee = null;
+
+  function openEsolabModalFromRow(btn) {
+    const tr = btn.closest('tr');
+    if (!tr) return;
+
+    const titleA = tr.querySelector('.coffee-title-cell a');
+    const title = titleA ? titleA.textContent.replace('↗', '').trim() : 'The Espresso Lab Coffee';
+    const source_url = titleA ? titleA.href : 'https://theespressolab.com';
+    const handleEl = tr.querySelector('.coffee-title-cell .text-muted');
+    const handle = handleEl ? handleEl.textContent.trim() : (source_url.split('/products-details/')[1] || title.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+    
+    const sc = tr.querySelector('.td-score');
+    const score_total = sc ? (sc.getAttribute('data-total') || '0') : '0';
+    const score_taste = sc ? (sc.getAttribute('data-taste') || '0') : '0';
+    const score_price = sc ? (sc.getAttribute('data-price') || '0') : '0';
+    const score_rarity = sc ? (sc.getAttribute('data-rarity') || '0') : '0';
+
+    const country = tr.cells[4] ? tr.cells[4].textContent.trim() : '';
+    const location = tr.cells[5] ? tr.cells[5].textContent.trim() : '';
+    const farm = tr.cells[6] ? tr.cells[6].textContent.trim() : '';
+    const producer = tr.cells[7] ? tr.cells[7].textContent.trim() : '';
+    const variety = tr.cells[8] ? tr.cells[8].textContent.trim() : '';
+    const process = tr.cells[9] ? tr.cells[9].textContent.trim() : '';
+    const altitude = tr.cells[10] ? tr.cells[10].textContent.trim() : '';
+    const roast = tr.cells[11] ? tr.cells[11].textContent.trim() : '';
+    const notes = tr.querySelector('.notes-cell') ? tr.querySelector('.notes-cell').textContent.trim() : '';
+    const weight = tr.cells[13] ? tr.cells[13].textContent.trim() : '100g';
+    
+    let price_aed = '0';
+    if (tr.cells[14]) {
+      const pBold = tr.cells[14].querySelector('.font-bold');
+      price_aed = pBold ? pBold.textContent.replace(/[^0-9.]/g, '') : tr.cells[14].textContent.replace(/[^0-9.]/g, '');
+    }
+    const korea_status = tr.querySelector('.korea-shop-cell') ? tr.querySelector('.korea-shop-cell').textContent.trim() : '';
+    const merit = tr.querySelector('.merit-cell') ? tr.querySelector('.merit-cell').textContent.trim() : '';
+    const review = tr.querySelector('.review-cell') ? tr.querySelector('.review-cell').textContent.trim() : '';
+
+    currentRoasteryCoffee = {
+      title,
+      handle,
+      roastery: 'The Espresso Lab',
+      roastery_badge: '☕ Esolab',
+      source_url,
+      score_total,
+      score_taste,
+      score_price,
+      score_rarity,
+      country,
+      location,
+      farm,
+      producer,
+      variety,
+      process,
+      altitude,
+      roast,
+      notes,
+      weight,
+      price_aed: parseFloat(price_aed) || 0,
+      price_krw: Math.round((parseFloat(price_aed) || 0) * 380),
+      korea_status,
+      merit,
+      review
+    };
+
+    // Populate modal
+    document.getElementById('rModalBadges').innerHTML = `
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; border:1px solid #ef4444; color:#ef4444;">☕ The Espresso Lab</span>
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; background:rgba(255,255,255,0.06); color:var(--text-secondary);">${country}</span>
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; background:rgba(255,255,255,0.06); color:var(--text-secondary);">${process}</span>
+    `;
+    document.getElementById('rModalTitle').textContent = title;
+    document.getElementById('rModalScoreTotal').textContent = score_total;
+    document.getElementById('rModalScoreTaste').textContent = score_taste;
+    document.getElementById('rModalScorePrice').textContent = score_price;
+    document.getElementById('rModalScoreRarity').textContent = score_rarity;
+
+    document.getElementById('rModalSpecsGrid').innerHTML = `
+      <div><span style="color:var(--text-muted);">원산지:</span> <strong>${country} (${location})</strong></div>
+      <div><span style="color:var(--text-muted);">농장/생산자:</span> <strong>${farm} / ${producer}</strong></div>
+      <div><span style="color:var(--text-muted);">품종:</span> <strong>${variety}</strong></div>
+      <div><span style="color:var(--text-muted);">가공:</span> <strong>${process}</strong></div>
+      <div><span style="color:var(--text-muted);">고도:</span> <strong>${altitude}</strong></div>
+      <div><span style="color:var(--text-muted);">로스팅:</span> <strong>${roast}</strong></div>
+      <div><span style="color:var(--text-muted);">용량 및 가격:</span> <strong>${price_aed} AED (약 ${currentRoasteryCoffee.price_krw.toLocaleString()}원) / ${weight}</strong></div>
+    `;
+
+    document.getElementById('rModalNotes').textContent = `✨ ${notes || 'N/A'}`;
+    document.getElementById('rModalKoreaStatus').textContent = korea_status || '국내 미수입';
+    document.getElementById('rModalMerit').textContent = merit || '에스프레소 커피랩 독점 랏';
+    document.getElementById('rModalReview').textContent = review || 'The Espresso Lab 랩 테이스팅 추천';
+
+    document.getElementById('rModalShopLink').href = source_url;
+
+    updateRoasteryModalStarBtn();
+    document.getElementById('roasteryDetailModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateRoasteryModalStarBtn() {
+    const btnTop = document.getElementById('roasteryModalStarBtnTop');
+    const btnBtm = document.getElementById('roasteryModalStarBtnBottom');
+    if (!currentRoasteryCoffee) return;
+
+    let inCart = false;
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {
+        const cart = JSON.parse(stored);
+        inCart = cart.some(x => (x.handle && x.handle === currentRoasteryCoffee.handle) || x.title === currentRoasteryCoffee.title);
+      }
+    } catch(e) {}
+
+    [btnTop, btnBtm].forEach(btn => {
+      if (!btn) return;
+      if (inCart) {
+        btn.innerHTML = '★ 장바구니 담김';
+        btn.classList.add('active-in-cart');
+      } else {
+        btn.innerHTML = '⭐ 장바구니 담기';
+        btn.classList.remove('active-in-cart');
+      }
+    });
+  }
+
+  function toggleCartFromRoasteryModal() {
+    if (!currentRoasteryCoffee) return;
+    const c = currentRoasteryCoffee;
+    let cart = [];
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) cart = JSON.parse(stored);
+    } catch(e) {}
+
+    const existingIdx = cart.findIndex(x => (x.handle && x.handle === c.handle) || x.title === c.title);
+    if (existingIdx >= 0) {
+      cart.splice(existingIdx, 1);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateRoasteryModalStarBtn();
+      updateCartCountBadge();
+      showRoasteryToast(`🗑️ '${c.title}' 원두가 장바구니에서 삭제되었습니다.`);
+    } else {
+      const itemToAdd = {
+        title: c.title,
+        handle: c.handle,
+        roastery: c.roastery,
+        roastery_badge: c.roastery_badge,
+        source_url: c.source_url,
+        price_aed: c.price_aed,
+        price_krw: c.price_krw,
+        weight: c.weight,
+        roast: c.roast,
+        country: c.country,
+        farm: c.farm,
+        producer: c.producer,
+        variety: c.variety,
+        process: c.process,
+        altitude: c.altitude,
+        notes: c.notes,
+        overlap_note: c.merit || '에소랩 대시보드 검증 랏',
+        detailed_review: {
+          taste_analysis: `${c.roastery} - ${c.country} ${c.variety} (${c.process}). 종합점수 ${c.score_total}점 (맛 ${c.score_taste}/50). ${c.merit || ''}`
+        },
+        added_at: Date.now()
+      };
+      cart.push(itemToAdd);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateRoasteryModalStarBtn();
+      updateCartCountBadge();
+      showRoasteryToast(`🛒 '${c.title}' 원두가 장바구니에 담겼습니다!`);
+    }
+  }
+
+  function updateCartCountBadge() {
+    let count = 0;
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {
+        const arr = JSON.parse(stored);
+        count = arr.length;
+      }
+    } catch (e) {}
+    document.querySelectorAll('.cart-badge-count').forEach(el => {
+      el.textContent = count;
+    });
+  }
+
+  function showRoasteryToast(msg) {
+    const toast = document.getElementById('roasteryCartToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.style.display = 'flex';
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 3500);
+  }
+
+  function closeRoasteryModal(e) {
+    if (e && e.target && e.target.id !== 'roasteryDetailModal' && e.target.tagName !== 'BUTTON') {
+      return;
+    }
+    const modal = document.getElementById('roasteryDetailModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeRoasteryModal();
+  });
+
+    window.addEventListener('DOMContentLoaded', () => { initTheme(); updateCartCountBadge(); });
   </script>
+
+<!-- ROASTERY COFFEE DETAIL MODAL -->
+<div class="roastery-modal-overlay" id="roasteryDetailModal" onclick="closeRoasteryModal(event)">
+  <div class="roastery-modal-window" onclick="event.stopPropagation()">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; gap:12px;">
+      <div>
+        <div id="rModalBadges" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px;"></div>
+        <h2 id="rModalTitle" style="font-size:18px; font-weight:800; line-height:1.3; margin:0;"></h2>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" id="roasteryModalStarBtnTop" class="roastery-modal-star-btn" onclick="toggleCartFromRoasteryModal()" title="장바구니 담기 토글">⭐ 장바구니 담기</button>
+        <button type="button" onclick="closeRoasteryModal()" style="background:transparent; border:none; font-size:22px; cursor:pointer; color:var(--text-muted); padding:0 4px;" title="닫기 (ESC)">&times;</button>
+      </div>
+    </div>
+
+    <!-- Scores Grid -->
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; background:var(--modal-score-bg, rgba(255,255,255,0.03)); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px; text-align:center;">
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">⭐ 종합점수</div>
+        <div id="rModalScoreTotal" style="font-size:18px; font-weight:800; color:var(--accent-gold, #d29922);">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">☕ 맛 (50)</div>
+        <div id="rModalScoreTaste" style="font-size:18px; font-weight:800; color:#58a6ff;">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">💰 값 (30)</div>
+        <div id="rModalScorePrice" style="font-size:18px; font-weight:800; color:#3fb950;">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">💎 희 (20)</div>
+        <div id="rModalScoreRarity" style="font-size:18px; font-weight:800; color:#a855f7;">0</div>
+      </div>
+    </div>
+
+    <!-- Specs Grid -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">📋 원두 스펙 데이터</div>
+      <div id="rModalSpecsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:6px; font-size:12.5px; background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px;"></div>
+    </div>
+
+    <!-- Tasting Notes -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🍓 센서리 테이스팅 노트</div>
+      <div id="rModalNotes" style="font-size:13.5px; font-weight:700; color:var(--accent-gold, #d29922); background:rgba(210,153,34,0.08); border:1px solid rgba(210,153,34,0.25); border-radius:8px; padding:10px;"></div>
+    </div>
+
+    <!-- Domestic Status & Merit -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🇰🇷 국내 유통 현황 & 현지 구매 가치</div>
+      <div style="background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:12.5px; line-height:1.5;">
+        <div style="margin-bottom:6px;"><strong>국내 유통:</strong> <span id="rModalKoreaStatus"></span></div>
+        <div><strong>구매 메리트:</strong> <span id="rModalMerit" style="color:var(--text-secondary);"></span></div>
+      </div>
+    </div>
+
+    <!-- Community Review -->
+    <div style="margin-bottom:18px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🌐 전문가 및 커뮤니티 평가</div>
+      <div id="rModalReview" style="background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:12px; color:var(--text-secondary); line-height:1.5;"></div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:14px; flex-wrap:wrap; gap:8px;">
+      <button type="button" id="roasteryModalStarBtnBottom" class="roastery-modal-star-btn" onclick="toggleCartFromRoasteryModal()">⭐ 장바구니 담기</button>
+      <div style="display:flex; gap:8px;">
+        <a id="rModalShopLink" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:4px; padding:8px 14px; font-size:13px; font-weight:700; background:linear-gradient(135deg, #d29922, #b07d10); color:#0d1117; border-radius:6px; text-decoration:none;">공식몰 페이지 열기 ↗</a>
+        <button type="button" onclick="closeRoasteryModal()" style="padding:8px 14px; font-size:13px; font-weight:700; background:transparent; border:1px solid var(--border); border-radius:6px; color:var(--text-secondary); cursor:pointer;">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Toast Notification -->
+<div id="roasteryCartToast" class="roastery-cart-toast"></div>
+
 </body>
 </html>

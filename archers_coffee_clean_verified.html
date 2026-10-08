@@ -870,6 +870,115 @@
     box-shadow: 0 0 10px rgba(22, 163, 74, 0.35);
   }
 
+
+  /* ROASTERY DETAIL MODAL & STAR BUTTON */
+  .roastery-detail-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-gold, #d29922);
+    background: rgba(210, 153, 34, 0.12);
+    border: 1px solid rgba(210, 153, 34, 0.4);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+    margin-right: 6px;
+  }
+  .roastery-detail-chip:hover {
+    background: rgba(210, 153, 34, 0.28);
+    transform: translateY(-1px);
+    border-color: var(--accent-gold, #d29922);
+  }
+  [data-theme="light"] .roastery-detail-chip {
+    color: #b45309;
+    background: #fffbeb;
+    border-color: #f59e0b;
+  }
+  .roastery-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 16px;
+  }
+  .roastery-modal-overlay.active {
+    display: flex;
+  }
+  .roastery-modal-window {
+    background: var(--bg-card, #161b22);
+    border: 1px solid var(--border, #30363d);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 24px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+    position: relative;
+    color: var(--text-primary, #f0f6fc);
+  }
+  [data-theme="light"] .roastery-modal-window {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    color: #0f172a;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+  }
+  .roastery-modal-star-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--accent-gold, #d29922);
+    background: rgba(210, 153, 34, 0.12);
+    border: 1px solid var(--accent-gold, #d29922);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .roastery-modal-star-btn:hover {
+    background: rgba(210, 153, 34, 0.25);
+    transform: translateY(-1px);
+  }
+  .roastery-modal-star-btn.active-in-cart {
+    background: var(--accent-gold, #d29922);
+    color: #0d1117;
+    border-color: var(--accent-gold, #d29922);
+    box-shadow: 0 0 12px rgba(210, 153, 34, 0.5);
+  }
+  .roastery-cart-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(22, 27, 34, 0.95);
+    border: 1px solid var(--accent-gold, #d29922);
+    color: #f0f6fc;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+  [data-theme="light"] .roastery-cart-toast {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
 </style>
 </head>
 <body>
@@ -880,6 +989,7 @@
     <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
       <a href="index.html" class="nav-btn" style="color:var(--text-secondary); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:var(--tag-bg); border:1px solid var(--border); border-radius:6px;">← 허브 인덱스로 돌아가기</a>
       <a href="mobile.html" class="nav-btn" style="color:var(--accent-light); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:rgba(210,153,34,0.15); border:1px solid var(--accent); border-radius:6px;">📱 모바일 최적화 버전 ↗</a>
+      <a href="cart.html" class="nav-btn" style="color:var(--accent-gold); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:rgba(210,153,34,0.15); border:1px solid var(--accent); border-radius:6px;">📋 장바구니 (<span class="cart-badge-count">0</span>개) ↗</a>
       <a href="theespressolab_verified.html" class="nav-btn" style="color:var(--blue); text-decoration:none; font-size:13px; font-weight:700; padding:6px 12px; background:var(--tag-bg); border:1px solid var(--border); border-radius:6px;">☕ The Espresso Lab 대시보드</a>
     </div>
     <div>
@@ -1564,7 +1674,7 @@
           </td>
           <td class="td-score" data-value="83.8" data-total="83.8" data-taste="44.2" data-price="24.1" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 15.5</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-cafe-granja-la-esperanza-cerro-azul-geisha-hybrid-washed" target="_blank">Colombia - Cafe Granja La Esperanza Cerro Azul Geisha Hybrid Washed ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1604,7 +1714,7 @@
           </td>
           <td class="td-score" data-value="77.6" data-total="77.6" data-taste="36.7" data-price="25.4" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.4 / 희 15.5</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-caturra-chiroso-finca-el-paraiso" target="_blank">Colombia - Caturra Chiroso, Finca El Paraiso ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1644,7 +1754,7 @@
           </td>
           <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-honey-drd" target="_blank">Colombia - Finca El Porvenir Geisha Honey DRD ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1684,7 +1794,7 @@
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="34.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-finca-el-porvenir-geisha-washed" target="_blank">Colombia - Finca El Porvenir Geisha Washed ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1724,7 +1834,7 @@
           </td>
           <td class="td-score" data-value="76.6" data-total="76.6" data-taste="31.7" data-price="24.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 24.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-inmaculada-coffee-sudan-rume-signature-lot-t895" target="_blank">Colombia - Inmaculada Coffee Sudan Rume Signature Lot T895 ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1764,7 +1874,7 @@
           </td>
           <td class="td-score" data-value="79.7" data-total="79.7" data-taste="34.2" data-price="25.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 25.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-las-margaritas-geisha-hybrid-washed" target="_blank">Colombia - Las Margaritas, Geisha Hybrid Washed ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1804,7 +1914,7 @@
           </td>
           <td class="td-score" data-value="77.8" data-total="77.8" data-taste="36.7" data-price="25.6" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-letty-finca-el-paraiso" target="_blank">Colombia - Letty, Finca El Paraiso ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1844,7 +1954,7 @@
           </td>
           <td class="td-score" data-value="77.8" data-total="77.8" data-taste="36.7" data-price="25.6" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 25.6 / 희 15.5</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-luna-finca-el-paraiso" target="_blank">Colombia - Luna, Finca El Paraiso ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -1884,7 +1994,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-don-ks-geisha-lot-131" target="_blank">Costa Rica - Hacienda Copey Don KS Geisha lot 131 ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -1924,7 +2034,7 @@
           </td>
           <td class="td-score" data-value="77.8" data-total="77.8" data-taste="34.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-honey-lot-182" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Honey Lot 182 ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -1964,7 +2074,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-lot-111" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Lot 111 ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -2004,7 +2114,7 @@
           </td>
           <td class="td-score" data-value="77.4" data-total="77.4" data-taste="34.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-hacienda-copey-itadaki-geisha-washed-lot-177" target="_blank">Costa Rica - Hacienda Copey Itadaki Geisha Washed Lot 177 ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -2044,7 +2154,7 @@
           </td>
           <td class="td-score" data-value="77.6" data-total="77.6" data-taste="31.7" data-price="25.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ecuador-sidra-wave-washed-finca-soledad" target="_blank">Ecuador - Sidra Wave Washed, Finca Soledad ↗</a>
           </td>
           <td><strong>Ecuador</strong></td>
@@ -2084,7 +2194,7 @@
           </td>
           <td class="td-score" data-value="77.6" data-total="77.6" data-taste="31.7" data-price="25.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 25.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ecuador-typica-mejorado-wave-natural-finca-soledad" target="_blank">Ecuador - Typica Mejorado Wave Natural, Finca Soledad ↗</a>
           </td>
           <td><strong>Ecuador</strong></td>
@@ -2124,7 +2234,7 @@
           </td>
           <td class="td-score" data-value="80.6" data-total="80.6" data-taste="34.2" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-rf8-archers-ep-cold-ferment-natural" target="_blank">Ethiopia - Alo Coffee RF8 Archers EP Cold Ferment Natural ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2164,7 +2274,7 @@
           </td>
           <td class="td-score" data-value="80.6" data-total="80.6" data-taste="34.2" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-wrf8-archers-ep-cold-ferment-washed" target="_blank">Ethiopia - Alo Coffee WRF8 Archers EP Cold Ferment Washed ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2204,7 +2314,7 @@
           </td>
           <td class="td-score" data-value="78.1" data-total="78.1" data-taste="29.5" data-price="28.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-1-sfw" target="_blank">Ethiopia - Alo Village Archers Lot 1 - SFW ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2244,7 +2354,7 @@
           </td>
           <td class="td-score" data-value="78.1" data-total="78.1" data-taste="29.5" data-price="28.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-archers-lot-2-dfw" target="_blank">Ethiopia - Alo Village Archers Lot 2 - DFW ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2284,7 +2394,7 @@
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-natural-peaberry" target="_blank">Ethiopia - Alo Village, Natural Peaberry ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2324,7 +2434,7 @@
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="29.5" data-price="28.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 28.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-village-washed-peaberry" target="_blank">Ethiopia - Alo Village, Washed Peaberry ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2364,7 +2474,7 @@
           </td>
           <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-honey-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Honey Archers Lot EP ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2404,7 +2514,7 @@
           </td>
           <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-hybrid-washed-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Hybrid Washed Archers Lot EP ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2444,7 +2554,7 @@
           </td>
           <td class="td-score" data-value="93.7" data-total="93.7" data-taste="45.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-cold-ferment-natural-archers-lot-ep" target="_blank">Ethiopia - Daye Bensa Cold Ferment Natural Archers Lot EP ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2484,7 +2594,7 @@
           </td>
           <td class="td-score" data-value="81.1" data-total="81.1" data-taste="34.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-natural-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Natural Cold Ferment Archers EP ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2524,7 +2634,7 @@
           </td>
           <td class="td-score" data-value="81.1" data-total="81.1" data-taste="34.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 81.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 26.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elora-station-washed-cold-ferment-archers-ep" target="_blank">Ethiopia - Elora Station Washed Cold Ferment Archers EP ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2564,7 +2674,7 @@
           </td>
           <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-cold-ferment-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station  Cold Ferment Natural CF8 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2604,7 +2714,7 @@
           </td>
           <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-honey-mosto-ferment-drd" target="_blank">Ethiopia - Elto - Elora Station Honey Mosto Ferment  - DRD ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2644,7 +2754,7 @@
           </td>
           <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-honey-cf5" target="_blank">Ethiopia - Elto - Elora Station River Flow Honey CF5 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2684,7 +2794,7 @@
           </td>
           <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-cf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural CF8 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2724,7 +2834,7 @@
           </td>
           <td class="td-score" data-value="88.8" data-total="88.8" data-taste="42.2" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-natural-rf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Natural RF10 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2764,7 +2874,7 @@
           </td>
           <td class="td-score" data-value="89.7" data-total="89.7" data-taste="42.2" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 27.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed CF10 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2804,7 +2914,7 @@
           </td>
           <td class="td-score" data-value="89.1" data-total="89.1" data-taste="42.2" data-price="26.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 26.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-wrf8" target="_blank">Ethiopia - Elto - Elora Station River Flow Washed WRF8 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2844,7 +2954,7 @@
           </td>
           <td class="td-score" data-value="88.4" data-total="88.4" data-taste="41.0" data-price="29.4" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.4 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-anaerobic-archers-lot-1" target="_blank">Ethiopia - Hamasho Village Natural Anaerobic Archers Lot ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2884,7 +2994,7 @@
           </td>
           <td class="td-score" data-value="88.7" data-total="88.7" data-taste="40.2" data-price="28.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-natural-anaerobic" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Natural Anaerobic ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2924,7 +3034,7 @@
           </td>
           <td class="td-score" data-value="88.2" data-total="88.2" data-taste="40.2" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-rumudamo-anaerobic-mini-archers-lot-0102-26" target="_blank">Ethiopia - Rumudamo Anaerobic Mini Archers lot 0102-26 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -2964,7 +3074,7 @@
           </td>
           <td class="td-score" data-value="92.2" data-total="92.2" data-taste="45.8" data-price="26.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 92.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.8 / 값 26.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry" target="_blank">Panama  - Finca Auromar, Geisha Washed Peaberry ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3004,7 +3114,7 @@
           </td>
           <td class="td-score" data-value="85.3" data-total="85.3" data-taste="42.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-claus-gn-lot-2702" target="_blank">Panama  - Mil Cumbres CLAUS GN Lot 2702 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3044,7 +3154,7 @@
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-2690" target="_blank">Panama - Abu Coffee - Geisha Washed lot 2690 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3084,7 +3194,7 @@
           </td>
           <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-abu-coffee-geisha-washed-lot-3365" target="_blank">Panama - Abu Coffee Geisha Washed Lot 3365 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3124,7 +3234,7 @@
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed" target="_blank">Panama - Adaura Coffee Finca Lorayne Geisha Washed ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3164,7 +3274,7 @@
           </td>
           <td class="td-score" data-value="79.0" data-total="79.0" data-taste="34.2" data-price="24.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd" target="_blank">Panama - Adaura Coffee Geisha Washed Jer DRD ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3204,7 +3314,7 @@
           </td>
           <td class="td-score" data-value="75.8" data-total="75.8" data-taste="34.2" data-price="21.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-washed-ferment-mosto-2025" target="_blank">Panama - Adaura Coffee, Washed Ferment Mosto ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3244,7 +3354,7 @@
           </td>
           <td class="td-score" data-value="77.4" data-total="77.4" data-taste="34.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-altieri-coffee-chombi-080425-river-flow-7" target="_blank">Panama - Altieri Coffee Chombi 080425 River Flow 7 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3284,7 +3394,7 @@
           </td>
           <td class="td-score" data-value="85.7" data-total="85.7" data-taste="42.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus" target="_blank">Panama - Chevas Limited  El Choclo GW Venus ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3324,7 +3434,7 @@
           </td>
           <td class="td-score" data-value="78.7" data-total="78.7" data-taste="34.2" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-cuatro-caminos-h2-geisha-natural" target="_blank">Panama - Cuatro Caminos H2 Geisha Natural ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3364,7 +3474,7 @@
           </td>
           <td class="td-score" data-value="88.3" data-total="88.3" data-taste="44.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501" target="_blank">Panama - Elida Geisha Honey Loma 2501 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3404,7 +3514,7 @@
           </td>
           <td class="td-score" data-value="88.3" data-total="88.3" data-taste="44.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 24.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-elida-estate-geisha-plano-2801" target="_blank">Panama - Elida Geisha Washed Plano 2801 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3444,7 +3554,7 @@
           </td>
           <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-natural-lot-2425" target="_blank">Panama - Finca El Pergamino Geisha Natural Lot 2425 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3484,7 +3594,7 @@
           </td>
           <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-el-pergamino-geisha-washed-lot-31325" target="_blank">Panama - Finca El Pergamino Geisha Washed Lot 31325 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3524,7 +3634,7 @@
           </td>
           <td class="td-score" data-value="84.4" data-total="84.4" data-taste="44.2" data-price="20.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-geisha-washed-gw208" target="_blank">Panama - Finca Los Cenizos  - Geisha Washed GW 208 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3564,7 +3674,7 @@
           </td>
           <td class="td-score" data-value="84.6" data-total="84.6" data-taste="44.2" data-price="20.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 20.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-los-cenizos-gn-060-planta-lot-10" target="_blank">Panama - Finca Los Cenizos GN 060 - Planta lot 10 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3604,7 +3714,7 @@
           </td>
           <td class="td-score" data-value="75.4" data-total="75.4" data-taste="44.2" data-price="11.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 11.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-finca-nuguo-geisha-washed-lot-841" target="_blank">Panama - Finca Nuguo Geisha Washed Lot 841 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3644,7 +3754,7 @@
           </td>
           <td class="td-score" data-value="76.0" data-total="76.0" data-taste="34.2" data-price="21.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-washed-lot-5" target="_blank">Panama - Gato Grande  Cold Ferment Washed Lot 5 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3684,7 +3794,7 @@
           </td>
           <td class="td-score" data-value="76.4" data-total="76.4" data-taste="34.2" data-price="22.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-gato-grande-cold-ferment-natural" target="_blank">Panama - Gato Grande Cold Ferment Natural ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3724,7 +3834,7 @@
           </td>
           <td class="td-score" data-value="85.7" data-total="85.7" data-taste="42.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-guarumo-coffee-farm-geisha-natural-lot-17125" target="_blank">Panama - Guarumo Coffee Farm Geisha Natural Lot 17125 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3764,7 +3874,7 @@
           </td>
           <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-mario-arriba-4-nb" target="_blank">Panama - Hacienda La Esmeralda  Mario Arriba 4 NB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3804,7 +3914,7 @@
           </td>
           <td class="td-score" data-value="75.2" data-total="75.2" data-taste="34.2" data-price="21.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-buenos-aires-4nc" target="_blank">Panama - Hacienda La Esmeralda Buenos Aires 4NC ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3844,7 +3954,7 @@
           </td>
           <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-cabana-arriba-8nb" target="_blank">Panama - Hacienda La Esmeralda Cabaña Arriba 8 NB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3884,7 +3994,7 @@
           </td>
           <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-el-velo-farm-higo-4fb" target="_blank">Panama - Hacienda La Esmeralda El Velo Farm - Higo 4FB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3924,7 +4034,7 @@
           </td>
           <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-fundador-8-nb" target="_blank">Panama - Hacienda La Esmeralda Fundador 8 NB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -3964,7 +4074,7 @@
           </td>
           <td class="td-score" data-value="75.6" data-total="75.6" data-taste="34.2" data-price="21.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-montana-6-fc-copy" target="_blank">Panama - Hacienda La Esmeralda Montana 6 FC ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4004,7 +4114,7 @@
           </td>
           <td class="td-score" data-value="73.7" data-total="73.7" data-taste="34.2" data-price="19.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 73.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 19.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-hacienda-la-esmeralda-porton-5-anb" target="_blank">Panama - Hacienda La Esmeralda Portón 5 ANB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4044,7 +4154,7 @@
           </td>
           <td class="td-score" data-value="78.7" data-total="78.7" data-taste="34.2" data-price="24.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-kotowa-coffee-las-brujas-lot-6934" target="_blank">Panama - Kotowa Coffee Las Brujas Lot 6934 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4084,7 +4194,7 @@
           </td>
           <td class="td-score" data-value="87.0" data-total="87.0" data-taste="44.2" data-price="22.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 87.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 44.2 / 값 22.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lamastus-family-elida-geisha-vuelta-gn-lot-0325" target="_blank">Panama - Lamastus Family Elida Geisha Vuelta GN Lot 0325 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4124,7 +4234,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-esplendorosa-estate-geisha-natural-lot-0690" target="_blank">Panama - Lerida Coffee Esplendorosa Estate Geisha Natural Lot 0690 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4164,7 +4274,7 @@
           </td>
           <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-honey-lot-07901-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Honey Lot 07901 Cold Room Drying ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4204,7 +4314,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-lot-0746-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Lot 0746 Cold Room Drying ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4244,7 +4354,7 @@
           </td>
           <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-natural-waterfall-lot-0486" target="_blank">Panama - Lerida Coffee Estate Geisha Natural Waterfall Lot 0486 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4284,7 +4394,7 @@
           </td>
           <td class="td-score" data-value="77.3" data-total="77.3" data-taste="34.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-geisha-washed-lot-0774-cold-room-drying" target="_blank">Panama - Lerida Coffee Estate Geisha Washed Lot 0774 Cold Room Drying ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4324,7 +4434,7 @@
           </td>
           <td class="td-score" data-value="77.2" data-total="77.2" data-taste="34.2" data-price="23.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lerida-coffee-estate-gw-cold-room-lot-0391" target="_blank">Panama - Lerida Coffee Estate GW Cold Room Lot 0368 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4364,7 +4474,7 @@
           </td>
           <td class="td-score" data-value="86.2" data-total="86.2" data-taste="42.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 20C ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4404,7 +4514,7 @@
           </td>
           <td class="td-score" data-value="86.2" data-total="86.2" data-taste="42.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c" target="_blank">Panama - Los Lajones Bambu Geisha Washed Lot 26C ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4444,7 +4554,7 @@
           </td>
           <td class="td-score" data-value="85.4" data-total="85.4" data-taste="42.2" data-price="23.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.4</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-los-lajones-bambo-geisha-washed-lot-8-ab" target="_blank">Panama - Los Lajones Bambú Geisha Washed lot 8 AB ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4484,7 +4594,7 @@
           </td>
           <td class="td-score" data-value="76.3" data-total="76.3" data-taste="34.2" data-price="22.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 22.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-lost-origin-la-estrella-yeast-inoculation-for-release" target="_blank">Panama - Lost Origin La Estrella Yeast Inoculation ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4524,7 +4634,7 @@
           </td>
           <td class="td-score" data-value="82.7" data-total="82.7" data-taste="42.2" data-price="20.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 82.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 20.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-mi-finquita-hartman-reserve-gn-wineglobe-lot-10325" target="_blank">Panama - Mi Finquita - Hartmann Reserve GN Wineglobe Lot 10325 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4564,7 +4674,7 @@
           </td>
           <td class="td-score" data-value="85.8" data-total="85.8" data-taste="42.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2" target="_blank">Panama - Mil Cumbres GIL GW lot 2 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4604,7 +4714,7 @@
           </td>
           <td class="td-score" data-value="85.3" data-total="85.3" data-taste="42.2" data-price="23.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 23.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-omo-gn-lot-1201" target="_blank">Panama - Mil Cumbres OMO GN Lot 1201 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4644,7 +4754,7 @@
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-df-washed" target="_blank">Panama - Santamaria Estate  Geisha DF Washed ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4684,7 +4794,7 @@
           </td>
           <td class="td-score" data-value="78.3" data-total="78.3" data-taste="34.2" data-price="24.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-honey" target="_blank">Panama - Santamaria Estate - Geisha Honey ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4724,7 +4834,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-washed-lot-7" target="_blank">Panama - Santamaria Estate - Geisha Washed Lot 7 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4764,7 +4874,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="34.2" data-price="24.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 24.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-santamaria-estate-geisha-natural-lot-11" target="_blank">Panama - Santamaria Estate Geisha Natural Lot 11 ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4804,7 +4914,7 @@
           </td>
           <td class="td-score" data-value="77.8" data-total="77.8" data-taste="34.2" data-price="23.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-spectrum" target="_blank">Panama - Spectrum, Savage Coffees ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4844,7 +4954,7 @@
           </td>
           <td class="td-score" data-value="76.1" data-total="76.1" data-taste="34.2" data-price="21.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-symbiosis" target="_blank">Panama - Symbiosis, Iris Estate ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4884,7 +4994,7 @@
           </td>
           <td class="td-score" data-value="76.1" data-total="76.1" data-taste="34.2" data-price="21.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 76.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 21.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-symmetry" target="_blank">Panama - Symmetry, Iris Estate ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4924,7 +5034,7 @@
           </td>
           <td class="td-score" data-value="77.7" data-total="77.7" data-taste="34.2" data-price="23.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 77.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 23.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Competition<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-teirra-blanca-c2-geisha-washed" target="_blank">Panama - Tierra Blanca C5 Geisha Washed ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -4964,7 +5074,7 @@
           </td>
           <td class="td-score" data-value="79.5" data-total="79.5" data-taste="31.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-pink-bouron-efm-lot-1289" target="_blank">Colombia - Aroma Nativo  Pink Bourbon EFM Lot 1289 ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5004,7 +5114,7 @@
           </td>
           <td class="td-score" data-value="79.5" data-total="79.5" data-taste="31.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-aroma-nativo-bourbon-aji-hydro-honey-lot-396" target="_blank">Colombia - Aroma Nativo Bourbon Aji  Hydro Honey Lot 396 ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5044,7 +5154,7 @@
           </td>
           <td class="td-score" data-value="79.2" data-total="79.2" data-taste="31.7" data-price="27.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 27.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-clearpath-coffee-finca-capilla-de-rosario-lychee-cf" target="_blank">Colombia - Clearpath Coffee Finca Capilla De Rosario Lychee CF ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5084,7 +5194,7 @@
           </td>
           <td class="td-score" data-value="84.7" data-total="84.7" data-taste="36.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-kodu-coconut-cf" target="_blank">Colombia - Cota Coffee Finca Kodu Coconut CF ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5124,7 +5234,7 @@
           </td>
           <td class="td-score" data-value="84.8" data-total="84.8" data-taste="36.7" data-price="28.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life" target="_blank">Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5164,7 +5274,7 @@
           </td>
           <td class="td-score" data-value="84.5" data-total="84.5" data-taste="36.7" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.5</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-tropical-popsicle" target="_blank">Colombia - Cota Coffee Finca Rio Negro Tropical Popsicle ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5204,7 +5314,7 @@
           </td>
           <td class="td-score" data-value="80.0" data-total="80.0" data-taste="36.7" data-price="27.8" data-rarity="15.5" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 27.8 / 희 15.5</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-finca-el-paraiso-villa-rosita" target="_blank">Colombia - Finca El Paraiso Villa Rosita ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5244,7 +5354,7 @@
           </td>
           <td class="td-score" data-value="86.3" data-total="86.3" data-taste="39.7" data-price="26.6" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 86.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.7 / 값 26.6 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt" target="_blank">Ecuador - Fincas Del Putushio, Typica Mejorado ↗</a>
           </td>
           <td><strong>Ecuador</strong></td>
@@ -5284,7 +5394,7 @@
           </td>
           <td class="td-score" data-value="88.9" data-total="88.9" data-taste="41.0" data-price="29.9" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 88.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 29.9 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-hamasho-natural-archers-lot-0126" target="_blank">Ethiopia - Daye Bensa Hamasho Natural Archers Lot 0126 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5324,7 +5434,7 @@
           </td>
           <td class="td-score" data-value="93.9" data-total="93.9" data-taste="45.7" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini" target="_blank">Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5364,7 +5474,7 @@
           </td>
           <td class="td-score" data-value="93.8" data-total="93.8" data-taste="45.7" data-price="28.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 93.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 45.7 / 값 28.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot" target="_blank">Ethiopia - Daye Bensa Rumudamo DFW Archers Lot ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5404,7 +5514,7 @@
           </td>
           <td class="td-score" data-value="91.3" data-total="91.3" data-taste="42.2" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed" target="_blank">Ethiopia - Elto Coffee Elora Station Classic Washed ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5444,7 +5554,7 @@
           </td>
           <td class="td-score" data-value="91.3" data-total="91.3" data-taste="42.2" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.3</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural" target="_blank">Ethiopia - Elto Coffee Kokose Natural Lot 2 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5484,7 +5594,7 @@
           </td>
           <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-asefa-dukamo-station-honey-archers-lot" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Honey Archers Lot ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5524,7 +5634,7 @@
           </td>
           <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-natural-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Natural Archers Lot ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5564,7 +5674,7 @@
           </td>
           <td class="td-score" data-value="89.0" data-total="89.0" data-taste="41.0" data-price="30.0" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 41.0 / 값 30.0 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-hamasho-village-washed-archers-lot-2025" target="_blank">Ethiopia - Hamasho Village Asefa Dukamo Station Washed Archers Lot ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5604,7 +5714,7 @@
           </td>
           <td class="td-score" data-value="89.1" data-total="89.1" data-taste="40.2" data-price="28.9" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 89.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 40.2 / 값 28.9 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural" target="_blank">Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -5644,7 +5754,7 @@
           </td>
           <td class="td-score" data-value="80.0" data-total="80.0" data-taste="32.2" data-price="27.8" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.0</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 32.2 / 값 27.8 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/finca-la-pradera-cf-lychee-copy" target="_blank">Guatemala - Finca El Injerto, Malawi Geisha ↗</a>
           </td>
           <td><strong>Guatemala</strong></td>
@@ -5684,7 +5794,7 @@
           </td>
           <td class="td-score" data-value="79.9" data-total="79.9" data-taste="31.7" data-price="28.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 79.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-adaura-coffee-catuai-natural" target="_blank">Panama - Adaura Coffee Catuai Natural ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -5724,7 +5834,7 @@
           </td>
           <td class="td-score" data-value="78.2" data-total="78.2" data-taste="31.7" data-price="26.5" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 26.5 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot Reserve 2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/yemen-east-haraz-wadi-al-salon" target="_blank">Yemen - East Haraz Wadi Al Sallol ↗</a>
           </td>
           <td><strong>Yemen</strong></td>
@@ -5764,7 +5874,7 @@
           </td>
           <td class="td-score" data-value="75.2" data-total="75.2" data-taste="27.7" data-price="29.5" data-rarity="18.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 75.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.7 / 값 29.5 / 희 18.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/brazil-fazenda-um-supreme-pulp-natural" target="_blank">Brazil - Fazenda Um Supreme Pulp Natural ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
@@ -5804,7 +5914,7 @@
           </td>
           <td class="td-score" data-value="84.7" data-total="84.7" data-taste="36.7" data-price="28.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 84.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 28.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-cota-coffee-finca-anaya-watermelon-cf" target="_blank">Colombia - Cota Coffee Finca Anaya - Watermelon CF ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5844,7 +5954,7 @@
           </td>
           <td class="td-score" data-value="80.1" data-total="80.1" data-taste="31.7" data-price="28.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.1</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 28.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-nogales-coffee-farm-typica-low-caffeine" target="_blank">Colombia - Nogales Coffee Farm Typica Low Caffeine ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -5884,7 +5994,7 @@
           </td>
           <td class="td-score" data-value="80.9" data-total="80.9" data-taste="31.7" data-price="29.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-cafe-rivense-black-honey" target="_blank">Costa Rica - Cafe Rivense Black Honey ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -5924,7 +6034,7 @@
           </td>
           <td class="td-score" data-value="78.9" data-total="78.9" data-taste="29.7" data-price="29.2" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 78.9</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.7 / 값 29.2 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/costa-rica-el-jardin-anaerobic" target="_blank">Costa Rica - El Jardin, Anaerobic ↗</a>
           </td>
           <td><strong>Costa Rica</strong></td>
@@ -5964,7 +6074,7 @@
           </td>
           <td class="td-score" data-value="80.8" data-total="80.8" data-taste="31.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-benti-nenka-guji-hambela" target="_blank">Ethiopia - Benti Nenka Guji Hambela ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -6004,7 +6114,7 @@
           </td>
           <td class="td-score" data-value="91.6" data-total="91.6" data-taste="42.2" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey" target="_blank">Ethiopia - Elto Coffee Sama Honey ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -6044,7 +6154,7 @@
           </td>
           <td class="td-score" data-value="91.6" data-total="91.6" data-taste="42.2" data-price="29.4" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 91.6</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 42.2 / 값 29.4 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed" target="_blank">Ethiopia - Elto Coffee Sama Washed ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -6084,7 +6194,7 @@
           </td>
           <td class="td-score" data-value="85.8" data-total="85.8" data-taste="36.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 85.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 36.7 / 값 29.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopian-oboleyan-coffee-hambela-benti-nenka-classic-natural-lot-2" target="_blank">Ethiopia - Oboleyan Coffee Hambela Benti Nenka - Classic Natural Lot 2 ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -6124,7 +6234,7 @@
           </td>
           <td class="td-score" data-value="80.7" data-total="80.7" data-taste="31.7" data-price="29.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.7</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/guatemala-finca-la-serrania-kimono-natural" target="_blank">Guatemala - Finca La Serrania Kimono Natural ↗</a>
           </td>
           <td><strong>Guatemala</strong></td>
@@ -6164,7 +6274,7 @@
           </td>
           <td class="td-score" data-value="80.8" data-total="80.8" data-taste="31.7" data-price="29.1" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 80.8</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 31.7 / 값 29.1 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/india-pearl-mountain-lot-rm-59" target="_blank">India - Pearl Mountain Lot RM 59 ↗</a>
           </td>
           <td><strong>India</strong></td>
@@ -6204,7 +6314,7 @@
           </td>
           <td class="td-score" data-value="83.2" data-total="83.2" data-taste="34.2" data-price="29.0" data-rarity="20.0" style="text-align:center; vertical-align:middle;"><div style="font-weight:800; font-size:14px; color:#d29922;">⭐ 83.2</div><div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 34.2 / 값 29.0 / 희 20.0</div></td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Microlot 2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/kenya-rui-ruiru-aa-natural-anaerobic" target="_blank">Kenya - Rui Ruiru AA Natural Anaerobic ↗</a>
           </td>
           <td><strong>Kenya</strong></td>
@@ -6247,7 +6357,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 26.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-mandela-vieux" target="_blank" class="today-new-coffee-title">Colombia - Mandela - Cafe Granja La Esperanza <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -6290,7 +6400,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 22.2 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-020425" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 020425 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6333,7 +6443,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 22.2 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-altieri-coffee-alessa-190325-cold-dry-ferment" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee Alessa 190325 Cold Dry Ferment <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6376,7 +6486,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 23.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-ale-241223-gw-altieri-coffee" target="_blank" class="today-new-coffee-title">Panama - Altieri Coffee, ALE 241223 GW <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6419,7 +6529,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 22.5 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-sakura-geisha-washed-bambito-estate" target="_blank" class="today-new-coffee-title">Panama - Bambito Sakura, Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6462,7 +6572,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.0 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-enigma-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Enigma <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6505,7 +6615,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.5 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-interstellar-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Interstellar <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6548,7 +6658,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 21.0 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-nirvana" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Nirvana <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6591,7 +6701,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 39.5 / 값 22.5 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-terroir-finca-deborah" target="_blank" class="today-new-coffee-title">Panama - Finca Deborah, Terroir <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6634,7 +6744,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 35.8 / 값 21.4 / 희 18.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/hacienda-la-esmeralda-tomaco-4-anc" target="_blank" class="today-new-coffee-title">Panama - Hacienda La Esmeralda - Tumaco 4 ANC <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6677,7 +6787,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 23.9 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-janson-family-geisha-honey-los-alpes-lot-503" target="_blank" class="today-new-coffee-title">Panama - Janson Geisha Los Alpes Lot 503 Honey <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6720,7 +6830,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 37.5 / 값 23.5 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-mil-cumbres-lot-omo-0702-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Mil Cumbres Lot OMO 0702 Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6763,7 +6873,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 25.2 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Comp<br>2025</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-tierra-blanca-geisha-washed" target="_blank" class="today-new-coffee-title">Panama - Tierra Blanca Geisha Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -6806,7 +6916,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.9 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/brazil-fazenda-ip-natural" target="_blank" class="today-new-coffee-title">Brazil - Fazenda IP <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
@@ -6849,7 +6959,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.9 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/brazil-santa-ines" target="_blank" class="today-new-coffee-title">Brazil - Santa Ines <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
@@ -6892,7 +7002,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.6 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed" target="_blank" class="today-new-coffee-title">Brazil - Santuario Sul Sudan Rume Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Brazil</strong></td>
@@ -6935,7 +7045,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/burundi-kivuvuma-natural" target="_blank" class="today-new-coffee-title">Burundi - Burundi - Kivuvuma Natural <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Burundi</strong></td>
@@ -6978,7 +7088,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.4 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/colombia-condor-decaf" target="_blank" class="today-new-coffee-title">Colombia - Condor, Decaf <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Colombia</strong></td>
@@ -7021,7 +7131,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/el-salvador-finca-el-cerro-pacas-washed" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca El Cerro Pacas Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>El Salvador</strong></td>
@@ -7064,7 +7174,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/el-salvador-finca-majahual" target="_blank" class="today-new-coffee-title">El Salvador - El Salvador - Finca Majahual <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>El Salvador</strong></td>
@@ -7107,7 +7217,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.6 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-alo-coffee-mewa-village" target="_blank" class="today-new-coffee-title">Ethiopia - Ethiopia  - Alo Coffee Mewa Village <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -7150,7 +7260,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/ethiopia-banko-chelchele-chelbesa-natural-1" target="_blank" class="today-new-coffee-title">Ethiopia - Banko Chelchele Chelbesa Natural <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Ethiopia</strong></td>
@@ -7193,7 +7303,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/guatemala-guatemala-finca-santa-rita" target="_blank" class="today-new-coffee-title">Guatemala - Guatemala - Guatemala Finca Santa Rita <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Guatemala</strong></td>
@@ -7236,7 +7346,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/honduras-finca-cascaritas-lot-19" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Cascaritas Lot 19 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Honduras</strong></td>
@@ -7279,7 +7389,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/honduras-finca-mira-flores-lot-22" target="_blank" class="today-new-coffee-title">Honduras - Honduras - Finca Mira Flores Lot 22 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Honduras</strong></td>
@@ -7322,7 +7432,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.6 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/indonesia-central-sumatera-bener-kelipah-natural" target="_blank" class="today-new-coffee-title">Indonesia - Indonesia - Bener Kelipah, Central Sumatera Coffee <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Indonesia</strong></td>
@@ -7365,7 +7475,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.4 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/kenya-karimikui-aa" target="_blank" class="today-new-coffee-title">Kenya - Kenya - Karimikui AA <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Kenya</strong></td>
@@ -7408,7 +7518,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 27.0 / 값 29.8 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/panama-michella-estate-typica-washed-finca-lerida" target="_blank" class="today-new-coffee-title">Panama - Michella Estate Typica Washed <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Panama</strong></td>
@@ -7451,7 +7561,7 @@
             <div style="font-size:10px; color:#8b949e; white-space:nowrap;">맛 29.5 / 값 29.7 / 희 20.0</div>
           </td>
           <td><div style="font-weight:600; font-size:11.5px; color:#8b949e; line-height:1.2; word-break:keep-all;">Specialty<br>2026</div></td>
-          <td class="cell-title">
+          <td class="cell-title"><button type="button" class="roastery-detail-chip" onclick="openArchersModalFromRow(this)" title="원두 상세 설명 보기 및 장바구니 담기">🔍 상세</button>
             <a href="https://archerscoffee.com/products/rwanda-muzo-lot-04" target="_blank" class="today-new-coffee-title">Rwanda - Rwanda - Muzo Lot 04 <span class="badge-new-date">1008</span> ↗</a>
           </td>
           <td><strong>Rwanda</strong></td>
@@ -7705,8 +7815,292 @@
     applyTheme(nextTheme);
   }
 
-  window.addEventListener('DOMContentLoaded', initTheme);
+  
+  // ROASTERY MODAL & CART FUNCTIONS
+  let currentRoasteryCoffee = null;
+
+  function openArchersModalFromRow(btn) {
+    const tr = btn.closest('tr');
+    if (!tr) return;
+
+    const titleA = tr.querySelector('.cell-title a');
+    const title = titleA ? titleA.textContent.replace('↗', '').trim() : 'Archers Coffee';
+    const source_url = titleA ? titleA.href : 'https://archerscoffee.com';
+    const collection = tr.getAttribute('data-collection') || (tr.cells[3] ? tr.cells[3].textContent.trim() : '');
+    
+    const sc = tr.querySelector('.td-score');
+    const score_total = sc ? (sc.getAttribute('data-total') || '0') : '0';
+    const score_taste = sc ? (sc.getAttribute('data-taste') || '0') : '0';
+    const score_price = sc ? (sc.getAttribute('data-price') || '0') : '0';
+    const score_rarity = sc ? (sc.getAttribute('data-rarity') || '0') : '0';
+
+    const country = tr.cells[5] ? tr.cells[5].textContent.trim() : '';
+    const location = tr.cells[6] ? tr.cells[6].textContent.trim() : '';
+    const farm = tr.cells[7] ? tr.cells[7].textContent.trim() : '';
+    const producer = tr.cells[8] ? tr.cells[8].textContent.trim() : '';
+    const variety = tr.cells[9] ? tr.cells[9].textContent.trim() : '';
+    const process = tr.cells[10] ? tr.cells[10].textContent.trim() : '';
+    const altitude = tr.cells[11] ? tr.cells[11].textContent.trim() : '';
+    const roast = tr.cells[12] ? tr.cells[12].textContent.trim() : '';
+    const notes = tr.querySelector('.cell-notes') ? tr.querySelector('.cell-notes').textContent.trim() : '';
+    const weight = tr.cells[14] ? tr.cells[14].textContent.trim() : '100g';
+    const price_aed = tr.cells[15] ? (tr.cells[15].getAttribute('data-value') || tr.cells[15].textContent.trim().replace(/[^0-9.]/g, '')) : '0';
+    const korea_status = tr.querySelector('.cell-korea') ? tr.querySelector('.cell-korea').textContent.trim() : '';
+    const merit = tr.querySelector('.cell-merit') ? tr.querySelector('.cell-merit').textContent.trim() : '';
+    const review = tr.querySelector('.cell-review') ? tr.querySelector('.cell-review').textContent.trim() : '';
+
+    currentRoasteryCoffee = {
+      title,
+      handle: source_url.split('/products/')[1] || title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      roastery: 'Archers Coffee',
+      roastery_badge: '🏹 Archers',
+      source_url,
+      collection,
+      score_total,
+      score_taste,
+      score_price,
+      score_rarity,
+      country,
+      location,
+      farm,
+      producer,
+      variety,
+      process,
+      altitude,
+      roast,
+      notes,
+      weight,
+      price_aed: parseFloat(price_aed) || 0,
+      price_krw: Math.round((parseFloat(price_aed) || 0) * 380),
+      korea_status,
+      merit,
+      review
+    };
+
+    // Populate modal
+    document.getElementById('rModalBadges').innerHTML = `
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; border:1px solid #d29922; color:#d29922;">🏹 Archers</span>
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; background:rgba(255,255,255,0.06); color:var(--text-secondary);">${collection}</span>
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; background:rgba(255,255,255,0.06); color:var(--text-secondary);">${country}</span>
+      <span style="padding:2px 8px; font-size:11px; font-weight:700; border-radius:4px; background:rgba(255,255,255,0.06); color:var(--text-secondary);">${process}</span>
+    `;
+    document.getElementById('rModalTitle').textContent = title;
+    document.getElementById('rModalScoreTotal').textContent = score_total;
+    document.getElementById('rModalScoreTaste').textContent = score_taste;
+    document.getElementById('rModalScorePrice').textContent = score_price;
+    document.getElementById('rModalScoreRarity').textContent = score_rarity;
+
+    document.getElementById('rModalSpecsGrid').innerHTML = `
+      <div><span style="color:var(--text-muted);">원산지:</span> <strong>${country} (${location})</strong></div>
+      <div><span style="color:var(--text-muted);">농장/생산자:</span> <strong>${farm} / ${producer}</strong></div>
+      <div><span style="color:var(--text-muted);">품종:</span> <strong>${variety}</strong></div>
+      <div><span style="color:var(--text-muted);">가공:</span> <strong>${process}</strong></div>
+      <div><span style="color:var(--text-muted);">고도:</span> <strong>${altitude}</strong></div>
+      <div><span style="color:var(--text-muted);">로스팅:</span> <strong>${roast}</strong></div>
+      <div><span style="color:var(--text-muted);">용량 및 가격:</span> <strong>${price_aed} AED (약 ${currentRoasteryCoffee.price_krw.toLocaleString()}원) / ${weight}</strong></div>
+    `;
+
+    document.getElementById('rModalNotes').textContent = `✨ ${notes || 'N/A'}`;
+    document.getElementById('rModalKoreaStatus').textContent = korea_status || '국내 미수입';
+    document.getElementById('rModalMerit').textContent = merit || '현지 구매 가치 우수';
+    document.getElementById('rModalReview').textContent = review || '아처스 공식 랏';
+
+    document.getElementById('rModalShopLink').href = source_url;
+
+    updateRoasteryModalStarBtn();
+    document.getElementById('roasteryDetailModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateRoasteryModalStarBtn() {
+    const btnTop = document.getElementById('roasteryModalStarBtnTop');
+    const btnBtm = document.getElementById('roasteryModalStarBtnBottom');
+    if (!currentRoasteryCoffee) return;
+
+    let inCart = false;
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {
+        const cart = JSON.parse(stored);
+        inCart = cart.some(x => (x.handle && x.handle === currentRoasteryCoffee.handle) || x.title === currentRoasteryCoffee.title);
+      }
+    } catch(e) {}
+
+    [btnTop, btnBtm].forEach(btn => {
+      if (!btn) return;
+      if (inCart) {
+        btn.innerHTML = '★ 장바구니 담김';
+        btn.classList.add('active-in-cart');
+      } else {
+        btn.innerHTML = '⭐ 장바구니 담기';
+        btn.classList.remove('active-in-cart');
+      }
+    });
+  }
+
+  function toggleCartFromRoasteryModal() {
+    if (!currentRoasteryCoffee) return;
+    const c = currentRoasteryCoffee;
+    let cart = [];
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) cart = JSON.parse(stored);
+    } catch(e) {}
+
+    const existingIdx = cart.findIndex(x => (x.handle && x.handle === c.handle) || x.title === c.title);
+    if (existingIdx >= 0) {
+      cart.splice(existingIdx, 1);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateRoasteryModalStarBtn();
+      updateCartCountBadge();
+      showRoasteryToast(`🗑️ '${c.title}' 원두가 장바구니에서 삭제되었습니다.`);
+    } else {
+      const itemToAdd = {
+        title: c.title,
+        handle: c.handle,
+        roastery: c.roastery,
+        roastery_badge: c.roastery_badge,
+        source_url: c.source_url,
+        price_aed: c.price_aed,
+        price_krw: c.price_krw,
+        weight: c.weight,
+        roast: c.roast,
+        country: c.country,
+        farm: c.farm,
+        producer: c.producer,
+        variety: c.variety,
+        process: c.process,
+        altitude: c.altitude,
+        notes: c.notes,
+        overlap_note: c.merit || '아처스 대시보드 검증 랏',
+        detailed_review: {
+          taste_analysis: `${c.roastery} - ${c.country} ${c.variety} (${c.process}). 종합점수 ${c.score_total}점 (맛 ${c.score_taste}/50). ${c.merit || ''}`
+        },
+        added_at: Date.now()
+      };
+      cart.push(itemToAdd);
+      localStorage.setItem('coffee_cart', JSON.stringify(cart));
+      updateRoasteryModalStarBtn();
+      updateCartCountBadge();
+      showRoasteryToast(`🛒 '${c.title}' 원두가 장바구니에 담겼습니다!`);
+    }
+  }
+
+  function updateCartCountBadge() {
+    let count = 0;
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {
+        const arr = JSON.parse(stored);
+        count = arr.length;
+      }
+    } catch (e) {}
+    document.querySelectorAll('.cart-badge-count').forEach(el => {
+      el.textContent = count;
+    });
+  }
+
+  function showRoasteryToast(msg) {
+    const toast = document.getElementById('roasteryCartToast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.style.display = 'flex';
+    setTimeout(() => {
+      toast.style.display = 'none';
+    }, 3500);
+  }
+
+  function closeRoasteryModal(e) {
+    if (e && e.target && e.target.id !== 'roasteryDetailModal' && e.target.tagName !== 'BUTTON') {
+      return;
+    }
+    const modal = document.getElementById('roasteryDetailModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeRoasteryModal();
+  });
+
+  window.addEventListener('DOMContentLoaded', () => { initTheme(); updateCartCountBadge(); });
 </script>
+
+
+<!-- ROASTERY COFFEE DETAIL MODAL -->
+<div class="roastery-modal-overlay" id="roasteryDetailModal" onclick="closeRoasteryModal(event)">
+  <div class="roastery-modal-window" onclick="event.stopPropagation()">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; gap:12px;">
+      <div>
+        <div id="rModalBadges" style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px;"></div>
+        <h2 id="rModalTitle" style="font-size:18px; font-weight:800; line-height:1.3; margin:0;"></h2>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button type="button" id="roasteryModalStarBtnTop" class="roastery-modal-star-btn" onclick="toggleCartFromRoasteryModal()" title="장바구니 담기 토글">⭐ 장바구니 담기</button>
+        <button type="button" onclick="closeRoasteryModal()" style="background:transparent; border:none; font-size:22px; cursor:pointer; color:var(--text-muted); padding:0 4px;" title="닫기 (ESC)">&times;</button>
+      </div>
+    </div>
+
+    <!-- Scores Grid -->
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; background:var(--modal-score-bg, rgba(255,255,255,0.03)); border:1px solid var(--border); border-radius:8px; padding:10px; margin-bottom:14px; text-align:center;">
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">⭐ 종합점수</div>
+        <div id="rModalScoreTotal" style="font-size:18px; font-weight:800; color:var(--accent-gold, #d29922);">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">☕ 맛 (50)</div>
+        <div id="rModalScoreTaste" style="font-size:18px; font-weight:800; color:#58a6ff;">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">💰 값 (30)</div>
+        <div id="rModalScorePrice" style="font-size:18px; font-weight:800; color:#3fb950;">0</div>
+      </div>
+      <div>
+        <div style="font-size:10.5px; color:var(--text-muted); font-weight:700;">💎 희 (20)</div>
+        <div id="rModalScoreRarity" style="font-size:18px; font-weight:800; color:#a855f7;">0</div>
+      </div>
+    </div>
+
+    <!-- Specs Grid -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">📋 원두 스펙 데이터</div>
+      <div id="rModalSpecsGrid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:6px; font-size:12.5px; background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px;"></div>
+    </div>
+
+    <!-- Tasting Notes -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🍓 센서리 테이스팅 노트</div>
+      <div id="rModalNotes" style="font-size:13.5px; font-weight:700; color:var(--accent-gold, #d29922); background:rgba(210,153,34,0.08); border:1px solid rgba(210,153,34,0.25); border-radius:8px; padding:10px;"></div>
+    </div>
+
+    <!-- Domestic Status & Merit -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🇰🇷 국내 유통 현황 & 현지 구매 가치</div>
+      <div style="background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:12.5px; line-height:1.5;">
+        <div style="margin-bottom:6px;"><strong>국내 유통:</strong> <span id="rModalKoreaStatus"></span></div>
+        <div><strong>구매 메리트:</strong> <span id="rModalMerit" style="color:var(--text-secondary);"></span></div>
+      </div>
+    </div>
+
+    <!-- Community Review -->
+    <div style="margin-bottom:18px;">
+      <div style="font-size:12px; font-weight:800; color:var(--text-muted); text-transform:uppercase; margin-bottom:6px; letter-spacing:0.5px;">🌐 전문가 및 커뮤니티 평가</div>
+      <div id="rModalReview" style="background:var(--bg-secondary, rgba(255,255,255,0.02)); border:1px solid var(--border); border-radius:8px; padding:10px; font-size:12px; color:var(--text-secondary); line-height:1.5;"></div>
+    </div>
+
+    <!-- Footer Actions -->
+    <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:14px; flex-wrap:wrap; gap:8px;">
+      <button type="button" id="roasteryModalStarBtnBottom" class="roastery-modal-star-btn" onclick="toggleCartFromRoasteryModal()">⭐ 장바구니 담기</button>
+      <div style="display:flex; gap:8px;">
+        <a id="rModalShopLink" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:4px; padding:8px 14px; font-size:13px; font-weight:700; background:linear-gradient(135deg, #d29922, #b07d10); color:#0d1117; border-radius:6px; text-decoration:none;">공식몰 페이지 열기 ↗</a>
+        <button type="button" onclick="closeRoasteryModal()" style="padding:8px 14px; font-size:13px; font-weight:700; background:transparent; border:1px solid var(--border); border-radius:6px; color:var(--text-secondary); cursor:pointer;">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cart Toast Notification -->
+<div id="roasteryCartToast" class="roastery-cart-toast"></div>
 
 </body>
 </html>
