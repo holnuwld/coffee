@@ -419,6 +419,8 @@ def generate_html(items, stats):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전체 원두 인터랙티브 데이터 분석 (171종) | 두바이 스페셜티 허브</title>
+  <!-- Pretendard & JetBrains Mono Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Chart.js 4.4.1 & Zoom Plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
@@ -465,7 +467,7 @@ def generate_html(items, stats):
 
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background-color: var(--bg-primary);
       color: var(--text-primary);
       line-height: 1.5;
@@ -513,6 +515,12 @@ def generate_html(items, stats):
     .nav-btn:hover {{
       border-color: var(--accent-gold);
       color: var(--accent-gold);
+    }}
+    .nav-btn.active {{
+      background: var(--bg-card);
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(227, 179, 65, 0.25);
     }}
     .theme-toggle-btn {{
       padding: 8px 14px;
@@ -1268,7 +1276,7 @@ def generate_html(items, stats):
     }}
     .table-responsive {{
       overflow-x: auto;
-      max-height: 480px;
+      max-height: 960px;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       margin-top: 12px;
@@ -1632,10 +1640,11 @@ def generate_html(items, stats):
   <!-- TOP NAV -->
   <div class="header-nav">
     <div class="nav-links">
-      <a href="index.html" class="nav-btn">← 메인 허브 (Top 20)</a>
-      <a href="cart.html" class="nav-btn" style="border-color:var(--accent-gold); color:var(--accent-gold); font-weight:700;">📋 장바구니 (<span class="cart-badge-count">0</span>개) ↗</a>
-      <a href="archers_coffee_clean_verified.html" class="nav-btn">🏛️ 아처스 대시보드</a>
-      <a href="theespressolab_verified.html" class="nav-btn">🔬 에소랩 대시보드</a>
+      <a href="index.html" class="nav-btn">🏆 Top 20 큐레이션</a>
+      <a href="analytics.html" class="nav-btn active">📊 애널리틱스</a>
+      <a href="archers_coffee_clean_verified.html" class="nav-btn">🏹 아처스 대시보드</a>
+      <a href="theespressolab_verified.html" class="nav-btn">☕ 에소랩 대시보드</a>
+      <a href="cart.html" class="nav-btn">🛒 장바구니 (<span class="cart-badge-count">0</span>개)</a>
     </div>
     <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
       <span id="themeIcon">☀️</span> <span id="themeText">라이트 모드</span>

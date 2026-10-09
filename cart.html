@@ -9,8 +9,15 @@
   (function() {
     try {
       var saved = localStorage.getItem('theme');
-      if (saved === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      
+      // Auto-detect mobile device
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 768);
+      var params = new URLSearchParams(window.location.search);
+      if (isMobile && params.get('view') !== 'desktop') {
+        var target = 'mobile_cart.html';
+        if (window.location.search) target += window.location.search;
+        window.location.replace(target);
       }
     } catch (e) {}
   })();
@@ -30,6 +37,12 @@
     --success: #3fb950;
     --blue: #58a6ff;
     --danger: #f85149;
+    --table-head-bg: #0f1622;
+    --badge-bg: #111722;
+    --card-hover: #182333;
+    --modal-bg: #101622;
+    --modal-inner-bg: #0d121b;
+    --modal-score-bg: #0b0f17;
   }
 
   [data-theme="light"] {
@@ -46,108 +59,84 @@
     --success: #15803d;
     --blue: #0284c7;
     --danger: #dc2626;
+    --table-head-bg: #f1f5f9;
+    --badge-bg: #f8fafc;
+    --card-hover: #f1f5f9;
+    --modal-bg: #ffffff;
+    --modal-inner-bg: #f8fafc;
+    --modal-score-bg: #f1f5f9;
   }
 
-  /* Light Theme Specific Enhancements */
-  [data-theme="light"] .doc-header {
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 30px 20px 80px 20px;
   }
-  [data-theme="light"] .doc-title {
-    color: #0f172a;
+
+  .container {
+    max-width: 1320px;
+    margin: 0 auto;
   }
-  [data-theme="light"] .instructions-card {
-    background: #ffffff;
-    border-color: #e2e8f0;
-    border-left: 5px solid #d97706;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+
+  /* Top Navigation Bar */
+  .top-nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 14px;
   }
-  [data-theme="light"] .inst-title {
-    color: #b45309;
+  .top-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
   }
-  [data-theme="light"] .inst-item {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+  .nav-platform-title {
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--text-secondary);
   }
-  [data-theme="light"] .inst-num {
-    background: #fef3c7;
-    border: 1px solid #fde68a;
-    color: #b45309;
+  .nav-btn {
+    background: var(--badge-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 13px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
-  [data-theme="light"] .inst-content {
-    color: #334155;
+  .nav-btn:hover {
+    border-color: var(--border-light);
+    transform: translateY(-1px);
   }
-  [data-theme="light"] .inst-content strong {
-    color: #0f172a;
-  }
-  [data-theme="light"] .kpi-card {
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  [data-theme="light"] .table-box {
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  }
-  [data-theme="light"] .po-table th {
-    background: #f1f5f9;
-    color: #334155;
-    border-bottom: 2px solid #e2e8f0;
-  }
-  [data-theme="light"] .po-table td {
-    border-bottom: 1px solid #e2e8f0;
-    color: #0f172a;
-  }
-  [data-theme="light"] .po-table tr:hover td {
-    background: #f8fafc;
-  }
-  [data-theme="light"] .coffee-link {
-    color: #0f172a;
-  }
-  [data-theme="light"] .coffee-link:hover {
-    color: var(--accent);
-  }
-  [data-theme="light"] .notes-tag {
-    color: #92400e;
-    background: #fffbeb;
-    padding: 3px 8px;
-    border-radius: 4px;
-    border: 1px solid #fde68a;
-    display: inline-block;
-  }
-  [data-theme="light"] .reason-text {
-    color: #475569;
-  }
-  [data-theme="light"] .po-btn {
-    background: #f1f5f9;
-    border-color: #e2e8f0;
-    color: #334155;
-  }
-  [data-theme="light"] .po-btn:hover {
-    background: #e2e8f0;
-    color: #0f172a;
-  }
-  [data-theme="light"] .footer-sig-block {
-    background: #ffffff;
-  }
-  [data-theme="light"] .theme-toggle-btn {
-    background: #ffffff;
-    border-color: #cbd5e1;
-    color: #0f172a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  }
-  [data-theme="light"] .theme-toggle-btn:hover {
+  .nav-btn.active {
+    background: var(--card-hover);
     border-color: var(--accent);
-    background: #f8fafc;
+    color: var(--accent-gold);
+    box-shadow: 0 0 10px rgba(210, 153, 34, 0.25);
   }
-  [data-theme="light"] .badge-tag {
-    background: #f1f5f9 !important;
-    border-color: #cbd5e1 !important;
-    color: #475569 !important;
+  .top-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
   }
-  [data-theme="light"] .badge-po {
-    background: #fef3c7 !important;
-    border-color: #f59e0b !important;
-    color: #b45309 !important;
+  .nav-currency-info {
+    font-size: 12px;
+    color: var(--text-muted);
   }
 
   /* Theme Switcher Button */
@@ -155,7 +144,7 @@
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: #111722;
+    background: var(--badge-bg);
     border: 1px solid var(--border);
     color: var(--text-primary);
     padding: 6px 14px;
@@ -164,67 +153,12 @@
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
   .theme-toggle-btn:hover {
     border-color: var(--accent);
     transform: translateY(-1px);
-  }
-  .theme-icon {
-    font-size: 14px;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text-primary);
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
-    min-height: 100vh;
-    padding: 30px 20px 80px 20px;
-  }
-
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  /* Top Navigation Bar */
-  .top-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-back-link {
-    color: var(--blue);
-    text-decoration: none;
-    font-size: 13.5px;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.15s ease;
-  }
-  .nav-back-link:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-  .nav-badges {
-    display: flex;
-    gap: 8px;
-  }
-  .badge-tag {
-    font-size: 11.5px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 999px;
-  }
-  .badge-po {
-    background: var(--accent-glow);
-    color: var(--accent-gold);
-    border: 1px solid var(--accent);
+    box-shadow: 0 4px 14px rgba(210, 153, 34, 0.25);
   }
 
   /* Document Header */
@@ -232,9 +166,9 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 28px 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    padding: 26px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   }
   .doc-title-row {
     display: flex;
@@ -245,9 +179,9 @@
     margin-bottom: 12px;
   }
   .doc-title {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
-    color: #fff;
+    color: var(--text-primary);
     letter-spacing: -0.5px;
   }
   .doc-meta-right {
@@ -259,84 +193,76 @@
     color: var(--text-secondary);
   }
   .doc-desc {
-    font-size: 14.5px;
+    font-size: 14px;
     color: var(--text-secondary);
     line-height: 1.6;
     max-width: 950px;
   }
 
-  /* Purchasing Instructions Callout */
+  /* Instructions Card */
   .instructions-card {
-    background: linear-gradient(180deg, rgba(26, 36, 52, 0.7) 0%, rgba(19, 26, 38, 0.9) 100%);
+    background: var(--card-bg);
     border: 1px solid var(--border);
-    border-left: 5px solid var(--accent-gold);
-    border-radius: 14px;
-    padding: 20px 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-left: 5px solid var(--accent);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
   }
   .inst-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--accent-gold);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
   .inst-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 10px 16px;
-  }
-  @media (max-width: 680px) {
-    .inst-grid { grid-template-columns: 1fr; }
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px 14px;
   }
   .inst-item {
-    background: rgba(10, 14, 23, 0.65);
-    border: 1px solid rgba(46, 62, 87, 0.6);
+    background: var(--badge-bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 10px 14px;
+    padding: 9px 12px;
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
   }
   .inst-num {
-    background: rgba(240, 180, 41, 0.18);
-    border: 1px solid rgba(240, 180, 41, 0.4);
+    background: var(--accent-glow);
+    border: 1px solid var(--accent);
     color: var(--accent-gold);
     font-family: 'JetBrains Mono', monospace;
     font-weight: 800;
-    font-size: 11.5px;
-    min-width: 26px;
-    height: 24px;
+    font-size: 11px;
+    min-width: 24px;
+    height: 22px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    border-radius: 5px;
     flex-shrink: 0;
-    margin-top: 2px;
   }
   .inst-content {
     flex: 1;
-    font-size: 13px;
-    color: #c9d1d9;
-    line-height: 1.55;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
     word-break: keep-all;
   }
   .inst-content strong {
-    color: #fff;
-    font-weight: 700;
-    display: inline-block;
-    margin-right: 4px;
+    color: var(--text-primary);
   }
 
-  /* Summary KPI Cards Grid */
+  /* KPI Grid */
   .kpi-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 20px;
   }
   @media (max-width: 860px) {
     .kpi-grid { grid-template-columns: 1fr 1fr; }
@@ -348,24 +274,22 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 18px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 16px 20px;
   }
   .kpi-label {
     font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 600;
+    color: var(--text-secondary);
+    font-weight: 700;
     margin-bottom: 6px;
   }
   .kpi-value {
     font-size: 24px;
     font-weight: 800;
     font-family: 'JetBrains Mono', monospace;
+    line-height: 1.2;
   }
   .kpi-sub {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
     margin-top: 4px;
   }
@@ -393,12 +317,12 @@
     flex-wrap: wrap;
   }
   .po-btn {
-    background: #111722;
+    background: var(--badge-bg);
     border: 1px solid var(--border);
     color: var(--text-primary);
-    padding: 8px 16px;
+    padding: 7px 14px;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 12.5px;
     font-weight: 700;
     cursor: pointer;
     display: inline-flex;
@@ -408,16 +332,11 @@
   }
   .po-btn:hover {
     border-color: var(--border-light);
-    background: #1a2333;
+    background: var(--card-hover);
   }
   .btn-print {
-    background: linear-gradient(135deg, #d29922, #b8860b);
-    color: #000;
-    border-color: var(--accent);
-  }
-  .btn-print:hover {
-    background: linear-gradient(135deg, #e3b341, #c89617);
-    color: #000;
+    background: var(--card-hover);
+    border-color: var(--border-light);
   }
   .btn-danger {
     color: var(--danger);
@@ -427,71 +346,102 @@
     border-color: var(--danger);
   }
 
+  /* Cart Similarity Alert Banner */
+  .similarity-alert-banner {
+    background: rgba(210, 153, 34, 0.12);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .similarity-alert-banner strong {
+    color: var(--accent-gold);
+  }
+
   /* Cart Table */
   .table-box {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 14px;
     overflow-x: auto;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 24px;
   }
   .po-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    font-size: 13px;
+    border-collapse: collapse;
+    font-size: 12.5px;
   }
   .po-table th {
-    background: #0f1622;
+    background: var(--table-head-bg);
     color: var(--text-secondary);
     font-weight: 700;
     text-align: left;
-    padding: 14px 16px;
-    border-bottom: 2px solid var(--border);
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
     white-space: nowrap;
   }
   .po-table td {
-    padding: 14px 16px;
+    padding: 12px 14px;
     border-bottom: 1px solid var(--border);
     vertical-align: middle;
   }
   .po-table tr:hover td {
-    background: rgba(24, 35, 51, 0.6);
+    background: var(--card-hover);
   }
 
-  .roastery-badge {
-    display: inline-block;
+  .roastery-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 11px;
     font-weight: 700;
     white-space: nowrap;
-  }
-  .badge-archers { background: rgba(88, 166, 255, 0.15); color: var(--blue); border: 1px solid rgba(88, 166, 255, 0.3); }
-  .badge-espressolab { background: var(--accent-glow); color: var(--accent-gold); border: 1px solid var(--accent); }
-
-  .coffee-link {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fff;
     text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .badge-archers {
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--blue);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+  }
+  .badge-espressolab {
+    background: var(--accent-glow);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent);
+  }
+  .roastery-link-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+  }
+
+  .coffee-title-btn {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
     line-height: 1.4;
-    display: inline-block;
     transition: color 0.15s ease;
   }
-  .coffee-link:hover {
+  .coffee-title-btn:hover {
     color: var(--accent-gold);
     text-decoration: underline;
   }
-  .coffee-link .out-icon {
-    font-size: 11px;
-    opacity: 0.8;
-    margin-left: 3px;
-  }
 
   .spec-sub {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
     margin-top: 3px;
   }
@@ -502,18 +452,18 @@
     white-space: nowrap;
   }
   .price-aed {
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 800;
     color: var(--accent-gold);
   }
   .price-krw {
-    font-size: 11.5px;
+    font-size: 11px;
     color: var(--text-muted);
   }
 
   .notes-tag {
     font-size: 12px;
-    color: #e6edf3;
+    color: var(--text-primary);
     line-height: 1.45;
   }
 
@@ -521,84 +471,303 @@
     font-size: 12px;
     color: var(--text-secondary);
     line-height: 1.45;
-    max-width: 320px;
+    word-break: keep-all;
   }
 
   .btn-remove-item {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 16px;
-    cursor: pointer;
+    background: rgba(248, 81, 73, 0.15);
+    border: 1px solid rgba(248, 81, 73, 0.3);
+    color: var(--danger);
+    border-radius: 6px;
     padding: 4px 8px;
-    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
     transition: all 0.15s ease;
   }
   .btn-remove-item:hover {
-    color: var(--danger);
-    background: rgba(248, 81, 73, 0.15);
+    background: rgba(248, 81, 73, 0.3);
+    transform: translateY(-1px);
   }
 
-  /* Footer & Signature Block */
-  .footer-sig-block {
-    background: var(--card-bg);
+  /* Modal Popup Styles */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal-backdrop.active {
+    display: flex;
+  }
+  .modal-window {
+    background: var(--modal-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    max-width: 820px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    position: relative;
+    color: var(--text-primary);
+    animation: modalSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--badge-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-top: 32px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    color: var(--text-secondary);
+    font-size: 18px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
   }
-  @media (max-width: 680px) {
-    .footer-sig-block { grid-template-columns: 1fr; }
+  .modal-close-btn:hover {
+    color: #fff;
+    border-color: var(--danger);
+    background: rgba(248, 81, 73, 0.2);
   }
-  .sig-col h4 {
-    font-size: 13px;
-    color: var(--text-muted);
+  .m-header-tags {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 12px;
   }
-  .sig-line {
-    border-bottom: 1px dashed var(--border-light);
-    height: 40px;
-    margin-bottom: 6px;
+  .m-rank-badge {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
   }
-  .sig-sub {
-    font-size: 11.5px;
+  .m-rank-badge.active-rank {
+    background: var(--accent-glow);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent);
+  }
+  .m-rank-badge.dimmed-rank {
+    background: var(--badge-bg);
     color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .roastery-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .archers-badge { background: rgba(88, 166, 255, 0.15); color: var(--blue); border: 1px solid rgba(88, 166, 255, 0.3); }
+  .espressolab-badge { background: var(--accent-glow); color: var(--accent-gold); border: 1px solid var(--accent); }
+  .m-title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+  }
+  .m-score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background: var(--modal-inner-bg);
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) {
+    .m-score-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .m-score-box {
+    text-align: center;
+  }
+  .m-score-box .s-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+  .m-score-box .s-val {
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .m-score-box .s-val.tot { color: var(--accent-gold); }
+  .m-score-box .s-val.taste { color: var(--blue); }
+  .m-score-box .s-val.price { color: var(--success); }
+  .m-score-box .s-val.rarity { color: #a371f7; }
+
+  .m-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    background: var(--modal-inner-bg);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    font-size: 12.5px;
+  }
+  @media (max-width: 600px) {
+    .m-specs-grid { grid-template-columns: 1fr; }
+  }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .spec-k { color: var(--text-secondary); font-weight: 600; }
+  .spec-v { font-weight: 700; color: var(--text-primary); text-align: right; }
+
+  .m-section {
+    margin-bottom: 18px;
+  }
+  .m-section-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .m-section-body {
+    background: var(--modal-inner-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .m-section-body strong {
+    color: var(--text-primary);
+  }
+  .brew-guide-box {
+    background: rgba(88, 166, 255, 0.08);
+    border-color: rgba(88, 166, 255, 0.25);
+    color: var(--text-primary);
   }
 
-  /* Print Stylesheet */
+  .m-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .m-btn-close {
+    background: var(--badge-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .m-btn-close:hover {
+    background: var(--card-hover);
+  }
+  .m-btn-out {
+    background: var(--accent-glow);
+    border: 1px solid var(--accent);
+    color: var(--accent-gold);
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .m-btn-out:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+  /* Print Styles */
   @media print {
-    body {
-      background: #fff !important;
-      color: #000 !important;
-      padding: 0 !important;
-    }
-    .top-nav, .action-toolbar, .btn-remove-item {
-      display: none !important;
-    }
-    .doc-header, .instructions-card, .kpi-card, .table-box, .footer-sig-block {
+    body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+    .top-nav-bar, .action-toolbar, .theme-toggle-btn, .modal-backdrop, .btn-remove-item { display: none !important; }
+    .table-box, .doc-header, .instructions-card, .kpi-card {
       background: #fff !important;
       border: 1px solid #ccc !important;
       box-shadow: none !important;
       color: #000 !important;
     }
-    .doc-title { color: #000 !important; }
-    .kpi-value, .price-aed { color: #000 !important; }
-    .po-table th {
-      background: #f0f0f0 !important;
-      color: #000 !important;
-      border-bottom: 2px solid #000 !important;
-    }
-    .po-table td {
-      border-bottom: 1px solid #ddd !important;
-      color: #000 !important;
-    }
-    .coffee-link {
-      color: #000 !important;
-      text-decoration: underline !important;
-    }
+    .po-table th { background: #eee !important; color: #000 !important; }
+    .po-table td { color: #000 !important; border-bottom: 1px solid #ddd !important; }
+    .coffee-title-btn { color: #000 !important; text-decoration: none !important; }
+    .price-aed { color: #000 !important; }
+  }
+
+  /* SLIM TEXT-LINK TOP NAV */
+  .header-nav {
+    padding: 8px 0 !important;
+    min-height: 44px !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .nav-links {
+    display: flex !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+  .nav-text-link {
+    color: var(--text-secondary) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    padding: 4px 6px !important;
+    transition: color 0.15s ease !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  .nav-text-link:hover {
+    color: var(--text-primary) !important;
+  }
+  .nav-text-link.active {
+    color: var(--accent-gold) !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid var(--accent-gold) !important;
+    border-radius: 0 !important;
+  }
+  [data-theme="light"] .nav-text-link.active {
+    color: #b45309 !important;
+    border-bottom-color: #b45309 !important;
+  }
+  .nav-text-sep {
+    color: var(--text-muted);
+    font-size: 11px;
+    user-select: none;
+    opacity: 0.5;
   }
 </style>
 </head>
@@ -606,25 +775,26 @@
 
 <div class="container">
 
-  <!-- Navigation -->
-  <div class="top-nav">
-    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-      <a href="index.html" class="nav-back-link">
-        ← 통합 허브 대시보드로 돌아가기
-      </a>
-      <a href="mobile_cart.html" class="nav-back-link" style="color:var(--accent-gold); background:var(--accent-glow); padding:4px 12px; border-radius:6px; border:1px solid rgba(240,180,41,0.4); text-decoration:none;">
-        📱 모바일 전용 발주서로 보기 ↗
-      </a>
+  <!-- Top Navigation Bar -->
+  <header class="header-nav" style="margin-bottom:28px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+      <div class="nav-links">
+        <a href="index.html" class="nav-text-link">Top 20</a>
+        <span class="nav-text-sep">•</span>
+        <a href="analytics.html" class="nav-text-link">애널리틱스</a>
+        <span class="nav-text-sep">•</span>
+        <a href="archers_coffee_clean_verified.html" class="nav-text-link">아처스</a>
+        <span class="nav-text-sep">•</span>
+        <a href="theespressolab_verified.html" class="nav-text-link">에소랩</a>
+        <span class="nav-text-sep">•</span>
+        <a href="cart.html" class="nav-text-link active">장바구니 <span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">(0)</span></a>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button id="themeToggleBtn" onclick="toggleTheme()" style="background:transparent; border:none; cursor:pointer; font-size:14px; padding:2px 4px;" title="화면 테마 변경">☀️</button>
+        <span class="nav-currency-info" style="font-size:12px; color:var(--text-muted);">1 AED ≈ 380 KRW</span>
+      </div>
     </div>
-    <div class="nav-badges" style="display:flex; align-items:center; gap:10px;">
-      <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="화면 테마 변경 (브라이트 / 다크)">
-        <span class="theme-icon">☀️</span>
-        <span class="theme-label">브라이트 모드</span>
-      </button>
-      <span class="badge-tag badge-po">Official Purchase Order</span>
-      <span class="badge-tag" style="background:#111722; color:var(--text-secondary); border:1px solid var(--border);">1 AED ≈ 380 KRW</span>
-    </div>
-  </div>
+  </header>
 
   <!-- Document Header -->
   <header class="doc-header">
@@ -632,12 +802,12 @@
       <h1 class="doc-title">📋 UAE 현지 스페셜티 커피 공식 구매 발주서</h1>
       <div class="doc-meta-right">
         <div><strong>발주 문서 번호:</strong> UAE-SPEC-PO-2026</div>
-        <div><strong>구매 대상 로스터리:</strong> Archers Coffee & The Espresso Lab</div>
+        <div><strong>구매 대상 로스터리:</strong> Archers Coffee &amp; The Espresso Lab</div>
         <div id="printDateStr"></div>
       </div>
     </div>
     <p class="doc-desc">
-      본 문서는 아랍에미리트(두바이/샤르자) 현지 매장 방문 구매를 위해 기계 검증(<code>verify_quotes.py</code>)을 통과한 최상급 스페셜티 원두 큐레이션 발주 명세서입니다. 현지 구매 담당자는 하단 목록의 원두명, 로스터리, 가격 및 스펙을 확인한 후 매장에서 구매해 주시기 바랍니다.
+      본 문서는 아랍에미리트(두바이/샤르자) 현지 매장 방문 구매를 위해 기계 검증(<code>verify_quotes.py</code>)을 통과한 최상급 스페셜티 원두 큐레이션 발주 명세서입니다. 하단 목록에서 원두명을 누르면 세부 테루아 및 브루잉 정보 팝업이 열리며, 로스터리 이름을 누르면 공식 스토어 구매처로 이동합니다.
     </p>
   </header>
 
@@ -660,7 +830,7 @@
       <div class="inst-item">
         <span class="inst-num">03</span>
         <div class="inst-content">
-          <strong>원두 링크 확인:</strong> 원두명을 누르면 각 로스터리 공식 웹스토어 상품 페이지로 즉시 연결됩니다.
+          <strong>구매처 링크 확인:</strong> 로스터리 뱃지/이름을 누르면 각 로스터리 공식 웹스토어 상품 페이지로 즉시 연결됩니다.
         </div>
       </div>
       <div class="inst-item">
@@ -696,7 +866,7 @@
       <div class="kpi-value val-blue" style="font-size:18px; line-height:32px;">
         <span id="kpiArchersCount">0</span> 아처스 / <span id="kpiTelCount">0</span> 에소랩
       </div>
-      <div class="kpi-sub">샤르자 & 두바이 플래그십</div>
+      <div class="kpi-sub">샤르자 &amp; 두바이 플래그십</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">현지 결제 예정액 (AED)</div>
@@ -713,49 +883,25 @@
   <!-- Action Toolbar -->
   <div class="action-toolbar">
     <div class="action-group-left">
-      <button type="button" class="po-btn btn-print" onclick="generateImmutableSnapshotUrl()" style="background:linear-gradient(135deg, #d29922, #b8860b); color:#000; font-weight:800;" title="현재 시점의 내용으로 영구 동결되는 불변 링크를 생성합니다">
-        🔒 발주서 불변 링크 확정 복사 (동결 스냅샷)
+      <button type="button" class="po-btn" onclick="copyCartShareLink()" title="현재 장바구니에 담긴 목록을 공유할 수 있는 링크를 복사합니다">
+        🔗 장바구니 공유 링크 복사
       </button>
-      <button type="button" class="po-btn" onclick="generateSharedCartUrl()" style="color:var(--blue); border-color:rgba(88,166,255,0.4);" title="다른 사람과 장바구니를 함께 수정할 수 있는 링크를 복사합니다">
-        👥 장바구니 공동 편집 링크 복사
+      <button type="button" class="po-btn" onclick="copyOrderText()" title="카카오톡/문자 전달용 텍스트 복사 (컵노트 제외)">
+        📋 텍스트 복사 (메신저용)
       </button>
-      <button type="button" class="po-btn" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
-      <button type="button" class="po-btn" onclick="copyOrderText()">📋 텍스트 복사 (메신저용)</button>
+      <button type="button" class="po-btn btn-print" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
     </div>
-    <div class="action-group-right" id="editActionGroup">
-      <a href="index.html#top20Section" class="po-btn">➕ 원두 추가 / 변경하러 가기</a>
-      <button type="button" class="po-btn btn-danger" onclick="clearCartAndReset()">🗑️ 발주서 초기화</button>
+    <div class="action-group-right">
+      <button type="button" class="po-btn btn-danger" onclick="clearCartAndReset()">🗑️ 장바구니 전체 비우기</button>
     </div>
   </div>
 
-  <!-- Snapshot Locked Mode Banner -->
-  <div id="snapshotBanner" style="display:none; background:rgba(210,153,34,0.12); border:1.5px solid var(--accent-gold); padding:14px 20px; border-radius:12px; margin-bottom:16px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span style="font-size:24px;">🔒</span>
-        <div>
-          <div style="font-weight:800; font-size:14.5px; color:var(--accent-gold);">
-            발주 확정 불변 스냅샷 모드 (Immutable PO Snapshot)
-          </div>
-          <div style="font-size:12.5px; color:#c9d1d9; margin-top:2px;" id="snapshotMetaText">
-            본 문서는 발행 시점의 데이터로 영구 동결(Frozen)되었습니다. 이후 장바구니가 수정되더라도 본 페이지 내용은 절대 변경되지 않습니다.
-          </div>
-        </div>
-      </div>
-      <span style="font-size:11.5px; font-weight:700; background:rgba(240,180,41,0.2); color:var(--accent-gold); border:1px solid var(--accent); padding:4px 10px; border-radius:6px;" id="snapshotPoBadge">
-        PO-LOCKED
-      </span>
+  <!-- Similarity Warning Alert Banner -->
+  <div id="similarityWarningBanner" class="similarity-alert-banner" style="display:none;">
+    <span style="font-size:18px;">⚠️</span>
+    <div id="similarityWarningText">
+      <strong>향미 중복(Overlap) 주의:</strong> 장바구니 내에 캐릭터가 겹치는 원두가 감지되었습니다.
     </div>
-  </div>
-
-  <!-- Shared Cart Banner -->
-  <div id="sharedCartNotice" style="display:none; background:rgba(88,166,255,0.12); border:1px solid rgba(88,166,255,0.4); padding:10px 16px; border-radius:8px; font-size:13px; color:var(--blue); margin-bottom:16px;">
-    👥 <strong>동료 공동 편집 모드:</strong> 동료가 공유한 장바구니 데이터가 로드되었습니다. 품목을 수정하면 새로운 공유 링크를 생성할 수 있습니다.
-  </div>
-
-  <!-- Fallback Notification Banner -->
-  <div id="fallbackNotice" style="display:none; background:rgba(88,166,255,0.1); border:1px solid rgba(88,166,255,0.3); padding:10px 16px; border-radius:8px; font-size:13px; color:var(--blue); margin-bottom:16px;">
-    💡 <strong>안내:</strong> 저장된 장바구니 데이터가 없어 시스템 기본 <strong>"엄선 10선 공식 추천 발주 목록"</strong>이 자동으로 로드되었습니다.
   </div>
 
   <!-- Procurement Table -->
@@ -764,13 +910,13 @@
       <thead>
         <tr>
           <th style="width:40px; text-align:center;">No.</th>
-          <th style="width:130px;">로스터리</th>
-          <th>커피 이름 (클릭 시 공식 판매처 ↗) & 스펙</th>
+          <th style="width:130px;">로스터리 (구매처 ↗)</th>
+          <th>커피 이름 (클릭 시 상세정보 🔍) &amp; 스펙</th>
           <th style="text-align:right; width:120px;">현지 가격 (100g)</th>
           <th>테루아 및 가공 방식</th>
           <th>센서리 테이스팅 노트</th>
-          <th>핵심 구매 사유 (큐레이션 평)</th>
-          <th style="width:50px; text-align:center;">비고</th>
+          <th>핵심 사유 / 유사도 알림</th>
+          <th style="width:60px; text-align:center;">삭제</th>
         </tr>
       </thead>
       <tbody id="poTableBody">
@@ -779,81 +925,164 @@
     </table>
   </div>
 
-  <!-- Signature / Approval Block (Print & Delivery) -->
-  <div class="footer-sig-block">
-    <div class="sig-col">
-      <h4>발주자 (Requestor)</h4>
-      <div class="sig-line"></div>
-      <div class="sig-sub">성명 / 서명 / 일자</div>
+</div>
+
+<!-- ========================================================
+     MODAL POPUP DIALOG
+     ======================================================== -->
+<div class="modal-backdrop" id="coffeeModalBackdrop" onclick="closeCoffeeModalOnBackdrop(event)">
+  <div class="modal-window" id="coffeeModalWindow">
+    <button type="button" class="modal-close-btn" onclick="closeCoffeeModal()" title="닫기 (ESC)">✕</button>
+
+    <!-- Modal Header Tags -->
+    <div class="m-header-tags" id="mHeaderTags"></div>
+
+    <!-- Modal Title -->
+    <h2 class="m-title" id="mTitle"></h2>
+
+    <!-- Modal Score Grid -->
+    <div class="m-score-grid">
+      <div class="m-score-box">
+        <div class="s-label">종합 총점</div>
+        <div class="s-val tot" id="mScoreTotal"></div>
+      </div>
+      <div class="m-score-box">
+        <div class="s-label">맛 평가 (50점)</div>
+        <div class="s-val taste" id="mScoreTaste"></div>
+      </div>
+      <div class="m-score-box">
+        <div class="s-label">가격 합리성 (30점)</div>
+        <div class="s-val price" id="mScorePrice"></div>
+      </div>
+      <div class="m-score-box">
+        <div class="s-label">한국 희소성 (20점)</div>
+        <div class="s-val rarity" id="mScoreRarity"></div>
+      </div>
     </div>
-    <div class="sig-col">
-      <h4>현지 구매 담당자 (Procurement Officer)</h4>
-      <div class="sig-line"></div>
-      <div class="sig-sub">구매 완료 확인 / 영수증 첨부</div>
+
+    <!-- Terroir & Specs Grid -->
+    <div class="m-specs-grid" id="mSpecsGrid"></div>
+
+    <!-- Sensory Notes Section -->
+    <div class="m-section">
+      <div class="m-section-title">🍓 센서리 테이스팅 노트 (Sensory Profile)</div>
+      <div class="m-section-body" id="mNotesBody"></div>
+    </div>
+
+    <!-- In-depth Expert Analysis -->
+    <div class="m-section">
+      <div class="m-section-title">🔍 심층 분석 및 평가 (In-depth Review)</div>
+      <div class="m-section-body" id="mAnalysisBody"></div>
+    </div>
+
+    <!-- Brewing Recipe Guide -->
+    <div class="m-section">
+      <div class="m-section-title">🫖 추천 브루잉 가이드 (Brewing Guide)</div>
+      <div class="m-section-body brew-guide-box" id="mBrewGuideBody"></div>
+    </div>
+
+    <!-- Actions -->
+    <div class="m-actions">
+      <button type="button" class="m-btn-close" onclick="closeCoffeeModal()">닫기</button>
+      <a href="#" target="_blank" rel="noopener noreferrer" class="m-btn-out" id="mOfficialLinkBtn">
+        공식 웹스토어로 바로가기 ↗
+      </a>
     </div>
   </div>
-
 </div>
 
 <script>
-  // Master Dataset Reference (Top 20)
   const MASTER_COFFEES = [{"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "handle": "ethiopia-daye-bensa-korma-kontoma-murago-natural-mini", "country": "Ethiopia", "farm": "Murago Korma Kontoma Station", "producer": "Asefa Dukamo, Smallholder Farmers", "variety": "74112, 74110, 74158", "process": "Natural", "altitude": "2,230 - 2,300", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "peach, white grapes, honey dew, apricot, lemon tea", "weight": "100g", "price_aed": 50.0, "price_krw": 19000, "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 45.7, "score_price": 28.2, "score_rarity": 20.0, "score_total": 93.9, "rank": 1, "is_active": true, "active_pick_num": 1, "overlap_note": "★ 최종 추천 1위 선발 (기준 원두)", "flavor_category": "Clean Natural & Berry Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(15.0점: 해발 2300m 초고고도 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 45.7점(50점 만점). 주요 컵노트: peach, white grapes, honey dew, apricot, lemon tea.", "price_analysis": "100g당 50.0 AED (약 19,000원)로 가격 점수 28.2점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 93.9점 (1위). ★ 최종 추천 1위 선발 (기준 원두)", "brewing_guide": "드리퍼: Origami 또는 V60 | 원두: 15g | 물: 92℃ 240g | 고운 분쇄보다는 약간 굵게 분쇄하여 과다 추출을 방지하고 티라이크 질감을 살리세요."}, "max_prior_sim": 0.0, "similar_target_rank": null, "similar_target_title": null, "similar_details": null, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 15.0, "terroir_desc": "해발 2300m 초고고도 극한 일교차 화산 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 50.0, "alt_num": 2300}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot", "handle": "ethiopia-daye-bensa-rumudamo-dfw-archers-lot", "country": "Ethiopia", "farm": "Rumudamo Station", "producer": "Asefa Dukamo, Smallholder Farmers", "variety": "74158", "process": "Dry Ferment Washed", "altitude": "2,300 - 2,400 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "white peach, sugarcane, honeydew, lychee", "weight": "100g", "price_aed": 52.0, "price_krw": 19760, "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-rumudamo-dfw-archers-lot", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 45.7, "score_price": 28.1, "score_rarity": 20.0, "score_total": 93.8, "rank": 2, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #1위와 유사도 29.1% (향미/테루아 중복 음영 제외)", "flavor_category": "Stone Fruit & Lychee Elegance", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(15.0점: 해발 2300m 초고고도 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 45.7점(50점 만점). 주요 컵노트: white peach, sugarcane, honeydew, lychee.", "price_analysis": "100g당 52.0 AED (약 19,760원)로 가격 점수 28.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 93.8점 (2위). 🚫 #1위와 유사도 29.1% (향미/테루아 중복 음영 제외)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 230g (1:15.3 비율) | 뜸 45초 후 2차 추출로 복숭아와 사탕수수의 단맛을 응축시켜 추출하세요."}, "max_prior_sim": 29.1, "similar_target_rank": 1, "similar_target_title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "similar_details": {"notes": 11.1, "terroir": 18.0, "region": 8.0, "farm": 0.0, "producer": 10.0, "process": 0.0, "notes_jaccard": 22.2, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 15.0, "terroir_desc": "해발 2300m 초고고도 극한 일교차 화산 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 52.0, "alt_num": 2300}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama  - Finca Auromar, Geisha Washed Peaberry", "handle": "panama-finca-auromar-malla-geisha-washed-peaberry", "country": "Panama", "farm": "Auromar Finca La Aurora", "producer": "Roberto Brenes / Auromar Family", "variety": "Geisha", "process": "Washed", "altitude": "1,770 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "white grape, coffee blossom, yuzu, champagne", "weight": "100g", "price_aed": 98.0, "price_krw": 37240, "source_url": "https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry", "korea_shop": "코에커피스펙트럼 / 엠아이커피 (오로마르 게이샤 워시드)", "korea_status": "국내 동일 농장 수입 이력 있음 (피베리 랏은 국내 미수입)", "korea_price": "약 55,000원 ~ 80,000원 (100g 기준)", "merit": "★ 최상: 국내 시세 대비 약 40% 저렴하며, 극소량 피베리(Peaberry) 랏은 아처스 독점 공급", "user_review": "BOP 챔피언 오로마르 피베리 워시드. '자스민과 화이트 와인, 얼그레이 홍차 뉘앙스가 맑고 투명하며 산미 밸런스가 압도적'이라는 r/pourover 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1d3f9k3/panama_geisha_recommendations/", "score_taste": 45.8, "score_price": 26.4, "score_rarity": 20.0, "score_total": 92.2, "rank": 3, "is_active": true, "active_pick_num": 2, "overlap_note": "★ 최종 추천 선발 (#2위와 유사도 20.0% - 독자적 향미/테루아 확보)", "flavor_category": "Champagne & Yuzu Peaberry", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(19.5점: BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(14.8점: Reddit r/pourover 9.6~9.8/10 만점급 극찬 & Q-Grader 호평)를 종합 반영한 맛 점수 45.8점(50점 만점). 주요 컵노트: white grape, coffee blossom, yuzu, champagne.", "price_analysis": "100g당 98.0 AED (약 37,240원)로 가격 점수 26.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 코에커피스펙트럼 / 엠아이커피 (오로마르 게이샤 워시드).", "selection_reason": "종합 점수 92.2점 (3위). ★ 최종 추천 선발 (#2위와 유사도 20.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 94℃ 240g | 높은 온도로 피베리 고밀도 생두의 화려한 샴페인 에시디티를 남김없이 추출하세요."}, "max_prior_sim": 20.0, "similar_target_rank": 2, "similar_target_title": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot", "similar_details": {"notes": 0.0, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 19.5, "award_desc": "BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 14.8, "review_desc": "Reddit r/pourover 9.6~9.8/10 만점급 극찬 & Q-Grader 호평", "p_100g": 98.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Sama Washed", "handle": "ethiopia-elto-coffee-sama-washed", "country": "Ethiopia", "farm": "Elto Sama Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Washed", "altitude": "2,350 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "jasmine, lemongrass, pear, earl grey", "weight": "100g", "price_aed": 28.0, "price_krw": 10640, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.4, "score_rarity": 20.0, "score_total": 91.6, "rank": 4, "is_active": true, "active_pick_num": 3, "overlap_note": "★ 최종 추천 선발 (#2위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Floral & Tea-like Citrus", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: jasmine, lemongrass, pear, earl grey.", "price_analysis": "100g당 28.0 AED (약 10,640원)로 가격 점수 29.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.6점 (4위). ★ 최종 추천 선발 (#2위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g (1:16 비율) | 분쇄도: 코만단테 24클릭 (중세립) | 추출 시간: 2분 15초 내 클린컷 추출 권장."}, "max_prior_sim": 28.0, "similar_target_rank": 2, "similar_target_title": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot", "similar_details": {"notes": 0.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 28.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Sama Honey", "handle": "ethiopia-elto-coffee-sama-honey", "country": "Ethiopia", "farm": "Elto Sama Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Honey", "altitude": "2,350 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "apricot, white florals, cantaloupe, peach", "weight": "100g", "price_aed": 28.0, "price_krw": 10640, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.4, "score_rarity": 20.0, "score_total": 91.6, "rank": 5, "is_active": true, "active_pick_num": 4, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Sweet Stone Fruit & Honey", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: apricot, white florals, cantaloupe, peach.", "price_analysis": "100g당 28.0 AED (약 10,640원)로 가격 점수 29.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.6점 (5위). ★ 최종 추천 선발 (#4위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "Kalita Wave, 91℃, 1:15 추출 권장."}, "max_prior_sim": 28.0, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 0.0, "terroir": 28.0, "region": 8.0, "farm": 10.0, "producer": 10.0, "process": 0.0, "notes_jaccard": 0.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 28.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Elora Station Classic Washed", "handle": "ethiopia-elto-coffee-elora-station-classic-washed", "country": "Ethiopia", "farm": "Elora Washing Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Classic Washed", "altitude": "2,400 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "ginger ale, white florals, bergamot, white grapes", "weight": "100g", "price_aed": 33.0, "price_krw": 12540, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.1, "score_rarity": 20.0, "score_total": 91.3, "rank": 6, "is_active": true, "active_pick_num": 5, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 38.0% - 독자적 향미/테루아 확보)", "flavor_category": "Floral & White Grape", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: ginger ale, white florals, bergamot, white grapes.", "price_analysis": "100g당 33.0 AED (약 12,540원)로 가격 점수 29.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.3점 (6위). ★ 최종 추천 선발 (#4위와 유사도 38.0% - 독자적 향미/테루아 확보)", "brewing_guide": "Hario V60, 92℃, 1:16 비율 추출."}, "max_prior_sim": 38.0, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 0.0, "terroir": 18.0, "region": 8.0, "farm": 0.0, "producer": 10.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 33.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Kokose Natural Lot 2", "handle": "ethiopia-elto-coffee-kokose-natural", "country": "Ethiopia", "farm": "Kokose Village", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Classic Natural, Shade Drying", "altitude": "2,300 MSAL", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "peach, blueberry, lychee, floral honey", "weight": "100g", "price_aed": 33.0, "price_krw": 12540, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.1, "score_rarity": 20.0, "score_total": 91.3, "rank": 7, "is_active": true, "active_pick_num": 6, "overlap_note": "★ 최종 추천 선발 (#1위와 유사도 39.1% - 독자적 향미/테루아 확보)", "flavor_category": "Blueberry & Floral Honey", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: peach, blueberry, lychee, floral honey.", "price_analysis": "100g당 33.0 AED (약 12,540원)로 가격 점수 29.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.3점 (7위). ★ 최종 추천 선발 (#1위와 유사도 39.1% - 독자적 향미/테루아 확보)", "brewing_guide": "Hario V60, 92℃ 추출."}, "max_prior_sim": 39.1, "similar_target_rank": 1, "similar_target_title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "similar_details": {"notes": 11.1, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 22.2, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 33.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto - Elora Station River Flow Washed CF10", "handle": "ethiopia-elto-elora-station-river-flow-washed-cf10", "country": "Ethiopia", "farm": "Elora Washing Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "River Flow Washed CF10", "altitude": "2,400 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "white peach, lychee, papaya, mandarine", "weight": "100g", "price_aed": 65.0, "price_krw": 24700, "source_url": "https://archerscoffee.com/products/ethiopia-elto-elora-station-river-flow-washed-cf10", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 27.5, "score_rarity": 20.0, "score_total": 89.7, "rank": 8, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #6위와 유사도 48.0% (향미/테루아 중복 음영 제외)", "flavor_category": "Peach & Mandarin", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: white peach, lychee, papaya, mandarine.", "price_analysis": "100g당 65.0 AED (약 24,700원)로 가격 점수 27.5점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 89.7점 (8위). 🚫 #6위와 유사도 48.0% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 92℃ 추출."}, "max_prior_sim": 48.0, "similar_target_rank": 6, "similar_target_title": "Ethiopia - Elto Coffee Elora Station Classic Washed", "similar_details": {"notes": 0.0, "terroir": 28.0, "region": 8.0, "farm": 10.0, "producer": 10.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 65.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural", "handle": "ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural", "country": "Ethiopia", "farm": "Guji Hambela Dimtu Haro", "producer": "Hambela Dimtu Small Holder Farms", "variety": "74114, 74110, 74158", "process": "Natural - Shade Drying", "altitude": "2440 MASL", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "apricot, white grapes, honey dew, peach, ginger ale", "weight": "100g", "price_aed": 36.0, "price_krw": 13680, "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 40.2, "score_price": 28.9, "score_rarity": 20.0, "score_total": 89.1, "rank": 9, "is_active": true, "active_pick_num": 7, "overlap_note": "★ 최종 추천 선발 (#1위와 유사도 69.7% - 독자적 향미/테루아 확보)", "flavor_category": "Ripe Berries & Floral", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(12.0점: 검증된 유수 마이크로랏 / 프로듀서 대표 랏), 테루아 환경(15.0점: 해발 2440m 초고고도 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 40.2점(50점 만점). 주요 컵노트: apricot, white grapes, honey dew, peach, ginger ale.", "price_analysis": "100g당 36.0 AED (약 13,680원)로 가격 점수 28.9점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 89.1점 (9위). ★ 최종 추천 선발 (#1위와 유사도 69.7% - 독자적 향미/테루아 확보)", "brewing_guide": "Kalita Wave, 91℃ 추출."}, "max_prior_sim": 69.7, "similar_target_rank": 1, "similar_target_title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "similar_details": {"notes": 41.7, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 83.3, "same_farm": false}, "award_score": 12.0, "award_desc": "검증된 유수 마이크로랏 / 프로듀서 대표 랏", "terroir_score": 15.0, "terroir_desc": "해발 2440m 초고고도 극한 일교차 화산 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 36.0, "alt_num": 2440}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Elida Geisha Honey Loma 2501", "handle": "panama-elida-estate-geisha-loma-2501", "country": "Panama", "farm": "Elida Estates Farm", "producer": "Lamastus Family Estates", "variety": "Geisha", "process": "Honey", "altitude": "1,700 - 1,950 masl", "roast": "라이트 (Filter Roast, 핸드드립 전용)", "notes": "jasmine, apple, peach, mangosteen", "weight": "100g", "price_aed": 143.0, "price_krw": 54340, "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501", "korea_shop": "커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤)", "korea_status": "국내 동일 농장 수입 이력 있음 (Plano 2801 나노랏은 국내 미수입)", "korea_price": "약 70,000원 ~ 90,000원 (100g 기준)", "merit": "★ 최상: 세계 최고가 농장의 정통 워시드 게이샤를 국내 시세 대비 30~40% 저렴하게 구매 가능", "user_review": "라마스투스 가문의 엘리다 에스테이트 워시드. '라벤더와 레몬그라스, 백포도의 섬세한 백차(White Tea) 같은 질감' 극찬.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 44.2, "score_price": 24.1, "score_rarity": 20.0, "score_total": 88.3, "rank": 10, "is_active": true, "active_pick_num": 8, "overlap_note": "★ 최종 추천 선발 (#5위와 유사도 28.3% - 독자적 향미/테루아 확보)", "flavor_category": "Honey Jasmine & Tropical Nectar", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(19.5점: BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏), 테루아 환경(11.5점: 고지대 1700m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 44.2점(50점 만점). 주요 컵노트: jasmine, apple, peach, mangosteen.", "price_analysis": "100g당 143.0 AED (약 54,340원)로 가격 점수 24.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤).", "selection_reason": "종합 점수 88.3점 (10위). ★ 최종 추천 선발 (#5위와 유사도 28.3% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 또는 Kalita Wave | 원두: 15g | 물: 92℃ 235g | 허니 점액질의 묵직한 넥타 질감과 재스민 향미가 최적의 밸런스를 이룹니다."}, "max_prior_sim": 28.3, "similar_target_rank": 5, "similar_target_title": "Ethiopia - Elto Coffee Sama Honey", "similar_details": {"notes": 8.3, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 16.7, "same_farm": false}, "award_score": 19.5, "award_desc": "BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1700m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 143.0, "alt_num": 1700}, {"roastery": "The Espresso Lab", "roastery_badge": "🧪 Espresso Lab", "title": "SL28 Santa Isabel", "handle": "sl28-santa-isabel-3", "country": "Panama", "farm": "Finca Santa Isabel", "producer": "Agricola Geisha", "variety": "SL28", "process": "washed", "altitude": "1,650 masl", "roast": "The Espresso Lab 공식 필터 프로파일: V60/푸어오버 추출 시 자스민·백차의 섬세한 꽃향과 테루아 본연의 밝고 영롱한 과즙 산미를 극대화하도록 정밀 설계된 라이트 로스트(Light Roast). 공식 권장 에이징: 원두 수령 후 3~7일 디게싱(Resting) 후 추출 시 최적의 클린컵 구현.", "notes": "Blackcurrant, Red Plum, Honey, Bergamot.", "weight": "100g", "price_aed": 75.5, "price_krw": 28690, "source_url": "https://theespressolab.com/products-details/sl28-santa-isabel-3", "korea_shop": "국내 공식 미수입 (파나마 SL28 워시드 희귀 랏)", "korea_status": "국내 미수입", "korea_price": "국내 유통 전무 (파나마는 게이샤 외 품종 극희소)", "merit": "파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 케냐 명품 품종의 크리스탈 구연산 산미와 파나마 테루아의 화사한 꽃향이 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.", "user_review": "해외 홈바리스타 평가: '케냐의 강렬한 산미 대신 파나마 테루아의 부드러운 자스민과 청사과, 자몽 톤이 절묘하게 조화된 매력적인 티라이크 원두.'", "user_review_link": "https://www.reddit.com/r/pourover/search/?q=Panama+SL28", "score_taste": 39.7, "score_price": 27.0, "score_rarity": 20.0, "score_total": 86.7, "rank": 11, "is_active": true, "active_pick_num": 9, "overlap_note": "★ 최종 추천 선발 (#3위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Blackcurrant & Bergamot Royalty", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(15.0점: COE 내셔널 위너 / 유수 국제 대회 출전 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 39.7점(50점 만점). 주요 컵노트: Blackcurrant, Red Plum, Honey, Bergamot..", "price_analysis": "100g당 75.5 AED (약 28,690원)로 가격 점수 27.0점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 국내 공식 미수입 (파나마 SL28 워시드 희귀 랏).", "selection_reason": "종합 점수 86.7점 (11위). ★ 최종 추천 선발 (#3위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Kalita Wave 155 | 원두: 15g | 물: 92℃ 230g (1:15.3 비율) | 평평한 침출 구조 드리퍼 사용 시 블랙커런트와 자두의 풍부한 단맛이 극대화됩니다."}, "max_prior_sim": 28.0, "similar_target_rank": 3, "similar_target_title": "Panama  - Finca Auromar, Geisha Washed Peaberry", "similar_details": {"notes": 0.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 15.0, "award_desc": "COE 내셔널 위너 / 유수 국제 대회 출전 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 75.5, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ecuador - Fincas Del Putushio, Typica Mejorado", "handle": "finca-del-putushio-typica-mejorado-rt", "country": "Ecuador", "farm": "Finca Del Putushio", "producer": "Pepe Jijon & Francisco Vintimilla", "variety": "Typica Mejorado", "process": "Classic Washed", "altitude": "2,222 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]", "notes": "jasmine, lemongrass, clementine, kiwi", "weight": "100g", "price_aed": 83.0, "price_krw": 31540, "source_url": "https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt", "korea_shop": "없음 (국내 에콰도르 메호라도 취급 로스터리 간헐적 출시)", "korea_status": "국내 정식 유통 없음 (에콰도르 로하 희귀 메호라도)", "korea_price": "약 45,000원 ~ 60,000원 (100g 기준)", "merit": "★ 높음: 워시드 게이샤급 허브티 톤을 가진 희귀 품종으로 현지 가격(약 3.1만원) 메리트 우수", "user_review": "에콰도르 로하 티피카 메호라도. '자스민과 스위트 라임의 청량한 허브티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1b8m9k2/finca_soledad_pepe_arguello/", "score_taste": 39.7, "score_price": 26.6, "score_rarity": 20.0, "score_total": 86.3, "rank": 12, "is_active": true, "active_pick_num": 10, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 46.1% - 독자적 향미/테루아 확보)", "flavor_category": "Floral Apricot & Sweet Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(15.0점: COE 내셔널 위너 / 유수 국제 대회 출전 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 39.7점(50점 만점). 주요 컵노트: jasmine, lemongrass, clementine, kiwi.", "price_analysis": "100g당 83.0 AED (약 31,540원)로 가격 점수 26.6점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음 (국내 에콰도르 메호라도 취급 로스터리 간헐적 출시).", "selection_reason": "종합 점수 86.3점 (12위). ★ 최종 추천 선발 (#4위와 유사도 46.1% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 중온 추출로 티피카 메호라도의 섬세한 살구와 복숭아 홍차 뉘앙스를 이끌어내세요."}, "max_prior_sim": 46.1, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 25.0, "terroir": 1.1, "region": 0.0, "farm": 0.0, "producer": 1.1, "process": 20.0, "notes_jaccard": 50.0, "same_farm": false}, "award_score": 15.0, "award_desc": "COE 내셔널 위너 / 유수 국제 대회 출전 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 83.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Los Lajones Bambu Geisha Washed Lot 20C", "handle": "panama-los-lajones-bambu-geisha-washed-lot-20c", "country": "Panama", "farm": "Los Lajones Estate", "producer": "Hiu Coffee / Graciano Cruz", "variety": "Green Tip Geisha", "process": "Washed", "altitude": "1,995-2,070 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]", "notes": "lemongrass, bergamot, jasmine, blueberry, honey", "weight": "100g", "price_aed": 135.0, "price_krw": 51300, "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-20c", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 42.2, "score_price": 24.0, "score_rarity": 20.0, "score_total": 86.2, "rank": 13, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #11위와 유사도 40.5% (향미/테루아 중복 음영 제외)", "flavor_category": "Lemongrass & Jasmine Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1995m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: lemongrass, bergamot, jasmine, blueberry, honey.", "price_analysis": "100g당 135.0 AED (약 51,300원)로 가격 점수 24.0점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 86.2점 (13위). 🚫 #11위와 유사도 40.5% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 93℃ 추출."}, "max_prior_sim": 40.5, "similar_target_rank": 11, "similar_target_title": "SL28 Santa Isabel", "similar_details": {"notes": 12.5, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 25.0, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1995m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 135.0, "alt_num": 1995}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Los Lajones Bambu Geisha Washed Lot 26C", "handle": "panama-los-lajones-bambu-geisha-washed-lot-26c", "country": "Panama", "farm": "Los Lajones Estate", "producer": "Hiu Coffee / Graciano Cruz", "variety": "Green Tip Geisha", "process": "Washed", "altitude": "1,995-2,070 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫]", "notes": "jasmine, grapefruit, peach, nectarine, earl grey", "weight": "100g", "price_aed": 135.0, "price_krw": 51300, "source_url": "https://archerscoffee.com/products/panama-los-lajones-bambu-geisha-washed-lot-26c", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 42.2, "score_price": 24.0, "score_rarity": 20.0, "score_total": 86.2, "rank": 14, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #13위와 유사도 53.0% (향미/테루아 중복 음영 제외)", "flavor_category": "Jasmine & Grapefruit", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1995m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: jasmine, grapefruit, peach, nectarine, earl grey.", "price_analysis": "100g당 135.0 AED (약 51,300원)로 가격 점수 24.0점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 86.2점 (14위). 🚫 #13위와 유사도 53.0% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 93℃ 추출."}, "max_prior_sim": 53.0, "similar_target_rank": 13, "similar_target_title": "Panama - Los Lajones Bambu Geisha Washed Lot 20C", "similar_details": {"notes": 5.0, "terroir": 28.0, "region": 8.0, "farm": 10.0, "producer": 10.0, "process": 20.0, "notes_jaccard": 10.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1995m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 135.0, "alt_num": 1995}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Mil Cumbres GIL GW lot 2", "handle": "panama-mil-cumbres-gil-gw-lot-2", "country": "Panama", "farm": "Mil Cumbres", "producer": "Mario Fonseca Imendia", "variety": "Geisha", "process": "Washed", "altitude": "1,600 - 2,000 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "orange blossom, white grapes, bergamot, floral honey", "weight": "100g", "price_aed": 143.0, "price_krw": 54340, "source_url": "https://archerscoffee.com/products/panama-mil-cumbres-gil-gw-lot-2", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 42.2, "score_price": 23.6, "score_rarity": 20.0, "score_total": 85.8, "rank": 15, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #6위와 유사도 45.0% (향미/테루아 중복 음영 제외)", "flavor_category": "Orange Blossom & White Grape", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1600m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: orange blossom, white grapes, bergamot, floral honey.", "price_analysis": "100g당 143.0 AED (약 54,340원)로 가격 점수 23.6점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 85.8점 (15위). 🚫 #6위와 유사도 45.0% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 93℃ 추출."}, "max_prior_sim": 45.0, "similar_target_rank": 6, "similar_target_title": "Ethiopia - Elto Coffee Elora Station Classic Washed", "similar_details": {"notes": 25.0, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 50.0, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1600m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 143.0, "alt_num": 1600}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Chevas Limited  El Choclo GW Venus", "handle": "panama-chevas-limited-el-choclo-gw-venus", "country": "Panama", "farm": "Chevas Coffee Estate, El Choclo", "producer": "Jose Luiz Chevas", "variety": "Geisha", "process": "Washed", "altitude": "1,600 - 1,700 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "coffee flower, papaya, white tea, floral honey", "weight": "100g", "price_aed": 145.0, "price_krw": 55100, "source_url": "https://archerscoffee.com/products/panama-chevas-limited-el-choclo-gw-venus", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 42.2, "score_price": 23.5, "score_rarity": 20.0, "score_total": 85.7, "rank": 16, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #15위와 유사도 43.0% (향미/테루아 중복 음영 제외)", "flavor_category": "Jasmine & White Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1600m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: coffee flower, papaya, white tea, floral honey.", "price_analysis": "100g당 145.0 AED (약 55,100원)로 가격 점수 23.5점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 85.7점 (16위). 🚫 #15위와 유사도 43.0% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 93℃ 추출."}, "max_prior_sim": 43.0, "similar_target_rank": 15, "similar_target_title": "Panama - Mil Cumbres GIL GW lot 2", "similar_details": {"notes": 15.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 30.0, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1600m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 145.0, "alt_num": 1600}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life", "handle": "colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life", "country": "Colombia", "farm": "Finca Rio Negro", "producer": "Jhon Rodriguez, Cota Coffee", "variety": "Pink Bourbon", "process": "Washed - Co-ferment", "altitude": "1,600 masl", "roast": "라이트 (Filter Roast, 핸드드립 전용) [▪▫▫]", "notes": "white florals, lemongrass, bergamot, peach, orange", "weight": "100g", "price_aed": 53.0, "price_krw": 20140, "source_url": "https://archerscoffee.com/products/colombia-cota-coffee-finca-rio-negro-pink-bourbon-zest-life", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 36.7, "score_price": 28.1, "score_rarity": 20.0, "score_total": 84.8, "rank": 17, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #15위와 유사도 26.7% (향미/테루아 중복 음영 제외)", "flavor_category": "Exotic Fruit & Floral Honey", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(12.0점: 검증된 유수 마이크로랏 / 프로듀서 대표 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 36.7점(50점 만점). 주요 컵노트: white florals, lemongrass, bergamot, peach, orange.", "price_analysis": "100g당 53.0 AED (약 20,140원)로 가격 점수 28.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 84.8점 (17위). 🚫 #15위와 유사도 26.7% (향미/테루아 중복 음영 제외)", "brewing_guide": "드리퍼: Origami 또는 Kalita Wave | 원두: 16g | 물: 91℃ 240g (1:15 비율) | 추출 시간: 2분 30초 내외. 약간 낮은 온도로 추출 시 복숭아와 베르가못 향미가 극대화됩니다."}, "max_prior_sim": 26.7, "similar_target_rank": 15, "similar_target_title": "Panama - Mil Cumbres GIL GW lot 2", "similar_details": {"notes": 16.7, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 10.0, "notes_jaccard": 33.3, "same_farm": false}, "award_score": 12.0, "award_desc": "검증된 유수 마이크로랏 / 프로듀서 대표 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 53.0, "alt_num": 1650}, {"roastery": "The Espresso Lab", "roastery_badge": "🧪 Espresso Lab", "title": "El Rubi Parainema Anaerobic Washed Lot B", "handle": "el-rubi-parainema-anaerobic-washed-lot-b", "country": "Colombia", "farm": "Finca El Rubí", "producer": "Heiner Lazo", "variety": "Parainema", "process": "Anaerobic washed", "altitude": "1420 masl", "roast": "The Espresso Lab 공식 필터 프로파일: V60/푸어오버 추출 시 자스민·백차의 섬세한 꽃향과 테루아 본연의 밝고 영롱한 과즙 산미를 극대화하도록 정밀 설계된 라이트 로스트(Light Roast). 공식 권장 에이징: 원두 수령 후 3~7일 디게싱(Resting) 후 추출 시 최적의 클린컵 구현.", "notes": "floral, Honey, Apple", "weight": "100g", "price_aed": 60.0, "price_krw": 22800, "source_url": "https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-b", "korea_shop": "국내 공식 미수입 (콜롬비아 파라이네마 혐기성 워시드)", "korea_status": "국내 미수입", "korea_price": "국내 유사 파라이네마 약 28,000원 ~ 35,000원 (100g)", "merit": "콜롬비아 우일라 Finca El Rubi의 파라이네마(Parainema) 혐기성 워시드. 화이트 티, 리치, 레몬버베나의 섬세한 티라이크 톤을 자랑하며 100g AED 60(약 22,800원)으로 국내 시세 대비 30% 저렴.", "user_review": "SCA 센서리 패널: '파라이네마 품종 특유의 은은한 화이트 티 텍스처와 청포도 과즙의 단맛이 돋보이는 웰메이드 클린컵 워시드.'", "user_review_link": "https://www.reddit.com/r/pourover/search/?q=Parainema+coffee", "score_taste": 33.0, "score_price": 27.8, "score_rarity": 20.0, "score_total": 80.8, "rank": 18, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #17위와 유사도 35.1% (향미/테루아 중복 음영 제외)", "flavor_category": "Green Apple & Honey Floral", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(15.0점: COE 내셔널 위너 / 유수 국제 대회 출전 랏), 테루아 환경(9.5점: 해발 1420m 우수 재배 환경), 업계 긍정평가(8.5점: 로스터리 플래그십 매장 호평 및 기본 평판)를 종합 반영한 맛 점수 33.0점(50점 만점). 주요 컵노트: floral, Honey, Apple.", "price_analysis": "100g당 60.0 AED (약 22,800원)로 가격 점수 27.8점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 국내 공식 미수입 (콜롬비아 파라이네마 혐기성 워시드).", "selection_reason": "종합 점수 80.8점 (18위). 🚫 #17위와 유사도 35.1% (향미/테루아 중복 음영 제외)", "brewing_guide": "드리퍼: Origami 또는 V60 | 원두: 15g | 물: 92℃ 230g | 뜸 40초 후 균일한 물줄기로 부드럽게 추출하여 꿀과 청사과의 클린컵을 강조하세요."}, "max_prior_sim": 35.1, "similar_target_rank": 17, "similar_target_title": "Colombia - Cota Coffee Finca Rio Negro Pink Bourbon - Zest life", "similar_details": {"notes": 7.1, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 14.3, "same_farm": false}, "award_score": 15.0, "award_desc": "COE 내셔널 위너 / 유수 국제 대회 출전 랏", "terroir_score": 9.5, "terroir_desc": "해발 1420m 우수 재배 환경", "review_score": 8.5, "review_desc": "로스터리 플래그십 매장 호평 및 기본 평판", "p_100g": 60.0, "alt_num": 1420}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Adaura Coffee Geisha Washed Jer DRD", "handle": "panama-adaura-coffee-geisha-washed-jer-drd", "country": "Panama", "farm": "Finca Lorayne", "producer": "Marcus Duran", "variety": "Geisha", "process": "Washed", "altitude": "1,750 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "jasmine, honeydew, papaya, white tea", "weight": "100g", "price_aed": 120.0, "price_krw": 45600, "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-geisha-washed-jer-drd", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 34.2, "score_price": 24.8, "score_rarity": 20.0, "score_total": 79.0, "rank": 19, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #16위와 유사도 46.8% (향미/테루아 중복 음영 제외)", "flavor_category": "Jasmine & White Tea Aristocracy", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(9.5점: 최고급 명문 품종 단일 혈통 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 34.2점(50점 만점). 주요 컵노트: jasmine, honeydew, papaya, white tea.", "price_analysis": "100g당 120.0 AED (약 45,600원)로 가격 점수 24.8점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 79.0점 (19위). 🚫 #16위와 유사도 46.8% (향미/테루아 중복 음영 제외)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 뜸 35초 후 3회 푸어링으로 정갈하고 섬세한 재스민 플로럴을 온전히 추출하세요."}, "max_prior_sim": 46.8, "similar_target_rank": 16, "similar_target_title": "Panama - Chevas Limited  El Choclo GW Venus", "similar_details": {"notes": 18.8, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 37.5, "same_farm": false}, "award_score": 9.5, "award_desc": "최고급 명문 품종 단일 혈통 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 120.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Adaura Coffee Finca Lorayne Geisha Washed", "handle": "panama-adaura-coffee-finca-lorayne-geisha-washed", "country": "Panama", "farm": "Finca Lorayne", "producer": "Marcus Duran", "variety": "Green Tip Geisha", "process": "Washed", "altitude": "1,750 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "orange blossom, mandarine, pear, peach, honey", "weight": "100g", "price_aed": 145.0, "price_krw": 55100, "source_url": "https://archerscoffee.com/products/panama-adaura-coffee-finca-lorayne-geisha-washed", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 34.2, "score_price": 23.5, "score_rarity": 20.0, "score_total": 77.7, "rank": 20, "is_active": false, "active_pick_num": null, "overlap_note": "🚫 #19위와 유사도 53.6% (향미/테루아 중복 음영 제외)", "flavor_category": "Jasmine & Citrus", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(9.5점: 최고급 명문 품종 단일 혈통 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 34.2점(50점 만점). 주요 컵노트: orange blossom, mandarine, pear, peach, honey.", "price_analysis": "100g당 145.0 AED (약 55,100원)로 가격 점수 23.5점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 77.7점 (20위). 🚫 #19위와 유사도 53.6% (향미/테루아 중복 음영 제외)", "brewing_guide": "Hario V60, 93℃ 추출."}, "max_prior_sim": 53.6, "similar_target_rank": 19, "similar_target_title": "Panama - Adaura Coffee Geisha Washed Jer DRD", "similar_details": {"notes": 5.6, "terroir": 28.0, "region": 8.0, "farm": 10.0, "producer": 10.0, "process": 20.0, "notes_jaccard": 11.1, "same_farm": true}, "award_score": 9.5, "award_desc": "최고급 명문 품종 단일 혈통 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 145.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Finca Deborah, Terroir", "handle": "panama-terroir-finca-deborah", "country": "Panama", "farm": "Finca Deborah", "producer": "Jamison Savage", "variety": "Geisha", "process": "Classic Washed", "altitude": "1,900 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "White Floral, Bergamot, Meyer Lemon, Jasmine Tea", "weight": "100g", "price_aed": 165.0, "price_krw": 62700, "source_url": "https://archerscoffee.com/products/panama-terroir-finca-deborah", "korea_shop": "국내 일부 스페셜티 샵 간헐적 옥션 출시", "korea_status": "국내 정식 유통 없음 (Archers 직수입 랏)", "korea_price": "약 80,000원 ~ 110,000원 (100g 기준)", "merit": "★ 최상: WBC 챔피언 사샤 세스틱의 Finca Deborah 정통 워시드 게이샤. 현지 가격(약 6.2만원) 대비 높은 희소 가치", "user_review": "Finca Deborah의 Terroir 워시드 게이샤. '화이트 플로럴과 베르가못, 재스민 티의 영롱한 투명도와 크리스탈 클린컵' 극찬.", "user_review_link": "https://archerscoffee.com/products/panama-terroir-finca-deborah", "score_taste": 44.5, "score_price": 24.0, "score_rarity": 20.0, "score_total": 88.5, "rank": "NEW (전체 51위)", "is_active": false, "is_today_new": true, "active_pick_num": null, "overlap_note": "✨ 오늘(1008) 신규 추가 | WBC 우승 명문 테루아 게이샤", "flavor_category": "Floral & Citrus Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(19.5점: BOP/WBC 우승 명문 Finca Deborah), 테루아 환경(11.8점: 해발 1900m 바루 화산의 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 바리스타 챔피언십 공식 랏)를 종합 반영한 맛 점수 44.5점(50점 만점). 주요 컵노트: White Floral, Bergamot, Meyer Lemon, Jasmine Tea.", "price_analysis": "100g당 165.0 AED (약 62,700원)로 가격 점수 24.0점(30점 만점). 하이엔드 게이샤 라인업 중 최상위 퀄리티.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 국내 공식 미수입 랏으로 두바이 아처스 현지 구매 가치 매우 높음.", "selection_reason": "오늘(1008) 출시 신규 원두. WBC 챔피언 사샤 세스틱의 명문 농장 Finca Deborah의 정통 클래식 워시드 랏.", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 중세립 분쇄 후 2분 10초 내 추출하여 화사한 자스민 꽃향과 마이어 레몬의 섬세한 산미를 극대화하세요."}, "max_prior_sim": 20.0, "similar_target_rank": 3, "similar_target_title": "Panama - Finca Auromar, Geisha Washed Peaberry", "similar_details": {"notes": 12.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 15.0, "same_farm": false}, "award_score": 19.5, "award_desc": "BOP 1위 / WBC 우승 명문 Finca Deborah", "terroir_score": 11.8, "terroir_desc": "해발 1900m 바루 화산 극한 일교차", "review_score": 13.2, "review_desc": "글로벌 챔피언십 랏 호평", "p_100g": 165.0, "alt_num": 1900}, {"roastery": "The Espresso Lab", "roastery_badge": "☕ Esolab", "title": "Caballero Bomba de Fruta #1", "handle": "caballero-bomba-de-fruta-1-6", "country": "Honduras", "farm": "Finca El Puente", "producer": "Marysabel Caballero & Moises Herrera", "variety": "Catuai / Java", "process": "Anaerobic Natural", "altitude": "1,600 masl", "roast": "라이트-미디엄 (Filter 전용)", "notes": "Passionfruit, Mango, Dark Cherry, Brown Sugar, Rum", "weight": "100g", "price_aed": 76.19, "price_krw": 28950, "source_url": "https://theespressolab.com/products-details/caballero-bomba-de-fruta-1-6", "korea_shop": "국내 공식 미수입 (에소랩 독점 랏)", "korea_status": "국내 미수입", "korea_price": "국내 유통 전무", "merit": "★ 높음: 온두라스 최고 명문 카바예로 부부의 과일폭탄(Bomba de Fruta) 시리즈 신규 랏. 농밀하고 화려한 트로피컬 향미.", "user_review": "The Espresso Lab 랩 테이스팅: '패션후르츠와 망고, 럼의 묵직한 단맛이 폭발하는 환상적인 무산소 내추럴.'", "user_review_link": "https://theespressolab.com/products-details/caballero-bomba-de-fruta-1-6", "score_taste": 34.0, "score_price": 20.5, "score_rarity": 20.0, "score_total": 74.5, "rank": "NEW", "is_active": false, "is_today_new": true, "active_pick_num": null, "overlap_note": "✨ 오늘(1008) 신규 추가 | COE 1위 과일폭탄 무산소 랏", "flavor_category": "Tropical & Boozy Fruit", "detailed_review": {"taste_analysis": "온두라스 COE 1위 명가 카바예로 부부의 시그니처 무산소 발효 내추럴 랏. 패션후르츠, 망고, 다크체리, 브라운슈가, 럼의 폭발적인 향미 복합성. 맛 점수 34.0점.", "price_analysis": "100g당 76.19 AED (약 28,950원)로 가격 점수 20.5점.", "rarity_analysis": "희소성 점수 20.0점. 에스프레소 커피랩 독점 랏으로 국내 정식 유통 없음.", "selection_reason": "오늘(1008) 출시 신규 원두. 온두라스 명문 농장의 과일폭탄 무산소 내추럴.", "brewing_guide": "드리퍼: Kalita Wave | 원두: 15g | 물: 91℃ 225g | 뜸 40초 후 침출 비율을 조절하여 농밀한 열대과일 단맛과 럼의 뉘앙스를 즐기세요."}, "max_prior_sim": 15.0, "similar_target_rank": null, "similar_target_title": null, "similar_details": null, "award_score": 15.0, "award_desc": "COE 1위 수상 경력 명가 랏", "terroir_score": 11.0, "terroir_desc": "해발 1600m 마르칼라 테루아", "review_score": 12.0, "review_desc": "에소랩 테이스팅 랩 추천 랏", "p_100g": 76.19, "alt_num": 1600}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Brazil - Santuario Sul Sudan Rume", "handle": "brazil-santuario-sul-sudan-rume-washed", "country": "Brazil", "farm": "Fazenda Santuario Sul", "producer": "Luiz Paulo Dias Pereira", "variety": "Sudan Rume", "process": "Washed", "altitude": "1,300 - 1,450 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "Lemon Verbena, Lemongrass, Floral, Green Tea", "weight": "250g", "price_aed": 55.0, "price_krw": 20900, "source_url": "https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed", "korea_shop": "국내 공식 미수입 (브라질 수단루메 희귀종)", "korea_status": "국내 미수입", "korea_price": "국내 유통 전무", "merit": "★ 최상: 브라질 최고 혁신 농장 Santuario Sul의 전설적인 수단 루메(Sudan Rume) 품종. 250g 대용량 55 AED(약 2만원)로 가성비 극상.", "user_review": "Santuario Sul의 수단 루메 워시드. '브라질 특유의 너티함 대신 화사한 레몬버베나와 레몬그라스의 싱그러운 허브티 질감' 호평.", "user_review_link": "https://archerscoffee.com/products/brazil-santuario-sul-sudan-rume-washed", "score_taste": 41.3, "score_price": 21.0, "score_rarity": 20.0, "score_total": 82.3, "rank": "NEW", "is_active": false, "is_today_new": true, "active_pick_num": null, "overlap_note": "✨ 오늘(1008) 신규 추가 | 희귀 야생종 수단루메 가성비 랏", "flavor_category": "Herb Tea & Elegant Floral", "detailed_review": {"taste_analysis": "전설적인 에티오피아 야생 고대종 수단 루메(Sudan Rume)를 브라질 산투아리오 술의 실험적 농법으로 재배. 레몬버베나, 레몬그라스, 플로럴, 녹차의 티라이크 향미. 맛 점수 41.3점.", "price_analysis": "250g 패키지 55.0 AED (100g 환산 약 22.0 AED / 8,360원)로 압도적 가성비 점수 21.0점.", "rarity_analysis": "희소성 점수 20.0점. 브라질에서 수단 루메를 생산하는 유일무이한 농장으로 국내 공식 유통 없음.", "selection_reason": "오늘(1008) 출시 신규 원두. 희귀종 수단 루메 250g 대용량 가성비 추천.", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 92℃ 240g | 중온 추출로 떫은맛 없이 싱그러운 레몬버베나와 녹차의 산뜻한 여운을 살려 추출하세요."}, "max_prior_sim": 18.0, "similar_target_rank": null, "similar_target_title": null, "similar_details": null, "award_score": 16.0, "award_desc": "브라질 최고 혁신 농장 Santuario Sul", "terroir_score": 11.5, "terroir_desc": "해발 1450m 만티케이라 드 미나스", "review_score": 13.8, "review_desc": "글로벌 스페셜티 씬 극찬", "p_100g": 22.0, "alt_num": 1450}, {"roastery": "The Espresso Lab", "roastery_badge": "☕ Esolab", "title": "Samambaia Natural Yellow Catucai", "handle": "samambaia-natural-yellow-catucai", "country": "Brazil", "farm": "Fazenda Samambaia", "producer": "Henrique Dias Cambraia", "variety": "Yellow Catucai", "process": "Natural", "altitude": "1,100 masl", "roast": "라이트-미디엄 (Espresso / Filter 옴니)", "notes": "Milk Chocolate, Hazelnut, Yellow Plum, Caramel Sweetness", "weight": "250g", "price_aed": 76.19, "price_krw": 28950, "source_url": "https://theespressolab.com/products-details/samambaia-natural-yellow-catucai", "korea_shop": "국내 공식 미수입 (에소랩 독점 랏)", "korea_status": "국내 미수입", "korea_price": "국내 유통 전무", "merit": "★ 우수: 브라질 Samambaia 명문 농장의 Yellow Catucai 내추럴 랏. 100g 2.8만원대 뛰어난 밸런스와 단맛.", "user_review": "The Espresso Lab 랩 테이스팅: '밀크초콜릿과 헤이즐넛의 고소함, 옐로우 플럼의 부드러운 산미와 캐러멜 단맛의 완벽한 조화.'", "user_review_link": "https://theespressolab.com/products-details/samambaia-natural-yellow-catucai", "score_taste": 33.3, "score_price": 20.5, "score_rarity": 20.0, "score_total": 73.8, "rank": "NEW", "is_active": false, "is_today_new": true, "active_pick_num": null, "overlap_note": "✨ 오늘(1008) 신규 추가 | 밀크초콜릿 & 플럼 밸런스 랏", "flavor_category": "Nutty Chocolate & Sweet Plum", "detailed_review": {"taste_analysis": "브라질 술 드 미나스 사맘바이아 농장의 옐로우 카투카이 정통 내추럴. 밀크초콜릿, 헤이즐넛, 옐로우 플럼, 캐러멜 단맛. 호불호 없는 완벽한 데일리 밸런스. 맛 점수 33.3점.", "price_analysis": "100g당 76.19 AED (약 28,950원)로 가격 점수 20.5점.", "rarity_analysis": "희소성 점수 20.0점. 에스프레소 커피랩 독점 랏으로 국내 공식 유통 없음.", "selection_reason": "오늘(1008) 출시 신규 원두. 에스프레소/필터 겸용 밀크초콜릿 & 플럼 밸런스 랏.", "brewing_guide": "에스프레소 및 V60 모두 최적 | 92℃ 온수 추출 시 부드러운 밀크초콜릿의 단맛과 크리미한 마우스필을 느낄 수 있습니다."}, "max_prior_sim": 12.0, "similar_target_rank": null, "similar_target_title": null, "similar_details": null, "award_score": 14.0, "award_desc": "브라질 COE 명문 사맘바이아 농장", "terroir_score": 10.5, "terroir_desc": "해발 1100m 술 드 미나스", "review_score": 11.5, "review_desc": "에소랩 시그니처 랏 호평", "p_100g": 76.19, "alt_num": 1100}];
-  const DEFAULT_PICKS = [{"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "handle": "ethiopia-daye-bensa-korma-kontoma-murago-natural-mini", "country": "Ethiopia", "farm": "Murago Korma Kontoma Station", "producer": "Asefa Dukamo, Smallholder Farmers", "variety": "74112, 74110, 74158", "process": "Natural", "altitude": "2,230 - 2,300", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "peach, white grapes, honey dew, apricot, lemon tea", "weight": "100g", "price_aed": 50.0, "price_krw": 19000, "source_url": "https://archerscoffee.com/products/ethiopia-daye-bensa-korma-kontoma-murago-natural-mini", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 45.7, "score_price": 28.2, "score_rarity": 20.0, "score_total": 93.9, "rank": 1, "is_active": true, "active_pick_num": 1, "overlap_note": "★ 최종 추천 1위 선발 (기준 원두)", "flavor_category": "Clean Natural & Berry Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(15.0점: 해발 2300m 초고고도 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 45.7점(50점 만점). 주요 컵노트: peach, white grapes, honey dew, apricot, lemon tea.", "price_analysis": "100g당 50.0 AED (약 19,000원)로 가격 점수 28.2점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 93.9점 (1위). ★ 최종 추천 1위 선발 (기준 원두)", "brewing_guide": "드리퍼: Origami 또는 V60 | 원두: 15g | 물: 92℃ 240g | 고운 분쇄보다는 약간 굵게 분쇄하여 과다 추출을 방지하고 티라이크 질감을 살리세요."}, "max_prior_sim": 0.0, "similar_target_rank": null, "similar_target_title": null, "similar_details": null, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 15.0, "terroir_desc": "해발 2300m 초고고도 극한 일교차 화산 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 50.0, "alt_num": 2300}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama  - Finca Auromar, Geisha Washed Peaberry", "handle": "panama-finca-auromar-malla-geisha-washed-peaberry", "country": "Panama", "farm": "Auromar Finca La Aurora", "producer": "Roberto Brenes / Auromar Family", "variety": "Geisha", "process": "Washed", "altitude": "1,770 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트)", "notes": "white grape, coffee blossom, yuzu, champagne", "weight": "100g", "price_aed": 98.0, "price_krw": 37240, "source_url": "https://archerscoffee.com/products/panama-finca-auromar-malla-geisha-washed-peaberry", "korea_shop": "코에커피스펙트럼 / 엠아이커피 (오로마르 게이샤 워시드)", "korea_status": "국내 동일 농장 수입 이력 있음 (피베리 랏은 국내 미수입)", "korea_price": "약 55,000원 ~ 80,000원 (100g 기준)", "merit": "★ 최상: 국내 시세 대비 약 40% 저렴하며, 극소량 피베리(Peaberry) 랏은 아처스 독점 공급", "user_review": "BOP 챔피언 오로마르 피베리 워시드. '자스민과 화이트 와인, 얼그레이 홍차 뉘앙스가 맑고 투명하며 산미 밸런스가 압도적'이라는 r/pourover 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1d3f9k3/panama_geisha_recommendations/", "score_taste": 45.8, "score_price": 26.4, "score_rarity": 20.0, "score_total": 92.2, "rank": 3, "is_active": true, "active_pick_num": 2, "overlap_note": "★ 최종 추천 선발 (#2위와 유사도 20.0% - 독자적 향미/테루아 확보)", "flavor_category": "Champagne & Yuzu Peaberry", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(19.5점: BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(14.8점: Reddit r/pourover 9.6~9.8/10 만점급 극찬 & Q-Grader 호평)를 종합 반영한 맛 점수 45.8점(50점 만점). 주요 컵노트: white grape, coffee blossom, yuzu, champagne.", "price_analysis": "100g당 98.0 AED (약 37,240원)로 가격 점수 26.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 코에커피스펙트럼 / 엠아이커피 (오로마르 게이샤 워시드).", "selection_reason": "종합 점수 92.2점 (3위). ★ 최종 추천 선발 (#2위와 유사도 20.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 94℃ 240g | 높은 온도로 피베리 고밀도 생두의 화려한 샴페인 에시디티를 남김없이 추출하세요."}, "max_prior_sim": 20.0, "similar_target_rank": 2, "similar_target_title": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot", "similar_details": {"notes": 0.0, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 19.5, "award_desc": "BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 14.8, "review_desc": "Reddit r/pourover 9.6~9.8/10 만점급 극찬 & Q-Grader 호평", "p_100g": 98.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Sama Washed", "handle": "ethiopia-elto-coffee-sama-washed", "country": "Ethiopia", "farm": "Elto Sama Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Washed", "altitude": "2,350 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "jasmine, lemongrass, pear, earl grey", "weight": "100g", "price_aed": 28.0, "price_krw": 10640, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-washed", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.4, "score_rarity": 20.0, "score_total": 91.6, "rank": 4, "is_active": true, "active_pick_num": 3, "overlap_note": "★ 최종 추천 선발 (#2위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Floral & Tea-like Citrus", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: jasmine, lemongrass, pear, earl grey.", "price_analysis": "100g당 28.0 AED (약 10,640원)로 가격 점수 29.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.6점 (4위). ★ 최종 추천 선발 (#2위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g (1:16 비율) | 분쇄도: 코만단테 24클릭 (중세립) | 추출 시간: 2분 15초 내 클린컷 추출 권장."}, "max_prior_sim": 28.0, "similar_target_rank": 2, "similar_target_title": "Ethiopia - Daye Bensa Rumudamo DFW Archers Lot", "similar_details": {"notes": 0.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 28.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Sama Honey", "handle": "ethiopia-elto-coffee-sama-honey", "country": "Ethiopia", "farm": "Elto Sama Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Honey", "altitude": "2,350 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "apricot, white florals, cantaloupe, peach", "weight": "100g", "price_aed": 28.0, "price_krw": 10640, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-sama-honey", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.4, "score_rarity": 20.0, "score_total": 91.6, "rank": 5, "is_active": true, "active_pick_num": 4, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Sweet Stone Fruit & Honey", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: apricot, white florals, cantaloupe, peach.", "price_analysis": "100g당 28.0 AED (약 10,640원)로 가격 점수 29.4점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.6점 (5위). ★ 최종 추천 선발 (#4위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "Kalita Wave, 91℃, 1:15 추출 권장."}, "max_prior_sim": 28.0, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 0.0, "terroir": 28.0, "region": 8.0, "farm": 10.0, "producer": 10.0, "process": 0.0, "notes_jaccard": 0.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 28.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Elora Station Classic Washed", "handle": "ethiopia-elto-coffee-elora-station-classic-washed", "country": "Ethiopia", "farm": "Elora Washing Station", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Classic Washed", "altitude": "2,400 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "ginger ale, white florals, bergamot, white grapes", "weight": "100g", "price_aed": 33.0, "price_krw": 12540, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-elora-station-classic-washed", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.1, "score_rarity": 20.0, "score_total": 91.3, "rank": 6, "is_active": true, "active_pick_num": 5, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 38.0% - 독자적 향미/테루아 확보)", "flavor_category": "Floral & White Grape", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: ginger ale, white florals, bergamot, white grapes.", "price_analysis": "100g당 33.0 AED (약 12,540원)로 가격 점수 29.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.3점 (6위). ★ 최종 추천 선발 (#4위와 유사도 38.0% - 독자적 향미/테루아 확보)", "brewing_guide": "Hario V60, 92℃, 1:16 비율 추출."}, "max_prior_sim": 38.0, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 0.0, "terroir": 18.0, "region": 8.0, "farm": 0.0, "producer": 10.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": true}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 33.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Elto Coffee Kokose Natural Lot 2", "handle": "ethiopia-elto-coffee-kokose-natural", "country": "Ethiopia", "farm": "Kokose Village", "producer": "Eliyas Dukamo & Atiklit Dejene", "variety": "74158", "process": "Classic Natural, Shade Drying", "altitude": "2,300 MSAL", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▫▫▫]", "notes": "peach, blueberry, lychee, floral honey", "weight": "100g", "price_aed": 33.0, "price_krw": 12540, "source_url": "https://archerscoffee.com/products/ethiopia-elto-coffee-kokose-natural", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Elto Coffee 직거래 독점)", "korea_price": "없음", "merit": "★ 최상: 2,200m 초고고도 워시드가 100g당 AED 28~33(약 10,600원~12,500원)으로 국내 미수입 & 최강 가성비", "user_review": "엘토 커피 시다마 벤사 랏. '진저에일 같은 청량함과 자스민 꽃향, 복숭아 아이스티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 42.2, "score_price": 29.1, "score_rarity": 20.0, "score_total": 91.3, "rank": 7, "is_active": true, "active_pick_num": 6, "overlap_note": "★ 최종 추천 선발 (#1위와 유사도 39.1% - 독자적 향미/테루아 확보)", "flavor_category": "Blueberry & Floral Honey", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(17.5점: COE 2위 입상 / BOP 파이널리스트 공인 명문), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 42.2점(50점 만점). 주요 컵노트: peach, blueberry, lychee, floral honey.", "price_analysis": "100g당 33.0 AED (약 12,540원)로 가격 점수 29.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 91.3점 (7위). ★ 최종 추천 선발 (#1위와 유사도 39.1% - 독자적 향미/테루아 확보)", "brewing_guide": "Hario V60, 92℃ 추출."}, "max_prior_sim": 39.1, "similar_target_rank": 1, "similar_target_title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "similar_details": {"notes": 11.1, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 22.2, "same_farm": false}, "award_score": 17.5, "award_desc": "COE 2위 입상 / BOP 파이널리스트 공인 명문", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 33.0, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ethiopia - Oboleyan Coffee Hambela Dimtu Haro Highborn Project - Classic Natural", "handle": "ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural", "country": "Ethiopia", "farm": "Guji Hambela Dimtu Haro", "producer": "Hambela Dimtu Small Holder Farms", "variety": "74114, 74110, 74158", "process": "Natural - Shade Drying", "altitude": "2440 MASL", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▫▫]", "notes": "apricot, white grapes, honey dew, peach, ginger ale", "weight": "100g", "price_aed": 36.0, "price_krw": 13680, "source_url": "https://archerscoffee.com/products/ethiopia-oboleyan-coffee-hambela-dimtu-haro-highborn-project-classic-natural", "korea_shop": "없음", "korea_status": "국내 정식 유통 없음 (Archers 독점 랏)", "korea_price": "없음", "merit": "★ 최상: 국내 미수입 독점 랏으로 현지 구매 메리트 매우 높음", "user_review": "r/pourover 커뮤니티 선정 '2025 세계 50대 로스터리' 아처스 커피 공식 랏. 라이트로스트 푸어오버에 최적화된 높은 클린컵 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1hpx3k2/top_50_coffee_roasters_of_2025/", "score_taste": 40.2, "score_price": 28.9, "score_rarity": 20.0, "score_total": 89.1, "rank": 9, "is_active": true, "active_pick_num": 7, "overlap_note": "★ 최종 추천 선발 (#1위와 유사도 69.7% - 독자적 향미/테루아 확보)", "flavor_category": "Ripe Berries & Floral", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(12.0점: 검증된 유수 마이크로랏 / 프로듀서 대표 랏), 테루아 환경(15.0점: 해발 2440m 초고고도 극한 일교차 화산 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 40.2점(50점 만점). 주요 컵노트: apricot, white grapes, honey dew, peach, ginger ale.", "price_analysis": "100g당 36.0 AED (약 13,680원)로 가격 점수 28.9점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음.", "selection_reason": "종합 점수 89.1점 (9위). ★ 최종 추천 선발 (#1위와 유사도 69.7% - 독자적 향미/테루아 확보)", "brewing_guide": "Kalita Wave, 91℃ 추출."}, "max_prior_sim": 69.7, "similar_target_rank": 1, "similar_target_title": "Ethiopia - Daye Bensa Korma Kontoma Murago Natural Mini", "similar_details": {"notes": 41.7, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 83.3, "same_farm": false}, "award_score": 12.0, "award_desc": "검증된 유수 마이크로랏 / 프로듀서 대표 랏", "terroir_score": 15.0, "terroir_desc": "해발 2440m 초고고도 극한 일교차 화산 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 36.0, "alt_num": 2440}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Panama - Elida Geisha Honey Loma 2501", "handle": "panama-elida-estate-geisha-loma-2501", "country": "Panama", "farm": "Elida Estates Farm", "producer": "Lamastus Family Estates", "variety": "Geisha", "process": "Honey", "altitude": "1,700 - 1,950 masl", "roast": "라이트 (Filter Roast, 핸드드립 전용)", "notes": "jasmine, apple, peach, mangosteen", "weight": "100g", "price_aed": 143.0, "price_krw": 54340, "source_url": "https://archerscoffee.com/products/panama-elida-estate-geisha-loma-2501", "korea_shop": "커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤)", "korea_status": "국내 동일 농장 수입 이력 있음 (Plano 2801 나노랏은 국내 미수입)", "korea_price": "약 70,000원 ~ 90,000원 (100g 기준)", "merit": "★ 최상: 세계 최고가 농장의 정통 워시드 게이샤를 국내 시세 대비 30~40% 저렴하게 구매 가능", "user_review": "라마스투스 가문의 엘리다 에스테이트 워시드. '라벤더와 레몬그라스, 백포도의 섬세한 백차(White Tea) 같은 질감' 극찬.", "user_review_link": "https://www.reddit.com/r/pourover/comments/17q5f5m/has_anyone_tried_archers_coffee/", "score_taste": 44.2, "score_price": 24.1, "score_rarity": 20.0, "score_total": 88.3, "rank": 10, "is_active": true, "active_pick_num": 8, "overlap_note": "★ 최종 추천 선발 (#5위와 유사도 28.3% - 독자적 향미/테루아 확보)", "flavor_category": "Honey Jasmine & Tropical Nectar", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(19.5점: BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏), 테루아 환경(11.5점: 고지대 1700m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 44.2점(50점 만점). 주요 컵노트: jasmine, apple, peach, mangosteen.", "price_analysis": "100g당 143.0 AED (약 54,340원)로 가격 점수 24.1점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 커피리브레 / 180커피로스터스 (엘리다 에스테이트 워시드 게이샤).", "selection_reason": "종합 점수 88.3점 (10위). ★ 최종 추천 선발 (#5위와 유사도 28.3% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 또는 Kalita Wave | 원두: 15g | 물: 92℃ 235g | 허니 점액질의 묵직한 넥타 질감과 재스민 향미가 최적의 밸런스를 이룹니다."}, "max_prior_sim": 28.3, "similar_target_rank": 5, "similar_target_title": "Ethiopia - Elto Coffee Sama Honey", "similar_details": {"notes": 8.3, "terroir": 0.0, "region": 0.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 16.7, "same_farm": false}, "award_score": 19.5, "award_desc": "BOP 1위 챔피언 / 세계 최고가 옥션 명문 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1700m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 143.0, "alt_num": 1700}, {"roastery": "The Espresso Lab", "roastery_badge": "🧪 Espresso Lab", "title": "SL28 Santa Isabel", "handle": "sl28-santa-isabel-3", "country": "Panama", "farm": "Finca Santa Isabel", "producer": "Agricola Geisha", "variety": "SL28", "process": "washed", "altitude": "1,650 masl", "roast": "The Espresso Lab 공식 필터 프로파일: V60/푸어오버 추출 시 자스민·백차의 섬세한 꽃향과 테루아 본연의 밝고 영롱한 과즙 산미를 극대화하도록 정밀 설계된 라이트 로스트(Light Roast). 공식 권장 에이징: 원두 수령 후 3~7일 디게싱(Resting) 후 추출 시 최적의 클린컵 구현.", "notes": "Blackcurrant, Red Plum, Honey, Bergamot.", "weight": "100g", "price_aed": 75.5, "price_krw": 28690, "source_url": "https://theespressolab.com/products-details/sl28-santa-isabel-3", "korea_shop": "국내 공식 미수입 (파나마 SL28 워시드 희귀 랏)", "korea_status": "국내 미수입", "korea_price": "국내 유통 전무 (파나마는 게이샤 외 품종 극희소)", "merit": "파나마 보케테 1,500m 산타 이사벨 농장에서 재배된 희귀한 SL28 품종 워시드. 케냐 명품 품종의 크리스탈 구연산 산미와 파나마 테루아의 화사한 꽃향이 결합되었으며 100g AED 75.5(약 2.8만원)로 매우 우수한 가격.", "user_review": "해외 홈바리스타 평가: '케냐의 강렬한 산미 대신 파나마 테루아의 부드러운 자스민과 청사과, 자몽 톤이 절묘하게 조화된 매력적인 티라이크 원두.'", "user_review_link": "https://www.reddit.com/r/pourover/search/?q=Panama+SL28", "score_taste": 39.7, "score_price": 27.0, "score_rarity": 20.0, "score_total": 86.7, "rank": 11, "is_active": true, "active_pick_num": 9, "overlap_note": "★ 최종 추천 선발 (#3위와 유사도 28.0% - 독자적 향미/테루아 확보)", "flavor_category": "Blackcurrant & Bergamot Royalty", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(15.0점: COE 내셔널 위너 / 유수 국제 대회 출전 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 39.7점(50점 만점). 주요 컵노트: Blackcurrant, Red Plum, Honey, Bergamot..", "price_analysis": "100g당 75.5 AED (약 28,690원)로 가격 점수 27.0점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 국내 공식 미수입 (파나마 SL28 워시드 희귀 랏).", "selection_reason": "종합 점수 86.7점 (11위). ★ 최종 추천 선발 (#3위와 유사도 28.0% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Kalita Wave 155 | 원두: 15g | 물: 92℃ 230g (1:15.3 비율) | 평평한 침출 구조 드리퍼 사용 시 블랙커런트와 자두의 풍부한 단맛이 극대화됩니다."}, "max_prior_sim": 28.0, "similar_target_rank": 3, "similar_target_title": "Panama  - Finca Auromar, Geisha Washed Peaberry", "similar_details": {"notes": 0.0, "terroir": 8.0, "region": 8.0, "farm": 0.0, "producer": 0.0, "process": 20.0, "notes_jaccard": 0.0, "same_farm": false}, "award_score": 15.0, "award_desc": "COE 내셔널 위너 / 유수 국제 대회 출전 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 75.5, "alt_num": 1650}, {"roastery": "Archers Coffee", "roastery_badge": "🏹 Archers", "title": "Ecuador - Fincas Del Putushio, Typica Mejorado", "handle": "finca-del-putushio-typica-mejorado-rt", "country": "Ecuador", "farm": "Finca Del Putushio", "producer": "Pepe Jijon & Francisco Vintimilla", "variety": "Typica Mejorado", "process": "Classic Washed", "altitude": "2,222 masl", "roast": "라이트-미디엄 (Filter | Espresso 옴니로스트) [▪▪▫▫▫]", "notes": "jasmine, lemongrass, clementine, kiwi", "weight": "100g", "price_aed": 83.0, "price_krw": 31540, "source_url": "https://archerscoffee.com/products/finca-del-putushio-typica-mejorado-rt", "korea_shop": "없음 (국내 에콰도르 메호라도 취급 로스터리 간헐적 출시)", "korea_status": "국내 정식 유통 없음 (에콰도르 로하 희귀 메호라도)", "korea_price": "약 45,000원 ~ 60,000원 (100g 기준)", "merit": "★ 높음: 워시드 게이샤급 허브티 톤을 가진 희귀 품종으로 현지 가격(약 3.1만원) 메리트 우수", "user_review": "에콰도르 로하 티피카 메호라도. '자스민과 스위트 라임의 청량한 허브티 톤' 호평.", "user_review_link": "https://www.reddit.com/r/pourover/comments/1b8m9k2/finca_soledad_pepe_arguello/", "score_taste": 39.7, "score_price": 26.6, "score_rarity": 20.0, "score_total": 86.3, "rank": 12, "is_active": true, "active_pick_num": 10, "overlap_note": "★ 최종 추천 선발 (#4위와 유사도 46.1% - 독자적 향미/테루아 확보)", "flavor_category": "Floral Apricot & Sweet Tea", "detailed_review": {"taste_analysis": "COE/BOP 성적 이력(15.0점: COE 내셔널 위너 / 유수 국제 대회 출전 랏), 테루아 환경(11.5점: 고지대 1650m 최적의 스페셜티 테루아), 업계 긍정평가(13.2점: 글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평)를 종합 반영한 맛 점수 39.7점(50점 만점). 주요 컵노트: jasmine, lemongrass, clementine, kiwi.", "price_analysis": "100g당 83.0 AED (약 31,540원)로 가격 점수 26.6점(30점 만점). 실제 가격 차이가 소수점 0.1점 단위로 정밀하게 반영되었습니다.", "rarity_analysis": "희소성 점수 20.0점(20점 만점). 없음 (국내 에콰도르 메호라도 취급 로스터리 간헐적 출시).", "selection_reason": "종합 점수 86.3점 (12위). ★ 최종 추천 선발 (#4위와 유사도 46.1% - 독자적 향미/테루아 확보)", "brewing_guide": "드리퍼: Hario V60 | 원두: 15g | 물: 93℃ 240g | 중온 추출로 티피카 메호라도의 섬세한 살구와 복숭아 홍차 뉘앙스를 이끌어내세요."}, "max_prior_sim": 46.1, "similar_target_rank": 4, "similar_target_title": "Ethiopia - Elto Coffee Sama Washed", "similar_details": {"notes": 25.0, "terroir": 1.1, "region": 0.0, "farm": 0.0, "producer": 1.1, "process": 20.0, "notes_jaccard": 50.0, "same_farm": false}, "award_score": 15.0, "award_desc": "COE 내셔널 위너 / 유수 국제 대회 출전 랏", "terroir_score": 11.5, "terroir_desc": "고지대 1650m 최적의 스페셜티 테루아", "review_score": 13.2, "review_desc": "글로벌 커피 애호가 및 Q-Grader 90+ 연속 호평", "p_100g": 83.0, "alt_num": 1650}];
 
   let cartItems = [];
-  let isSnapshotMode = false;
-  let snapshotMeta = null;
-
-  // Safe UTF-8 Base64 Encoding & Decoding
-  function encodeBase64Utf8(str) {
-    return encodeURIComponent(btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
-      return String.fromCharCode('0x' + p1);
-    })));
-  }
-
-  function decodeBase64Utf8(str) {
-    try {
-      const raw = atob(decodeURIComponent(str));
-      return decodeURIComponent(Array.prototype.map.call(raw, function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      }).join(''));
-    } catch(e) {
-      console.error('Base64 decode error', e);
-      return null;
-    }
-  }
 
   function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') {
-      applyTheme('light');
-    } else {
-      applyTheme('dark');
-    }
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(current);
   }
 
   function applyTheme(theme) {
-    const btn = document.getElementById('themeToggleBtn');
+    document.documentElement.setAttribute('data-theme', theme);
+    const icon = document.querySelector('.theme-icon');
+    const label = document.querySelector('.theme-label');
     if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
-      if (btn) {
-        btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">다크 모드</span>';
-        btn.setAttribute('title', '다크 모드로 전환하기');
-      }
+      if (icon) icon.textContent = '🌙';
+      if (label) label.textContent = '다크 모드';
     } else {
-      document.documentElement.removeAttribute('data-theme');
-      if (btn) {
-        btn.innerHTML = '<span class="theme-icon">☀️</span><span class="theme-label">브라이트 모드</span>';
-        btn.setAttribute('title', '브라이트 모드로 전환하기');
-      }
+      if (icon) icon.textContent = '☀️';
+      if (label) label.textContent = '브라이트 모드';
     }
   }
 
   function toggleTheme() {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const nextTheme = isLight ? 'dark' : 'light';
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const nextTheme = current === 'light' ? 'dark' : 'light';
     localStorage.setItem('theme', nextTheme);
     applyTheme(nextTheme);
+  }
+
+  // ----------------------------------------------------
+  // Flavor Similarity Matrix Calculation (Client-side)
+  // ----------------------------------------------------
+  const FLAVOR_VOCAB = [
+    'jasmine', 'bergamot', 'peach', 'white tea', 'earl grey', 'lemongrass',
+    'floral', 'citrus', 'orange', 'grape', 'white grape', 'nectarine', 'plum',
+    'red plum', 'apple', 'green apple', 'blueberry', 'honey', 'floral honey',
+    'sugar', 'sugarcane', 'lychee', 'papaya', 'melon', 'cantaloupe', 'honeydew',
+    'yuzu', 'champagne', 'apricot', 'blackcurrant', 'lavender', 'chamomile',
+    'ginger ale', 'coffee flower', 'coffee blossom', 'grapefruit', 'rose', 'vanilla',
+    'mandarine', 'starfruit'
+  ];
+
+  function extractNotesTokens(str) {
+    const text = (str || '').toLowerCase();
+    const found = new Set();
+    FLAVOR_VOCAB.forEach(term => {
+      if (text.includes(term)) found.add(term);
+    });
+    if (!found.size) {
+      const words = text.match(/[a-z]{4,}/g) || [];
+      words.forEach(w => found.add(w));
+    }
+    return found;
+  }
+
+  function calcCoffeeSimilarity(c1, c2) {
+    // 1. Cup Notes Jaccard (50%)
+    const s1 = extractNotesTokens(c1.notes);
+    const s2 = extractNotesTokens(c2.notes);
+    let nIntersect = 0;
+    s1.forEach(t => { if (s2.has(t)) nIntersect++; });
+    const nUnion = new Set([...s1, ...s2]).size;
+    const jaccardNotes = nUnion > 0 ? (nIntersect / nUnion) : 0;
+    const scoreNotes = jaccardNotes * 50.0;
+
+    // 2. Terroir / Origin (30%)
+    let scoreTerroir = 0;
+    const cnt1 = (c1.country || '').trim().toLowerCase();
+    const cnt2 = (c2.country || '').trim().toLowerCase();
+    if (cnt1 && cnt2 && cnt1 === cnt2) scoreTerroir += 10.0;
+    const f1 = (c1.farm || '').toLowerCase().replace(/finca|estate|village|station|lot|\d+/g, '').trim();
+    const f2 = (c2.farm || '').toLowerCase().replace(/finca|estate|village|station|lot|\d+/g, '').trim();
+    if (f1 && f2 && (f1.includes(f2) || f2.includes(f1))) scoreTerroir += 10.0;
+    const p1 = (c1.producer || '').toLowerCase().trim();
+    const p2 = (c2.producer || '').toLowerCase().trim();
+    if (p1 && p2 && (p1.includes(p2) || p2.includes(p1))) scoreTerroir += 10.0;
+
+    // 3. Process (20%)
+    let scoreProcess = 0;
+    const pr1 = (c1.process || '').toLowerCase();
+    const pr2 = (c2.process || '').toLowerCase();
+    const isW1 = pr1.includes('washed'), isW2 = pr2.includes('washed');
+    const isN1 = pr1.includes('natural'), isN2 = pr2.includes('natural');
+    const isH1 = pr1.includes('honey'), isH2 = pr2.includes('honey');
+    if ((isW1 && isW2) || (isN1 && isN2) || (isH1 && isH2)) {
+      scoreProcess = 20.0;
+    } else if (pr1 === pr2 && pr1) {
+      scoreProcess = 20.0;
+    }
+
+    return scoreNotes + scoreTerroir + scoreProcess;
   }
 
   function initCart() {
@@ -863,87 +1092,32 @@
 
     const urlParams = new URLSearchParams(window.location.search);
 
-    // 1. Check for Immutable Snapshot (Highest Priority)
-    const snapParam = urlParams.get('snapshot');
-    if (snapParam) {
-      try {
-        const jsonStr = decodeBase64Utf8(snapParam);
-        if (jsonStr) {
-          const snapData = JSON.parse(jsonStr);
-          if (snapData && snapData.items && snapData.items.length) {
-            isSnapshotMode = true;
-            snapshotMeta = snapData;
-            cartItems = snapData.items;
-
-            // Display Snapshot Banner & Lock Editing
-            document.getElementById('snapshotBanner').style.display = 'block';
-            document.getElementById('snapshotPoBadge').textContent = snapData.po_number || 'PO-SNAPSHOT';
-            document.getElementById('snapshotMetaText').innerHTML = `
-              <strong>문서 번호:</strong> ${snapData.po_number || 'PO-LOCKED'} &nbsp;|&nbsp; 
-              <strong>확정 일시:</strong> ${snapData.created_at || '기록일시'} &nbsp;|&nbsp; 
-              <strong>상태:</strong> 영구 불변 동결 (이후 장바구니 변경과 완전히 독립됨)
-            `;
-            document.getElementById('printDateStr').textContent = `발주 확정일시: ${snapData.created_at || '확정일자'}`;
-            
-            // Hide edit actions in toolbar
-            const editGroup = document.getElementById('editActionGroup');
-            if (editGroup) editGroup.style.display = 'none';
-
-            renderCartTable();
-            return;
-          }
-        }
-      } catch(err) {
-        console.error('Snapshot load failed', err);
-      }
-    }
-
-    // 2. Check for Shared Collaborative Cart
-    const sharedParam = urlParams.get('shared_cart');
-    if (sharedParam) {
-      try {
-        const jsonStr = decodeBase64Utf8(sharedParam);
-        if (jsonStr) {
-          const sharedData = JSON.parse(jsonStr);
-          if (sharedData && sharedData.handles) {
-            cartItems = sharedData.handles.map(h => MASTER_COFFEES.find(c => c.handle === h)).filter(Boolean);
-            document.getElementById('sharedCartNotice').style.display = 'block';
-            saveCartToStorage();
-            renderCartTable();
-            return;
-          }
-        }
-      } catch(err) {
-        console.error('Shared cart load failed', err);
-      }
-    }
-
-    // 3. Check for standard item handles URL parameter
+    // 1. Check for item handles in URL (?items=handle1,handle2,...)
     const itemHandlesParam = urlParams.get('items');
     if (itemHandlesParam) {
-      const handles = itemHandlesParam.split(',');
-      cartItems = handles.map(h => MASTER_COFFEES.find(c => c.handle === h)).filter(Boolean);
-    }
-
-    // 4. If no URL params, check localStorage
-    if (!cartItems.length) {
-      try {
-        const stored = localStorage.getItem('coffee_cart');
-        if (stored) {
-          cartItems = JSON.parse(stored);
-          if (Array.isArray(cartItems)) {
-            cartItems.sort((a, b) => (a.added_at || 0) - (b.added_at || 0));
-          }
-        }
-      } catch (e) {
-        console.error(e);
+      const handles = itemHandlesParam.split(',').map(h => decodeURIComponent(h.trim()));
+      cartItems = handles.map(h => MASTER_COFFEES.find(c => c.handle === h || c.title === h)).filter(Boolean);
+      if (cartItems.length) {
+        saveCartToStorage();
+        renderCartTable();
+        return;
       }
     }
 
-    // 5. If still empty, fall back to Default 10 Active Picks!
-    if (!cartItems || !cartItems.length) {
-      cartItems = [...DEFAULT_PICKS];
-      document.getElementById('fallbackNotice').style.display = 'block';
+    // 2. Load from localStorage
+    try {
+      const stored = localStorage.getItem('coffee_cart');
+      if (stored) {
+        cartItems = JSON.parse(stored);
+        if (Array.isArray(cartItems)) {
+          cartItems.sort((a, b) => (a.added_at || 0) - (b.added_at || 0));
+        } else {
+          cartItems = [];
+        }
+      }
+    } catch (e) {
+      console.error(e);
+      cartItems = [];
     }
 
     renderCartTable();
@@ -953,8 +1127,26 @@
     const tbody = document.getElementById('poTableBody');
     tbody.innerHTML = '';
 
+    const warnBanner = document.getElementById('similarityWarningBanner');
+    warnBanner.style.display = 'none';
+
     if (!cartItems.length) {
-      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:40px; color:var(--text-muted);">발주서에 담긴 커피가 없습니다. [원두 추가하러 가기]를 눌러 커피를 담아주세요.</td></tr>';
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="8" style="text-align:center; padding:50px 20px;">
+            <div style="font-size:36px; margin-bottom:12px;">🛒</div>
+            <div style="font-size:16px; font-weight:700; color:var(--text-primary); margin-bottom:8px;">장바구니가 비어 있습니다</div>
+            <div style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">
+              Top 20 큐레이션 및 로스터리 대시보드에서 마음에 드는 원두를 담아보세요.
+            </div>
+            <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+              <a href="index.html" class="po-btn" style="text-decoration:none; color:var(--accent-gold); border-color:var(--accent);">🏆 Top 20 큐레이션 보러가기</a>
+              <a href="archers_coffee_clean_verified.html" class="po-btn" style="text-decoration:none;">🏹 아처스 대시보드</a>
+              <a href="theespressolab_verified.html" class="po-btn" style="text-decoration:none;">☕ 에소랩 대시보드</a>
+            </div>
+          </td>
+        </tr>
+      `;
       updateKpis(0, 0, 0, 0, 0);
       return;
     }
@@ -964,29 +1156,64 @@
     let archersCount = 0;
     let telCount = 0;
 
+    // Calculate pairwise similarity
+    let overlapPairs = [];
+    let itemOverlapMap = {}; // idx -> { targetIdx, sim }
+
+    for (let i = 0; i < cartItems.length; i++) {
+      for (let j = i + 1; j < cartItems.length; j++) {
+        const sim = calcCoffeeSimilarity(cartItems[i], cartItems[j]);
+        if (sim >= 35.0) {
+          overlapPairs.push({ i, j, sim });
+          if (!itemOverlapMap[i] || itemOverlapMap[i].sim < sim) {
+            itemOverlapMap[i] = { targetIdx: j, sim };
+          }
+          if (!itemOverlapMap[j] || itemOverlapMap[j].sim < sim) {
+            itemOverlapMap[j] = { targetIdx: i, sim };
+          }
+        }
+      }
+    }
+
+    if (overlapPairs.length > 0) {
+      warnBanner.style.display = 'flex';
+      document.getElementById('similarityWarningText').innerHTML = `
+        <strong>⚠️ 향미 중복(Overlap) 주의:</strong> 장바구니에 테루아·가공방식·컵노트 유사도가 35% 이상인 원두가 <strong>${overlapPairs.length}쌍</strong> 감지되었습니다.<br>
+        <span style="font-size:12px; color:var(--text-secondary);">다양한 향미 스펙트럼을 원하실 경우 중복 원두 중 하나를 다른 산지/프로세스의 원두로 변경하시는 것을 추천합니다.</span>
+      `;
+    }
+
     cartItems.forEach((c, idx) => {
       const pAed = parseFloat(c.price_aed || 0);
       const pKrw = parseInt(c.price_krw || Math.round(pAed * 380));
       totalAed += pAed;
       totalKrw += pKrw;
 
-      if (c.roastery.includes('Archers')) archersCount++;
+      if ((c.roastery || '').includes('Archers')) archersCount++;
       else telCount++;
 
-      const rBadgeCls = c.roastery.includes('Archers') ? 'badge-archers' : 'badge-espressolab';
+      const rBadgeCls = (c.roastery || '').includes('Archers') ? 'badge-archers' : 'badge-espressolab';
       const rev = c.detailed_review || {};
-      const reasonText = rev.taste_analysis ? rev.taste_analysis.substring(0, 110) + '...' : (c.overlap_note || '최상위 큐레이션 원두');
+      const reasonText = rev.taste_analysis ? rev.taste_analysis.substring(0, 95) + '...' : (c.overlap_note || '최상위 큐레이션 원두');
+
+      let simWarningHtml = '';
+      if (itemOverlapMap[idx]) {
+        const ov = itemOverlapMap[idx];
+        simWarningHtml = `<div style="margin-top:5px; background:rgba(210,153,34,0.15); border:1px solid var(--accent); color:var(--accent-gold); padding:2px 7px; border-radius:4px; font-size:11px; font-weight:700; display:inline-block;">⚠️ #${ov.targetIdx + 1}번과 유사 (${ov.sim.toFixed(0)}%)</div>`;
+      }
 
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td style="text-align:center; font-family:'JetBrains Mono',monospace; font-weight:700;">${idx + 1}</td>
         <td>
-          <span class="roastery-badge ${rBadgeCls}">${c.roastery_badge}</span>
+          <a href="${c.source_url || '#'}" target="_blank" rel="noopener noreferrer" class="roastery-link-btn ${rBadgeCls}" title="클릭 시 공식 구매처로 이동">
+            ${c.roastery_badge || c.roastery} <span style="font-size:10px;">↗</span>
+          </a>
         </td>
         <td>
-          <a href="${c.source_url}" target="_blank" rel="noopener noreferrer" class="coffee-link" title="공식 웹스토어로 바로가기">
-            ${c.title} <span class="out-icon">↗</span>
-          </a>
+          <button type="button" class="coffee-title-btn" onclick="openCoffeeModal(${idx})" title="클릭 시 상세 스펙 및 브루잉 가이드 보기">
+            ${c.title} <span style="font-size:11px; color:var(--text-muted); font-weight:normal;">🔍</span>
+          </button>
           <div class="spec-sub">${c.weight || '100g'} • ${c.roast || 'Filter Light Roast'}</div>
         </td>
         <td class="price-cell">
@@ -994,7 +1221,7 @@
           <div class="price-krw">약 ${pKrw.toLocaleString()}원</div>
         </td>
         <td>
-          <div style="font-weight:600; color:#e6edf3;">${c.country || ''} • ${c.farm || ''}</div>
+          <div style="font-weight:600; color:var(--text-primary);">${c.country || ''} • ${c.farm || ''}</div>
           <div class="spec-sub">${c.variety || ''} (${c.process || ''}) • ${c.altitude || ''}</div>
         </td>
         <td>
@@ -1002,20 +1229,17 @@
         </td>
         <td>
           <div class="reason-text">${reasonText}</div>
+          ${simWarningHtml}
         </td>
         <td style="text-align:center;">
-          ${isSnapshotMode 
-            ? '<span style="font-size:11px; color:var(--accent-gold); font-weight:700;" title="확정된 발주서로 삭제 불가">🔒 확정</span>' 
-            : `<button type="button" class="btn-remove-item" onclick="removeItem(${idx})" title="발주 목록에서 삭제">✕</button>`}
+          <button type="button" class="btn-remove-item" onclick="removeItem(${idx})" title="발주 목록에서 삭제">🗑️</button>
         </td>
       `;
       tbody.appendChild(tr);
     });
 
     updateKpis(cartItems.length, archersCount, telCount, totalAed, totalKrw);
-    if (!isSnapshotMode) {
-      saveCartToStorage();
-    }
+    saveCartToStorage();
   }
 
   function updateKpis(total, archers, tel, aed, krw) {
@@ -1027,13 +1251,13 @@
   }
 
   function removeItem(idx) {
-    if (isSnapshotMode) return;
-    cartItems.splice(idx, 1);
-    renderCartTable();
+    if (idx >= 0 && idx < cartItems.length) {
+      const removed = cartItems.splice(idx, 1);
+      renderCartTable();
+    }
   }
 
   function saveCartToStorage() {
-    if (isSnapshotMode) return;
     try {
       localStorage.setItem('coffee_cart', JSON.stringify(cartItems));
     } catch (e) {
@@ -1042,116 +1266,140 @@
   }
 
   function clearCartAndReset() {
-    if (isSnapshotMode) return;
-    if (confirm('발주서 목록을 초기화하시겠습니까?')) {
+    if (!cartItems.length) return;
+    if (confirm('장바구니를 완전히 비우시겠습니까?')) {
       cartItems = [];
       saveCartToStorage();
       renderCartTable();
     }
   }
 
-  // 1. Generate Immutable Snapshot (FROZEN URL)
-  function generateImmutableSnapshotUrl() {
-    if (!cartItems.length) {
-      alert('발주서에 담긴 커피가 없습니다.');
-      return;
-    }
-    const now = new Date();
-    const dateStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-    const poCode = 'PO-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
-
-    const snapshotPayload = {
-      po_number: poCode,
-      created_at: dateStr,
-      created_ts: now.getTime(),
-      items: cartItems.map(c => ({
-        handle: c.handle,
-        title: c.title,
-        roastery: c.roastery,
-        roastery_badge: c.roastery_badge,
-        price_aed: parseFloat(c.price_aed || 0),
-        price_krw: parseInt(c.price_krw || Math.round((c.price_aed || 0) * 380)),
-        notes: c.notes,
-        country: c.country,
-        farm: c.farm,
-        producer: c.producer,
-        variety: c.variety,
-        process: c.process,
-        altitude: c.altitude,
-        roast: c.roast,
-        weight: c.weight,
-        source_url: c.source_url,
-        overlap_note: c.overlap_note,
-        score_total: c.score_total,
-        score_taste: c.score_taste,
-        score_price: c.score_price,
-        score_rarity: c.score_rarity,
-        max_prior_sim: c.max_prior_sim,
-        similar_target_rank: c.similar_target_rank,
-        detailed_review: c.detailed_review
-      }))
-    };
-
-    const encoded = encodeBase64Utf8(JSON.stringify(snapshotPayload));
-    const snapUrl = window.location.origin + window.location.pathname + '?snapshot=' + encoded;
-
-    navigator.clipboard.writeText(snapUrl).then(() => {
-      alert(`🔒 [불변 발주서 링크 복사 완료]\n\n발주 번호: ${poCode}\n확정 일시: ${dateStr}\n\n✅ 본 링크는 생성 시점의 내용으로 영구 동결(Frozen)되었습니다.\n이후 장바구니를 다른 사람이 어떻게 수정하더라도, 이 링크를 열면 당시 발주서 내용이 절대 변경되지 않습니다!\n\n구매 담당자에게 이 링크를 전달하세요.`);
-    }).catch(() => {
-      prompt('생성된 불변 발주서 링크입니다 (복사하여 전달하세요):', snapUrl);
-    });
-  }
-
-  // 2. Generate Collaborative Cart URL (MUTABLE)
-  function generateSharedCartUrl() {
+  function copyCartShareLink() {
     if (!cartItems.length) {
       alert('장바구니에 담긴 커피가 없습니다.');
       return;
     }
-    const sharedPayload = {
-      updated_at: new Date().toISOString(),
-      handles: cartItems.map(c => c.handle)
-    };
-    const encoded = encodeBase64Utf8(JSON.stringify(sharedPayload));
-    const shareUrl = window.location.origin + window.location.pathname + '?shared_cart=' + encoded;
-
+    const handles = cartItems.map(c => encodeURIComponent(c.handle || c.title)).join(',');
+    const shareUrl = window.location.origin + window.location.pathname + '?items=' + handles;
     navigator.clipboard.writeText(shareUrl).then(() => {
-      alert(`👥 [장바구니 공동 편집 링크 복사 완료]\n\n이 링크를 동료에게 전달하면, 동료가 장바구니를 열어 원두를 추가/삭제/변경할 수 있습니다.\n동료가 수정한 후 다시 공유 링크를 생성하여 서로 변경사항을 확인할 수 있습니다!`);
+      alert('🔗 [장바구니 공유 링크 복사 완료]\n\n이 링크를 전달하면 동료나 구매 담당자가 동일한 장바구니 구성을 즉시 열람할 수 있습니다.');
     }).catch(() => {
-      prompt('공동 편집 링크입니다:', shareUrl);
+      prompt('장바구니 공유 링크입니다:', shareUrl);
     });
   }
 
   function copyOrderText() {
     if (!cartItems.length) {
-      alert('발주서에 담긴 커피가 없습니다.');
+      alert('장바구니에 담긴 커피가 없습니다.');
       return;
     }
     let totalAed = 0;
-    const poNum = snapshotMeta ? snapshotMeta.po_number : 'PO-DRAFT';
-    const dateInfo = snapshotMeta ? ` (확정일시: ${snapshotMeta.created_at})` : '';
-    let lines = [`[📋 UAE 스페셜티 커피 현지 구매 발주서 - ${poNum}${dateInfo}]`, '규격: 전 품목 100g 필터용(Filter Light Roast) 필수 확인', '----------------------------------------'];
+    let lines = [
+      '📋 [UAE 현지 스페셜티 커피 구매 발주서]',
+      '※ 규격: 전 품목 100g 필터용(Filter Light Roast) 필수 확인',
+      '----------------------------------------'
+    ];
     cartItems.forEach((c, idx) => {
       const p = parseFloat(c.price_aed || 0);
+      const krw = parseInt(c.price_krw || Math.round(p * 380));
       totalAed += p;
       lines.push(`${idx + 1}. [${c.roastery}] ${c.title}`);
-      lines.push(`   - 가격: ${p} AED (약 ${Math.round(p*380).toLocaleString()}원)`);
-      lines.push(`   - 컵노트: ${c.notes}`);
-      lines.push(`   - 구매링크: ${c.source_url}`);
+      lines.push(`   - 가격: ${p.toFixed(1)} AED (약 ${krw.toLocaleString()}원) / 100g`);
+      if (c.source_url) {
+        lines.push(`   - 구매링크: ${c.source_url}`);
+      }
     });
     lines.push('----------------------------------------');
-    lines.push(`총 ${cartItems.length}종 / 결제 예정액: ${totalAed.toFixed(1)} AED (약 ${Math.round(totalAed*380).toLocaleString()}원)`);
+    lines.push(`총 ${cartItems.length}종 / 결제 예정액: ${totalAed.toFixed(1)} AED (약 ${Math.round(totalAed * 380).toLocaleString()}원)`);
 
     navigator.clipboard.writeText(lines.join('\n')).then(() => {
-      alert('담당자 전달용 발주서 텍스트가 클립보드에 복사되었습니다! 카카오톡이나 이메일에 붙여넣으세요.');
+      alert('담당자 전달용 발주서 텍스트가 클립보드에 복사되었습니다!\n카카오톡이나 메신저에 붙여넣으세요.');
     }).catch(err => {
-      alert('복사 권한 오류가 발생했습니다.');
+      alert('클립보드 복사 권한 오류가 발생했습니다.');
     });
   }
 
-  function copyShareableUrl() {
-    generateImmutableSnapshotUrl();
+  // ----------------------------------------------------
+  // Modal Popup Functions
+  // ----------------------------------------------------
+  function openCoffeeModal(idx) {
+    const c = cartItems[idx];
+    if (!c) return;
+
+    const rev = c.detailed_review || {};
+
+    // Header Tags
+    const tagsContainer = document.getElementById('mHeaderTags');
+    const roasteryTag = `<span class="roastery-tag ${c.roastery && c.roastery.includes('Archers') ? 'archers-badge' : 'espressolab-badge'}">${c.roastery_badge || c.roastery}</span>`;
+    tagsContainer.innerHTML = roasteryTag;
+
+    // Title
+    document.getElementById('mTitle').textContent = c.title;
+
+    // Scores
+    document.getElementById('mScoreTotal').innerHTML = `${c.score_total || '-'}<span style="font-size:12px; color:var(--text-muted)">/100</span>`;
+    document.getElementById('mScoreTaste').innerHTML = `${c.score_taste || '-'}<span style="font-size:12px; color:var(--text-muted)">/50</span>`;
+    document.getElementById('mScorePrice').innerHTML = `${c.score_price || '-'}<span style="font-size:12px; color:var(--text-muted)">/30</span>`;
+    document.getElementById('mScoreRarity').innerHTML = `${c.score_rarity || '-'}<span style="font-size:12px; color:var(--text-muted)">/20</span>`;
+
+    // Specs Grid
+    const specsHtml = `
+      <div class="spec-row"><span class="spec-k">국가 (Country)</span><span class="spec-v">${c.country || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">농장 / 스테이션</span><span class="spec-v">${c.farm || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">프로듀서 (농장주)</span><span class="spec-v">${c.producer || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">품종 (Variety)</span><span class="spec-v">${c.variety || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">가공 방식 (Process)</span><span class="spec-v">${c.process || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">재배 고도 (Altitude)</span><span class="spec-v">${c.altitude || 'N/A'}</span></div>
+      <div class="spec-row"><span class="spec-k">로스팅 프로파일</span><span class="spec-v">${c.roast || 'Filter Light Roast'}</span></div>
+      <div class="spec-row"><span class="spec-k">패키지 용량 & 가격</span><span class="spec-v">${c.price_aed} AED (약 ${Number(c.price_krw || Math.round((c.price_aed || 0)*380)).toLocaleString()}원) / 100g</span></div>
+    `;
+    document.getElementById('mSpecsGrid').innerHTML = specsHtml;
+
+    // Tasting Notes
+    document.getElementById('mNotesBody').innerHTML = `
+      <div style="font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:6px;">✨ ${c.notes || 'N/A'}</div>
+      <div style="font-size:12px; color:var(--text-muted);">향미 분류: ${c.flavor_category || 'Specialty Coffee'}</div>
+    `;
+
+    // Analysis Body
+    document.getElementById('mAnalysisBody').innerHTML = `
+      <div style="margin-bottom:10px;"><strong>☕ 맛 & 센서리 품질:</strong> ${rev.taste_analysis || c.merit || '품질 우수'}</div>
+      <div style="margin-bottom:10px;"><strong>💰 가격 & 가성비 분석:</strong> ${rev.price_analysis || '현지 구매 가격 메리트 우수'}</div>
+      <div><strong>🇰🇷 국내 수입 & 희소성:</strong> ${rev.rarity_analysis || c.korea_shop || '국내 미수입'}</div>
+    `;
+
+    // Brew Guide Body
+    document.getElementById('mBrewGuideBody').innerHTML = `
+      <div style="font-weight:600;">💧 권장 추출 레시피:</div>
+      <div style="margin-top:4px;">${rev.brewing_guide || 'Hario V60 / 92~94℃ / 1:15~16 비율 추천'}</div>
+    `;
+
+    // Official Webstore Link
+    const linkBtn = document.getElementById('mOfficialLinkBtn');
+    linkBtn.href = c.source_url || '#';
+    linkBtn.textContent = `${c.roastery || '로스터리'} 공식 구매 페이지 열기 ↗`;
+
+    // Show modal
+    document.getElementById('coffeeModalBackdrop').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
+
+  function closeCoffeeModal() {
+    document.getElementById('coffeeModalBackdrop').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeCoffeeModalOnBackdrop(e) {
+    if (e.target.id === 'coffeeModalBackdrop') {
+      closeCoffeeModal();
+    }
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeCoffeeModal();
+    }
+  });
 
   window.addEventListener('DOMContentLoaded', initCart);
 </script>

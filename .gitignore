@@ -23,3 +23,7 @@ espresso_lab_pipeline/sample_product.html
 Thumbs.db
 .idea/
 .vscode/
+
+# Scratch directory
+scratch/
+

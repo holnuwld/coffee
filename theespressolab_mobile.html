@@ -9,8 +9,15 @@
   (function() {
     try {
       var saved = localStorage.getItem('theme');
-      if (saved === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      
+      // Auto-detect desktop device
+      var isDesktop = (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && (window.innerWidth > 900);
+      var params = new URLSearchParams(window.location.search);
+      if (isDesktop && params.get('view') !== 'mobile') {
+        var target = 'theespressolab_verified.html';
+        if (window.location.search) target += window.location.search;
+        window.location.replace(target);
       }
     } catch (e) {}
   })();
@@ -183,18 +190,58 @@
     padding-bottom: calc(var(--safe-bottom) + 76px);
   }
 
-  /* Sticky Top Header */
+  /* SLIM TEXT-LINK MOBILE NAV */
   .m-header {
-    background: rgba(10, 14, 23, 0.92);
-    backdrop-filter: blur(16px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: rgba(10, 14, 23, 0.96) !important;
+    backdrop-filter: blur(14px) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    padding: 6px 14px !important;
+    min-height: 38px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-sizing: border-box !important;
+  }
+  [data-theme="light"] .m-header {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border-bottom-color: #e2e8f0 !important;
+  }
+  .m-nav-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .m-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .m-nav-text-link {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--text-secondary) !important;
+    text-decoration: none !important;
+    padding: 3px 2px !important;
+    transition: color 0.15s ease !important;
+  }
+  .m-nav-text-link:hover {
+    color: var(--text-primary) !important;
+  }
+  .m-nav-text-link.active {
+    color: var(--accent-gold) !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid var(--accent-gold) !important;
+  }
+  [data-theme="light"] .m-nav-text-link.active {
+    color: #b45309 !important;
+    border-bottom-color: #b45309 !important;
+  }
+  .m-nav-sep {
+    color: var(--text-muted);
+    font-size: 10px;
+    opacity: 0.5;
+    user-select: none;
   }
   .m-brand {
     display: flex;
@@ -701,15 +748,17 @@
 
   <!-- Sticky Header -->
   <header class="m-header">
-    <a href="index.html" class="m-brand">
-      <span class="m-brand-badge">TEL</span>
-      <span class="m-brand-title">The Espresso Lab</span>
-    </a>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <button id="themeToggleBtn" class="m-theme-btn" onclick="toggleTheme()" title="화면 테마 변경">
-        <span class="theme-icon">☀️</span>
-      </button>
-      <a href="theespressolab_verified.html" class="m-desktop-btn">🖥️ 데스크톱</a>
+    <div class="m-nav-row">
+      <div class="m-nav-links">
+        <a href="mobile_index.html" class="m-nav-text-link">Top 20</a>
+        <span class="m-nav-sep">•</span>
+        <a href="archers_mobile.html" class="m-nav-text-link">아처스</a>
+        <span class="m-nav-sep">•</span>
+        <a href="theespressolab_mobile.html" class="m-nav-text-link active">에소랩</a>
+        <span class="m-nav-sep">•</span>
+        <a href="mobile_cart.html" class="m-nav-text-link">장바구니 <span id="topCartBadge" style="font-size:11px; font-weight:700; color:var(--accent-gold);"></span></a>
+      </div>
+      <button id="themeToggleBtn" onclick="toggleTheme()" style="background:transparent; border:none; cursor:pointer; font-size:14px; padding:2px;" title="화면 테마 변경">☀️</button>
     </div>
   </header>
 
