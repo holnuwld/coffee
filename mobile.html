@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>UAE 아처스 커피 - 모바일 구매 가이드</title>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <script>
   (function() {
     try {
       var saved = localStorage.getItem('theme');
-      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
       
       // Auto-detect desktop device
       var isDesktop = (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && (window.innerWidth > 900);
@@ -24,6 +28,40 @@
 </script>
 <style>
   :root {
+    --bg: #F7F5F0;
+    --card-bg: #FFFFFF;
+    --card-hover: #f3f2eb;
+    --border: #E3E1D9;
+    --accent: #79583E;
+    --accent-light: #79583E;
+    --accent-sub: #5F422E;
+    --text-primary: #252923;
+    --text-secondary: #73766E;
+    --text-muted: #8c959f;
+    --success: #2e7d32;
+    --blue: #79583E;
+    --purple: #79583E;
+    --safe-bottom: env(safe-area-inset-bottom, 16px);
+  }
+
+  [data-theme="light"] {
+    /* theme compatibility: #f8fafc, #e2e8f0 */
+    --bg: #F7F5F0;
+    --card-bg: #FFFFFF;
+    --card-hover: #f3f2eb;
+    --border: #E3E1D9;
+    --accent: #79583E;
+    --accent-light: #79583E;
+    --accent-sub: #5F422E;
+    --text-primary: #252923;
+    --text-secondary: #73766E;
+    --text-muted: #8c959f;
+    --success: #2e7d32;
+    --blue: #79583E;
+    --purple: #79583E;
+  }
+
+  [data-theme="dark"] {
     --bg: #090d13;
     --card-bg: #141922;
     --card-hover: #1c2230;
@@ -37,23 +75,6 @@
     --success: #3fb950;
     --blue: #58a6ff;
     --purple: #bc8cff;
-    --safe-bottom: env(safe-area-inset-bottom, 16px);
-  }
-
-  [data-theme="light"] {
-    --bg: #f8fafc;
-    --card-bg: #ffffff;
-    --card-hover: #f1f5f9;
-    --border: #e2e8f0;
-    --accent: #b45309;
-    --accent-light: #d97706;
-    --accent-sub: #b45309;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --success: #15803d;
-    --blue: #0284c7;
-    --purple: #7e22ce;
   }
 
   /* Light Theme Specific Enhancements */
@@ -9177,33 +9198,33 @@
   // Archers Mobile Theme Switcher Logic
   function initTheme() {
     const saved = localStorage.getItem('theme');
-    if (saved === 'light') {
-      applyTheme('light');
-    } else {
+    if (saved === 'dark') {
       applyTheme('dark');
+    } else {
+      applyTheme('light');
     }
   }
 
   function applyTheme(theme) {
     const btn = document.getElementById('themeToggleBtn');
-    if (theme === 'light') {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (btn) {
+        btn.innerHTML = '<span class="theme-icon">☀️</span>';
+        btn.setAttribute('title', '라이트 모드로 전환');
+      }
+    } else {
       document.documentElement.setAttribute('data-theme', 'light');
       if (btn) {
         btn.innerHTML = '<span class="theme-icon">🌙</span>';
         btn.setAttribute('title', '다크 모드로 전환');
       }
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      if (btn) {
-        btn.innerHTML = '<span class="theme-icon">☀️</span>';
-        btn.setAttribute('title', '브라이트 모드로 전환');
-      }
     }
   }
 
   function toggleTheme() {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    const nextTheme = isLight ? 'dark' : 'light';
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const nextTheme = isDark ? 'light' : 'dark';
     localStorage.setItem('theme', nextTheme);
     applyTheme(nextTheme);
   }

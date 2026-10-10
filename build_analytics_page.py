@@ -414,18 +414,59 @@ def generate_html(items, stats):
     stats_json = json.dumps(stats, ensure_ascii=False)
 
     html_content = f"""<!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>전체 원두 인터랙티브 데이터 분석 (171종) | 두바이 스페셜티 허브</title>
   <!-- Pretendard & JetBrains Mono Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <!-- Chart.js 4.4.1 & Zoom Plugin -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
   <style>
     :root {{
+      --bg-primary: #F7F5F0;
+      --bg-secondary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-color: #E3E1D9;
+      --text-primary: #252923;
+      --text-secondary: #73766E;
+      --text-muted: #8c959f;
+      --accent-gold: #79583E;
+      --accent-gold-bg: rgba(121, 88, 62, 0.1);
+      --accent-blue: #79583E;
+      --accent-blue-bg: rgba(121, 88, 62, 0.1);
+      --accent-red: #cf222e;
+      --accent-green: #2e7d32;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --chart-grid: rgba(0, 0, 0, 0.06);
+      --chart-tick: #73766E;
+    }}
+
+    [data-theme="light"] {{
+      /* theme compatibility: #f8fafc, #e2e8f0 */
+      --bg-primary: #F7F5F0;
+      --bg-secondary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-color: #E3E1D9;
+      --text-primary: #252923;
+      --text-secondary: #73766E;
+      --text-muted: #8c959f;
+      --accent-gold: #79583E;
+      --accent-gold-bg: rgba(121, 88, 62, 0.1);
+      --accent-blue: #79583E;
+      --accent-blue-bg: rgba(121, 88, 62, 0.1);
+      --accent-red: #cf222e;
+      --accent-green: #2e7d32;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --chart-grid: rgba(0, 0, 0, 0.06);
+      --chart-tick: #73766E;
+    }}
+
+    [data-theme="dark"] {{
       --bg-primary: #0d1117;
       --bg-secondary: #161b22;
       --bg-card: #21262d;
@@ -443,26 +484,6 @@ def generate_html(items, stats):
       --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
       --chart-grid: rgba(255, 255, 255, 0.08);
       --chart-tick: #8b949e;
-    }}
-
-    [data-theme="light"] {{
-      --bg-primary: #f6f8fa;
-      --bg-secondary: #ffffff;
-      --bg-card: #ffffff;
-      --border-color: #d0d7de;
-      --text-primary: #1f2328;
-      --text-secondary: #57606a;
-      --text-muted: #8c959f;
-      --accent-gold: #b08800;
-      --accent-gold-bg: rgba(176, 136, 0, 0.12);
-      --accent-blue: #0969da;
-      --accent-blue-bg: rgba(9, 105, 218, 0.12);
-      --accent-red: #cf222e;
-      --accent-green: #1a7f37;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-      --chart-grid: rgba(0, 0, 0, 0.06);
-      --chart-tick: #57606a;
     }}
 
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -494,33 +515,34 @@ def generate_html(items, stats):
     }}
     .nav-links {{
       display: flex;
-      gap: 10px;
+      gap: 12px;
+      align-items: center;
       flex-wrap: wrap;
     }}
-    .nav-btn {{
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid var(--border-color);
-      background: var(--bg-secondary);
-      color: var(--text-primary);
-      cursor: pointer;
-      transition: all 0.2s;
+    .nav-text-link {{
+      color: var(--text-secondary) !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
+      padding: 4px 6px !important;
+      transition: color 0.15s ease !important;
+      border: none !important;
+      background: transparent !important;
     }}
-    .nav-btn:hover {{
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
+    .nav-text-link:hover {{
+      color: var(--text-primary) !important;
     }}
-    .nav-btn.active {{
-      background: var(--bg-card);
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
-      box-shadow: 0 0 10px rgba(227, 179, 65, 0.25);
+    .nav-text-link.active {{
+      color: var(--accent-gold) !important;
+      font-weight: 800 !important;
+      border-bottom: 2px solid var(--accent-gold) !important;
+      border-radius: 0 !important;
+    }}
+    .nav-text-sep {{
+      color: var(--text-muted);
+      font-size: 11px;
+      user-select: none;
+      opacity: 0.5;
     }}
     .theme-toggle-btn {{
       padding: 8px 14px;
@@ -553,8 +575,9 @@ def generate_html(items, stats):
       letter-spacing: 0.5px;
     }}
     .page-title {{
+      font-family: 'Playfair Display', Georgia, serif;
       font-size: 26px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.5px;
       margin-bottom: 6px;
       display: flex;
@@ -577,7 +600,7 @@ def generate_html(items, stats):
     .stat-card {{
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
+      border-radius: 8px;
       padding: 18px 20px;
       box-shadow: var(--shadow-sm);
       display: flex;
@@ -594,6 +617,8 @@ def generate_html(items, stats):
       align-items: center;
     }}
     .stat-card-val {{
+      font-family: 'JetBrains Mono', 'Pretendard', monospace;
+      font-variant-numeric: tabular-nums;
       font-size: 26px;
       font-weight: 800;
       color: var(--text-primary);
@@ -1640,14 +1665,18 @@ def generate_html(items, stats):
   <!-- TOP NAV -->
   <div class="header-nav">
     <div class="nav-links">
-      <a href="index.html" class="nav-btn">🏆 Top 20 큐레이션</a>
-      <a href="analytics.html" class="nav-btn active">📊 애널리틱스</a>
-      <a href="archers_coffee_clean_verified.html" class="nav-btn">🏹 아처스 대시보드</a>
-      <a href="theespressolab_verified.html" class="nav-btn">☕ 에소랩 대시보드</a>
-      <a href="cart.html" class="nav-btn">🛒 장바구니 (<span class="cart-badge-count">0</span>개)</a>
+      <a href="index.html" class="nav-text-link">Top 20</a>
+      <span class="nav-text-sep">•</span>
+      <a href="analytics.html" class="nav-text-link active">애널리틱스</a>
+      <span class="nav-text-sep">•</span>
+      <a href="archers_coffee_clean_verified.html" class="nav-text-link">아처스</a>
+      <span class="nav-text-sep">•</span>
+      <a href="theespressolab_verified.html" class="nav-text-link">에소랩</a>
+      <span class="nav-text-sep">•</span>
+      <a href="cart.html" class="nav-text-link">장바구니 <span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">(0)</span></a>
     </div>
     <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
-      <span id="themeIcon">☀️</span> <span id="themeText">라이트 모드</span>
+      <span id="themeIcon">🌙</span> <span id="themeText">다크 모드</span>
     </button>
   </div>
 
@@ -3683,14 +3712,19 @@ def generate_html(items, stats):
 
   // THEME TOGGLE
   function initTheme() {{
-    const saved = localStorage.getItem('coffee_theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', saved);
-    applyThemeUI(saved);
+    const saved = localStorage.getItem('coffee_theme');
+    if (saved === 'dark') {{
+      document.documentElement.setAttribute('data-theme', 'dark');
+      applyThemeUI('dark');
+    }} else {{
+      document.documentElement.setAttribute('data-theme', 'light');
+      applyThemeUI('light');
+    }}
   }}
 
   function toggleTheme() {{
     const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'light' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('coffee_theme', next);
     applyThemeUI(next);
@@ -3709,12 +3743,12 @@ def generate_html(items, stats):
   function applyThemeUI(theme) {{
     const icon = document.getElementById('themeIcon');
     const txt = document.getElementById('themeText');
-    if (theme === 'light') {{
-      icon.textContent = '🌙';
-      txt.textContent = '다크 모드';
-    }} else {{
+    if (theme === 'dark') {{
       icon.textContent = '☀️';
       txt.textContent = '라이트 모드';
+    }} else {{
+      icon.textContent = '🌙';
+      txt.textContent = '다크 모드';
     }}
   }}
 

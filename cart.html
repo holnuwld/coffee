@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UAE 스페셜티 커피 현지 구매 발주서 (Purchase Order & Spec Sheet)</title>
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <script>
   (function() {
     try {
       var saved = localStorage.getItem('theme');
-      if (saved === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
       
       // Auto-detect mobile device
       var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 768);
@@ -24,8 +28,56 @@
 </script>
 <style>
   :root {
+    --bg: #F7F5F0;
+    --card-bg: #FFFFFF;
+    --secondary-surface: #EFEEE8;
+    --border: #E3E1D9;
+    --border-light: #d8d6ce;
+    --accent: #79583E;
+    --accent-gold: #79583E;
+    --accent-glow: rgba(121, 88, 62, 0.12);
+    --text-primary: #252923;
+    --text-secondary: #73766E;
+    --text-muted: #8c959f;
+    --success: #2e7d32;
+    --blue: #79583E;
+    --danger: #cf222e;
+    --table-head-bg: #EFEEE8;
+    --badge-bg: #EFEEE8;
+    --card-hover: #f3f2eb;
+    --modal-bg: #FFFFFF;
+    --modal-inner-bg: #EFEEE8;
+    --modal-score-bg: #EFEEE8;
+  }
+
+  [data-theme="light"] {
+    /* theme compatibility: #f8fafc, #e2e8f0 */
+    --bg: #F7F5F0;
+    --card-bg: #FFFFFF;
+    --secondary-surface: #EFEEE8;
+    --border: #E3E1D9;
+    --border-light: #d8d6ce;
+    --accent: #79583E;
+    --accent-gold: #79583E;
+    --accent-glow: rgba(121, 88, 62, 0.12);
+    --text-primary: #252923;
+    --text-secondary: #73766E;
+    --text-muted: #8c959f;
+    --success: #2e7d32;
+    --blue: #79583E;
+    --danger: #cf222e;
+    --table-head-bg: #EFEEE8;
+    --badge-bg: #EFEEE8;
+    --card-hover: #f3f2eb;
+    --modal-bg: #FFFFFF;
+    --modal-inner-bg: #EFEEE8;
+    --modal-score-bg: #EFEEE8;
+  }
+
+  [data-theme="dark"] {
     --bg: #090d13;
     --card-bg: #131a26;
+    --secondary-surface: #101622;
     --border: #222f42;
     --border-light: #2e3e57;
     --accent: #d29922;
@@ -43,28 +95,6 @@
     --modal-bg: #101622;
     --modal-inner-bg: #0d121b;
     --modal-score-bg: #0b0f17;
-  }
-
-  [data-theme="light"] {
-    --bg: #f8fafc;
-    --card-bg: #ffffff;
-    --border: #e2e8f0;
-    --border-light: #cbd5e1;
-    --accent: #b45309;
-    --accent-gold: #d97706;
-    --accent-glow: rgba(217, 119, 6, 0.12);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --success: #15803d;
-    --blue: #0284c7;
-    --danger: #dc2626;
-    --table-head-bg: #f1f5f9;
-    --badge-bg: #f8fafc;
-    --card-hover: #f1f5f9;
-    --modal-bg: #ffffff;
-    --modal-inner-bg: #f8fafc;
-    --modal-score-bg: #f1f5f9;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -165,10 +195,10 @@
   .doc-header {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 26px 30px;
+    border-radius: 8px;
+    padding: 24px 28px;
     margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
   .doc-title-row {
     display: flex;
@@ -179,8 +209,9 @@
     margin-bottom: 12px;
   }
   .doc-title {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 26px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.5px;
   }
@@ -203,8 +234,8 @@
   .instructions-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-left: 5px solid var(--accent);
-    border-radius: 12px;
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
     padding: 18px 22px;
     margin-bottom: 20px;
   }
@@ -273,7 +304,7 @@
   .kpi-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 16px 20px;
   }
   .kpi-label {
@@ -286,6 +317,7 @@
     font-size: 24px;
     font-weight: 800;
     font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
     line-height: 1.2;
   }
   .kpi-sub {
@@ -348,9 +380,9 @@
 
   /* Cart Similarity Alert Banner */
   .similarity-alert-banner {
-    background: rgba(210, 153, 34, 0.12);
+    background: rgba(121, 88, 62, 0.08);
     border: 1px solid var(--accent);
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 12px 18px;
     margin-bottom: 16px;
     font-size: 13px;
@@ -367,9 +399,9 @@
   .table-box {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 8px;
     overflow-x: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 24px;
   }
   .po-table {
@@ -997,26 +1029,30 @@
   let cartItems = [];
 
   function initTheme() {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const saved = localStorage.getItem('theme');
+    const current = saved === 'dark' ? 'dark' : 'light';
     applyTheme(current);
   }
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
+    const btn = document.getElementById('themeToggleBtn');
     const icon = document.querySelector('.theme-icon');
     const label = document.querySelector('.theme-label');
-    if (theme === 'light') {
+    if (theme === 'dark') {
+      if (btn) btn.textContent = '☀️';
+      if (icon) icon.textContent = '☀️';
+      if (label) label.textContent = '라이트 모드';
+    } else {
+      if (btn) btn.textContent = '🌙';
       if (icon) icon.textContent = '🌙';
       if (label) label.textContent = '다크 모드';
-    } else {
-      if (icon) icon.textContent = '☀️';
-      if (label) label.textContent = '브라이트 모드';
     }
   }
 
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const nextTheme = current === 'light' ? 'dark' : 'light';
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const nextTheme = current === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', nextTheme);
     applyTheme(nextTheme);
   }
