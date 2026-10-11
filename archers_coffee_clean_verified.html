@@ -28,32 +28,90 @@
 </script>
 <style>
   :root {
-    /* Brewster / Specialty Coffee Market / Onyx Design Tokens */
-    --bg: #F7F5F0;
-    --card-bg: #FFFFFF;
-    --card-hover: #F2EFE9;
-    --surface-secondary: #EFEEE8;
-    --border: #E3E1D9;
-    --border-light: #ECEAE4;
-    --accent: #79583E;
-    --accent-light: #5F422E;
-    --accent-gold: #79583E;
-    --text-primary: #252923;
-    --text-secondary: #73766E;
-    --text-muted: #8F9189;
-    --tag-bg: #EFEEE8;
-    --success: #2E7D32;
-    --success-light: #388E3C;
-    --blue: #2A6F97;
+    /* 1. Base Palette */
+    --color-bg: #F7F5F0;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #EFEEE8;
+    --color-surface-hover: #F2F0EA;
+    --color-text-primary: #252923;
+    --color-text-secondary: #73766E;
+    --color-text-muted: #92948C;
+    --color-border: #E3E1D9;
+    --color-border-strong: #CCC9BF;
+    --color-accent: #79583E;
+    --color-accent-hover: #5F422E;
+    --color-accent-subtle: #F0E7DE;
+
+    /* 2. Semantic Colors */
+    --color-success: #47765A;
+    --color-warning: #A66A2C;
+    --color-danger: #B84A43;
+    --color-info: #496C91;
+
+    /* Flavor Tag Colors */
+    --tag-floral-bg: #EDE7F6;
+    --tag-floral-text: #5E35B1;
+    --tag-floral-border: #D1C4E9;
+    --tag-fruity-bg: #FBE9E7;
+    --tag-fruity-text: #BF360C;
+    --tag-fruity-border: #FFCCBC;
+    --tag-citrus-bg: #FFF9C4;
+    --tag-citrus-text: #F57F17;
+    --tag-citrus-border: #FFF176;
+    --tag-tea-bg: #E8F5E9;
+    --tag-tea-text: #2E7D32;
+    --tag-tea-border: #C8E6C9;
+    --tag-choco-bg: #EFEBE9;
+    --tag-choco-text: #4E342E;
+    --tag-choco-border: #D7CCC8;
+    --tag-sweet-bg: #FCE4EC;
+    --tag-sweet-text: #C2185B;
+    --tag-sweet-border: #F8BBD0;
+
+    /* Legacy Mappings */
+    --bg: var(--color-bg);
+    --card-bg: var(--color-surface);
+    --card-hover: var(--color-surface-hover);
+    --surface-secondary: var(--color-surface-muted);
+    --border: var(--color-border);
+    --border-light: var(--color-border);
+    --accent: var(--color-accent);
+    --accent-light: var(--color-accent-hover);
+    --accent-gold: var(--color-accent);
+    --accent-subtle: var(--color-accent-subtle);
+    --text-primary: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --text-muted: var(--color-text-muted);
+    --tag-bg: var(--color-surface-muted);
+    --success: var(--color-success);
+    --success-light: var(--color-success);
+    --blue: var(--color-info);
     --purple: #6B4E71;
     --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Noto Sans KR', sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
   }
 
   [data-theme="light"] {
+    --color-bg: #F7F5F0;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #EFEEE8;
+    --color-surface-hover: #F2F0EA;
+    --color-text-primary: #252923;
+    --color-text-secondary: #73766E;
+    --color-text-muted: #92948C;
+    --color-border: #E3E1D9;
+    --color-border-strong: #CCC9BF;
+    --color-accent: #79583E;
+    --color-accent-hover: #5F422E;
+    --color-accent-subtle: #F0E7DE;
+    --color-success: #47765A;
+    --color-warning: #A66A2C;
+    --color-danger: #B84A43;
+    --color-info: #496C91;
+
     --bg: #F7F5F0;
     --card-bg: #FFFFFF;
-    --card-hover: #F2EFE9;
+    --card-hover: #F2F0EA;
     --surface-secondary: #EFEEE8;
     --border: #E3E1D9;
     --border-light: #ECEAE4;
@@ -62,30 +120,46 @@
     --accent-gold: #79583E;
     --text-primary: #252923;
     --text-secondary: #73766E;
-    --text-muted: #8F9189;
+    --text-muted: #92948C;
     --tag-bg: #EFEEE8;
-    --success: #2E7D32;
-    --success-light: #388E3C;
-    --blue: #2A6F97;
+    --success: #47765A;
+    --blue: #496C91;
     --purple: #6B4E71;
     /* theme compatibility: #f8fafc, #e2e8f0 */
   }
 
   [data-theme="dark"] {
-    --bg: #0d1117;
-    --card-bg: #161b22;
-    --card-hover: #1c2128;
+    --color-bg: #090d13;
+    --color-surface: #141922;
+    --color-surface-muted: #1c222d;
+    --color-surface-hover: #1f2735;
+    --color-text-primary: #f0f6fc;
+    --color-text-secondary: #8b949e;
+    --color-text-muted: #6e7681;
+    --color-border: #30363d;
+    --color-border-strong: #484f58;
+    --color-accent: #d29922;
+    --color-accent-hover: #e3b341;
+    --color-accent-subtle: rgba(210, 153, 34, 0.15);
+    --color-success: #238636;
+    --color-warning: #d29922;
+    --color-danger: #f85149;
+    --color-info: #58a6ff;
+
+    --bg: #090d13;
+    --card-bg: #141922;
+    --card-hover: #1f2735;
+    --surface-secondary: #1c222d;
     --border: #30363d;
     --accent: #d29922;
     --accent-light: #f1e05a;
+    --accent-gold: #d29922;
     --text-primary: #f0f6fc;
     --text-secondary: #8b949e;
     --text-muted: #6e7681;
     --tag-bg: #21262d;
     --success: #238636;
-    --success-light: #3fb950;
     --blue: #58a6ff;
-    --purple: #bc8cff;
     --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
   }
@@ -603,7 +677,9 @@
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    max-height: none !important;
     margin-bottom: 32px;
     box-shadow: 0 1px 4px rgba(37, 41, 35, 0.04);
   }
@@ -615,15 +691,15 @@
     white-space: normal;
   }
   th {
-    background: var(--surface-secondary);
-    color: var(--text-primary);
+    background: var(--color-surface-muted, #EFEEE8) !important;
+    color: var(--color-text-secondary, #73766E) !important;
     font-weight: 700;
     padding: 9px 5px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border, #E3E1D9);
     white-space: normal;
     line-height: 1.25;
     position: sticky;
-    top: 0;
+    top: 44px;
     z-index: 10;
     cursor: pointer;
     user-select: none;
@@ -633,13 +709,13 @@
     transition: background 0.15s;
   }
   th:hover {
-    background: var(--border);
-    color: var(--text-primary);
+    background: var(--color-surface-hover, #F2F0EA) !important;
+    color: var(--color-text-primary, #252923) !important;
   }
   th .sort-icon {
     font-size: 10px;
     margin-left: 4px;
-    color: var(--text-muted);
+    color: var(--color-text-muted, #92948C);
   }
   td {
     padding: 8px 6px; word-break: keep-all;
@@ -1052,7 +1128,8 @@
 
   /* TABLE WIDTH COMPRESSION & WORD-BREAK KEEP-ALL */
   .table-container {
-    max-height: 960px;
+    max-height: none !important;
+    overflow-y: visible !important;
   }
   table {
     font-size: 11.5px !important;
@@ -1134,14 +1211,23 @@
 
   /* SLIM TEXT-LINK TOP NAV */
   .header-nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
     padding: 8px 32px !important;
     min-height: 44px !important;
-    background: rgba(10, 14, 23, 0.96) !important;
+    background: rgba(247, 245, 240, 0.96) !important;
+    border-bottom: 1px solid var(--color-border, #E3E1D9) !important;
     backdrop-filter: blur(12px) !important;
+    box-shadow: 0 1px 3px rgba(37, 41, 35, 0.04) !important;
+  }
+  [data-theme="dark"] .header-nav {
+    background: rgba(9, 13, 19, 0.96) !important;
+    border-bottom: 1px solid #30363d !important;
   }
   [data-theme="light"] .header-nav {
-    background: rgba(255, 255, 255, 0.96) !important;
-    border-bottom: 1px solid #e2e8f0 !important;
+    background: rgba(247, 245, 240, 0.96) !important;
+    border-bottom: 1px solid #E3E1D9 !important;
   }
   .nav-links {
     display: flex !important;
@@ -1149,28 +1235,37 @@
     align-items: center !important;
   }
   .nav-text-link {
-    color: var(--text-secondary) !important;
+    color: var(--color-text-secondary, #73766E) !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    padding: 4px 6px !important;
-    transition: color 0.15s ease !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    transition: all 0.15s ease !important;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
   }
   .nav-text-link:hover {
-    color: var(--text-primary) !important;
+    color: var(--color-text-primary, #252923) !important;
+    background: var(--color-surface-hover, #F2F0EA) !important;
   }
   .nav-text-link.active {
-    color: var(--accent-gold) !important;
+    color: var(--color-accent, #79583E) !important;
+    background: var(--color-accent-subtle, #F0E7DE) !important;
     font-weight: 800 !important;
-    border-bottom: 2px solid var(--accent-gold) !important;
-    border-radius: 0 !important;
+    border-bottom: 2px solid var(--color-accent, #79583E) !important;
+    border-radius: 4px 4px 0 0 !important;
   }
   [data-theme="light"] .nav-text-link.active {
-    color: #b45309 !important;
-    border-bottom-color: #b45309 !important;
+    color: #79583E !important;
+    background: #F0E7DE !important;
+    border-bottom-color: #79583E !important;
+  }
+  [data-theme="dark"] .nav-text-link.active {
+    color: #d29922 !important;
+    background: rgba(210, 153, 34, 0.15) !important;
+    border-bottom-color: #d29922 !important;
   }
   .nav-text-sep {
     color: var(--text-muted);
@@ -1399,7 +1494,7 @@
             <div onclick="sortScoreCol('total')" style="cursor:pointer; font-weight:800; font-size:12px; color:var(--accent-gold);" title="종합 점수 기준 정렬">
               ⭐ 종합점수 <span id="sortInd_arch_total" style="font-size:9.5px;">▼</span>
             </div>
-            <div style="font-size:10.5px; color:#8b949e; margin-top:2px; display:flex; justify-content:center; align-items:center; gap:2px;">
+            <div style="font-size:10.5px; color:var(--color-text-secondary, #73766E); margin-top:2px; display:flex; justify-content:center; align-items:center; gap:2px;">
               <span onclick="sortScoreCol('taste')" id="sortTrigger_arch_taste" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="맛 점수(50점 만점) 정렬">맛<span id="sortInd_arch_taste" style="font-size:9px;">↕</span></span>
               <span>/</span>
               <span onclick="sortScoreCol('price')" id="sortTrigger_arch_price" style="cursor:pointer; padding:1px 3px; border-radius:3px; font-weight:700;" title="가격 점수(30점 만점) 정렬">값<span id="sortInd_arch_price" style="font-size:9px;">↕</span></span>

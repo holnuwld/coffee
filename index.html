@@ -28,52 +28,109 @@
 </script>
 <style>
   :root {
-    /* Brewster / Specialty Coffee Market / Onyx Design Tokens */
-    --bg: #F7F5F0;
-    --card-bg: #FFFFFF;
-    --card-hover: #F2EFE9;
-    --surface-secondary: #EFEEE8;
-    --border: #E3E1D9;
-    --border-light: #ECEAE4;
-    --accent: #79583E;
-    --accent-hover: #5F422E;
-    --accent-gold: #79583E;
-    --accent-glow: rgba(121, 88, 62, 0.08);
-    --text-primary: #252923;
-    --text-secondary: #73766E;
-    --text-muted: #8F9189;
-    --success: #2E7D32;
-    --blue: #2A6F97;
+    /* 1. Base Palette */
+    --color-bg: #F7F5F0;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #EFEEE8;
+    --color-surface-hover: #F2F0EA;
+    --color-text-primary: #252923;
+    --color-text-secondary: #73766E;
+    --color-text-muted: #92948C;
+    --color-border: #E3E1D9;
+    --color-border-strong: #CCC9BF;
+    --color-accent: #79583E;
+    --color-accent-hover: #5F422E;
+    --color-accent-subtle: #F0E7DE;
+
+    /* 2. Semantic Colors */
+    --color-success: #47765A;
+    --color-warning: #A66A2C;
+    --color-danger: #B84A43;
+    --color-info: #496C91;
+
+    /* Flavor Tag Colors */
+    --tag-floral-bg: #EDE7F6;
+    --tag-floral-text: #5E35B1;
+    --tag-floral-border: #D1C4E9;
+    --tag-fruity-bg: #FBE9E7;
+    --tag-fruity-text: #BF360C;
+    --tag-fruity-border: #FFCCBC;
+    --tag-citrus-bg: #FFF9C4;
+    --tag-citrus-text: #F57F17;
+    --tag-citrus-border: #FFF176;
+    --tag-tea-bg: #E8F5E9;
+    --tag-tea-text: #2E7D32;
+    --tag-tea-border: #C8E6C9;
+    --tag-choco-bg: #EFEBE9;
+    --tag-choco-text: #4E342E;
+    --tag-choco-border: #D7CCC8;
+    --tag-sweet-bg: #FCE4EC;
+    --tag-sweet-text: #C2185B;
+    --tag-sweet-border: #F8BBD0;
+
+    /* Legacy Mappings */
+    --bg: var(--color-bg);
+    --card-bg: var(--color-surface);
+    --card-hover: var(--color-surface-hover);
+    --surface-secondary: var(--color-surface-muted);
+    --border: var(--color-border);
+    --border-light: var(--color-border);
+    --accent: var(--color-accent);
+    --accent-hover: var(--color-accent-hover);
+    --accent-gold: var(--color-accent);
+    --accent-glow: var(--color-accent-subtle);
+    --text-primary: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --text-muted: var(--color-text-muted);
+    --success: var(--color-success);
+    --blue: var(--color-info);
     --purple: #6B4E71;
-    --danger: #C53030;
-    --table-head-bg: #EFEEE8;
-    --toolbar-bg: #FFFFFF;
-    --badge-bg: #EFEEE8;
-    --modal-bg: #FFFFFF;
-    --modal-inner-bg: #F7F5F0;
-    --modal-score-bg: #EFEEE8;
-    --active-row-bg: #FFFFFF;
-    --overlap-row-bg: #F7F5F0;
+    --danger: var(--color-danger);
+    --table-head-bg: var(--color-surface-muted);
+    --toolbar-bg: var(--color-surface);
+    --badge-bg: var(--color-surface-muted);
+    --modal-bg: var(--color-surface);
+    --modal-inner-bg: var(--color-bg);
+    --modal-score-bg: var(--color-surface-muted);
+    --active-row-bg: var(--color-surface);
+    --overlap-row-bg: var(--color-bg);
   }
 
   [data-theme="light"] {
+    --color-bg: #F7F5F0;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #EFEEE8;
+    --color-surface-hover: #F2F0EA;
+    --color-text-primary: #252923;
+    --color-text-secondary: #73766E;
+    --color-text-muted: #92948C;
+    --color-border: #E3E1D9;
+    --color-border-strong: #CCC9BF;
+    --color-accent: #79583E;
+    --color-accent-hover: #5F422E;
+    --color-accent-subtle: #F0E7DE;
+    --color-success: #47765A;
+    --color-warning: #A66A2C;
+    --color-danger: #B84A43;
+    --color-info: #496C91;
+
     --bg: #F7F5F0;
     --card-bg: #FFFFFF;
-    --card-hover: #F2EFE9;
+    --card-hover: #F2F0EA;
     --surface-secondary: #EFEEE8;
     --border: #E3E1D9;
     --border-light: #ECEAE4;
     --accent: #79583E;
     --accent-hover: #5F422E;
     --accent-gold: #79583E;
-    --accent-glow: rgba(121, 88, 62, 0.08);
+    --accent-glow: #F0E7DE;
     --text-primary: #252923;
     --text-secondary: #73766E;
-    --text-muted: #8F9189;
-    --success: #2E7D32;
-    --blue: #2A6F97;
+    --text-muted: #92948C;
+    --success: #47765A;
+    --blue: #496C91;
     --purple: #6B4E71;
-    --danger: #C53030;
+    --danger: #B84A43;
     --table-head-bg: #EFEEE8;
     --toolbar-bg: #FFFFFF;
     --badge-bg: #EFEEE8;
@@ -86,9 +143,27 @@
   }
 
   [data-theme="dark"] {
+    --color-bg: #090d13;
+    --color-surface: #131a26;
+    --color-surface-muted: #1c2432;
+    --color-surface-hover: #182333;
+    --color-text-primary: #f0f6fc;
+    --color-text-secondary: #9da7b3;
+    --color-text-muted: #6e7681;
+    --color-border: #222f42;
+    --color-border-strong: #2e3e57;
+    --color-accent: #d29922;
+    --color-accent-hover: #e3b341;
+    --color-accent-subtle: rgba(210, 153, 34, 0.15);
+    --color-success: #3fb950;
+    --color-warning: #d29922;
+    --color-danger: #f85149;
+    --color-info: #58a6ff;
+
     --bg: #090d13;
     --card-bg: #131a26;
     --card-hover: #182333;
+    --surface-secondary: #1c2432;
     --border: #222f42;
     --border-light: #2e3e57;
     --accent: #d29922;
@@ -101,7 +176,7 @@
     --blue: #58a6ff;
     --purple: #bc8cff;
     --danger: #f85149;
-    --table-head-bg: #0f1622;
+    --table-head-bg: #1c2432;
     --toolbar-bg: #0f1622;
     --badge-bg: #111722;
     --modal-bg: #101622;
@@ -440,7 +515,7 @@
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
-    padding: 40px 20px 80px 20px;
+    padding: 0 0 80px 0;
   }
 
   .container {
@@ -1059,7 +1134,9 @@
 
   /* Table Design */
   .table-box {
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    max-height: none !important;
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -1074,15 +1151,18 @@
     white-space: normal;
   }
   .top20-table th {
-    background: var(--table-head-bg);
-    color: var(--text-primary);
+    background: var(--color-surface-muted, #EFEEE8) !important;
+    color: var(--color-text-secondary, #73766E) !important;
     font-weight: 700;
     text-align: left;
     padding: 10px 8px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-border, #E3E1D9);
     white-space: normal;
     line-height: 1.35;
     vertical-align: middle;
+    position: sticky;
+    top: 44px;
+    z-index: 10;
   }
   .top20-table td {
     padding: 9px 8px;
@@ -1787,9 +1867,23 @@
 
   /* SLIM TEXT-LINK TOP NAV */
   .header-nav {
-    padding: 8px 0 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    padding: 8px 32px !important;
     min-height: 44px !important;
-    border-bottom: 1px solid var(--border) !important;
+    background: rgba(247, 245, 240, 0.96) !important;
+    border-bottom: 1px solid var(--color-border, #E3E1D9) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 1px 3px rgba(37, 41, 35, 0.04) !important;
+  }
+  [data-theme="dark"] .header-nav {
+    background: rgba(9, 13, 19, 0.96) !important;
+    border-bottom: 1px solid #30363d !important;
+  }
+  [data-theme="light"] .header-nav {
+    background: rgba(247, 245, 240, 0.96) !important;
+    border-bottom: 1px solid #E3E1D9 !important;
   }
   .nav-links {
     display: flex !important;
@@ -1797,30 +1891,32 @@
     align-items: center !important;
   }
   .nav-text-link {
-    color: var(--text-secondary) !important;
+    color: var(--color-text-secondary, #73766E) !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    padding: 4px 6px !important;
-    transition: color 0.15s ease !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    transition: all 0.15s ease !important;
     border: none !important;
     background: transparent !important;
+    box-shadow: none !important;
   }
   .nav-text-link:hover {
-    color: var(--text-primary) !important;
+    color: var(--color-text-primary, #252923) !important;
+    background: var(--color-surface-hover, #F2F0EA) !important;
   }
   .nav-text-link.active {
-    color: var(--accent-gold) !important;
+    color: var(--color-accent, #79583E) !important;
+    background: var(--color-accent-subtle, #F0E7DE) !important;
     font-weight: 800 !important;
-    border-bottom: 2px solid var(--accent-gold) !important;
-    border-radius: 0 !important;
   }
   [data-theme="light"] .nav-text-link.active {
-    color: #b45309 !important;
-    border-bottom-color: #b45309 !important;
+    color: #79583E !important;
+    background: #F0E7DE !important;
   }
   .nav-text-sep {
-    color: var(--text-muted);
+    color: var(--color-text-muted, #92948C);
     font-size: 11px;
     user-select: none;
     opacity: 0.5;

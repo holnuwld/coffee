@@ -426,47 +426,115 @@ def generate_html(items, stats):
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1/dist/chartjs-plugin-zoom.min.js"></script>
   <style>
     :root {{
+      /* 1. Base Palette */
+      --color-bg: #F7F5F0;
+      --color-surface: #FFFFFF;
+      --color-surface-muted: #EFEEE8;
+      --color-surface-hover: #F2F0EA;
+      --color-text-primary: #252923;
+      --color-text-secondary: #73766E;
+      --color-text-muted: #92948C;
+      --color-border: #E3E1D9;
+      --color-border-strong: #CCC9BF;
+      --color-accent: #79583E;
+      --color-accent-hover: #5F422E;
+      --color-accent-subtle: #F0E7DE;
+
+      /* 2. Semantic Colors */
+      --color-success: #47765A;
+      --color-warning: #A66A2C;
+      --color-danger: #B84A43;
+      --color-info: #496C91;
+
+      /* Flavor Tag Colors */
+      --flavor-floral-bg: #EDE7F6;
+      --flavor-floral-text: #5E35B1;
+      --flavor-fruity-bg: #FBE9E7;
+      --flavor-fruity-text: #BF360C;
+      --flavor-citrus-bg: #FFF9C4;
+      --flavor-citrus-text: #F57F17;
+      --flavor-tea-bg: #E8F5E9;
+      --flavor-tea-text: #2E7D32;
+      --flavor-chocolate-bg: #EFEBE9;
+      --flavor-chocolate-text: #4E342E;
+      --flavor-sweet-bg: #FCE4EC;
+      --flavor-sweet-text: #C2185B;
+
       --bg-primary: #F7F5F0;
       --bg-secondary: #FFFFFF;
       --bg-card: #FFFFFF;
       --border-color: #E3E1D9;
       --text-primary: #252923;
       --text-secondary: #73766E;
-      --text-muted: #8c959f;
+      --text-muted: #92948C;
       --accent-gold: #79583E;
       --accent-gold-bg: rgba(121, 88, 62, 0.1);
       --accent-blue: #79583E;
       --accent-blue-bg: rgba(121, 88, 62, 0.1);
-      --accent-red: #cf222e;
-      --accent-green: #2e7d32;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --accent-red: #B84A43;
+      --accent-green: #47765A;
+      --shadow-sm: 0 1px 3px rgba(37, 41, 35, 0.05);
+      --shadow-md: 0 4px 12px rgba(37, 41, 35, 0.08);
       --chart-grid: rgba(0, 0, 0, 0.06);
       --chart-tick: #73766E;
     }}
 
     [data-theme="light"] {{
       /* theme compatibility: #f8fafc, #e2e8f0 */
+      --color-bg: #F7F5F0;
+      --color-surface: #FFFFFF;
+      --color-surface-muted: #EFEEE8;
+      --color-surface-hover: #F2F0EA;
+      --color-text-primary: #252923;
+      --color-text-secondary: #73766E;
+      --color-text-muted: #92948C;
+      --color-border: #E3E1D9;
+      --color-border-strong: #CCC9BF;
+      --color-accent: #79583E;
+      --color-accent-hover: #5F422E;
+      --color-accent-subtle: #F0E7DE;
+      --color-success: #47765A;
+      --color-warning: #A66A2C;
+      --color-danger: #B84A43;
+      --color-info: #496C91;
+
       --bg-primary: #F7F5F0;
       --bg-secondary: #FFFFFF;
       --bg-card: #FFFFFF;
       --border-color: #E3E1D9;
       --text-primary: #252923;
       --text-secondary: #73766E;
-      --text-muted: #8c959f;
+      --text-muted: #92948C;
       --accent-gold: #79583E;
       --accent-gold-bg: rgba(121, 88, 62, 0.1);
       --accent-blue: #79583E;
       --accent-blue-bg: rgba(121, 88, 62, 0.1);
-      --accent-red: #cf222e;
-      --accent-green: #2e7d32;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --accent-red: #B84A43;
+      --accent-green: #47765A;
+      --shadow-sm: 0 1px 3px rgba(37, 41, 35, 0.05);
+      --shadow-md: 0 4px 12px rgba(37, 41, 35, 0.08);
       --chart-grid: rgba(0, 0, 0, 0.06);
       --chart-tick: #73766E;
     }}
 
     [data-theme="dark"] {{
+      --color-bg: #090d13;
+      --color-surface: #161b22;
+      --color-surface-muted: #21262d;
+      --color-surface-hover: #262c36;
+      --color-text-primary: #f0f6fc;
+      --color-text-secondary: #8b949e;
+      --color-text-muted: #6e7681;
+      --color-border: #30363d;
+      --color-border-strong: #484f58;
+      --color-accent: #d29922;
+      --color-accent-hover: #e3b341;
+      --color-accent-subtle: rgba(210, 153, 34, 0.15);
+      --color-success: #3fb950;
+      --color-warning: #d29922;
+      --color-danger: #f85149;
+      --color-info: #58a6ff;
+
       --bg-primary: #0d1117;
       --bg-secondary: #161b22;
       --bg-card: #21262d;
@@ -499,19 +567,33 @@ def generate_html(items, stats):
     .container {{
       max-width: 1400px;
       margin: 0 auto;
-      padding: 20px 16px;
+      padding: 0 16px 20px 16px;
     }}
 
     /* HEADER */
     .header-nav {{
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      background: rgba(247, 245, 240, 0.96) !important;
+      backdrop-filter: blur(12px) !important;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 24px;
-      padding-bottom: 16px;
+      padding: 8px 16px !important;
       border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 1px 3px rgba(37, 41, 35, 0.04) !important;
+    }}
+    [data-theme="dark"] .header-nav {{
+      background: rgba(13, 17, 23, 0.96) !important;
+      border-bottom: 1px solid #30363d !important;
+    }}
+    [data-theme="light"] .header-nav {{
+      background: rgba(247, 245, 240, 0.96) !important;
+      border-bottom: 1px solid #E3E1D9 !important;
     }}
     .nav-links {{
       display: flex;
@@ -1300,8 +1382,9 @@ def generate_html(items, stats):
       box-shadow: var(--shadow-sm);
     }}
     .table-responsive {{
-      overflow-x: auto;
-      max-height: 960px;
+      overflow-x: auto !important;
+      overflow-y: visible !important;
+      max-height: none !important; /* max-height: 960px legacy */
       border: 1px solid var(--border-color);
       border-radius: 8px;
       margin-top: 12px;
@@ -1313,19 +1396,25 @@ def generate_html(items, stats):
       text-align: left;
     }}
     table.data-table th {{
-      background: var(--bg-card);
+      background: var(--color-surface-muted, #EFEEE8) !important;
       padding: 10px 12px;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: var(--color-text-secondary, #73766E) !important;
       position: sticky;
-      top: 0;
+      top: 44px;
+      z-index: 10;
       border-bottom: 1px solid var(--border-color);
       white-space: nowrap;
       cursor: pointer;
       user-select: none;
     }}
     table.data-table th:hover {{
-      color: var(--accent-gold);
+      color: var(--color-text-primary, #252923) !important;
+      background: var(--color-surface-hover, #F2F0EA) !important;
+    }}
+    [data-theme="dark"] table.data-table th {{
+      background: #1c222d !important;
+      color: #8b949e !important;
     }}
     table.data-table td {{
       padding: 10px 12px;
