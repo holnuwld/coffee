@@ -703,7 +703,7 @@
       <span class="m-nav-sep">•</span>
       <a href="theespressolab_mobile.html" class="m-nav-text-link">에소랩</a>
       <span class="m-nav-sep">•</span>
-      <a href="mobile_cart.html" class="m-nav-text-link active">장바구니</a>
+      <a href="mobile_cart.html" class="m-nav-text-link active">장바구니(<span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">0</span>)</a>
     </div>
     <button id="themeToggleBtn" onclick="toggleTheme()" style="background:transparent; border:none; cursor:pointer; font-size:14px; padding:2px;" title="화면 테마 변경">☀️</button>
   </div>
@@ -981,6 +981,9 @@
   }
 
   function renderPoItems() {
+    document.querySelectorAll('.cart-badge-count').forEach(el => {
+      el.textContent = cartItems ? cartItems.length : 0;
+    });
     const container = document.getElementById('mPoList');
     container.innerHTML = '';
 

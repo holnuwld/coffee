@@ -887,7 +887,7 @@
         <span class="m-nav-sep">•</span>
         <a href="theespressolab_mobile.html" class="m-nav-text-link active">에소랩</a>
         <span class="m-nav-sep">•</span>
-        <a href="mobile_cart.html" class="m-nav-text-link">장바구니 <span id="topCartBadge" style="font-size:11px; font-weight:700; color:var(--accent-gold);"></span></a>
+        <a href="mobile_cart.html" class="m-nav-text-link">장바구니(<span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">0</span>)</a>
       </div>
       <button id="themeToggleBtn" onclick="toggleTheme()" style="background:transparent; border:none; cursor:pointer; font-size:14px; padding:2px;" title="화면 테마 변경">☀️</button>
     </div>
@@ -5222,7 +5222,21 @@
       applyTheme(nextTheme);
     }
 
-    window.addEventListener('DOMContentLoaded', initTheme);
+    function updateCartCountBadge() {
+      let count = 0;
+      try {
+        const stored = localStorage.getItem('coffee_cart');
+        if (stored) count = JSON.parse(stored).length;
+      } catch (e) {}
+      document.querySelectorAll('.cart-badge-count').forEach(el => {
+        el.textContent = count;
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateCartCountBadge();
+    });
   </script>
 </body>
 </html>

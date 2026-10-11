@@ -1440,7 +1440,7 @@
       <span class="nav-text-sep">•</span>
       <a href="theespressolab_verified.html" class="nav-text-link">에소랩</a>
       <span class="nav-text-sep">•</span>
-      <a href="cart.html" class="nav-text-link">장바구니 <span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">(0)</span></a>
+      <a href="cart.html" class="nav-text-link">장바구니(<span class="cart-badge-count" style="font-size:11px; font-weight:700; color:var(--accent-gold);">0</span>)</a>
     </div>
       <div>
         <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" style="background:transparent; border:none; cursor:pointer; font-size:14px; padding:2px 4px;" title="화면 테마 변경">☀️</button>
@@ -3532,10 +3532,6 @@
     if (btn) {
       btn.innerHTML = (theme === 'dark') ? '☀️' : '🌙';
       btn.setAttribute('title', (theme === 'dark') ? '라이트 모드로 전환하기' : '다크 모드로 전환하기');
-    }
-  } else {
-      icon.textContent = '🌙';
-      txt.textContent = '다크 모드';
     }
   }
 
