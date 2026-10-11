@@ -1055,7 +1055,7 @@
           <strong>${c.country || ''}</strong> • ${c.farm || ''} (${c.variety || ''}, ${c.process || ''})
         </div>
 
-        <div class="m-po-notes">
+        <div class="m-po-notes" title="한국어 번역: ${getKoreanNotesTranslation(c.notes)}" style="cursor:help;">
           ✨ ${c.notes || 'N/A'}
         </div>
 
@@ -1201,6 +1201,10 @@
     `;
 
     document.getElementById('mNotesBody').textContent = c.notes || 'N/A';
+    document.getElementById('mNotesBody').setAttribute('title', '한국어 번역: ' + getKoreanNotesTranslation(c.notes));
+    document.getElementById('mNotesBody').style.cursor = 'help';
+    document.getElementById('mNotesBody').setAttribute('title', '한국어 번역: ' + getKoreanNotesTranslation(c.notes));
+    document.getElementById('mNotesBody').style.cursor = 'help';
 
     document.getElementById('mAnalysisBody').innerHTML = `
       <div style="margin-bottom:8px;"><strong>☕ 맛 & 센서리:</strong> ${rev.taste_analysis || c.merit || '품질 우수'}</div>
@@ -1232,6 +1236,237 @@
   }
 
   window.addEventListener('DOMContentLoaded', initCart);
+
+  // Universal Coffee Cup Notes Translation Dictionary (English -> Korean)
+  const COFFEE_NOTES_TRANSLATION_MAP = {
+  "peach": "복숭아",
+  "white peach": "백도 복숭아",
+  "yellow peach": "황도 복숭아",
+  "peach candy": "복숭아 캔디",
+  "peach cobbler": "피치 코블러",
+  "peach ice tea": "복숭아 아이스티",
+  "peach iced tea": "복숭아 아이스티",
+  "peach tea": "복숭아 티",
+  "apricot": "살구",
+  "nectarine": "천도복숭아",
+  "plum": "자두",
+  "plums": "자두",
+  "yellow plum": "노란 자두",
+  "red plum": "붉은 자두",
+  "black plum": "검은 자두",
+  "dark plum": "다크 자두",
+  "dark plums": "다크 자두",
+  "prune": "말린 자두(프룬)",
+  "cherry": "체리",
+  "dark cherry": "다크 체리",
+  "amaretto cherry": "아마레또 체리",
+  "cherry candy": "체리 캔디",
+  "cherry blossom": "벚꽃",
+  "stone fruit": "핵과류(복숭아/자두/살구)",
+  "stone fruits": "핵과류(복숭아/자두/살구)",
+  "bergamot": "베르가못",
+  "orange": "오렌지",
+  "oranges": "오렌지",
+  "blood orange": "블러드 오렌지",
+  "dried oranges": "말린 오렌지",
+  "orange blossom": "오렌지꽃",
+  "orange candy": "오렌지 캔디",
+  "orange soda": "오렌지 소다",
+  "mandarin": "만다린(감귤)",
+  "mandarine": "만다린(감귤)",
+  "mandarin oranges": "만다린 오렌지",
+  "mandarine orange": "만다린 오렌지",
+  "clementine": "클레멘타인(감귤)",
+  "tangerine": "탄제린(귤)",
+  "kumquat": "금귤(낑깡)",
+  "yuzu": "유자",
+  "lemon": "레몬",
+  "sweet lemon": "달콤한 레몬",
+  "meyer lemon": "마이어 레몬",
+  "lemon grass": "레몬그라스",
+  "lemongrass": "레몬그라스",
+  "lemon tea": "레몬 티",
+  "lemon verbena": "레몬 버베나",
+  "lime": "라임",
+  "grapefruit": "자몽",
+  "pomelo": "포멜로",
+  "citrus": "시트러스",
+  "citrus fruit": "감귤류 과일",
+  "candied citrus": "설탕에 절인 시트러스",
+  "honeyed citrus": "꿀에 절인 시트러스",
+  "jasmine": "자스민",
+  "jasmine blossom": "자스민 꽃",
+  "jasmine tea": "자스민 티",
+  "floral": "플로럴(꽃향)",
+  "floral honey": "야생화 꿀",
+  "foral honey": "야생화 꿀",
+  "floral tea": "꽃차",
+  "fruit florals": "과일 꽃향",
+  "complex florals": "복합적인 꽃향",
+  "dark floral": "짙은 꽃향",
+  "coffee blossom": "커피꽃",
+  "coffee flower": "커피꽃",
+  "white floral": "화이트 플로럴",
+  "white florals": "화이트 플로럴",
+  "white flower": "하얀 꽃",
+  "white flowers": "하얀 꽃",
+  "rose": "장미",
+  "rose water": "로즈워터",
+  "rosewater": "로즈워터",
+  "lavender": "라벤더",
+  "chamomile": "카모마일",
+  "chamomile tea": "카모마일 티",
+  "hibiscus": "히비스커스",
+  "honeysuckle": "인동초(금은화)",
+  "botanical": "보태니컬(허브향)",
+  "berries": "베리류",
+  "berry gums": "베리 젤리/껌",
+  "strawberry": "딸기",
+  "wild strawberry": "산딸기",
+  "fresh strawberry": "신선한 딸기",
+  "blueberry": "블루베리",
+  "raspberry": "라즈베리",
+  "raspberry candy": "라즈베리 캔디",
+  "blackberry": "블랙베리",
+  "blackberries": "블랙베리",
+  "cranberry": "크랜베리",
+  "blackcurrant": "블랙커런트",
+  "grape": "포도",
+  "grapes": "포도",
+  "white grape": "청포도/백포도",
+  "white grapes": "청포도/백포도",
+  "red grape": "적포도",
+  "red grapes": "적포도",
+  "purple grapes": "보라색 포도",
+  "raisin": "건포도",
+  "raisins": "건포도",
+  "golden raisins": "골든 건포도",
+  "wine": "와인",
+  "red wine": "레드 와인",
+  "sparkling white wine": "스파클링 화이트 와인",
+  "champagne": "샴페인",
+  "champagne acidity": "샴페인 산미",
+  "papaya": "파파야",
+  "mango": "망고",
+  "dried mango": "말린 망고",
+  "sweet mango": "달콤한 망고",
+  "passion fruit": "패션후르츠",
+  "passionfruit": "패션후르츠",
+  "lychee": "리치",
+  "lychee candy": "리치 캔디",
+  "longan": "용안(롱간)",
+  "rambutan": "람부탄",
+  "mangosteen": "망고스틴",
+  "guava": "구아바",
+  "pineapple": "파인애플",
+  "cantaloupe": "칸탈로프 멜론",
+  "honeydew": "허니듀 멜론",
+  "honey dew": "허니듀 멜론",
+  "melon": "멜론",
+  "watermelon": "수박",
+  "fresh watermelon": "신선한 수박",
+  "kiwi": "키위",
+  "lanzones": "랑삿/란조네스",
+  "cotton fruit": "산톨(코튼프루츠)",
+  "starfruit": "스타프루츠",
+  "tropical fruit": "열대과일",
+  "tropical fruits": "열대과일",
+  "apple": "사과",
+  "green apple": "청사과",
+  "red apple": "붉은 사과",
+  "pear": "서양배",
+  "dried fig": "말린 무화과",
+  "honey": "꿀",
+  "sugarcane": "사탕수수",
+  "cane sugar": "사탕수수당",
+  "brown sugar": "흑당/황설탕",
+  "molasses": "당밀",
+  "muscovado": "머스코바도 흑당",
+  "caramel": "카라멜",
+  "caramel sweetness": "카라멜 단맛",
+  "toffee": "토피",
+  "maple syrup": "메이플 시럽",
+  "candy": "캔디",
+  "bubblegum": "풍선껌",
+  "caramelized dates": "카라멜라이즈 대추야자",
+  "caramelized coconut": "카라멜라이즈 코코넛",
+  "sweet crisp": "달콤하고 경쾌한 단맛",
+  "syrupy": "시럽 같은 질감",
+  "sugarry": "달콤한 설탕감",
+  "chocolate": "초콜릿",
+  "chocolates": "초콜릿",
+  "milk chocolate": "밀크 초콜릿",
+  "dark chocolate": "다크 초콜릿",
+  "bakers chocolate": "베이커스 다크 초콜릿",
+  "bounty chocolate": "바운티 코코넛 초콜릿",
+  "cacao": "카카오",
+  "hazelnut": "헤이즐넛",
+  "hazelnuts": "헤이즐넛",
+  "toasted hazelnut": "구운 헤이즐넛",
+  "almonds": "아몬드",
+  "pecan nuts": "피칸 견과류",
+  "coconut": "코코넛",
+  "toasted coconut": "구운 코코넛",
+  "vanilla": "바닐라",
+  "lotus biscuit": "로투스 비스킷",
+  "earl grey": "얼그레이",
+  "earlgrey": "얼그레이",
+  "white tea": "백차(White Tea)",
+  "green tea": "녹차",
+  "oolong tea": "우롱차",
+  "milky oolong tea": "밀키 우롱티",
+  "matcha": "말차",
+  "ginger ale": "진저에일",
+  "sprite": "사이다/스프라이트",
+  "rum": "럼",
+  "ipa": "IPA 맥주 홉",
+  "sweet spices": "달콤한 향신료",
+  "brown spices": "브라운 스파이스",
+  "clove": "정향(클로브)",
+  "star anise": "팔각(스타아니스)",
+  "black liqourice": "감초(리코리스)",
+  "liquorice candy": "감초 캔디",
+  "tobbaco": "고급 시가/타바코"
+};
+
+  function getKoreanNotesTranslation(notesStr) {
+    if (!notesStr) return '';
+    const clean = notesStr.replace(/<[^>]*>/g, '').replace(/[\n\r]+/g, ', ');
+    const parts = clean.split(/[,|/•]/).map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    const translated = parts.map(p => {
+      const key = p.toLowerCase().replace(/^[✨•\s]+/, '').replace(/[.\s]+$/, '').trim();
+      if (COFFEE_NOTES_TRANSLATION_MAP[key]) return COFFEE_NOTES_TRANSLATION_MAP[key];
+      for (const [en, kr] of Object.entries(COFFEE_NOTES_TRANSLATION_MAP)) {
+        if (key === en || key.startsWith(en + ' ') || key.endsWith(' ' + en)) {
+          return kr;
+        }
+      }
+      return p;
+    });
+    return translated.join(', ');
+  }
+
+  function initCupNotesTooltips() {
+    const selectors = [
+      '.cell-notes', '.notes-cell', '.table-notes-tag', '.notes-tag', 
+      '.note-tag', '.card-notes', '.m-card-notes', '.m-notes-box', 
+      '.m-po-notes', '.analytics-notes-cell', '.tag-note', '.m-note-pill'
+    ];
+    document.querySelectorAll(selectors.join(', ')).forEach(el => {
+      const currentTitle = el.getAttribute('title') || '';
+      if (!currentTitle.includes('한국어')) {
+        const text = el.textContent.replace(/^[✨•🌸\s]+/, '').trim();
+        const trans = getKoreanNotesTranslation(text);
+        if (trans) {
+          el.setAttribute('title', '한국어 번역: ' + trans);
+          el.style.cursor = 'help';
+        }
+      }
+    });
+  }
+  window.addEventListener('DOMContentLoaded', initCupNotesTooltips);
+
 </script>
 </body>
 </html>

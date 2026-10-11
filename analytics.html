@@ -1082,8 +1082,90 @@
     }
     .tfp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       gap: 12px;
+    }
+    .tfp-grid-qualitative {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 1100px) {
+      .tfp-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .tfp-grid-qualitative {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .tfp-grid {
+        grid-template-columns: 1fr;
+      }
+      .tfp-grid-qualitative {
+        grid-template-columns: 1fr;
+      }
+    }
+    #notePresetRow {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: 6px !important;
+      margin-top: 6px !important;
+    }
+    #notePresetRow .tfp-preset-btn {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      height: 26px !important;
+      padding: 0 4px !important;
+      font-size: 11px !important;
+    }
+    @media (max-width: 768px) {
+      #notePresetRow {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+    }
+    .tfp-grid-qualitative {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 1100px) {
+      .tfp-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .tfp-grid-qualitative {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .tfp-grid {
+        grid-template-columns: 1fr;
+      }
+      .tfp-grid-qualitative {
+        grid-template-columns: 1fr;
+      }
+    }
+    #notePresetRow {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: 6px !important;
+      margin-top: 6px !important;
+    }
+    #notePresetRow .tfp-preset-btn {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      height: 26px !important;
+      padding: 0 4px !important;
+      font-size: 11px !important;
+    }
+    @media (max-width: 768px) {
+      #notePresetRow {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
     }
     .tfp-card {
       background: var(--bg-secondary);
@@ -1856,11 +1938,14 @@
             <button class="tfp-preset-btn" onclick="setPreset('score_rarity', 10, null, this)">≥10</button>
           </div>
         </div>
+      </div>
 
-        <!-- 6. Cup Notes (Objective Multi-Select Presets & Subjective Free-Text Search) -->
+      <!-- Qualitative Filter Cards Grid (Notes 60% & Process 40%) -->
+      <div class="tfp-grid-qualitative">
+        <!-- 6. Cup Notes (Objective 6x2 Grid Presets & Free-Text Search) -->
         <div class="tfp-card" style="border-left: 3px solid var(--accent-gold);">
           <div class="tfp-card-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <span>🍒 컵노트 (객관식 다중선택 / 검색)</span>
+            <span>🍒 컵노트 (객관식 6x2 정렬 프리셋 / 검색)</span>
             <div style="display:flex; align-items:center; gap:5px;">
               <button type="button" id="noteMatchModeBtn" onclick="toggleNoteMatchMode()" style="font-size:11px; font-weight:700; padding:2px 8px; height:22px; border-radius:12px; background:var(--card-bg); border:1px solid var(--accent-gold); color:var(--accent-gold); cursor:pointer;" title="다중 선택 시 매칭 모드 전환: OR(하나라도 포함) / AND(모두 포함)">
                 조건: OR (하나라도) ↕
@@ -1869,23 +1954,23 @@
           </div>
           <div class="tfp-range-row">
             <div class="tfp-input-box" style="position:relative; width:100%;">
-              <input type="text" id="filter_note_input" class="tfp-text-input" placeholder="직접 검색 (예: 복숭아, peach, 자스민, 딸기...)" oninput="applyNoteFilterInput()" onkeydown="if(event.key==='Enter') applyNoteFilterInput()">
+              <input type="text" id="filter_note_input" class="tfp-text-input" placeholder="직접 검색 (예: peach, 복숭아, jasmine, 자스민, 딸기...)" oninput="applyNoteFilterInput()" onkeydown="if(event.key==='Enter') applyNoteFilterInput()">
               <button type="button" id="noteClearBtn" onclick="clearNoteInput()" style="display:none; position:absolute; right:6px; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:13px; padding:0 4px;" title="지우기">✕</button>
             </div>
           </div>
-          <div class="tfp-preset-row" id="notePresetRow" style="gap:5px; flex-wrap:wrap;">
-            <button class="tfp-preset-btn" data-note="복숭아" onclick="toggleNotePreset('복숭아', this)">복숭아</button>
-            <button class="tfp-preset-btn" data-note="자스민" onclick="toggleNotePreset('자스민', this)">자스민</button>
-            <button class="tfp-preset-btn" data-note="베르가못" onclick="toggleNotePreset('베르가못', this)">베르가못</button>
-            <button class="tfp-preset-btn" data-note="만다린" onclick="toggleNotePreset('만다린', this)">만다린</button>
-            <button class="tfp-preset-btn" data-note="오렌지" onclick="toggleNotePreset('오렌지', this)">오렌지</button>
-            <button class="tfp-preset-btn" data-note="파파야" onclick="toggleNotePreset('파파야', this)">파파야</button>
-            <button class="tfp-preset-btn" data-note="망고" onclick="toggleNotePreset('망고', this)">망고</button>
-            <button class="tfp-preset-btn" data-note="유자" onclick="toggleNotePreset('유자', this)">유자</button>
-            <button class="tfp-preset-btn" data-note="플로럴" onclick="toggleNotePreset('플로럴', this)">플로럴</button>
-            <button class="tfp-preset-btn" data-note="서양배" onclick="toggleNotePreset('서양배', this)">서양배</button>
-            <button class="tfp-preset-btn" data-note="살구" onclick="toggleNotePreset('살구', this)">살구</button>
-            <button class="tfp-preset-btn" data-note="초콜릿" onclick="toggleNotePreset('초콜릿', this)">초콜릿</button>
+          <div class="tfp-preset-row" id="notePresetRow">
+            <button class="tfp-preset-btn" data-note="peach" onclick="toggleNotePreset('peach', this)" title="한국어 번역: 복숭아">Peach</button>
+            <button class="tfp-preset-btn" data-note="jasmine" onclick="toggleNotePreset('jasmine', this)" title="한국어 번역: 자스민">Jasmine</button>
+            <button class="tfp-preset-btn" data-note="bergamot" onclick="toggleNotePreset('bergamot', this)" title="한국어 번역: 베르가못">Bergamot</button>
+            <button class="tfp-preset-btn" data-note="mandarin" onclick="toggleNotePreset('mandarin', this)" title="한국어 번역: 만다린(감귤)">Mandarin</button>
+            <button class="tfp-preset-btn" data-note="orange" onclick="toggleNotePreset('orange', this)" title="한국어 번역: 오렌지">Orange</button>
+            <button class="tfp-preset-btn" data-note="papaya" onclick="toggleNotePreset('papaya', this)" title="한국어 번역: 파파야">Papaya</button>
+            <button class="tfp-preset-btn" data-note="mango" onclick="toggleNotePreset('mango', this)" title="한국어 번역: 망고">Mango</button>
+            <button class="tfp-preset-btn" data-note="yuzu" onclick="toggleNotePreset('yuzu', this)" title="한국어 번역: 유자">Yuzu</button>
+            <button class="tfp-preset-btn" data-note="floral" onclick="toggleNotePreset('floral', this)" title="한국어 번역: 플로럴(꽃향)">Floral</button>
+            <button class="tfp-preset-btn" data-note="pear" onclick="toggleNotePreset('pear', this)" title="한국어 번역: 서양배">Pear</button>
+            <button class="tfp-preset-btn" data-note="apricot" onclick="toggleNotePreset('apricot', this)" title="한국어 번역: 살구">Apricot</button>
+            <button class="tfp-preset-btn" data-note="chocolate" onclick="toggleNotePreset('chocolate', this)" title="한국어 번역: 초콜릿">Chocolate</button>
           </div>
         </div>
 
@@ -1935,6 +2020,7 @@
             </th>
             <th onclick="sortTable('country')">원산지 ↕</th>
             <th onclick="sortTable('process')">프로세스 ↕</th>
+            <th onclick="sortTable('tasting_notes')" style="min-width:200px;">컵노트 (Tasting Notes) ↕</th>
             <th onclick="sortTable('price_100g_aed')">100g 가격 (AED) ↕</th>
             <th onclick="sortTable('score_taste')">맛(50) ↕</th>
             <th onclick="sortTable('score_price')">값(30) ↕</th>
@@ -2873,7 +2959,7 @@
 
     const tbody = document.getElementById('tableBody');
     if (sorted.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="9" style="text-align:center; padding:36px 16px; color:var(--text-muted); font-size:13.5px;">🔍 지정한 조건에 일치하는 원두가 없습니다. 필터 범위를 조정해 보세요.</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:36px 16px; color:var(--text-muted); font-size:13.5px;">🔍 지정한 조건에 일치하는 원두가 없습니다. 필터 범위를 조정해 보세요.</td></tr>`;
     } else {
       tbody.innerHTML = sorted.map(c => `
         <tr onclick="openDetailModalById('${c.id}')">
@@ -2885,10 +2971,10 @@
           </td>
           <td>
             <strong style="word-break:keep-all;" class="${c.is_today_new ? 'today-new-coffee-title' : ''}">${c.title}</strong>${c.is_today_new ? '<span class="badge-new-date">' + (c.release_date || '1008') + '</span>' : ''}
-            <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">✨ ${formatNotesHighlight(c.tasting_notes)}</div>
           </td>
           <td>${c.country}</td>
           <td><span style="font-size:11.5px; font-weight:600; ${currentProcessFilter !== 'all' ? 'color:var(--accent-blue); font-weight:800;' : ''}">${c.process}</span></td>
+          <td class="analytics-notes-cell" title="한국어 번역: ${getKoreanNotesTranslation(c.tasting_notes)}" style="font-size:11.5px; color:var(--text-secondary); cursor:help; max-width:260px;">✨ ${formatNotesHighlight(c.tasting_notes)}</td>
           <td style="font-family:monospace; ${hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}">${c.price_100g_aed} AED</td>
           <td style="font-family:monospace; color:var(--accent-blue); ${hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}">${c.score_taste}</td>
           <td style="font-family:monospace; color:var(--accent-green); ${hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}">${c.score_price}</td>
@@ -2957,7 +3043,9 @@
     if (selectedPresetNotes.size > 0) {
       const modeText = noteMatchMode.toUpperCase();
       selectedPresetNotes.forEach(note => {
-        tags.push({ key: 'preset_note_' + note, text: `🍒 컵노트(${modeText}): ${note}` });
+        const trans = getKoreanNotesTranslation(note);
+        const disp = trans ? `${note.charAt(0).toUpperCase() + note.slice(1)} (${trans})` : note;
+        tags.push({ key: 'preset_note_' + note, text: `🍒 컵노트(${modeText}): ${disp}` });
       });
     }
 
@@ -3048,7 +3136,10 @@
   function removeSinglePresetNote(noteName) {
     selectedPresetNotes.delete(noteName);
     document.querySelectorAll('#notePresetRow .tfp-preset-btn').forEach(b => {
-      if (b.getAttribute('data-note') === noteName || b.textContent.trim() === noteName) {
+      const d = (b.getAttribute('data-note') || '').toLowerCase();
+      const t = b.textContent.trim().toLowerCase();
+      const n = noteName.toLowerCase();
+      if (d === n || t === n) {
         b.classList.remove('active');
       }
     });
@@ -3363,8 +3454,8 @@
     document.getElementById('modalPrice100g').textContent = `${c.price_100g_aed} AED (~${c.price_100g_krw.toLocaleString()}원)`;
 
     const notesHtml = c.notes_list.length > 0 
-      ? c.notes_list.map(n => `<span class="note-tag">${n}</span>`).join('')
-      : `<span style="color:var(--text-muted); font-size:12px;">${c.tasting_notes}</span>`;
+      ? c.notes_list.map(n => `<span class="note-tag" title="한국어 번역: ${getKoreanNotesTranslation(n)}" style="cursor:help;">${n}</span>`).join('')
+      : `<span style="color:var(--text-muted); font-size:12px; cursor:help;" title="한국어 번역: ${getKoreanNotesTranslation(c.tasting_notes)}">${c.tasting_notes}</span>`;
     document.getElementById('modalNotesList').innerHTML = notesHtml;
 
     document.getElementById('modalKoreaStatus').textContent = c.korea_status;
@@ -3546,5 +3637,238 @@
   });
 </script>
 
+<script>
+
+  // Universal Coffee Cup Notes Translation Dictionary (English -> Korean)
+  const COFFEE_NOTES_TRANSLATION_MAP = {
+  "peach": "복숭아",
+  "white peach": "백도 복숭아",
+  "yellow peach": "황도 복숭아",
+  "peach candy": "복숭아 캔디",
+  "peach cobbler": "피치 코블러",
+  "peach ice tea": "복숭아 아이스티",
+  "peach iced tea": "복숭아 아이스티",
+  "peach tea": "복숭아 티",
+  "apricot": "살구",
+  "nectarine": "천도복숭아",
+  "plum": "자두",
+  "plums": "자두",
+  "yellow plum": "노란 자두",
+  "red plum": "붉은 자두",
+  "black plum": "검은 자두",
+  "dark plum": "다크 자두",
+  "dark plums": "다크 자두",
+  "prune": "말린 자두(프룬)",
+  "cherry": "체리",
+  "dark cherry": "다크 체리",
+  "amaretto cherry": "아마레또 체리",
+  "cherry candy": "체리 캔디",
+  "cherry blossom": "벚꽃",
+  "stone fruit": "핵과류(복숭아/자두/살구)",
+  "stone fruits": "핵과류(복숭아/자두/살구)",
+  "bergamot": "베르가못",
+  "orange": "오렌지",
+  "oranges": "오렌지",
+  "blood orange": "블러드 오렌지",
+  "dried oranges": "말린 오렌지",
+  "orange blossom": "오렌지꽃",
+  "orange candy": "오렌지 캔디",
+  "orange soda": "오렌지 소다",
+  "mandarin": "만다린(감귤)",
+  "mandarine": "만다린(감귤)",
+  "mandarin oranges": "만다린 오렌지",
+  "mandarine orange": "만다린 오렌지",
+  "clementine": "클레멘타인(감귤)",
+  "tangerine": "탄제린(귤)",
+  "kumquat": "금귤(낑깡)",
+  "yuzu": "유자",
+  "lemon": "레몬",
+  "sweet lemon": "달콤한 레몬",
+  "meyer lemon": "마이어 레몬",
+  "lemon grass": "레몬그라스",
+  "lemongrass": "레몬그라스",
+  "lemon tea": "레몬 티",
+  "lemon verbena": "레몬 버베나",
+  "lime": "라임",
+  "grapefruit": "자몽",
+  "pomelo": "포멜로",
+  "citrus": "시트러스",
+  "citrus fruit": "감귤류 과일",
+  "candied citrus": "설탕에 절인 시트러스",
+  "honeyed citrus": "꿀에 절인 시트러스",
+  "jasmine": "자스민",
+  "jasmine blossom": "자스민 꽃",
+  "jasmine tea": "자스민 티",
+  "floral": "플로럴(꽃향)",
+  "floral honey": "야생화 꿀",
+  "foral honey": "야생화 꿀",
+  "floral tea": "꽃차",
+  "fruit florals": "과일 꽃향",
+  "complex florals": "복합적인 꽃향",
+  "dark floral": "짙은 꽃향",
+  "coffee blossom": "커피꽃",
+  "coffee flower": "커피꽃",
+  "white floral": "화이트 플로럴",
+  "white florals": "화이트 플로럴",
+  "white flower": "하얀 꽃",
+  "white flowers": "하얀 꽃",
+  "rose": "장미",
+  "rose water": "로즈워터",
+  "rosewater": "로즈워터",
+  "lavender": "라벤더",
+  "chamomile": "카모마일",
+  "chamomile tea": "카모마일 티",
+  "hibiscus": "히비스커스",
+  "honeysuckle": "인동초(금은화)",
+  "botanical": "보태니컬(허브향)",
+  "berries": "베리류",
+  "berry gums": "베리 젤리/껌",
+  "strawberry": "딸기",
+  "wild strawberry": "산딸기",
+  "fresh strawberry": "신선한 딸기",
+  "blueberry": "블루베리",
+  "raspberry": "라즈베리",
+  "raspberry candy": "라즈베리 캔디",
+  "blackberry": "블랙베리",
+  "blackberries": "블랙베리",
+  "cranberry": "크랜베리",
+  "blackcurrant": "블랙커런트",
+  "grape": "포도",
+  "grapes": "포도",
+  "white grape": "청포도/백포도",
+  "white grapes": "청포도/백포도",
+  "red grape": "적포도",
+  "red grapes": "적포도",
+  "purple grapes": "보라색 포도",
+  "raisin": "건포도",
+  "raisins": "건포도",
+  "golden raisins": "골든 건포도",
+  "wine": "와인",
+  "red wine": "레드 와인",
+  "sparkling white wine": "스파클링 화이트 와인",
+  "champagne": "샴페인",
+  "champagne acidity": "샴페인 산미",
+  "papaya": "파파야",
+  "mango": "망고",
+  "dried mango": "말린 망고",
+  "sweet mango": "달콤한 망고",
+  "passion fruit": "패션후르츠",
+  "passionfruit": "패션후르츠",
+  "lychee": "리치",
+  "lychee candy": "리치 캔디",
+  "longan": "용안(롱간)",
+  "rambutan": "람부탄",
+  "mangosteen": "망고스틴",
+  "guava": "구아바",
+  "pineapple": "파인애플",
+  "cantaloupe": "칸탈로프 멜론",
+  "honeydew": "허니듀 멜론",
+  "honey dew": "허니듀 멜론",
+  "melon": "멜론",
+  "watermelon": "수박",
+  "fresh watermelon": "신선한 수박",
+  "kiwi": "키위",
+  "lanzones": "랑삿/란조네스",
+  "cotton fruit": "산톨(코튼프루츠)",
+  "starfruit": "스타프루츠",
+  "tropical fruit": "열대과일",
+  "tropical fruits": "열대과일",
+  "apple": "사과",
+  "green apple": "청사과",
+  "red apple": "붉은 사과",
+  "pear": "서양배",
+  "dried fig": "말린 무화과",
+  "honey": "꿀",
+  "sugarcane": "사탕수수",
+  "cane sugar": "사탕수수당",
+  "brown sugar": "흑당/황설탕",
+  "molasses": "당밀",
+  "muscovado": "머스코바도 흑당",
+  "caramel": "카라멜",
+  "caramel sweetness": "카라멜 단맛",
+  "toffee": "토피",
+  "maple syrup": "메이플 시럽",
+  "candy": "캔디",
+  "bubblegum": "풍선껌",
+  "caramelized dates": "카라멜라이즈 대추야자",
+  "caramelized coconut": "카라멜라이즈 코코넛",
+  "sweet crisp": "달콤하고 경쾌한 단맛",
+  "syrupy": "시럽 같은 질감",
+  "sugarry": "달콤한 설탕감",
+  "chocolate": "초콜릿",
+  "chocolates": "초콜릿",
+  "milk chocolate": "밀크 초콜릿",
+  "dark chocolate": "다크 초콜릿",
+  "bakers chocolate": "베이커스 다크 초콜릿",
+  "bounty chocolate": "바운티 코코넛 초콜릿",
+  "cacao": "카카오",
+  "hazelnut": "헤이즐넛",
+  "hazelnuts": "헤이즐넛",
+  "toasted hazelnut": "구운 헤이즐넛",
+  "almonds": "아몬드",
+  "pecan nuts": "피칸 견과류",
+  "coconut": "코코넛",
+  "toasted coconut": "구운 코코넛",
+  "vanilla": "바닐라",
+  "lotus biscuit": "로투스 비스킷",
+  "earl grey": "얼그레이",
+  "earlgrey": "얼그레이",
+  "white tea": "백차(White Tea)",
+  "green tea": "녹차",
+  "oolong tea": "우롱차",
+  "milky oolong tea": "밀키 우롱티",
+  "matcha": "말차",
+  "ginger ale": "진저에일",
+  "sprite": "사이다/스프라이트",
+  "rum": "럼",
+  "ipa": "IPA 맥주 홉",
+  "sweet spices": "달콤한 향신료",
+  "brown spices": "브라운 스파이스",
+  "clove": "정향(클로브)",
+  "star anise": "팔각(스타아니스)",
+  "black liqourice": "감초(리코리스)",
+  "liquorice candy": "감초 캔디",
+  "tobbaco": "고급 시가/타바코"
+};
+
+  function getKoreanNotesTranslation(notesStr) {
+    if (!notesStr) return '';
+    const clean = notesStr.replace(/<[^>]*>/g, '').replace(/[\n\r]+/g, ', ');
+    const parts = clean.split(/[,|/•]/).map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return '';
+    const translated = parts.map(p => {
+      const key = p.toLowerCase().replace(/^[✨•\s]+/, '').replace(/[.\s]+$/, '').trim();
+      if (COFFEE_NOTES_TRANSLATION_MAP[key]) return COFFEE_NOTES_TRANSLATION_MAP[key];
+      for (const [en, kr] of Object.entries(COFFEE_NOTES_TRANSLATION_MAP)) {
+        if (key === en || key.startsWith(en + ' ') || key.endsWith(' ' + en)) {
+          return kr;
+        }
+      }
+      return p;
+    });
+    return translated.join(', ');
+  }
+
+  function initCupNotesTooltips() {
+    const selectors = [
+      '.cell-notes', '.notes-cell', '.table-notes-tag', '.notes-tag', 
+      '.note-tag', '.card-notes', '.m-card-notes', '.m-notes-box', 
+      '.m-po-notes', '.analytics-notes-cell', '.tag-note', '.m-note-pill'
+    ];
+    document.querySelectorAll(selectors.join(', ')).forEach(el => {
+      const currentTitle = el.getAttribute('title') || '';
+      if (!currentTitle.includes('한국어')) {
+        const text = el.textContent.replace(/^[✨•🌸\s]+/, '').trim();
+        const trans = getKoreanNotesTranslation(text);
+        if (trans) {
+          el.setAttribute('title', '한국어 번역: ' + trans);
+          el.style.cursor = 'help';
+        }
+      }
+    });
+  }
+  window.addEventListener('DOMContentLoaded', initCupNotesTooltips);
+
+</script>
 </body>
 </html>
