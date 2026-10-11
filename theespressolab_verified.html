@@ -294,36 +294,42 @@
     opacity: 0.5;
   }
 
-  /* PAGE HEADER */
-  header.doc-header {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: 0 1px 4px rgba(37, 41, 35, 0.04);
+  /* =========================================================================
+     B. EDITORIAL PAGE INTRODUCTION (MATCH ARCHERS)
+     ========================================================================= */
+  header:not(.header-nav) {
+    margin: 36px 0 32px 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
   }
+
   .title-sub {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--color-accent);
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: inline-block;
   }
-  h1.doc-title {
-    font-size: 24px;
-    font-weight: 800;
+
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     color: var(--color-text-primary);
-    font-family: 'Playfair Display', Georgia, serif;
-    margin-bottom: 10px;
-    line-height: 1.3;
+    margin-bottom: 12px;
   }
+
   .header-desc {
-    font-size: 13.5px;
-    line-height: 1.6;
+    font-size: 14.5px;
     color: var(--color-text-secondary);
-    margin-bottom: 16px;
+    max-width: 1140px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    word-break: keep-all;
   }
   .badge-row {
     display: flex;
@@ -372,7 +378,59 @@
     box-shadow: 0 1px 3px rgba(37, 41, 35, 0.03);
   }
 
+  
   .hl-title {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    letter-spacing: -0.01em;
+  }
+
+  .hl-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .hl-score-badge {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hl-score-sub {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-left: 2px;
+  }
+
+  .btn-rec-detail {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    color: var(--color-accent);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 2px 0;
+    margin-top: 2px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  .btn-rec-detail:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .hl-title-old {
     font-size: 15.5px;
     font-weight: 700;
     color: var(--color-text-primary);
@@ -1077,10 +1135,10 @@
     </div>
   </header>
 
-  <!-- Page Header -->
-  <header class="doc-header">
+  <!-- Page Header (Identical format to Archers) -->
+  <header>
     <div class="title-sub">Specialty Coffee Intelligence &amp; Buying Guide</div>
-    <h1 class="doc-title">UAE 에스프레소 커피랩 (The Espresso Lab)</h1>
+    <h1>UAE 에스프레소 커피랩 (The Espresso Lab)</h1>
     <div class="header-meta-bar">
       <span class="meta-item"><strong>환율 기준:</strong> 1 AED ≈ 380 KRW</span>
       <span class="meta-sep">•</span>
@@ -1095,7 +1153,7 @@
     <!-- User Taste Top 3 -->
     <div class="hl-box user">
       <div class="hl-title">
-        <span>사용자 취향 맞춤 Best 3</span> <span class="hl-subtitle" style="font-size:12px; font-weight:normal; color:var(--color-text-secondary); margin-left:6px;">워시드 · 티라이크 · 라이트로스트</span>
+        <span>사용자 취향 맞춤 Best 3</span><span class="hl-subtitle">워시드 · 티라이크 · 라이트로스트</span>
       </div>
       <div class="hl-list">
         <!-- 1위: Auromar Firestone -->
@@ -1104,11 +1162,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">01 · 1위 | BOP 1위 Washed Anaerobic</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 88.2점 (맛 45.8/값 22.4/희 20.0)</div>
+              <div class="hl-score-badge">88.2점<span class="hl-score-sub">(맛 45.8 / 값 22.4 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/auromar-firestone-7" target="_blank">Auromar Firestone ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 2022 Best of Panama(BOP) 1위 챔피언 Firestone 랏 &amp; 국내 시세 35% 할인 (175.0 AED / 약 66,500원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('auromar-firestone-7')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 2022 Best of Panama(BOP) 1위 챔피언 Firestone 랏 &amp; 국내 시세 35% 할인 (175.0 AED / 약 66,500원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('auromar-firestone-7')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
 
@@ -1118,11 +1176,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">02 · 2위 | 가성비 종결 데일리</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 90.7점 (맛 42.2/값 28.5/희 20.0)</div>
+              <div class="hl-score-badge">90.7점<span class="hl-score-sub">(맛 42.2 / 값 28.5 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/bombe-washed-7" target="_blank">Bombe Washed ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 2021 에티오피아 COE 1위 타미루 타데세 &amp; 100g 1.5만원대 국내 반값 종결 (80.0 AED / 약 30,400원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('bombe-washed-7')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 2021 에티오피아 COE 1위 타미루 타데세 &amp; 100g 1.5만원대 국내 반값 종결 (80.0 AED / 약 30,400원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('bombe-washed-7')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
 
@@ -1132,11 +1190,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">03 · 3위 | 희귀 품종 극가성비 파나마</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 86.7점 (맛 39.7/값 27.0/희 20.0)</div>
+              <div class="hl-score-badge">86.7점<span class="hl-score-sub">(맛 39.7 / 값 27.0 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/sl28-santa-isabel-3" target="_blank">SL28 Santa Isabel ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 파나마 보케테 테루아의 희귀 SL28 워시드 &amp; 국내 미수입 2.8만원 극가성비 (75.5 AED / 약 28,690원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('sl28-santa-isabel-3')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 파나마 보케테 테루아의 희귀 SL28 워시드 &amp; 국내 미수입 2.8만원 극가성비 (75.5 AED / 약 28,690원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('sl28-santa-isabel-3')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
       </div>
@@ -1145,7 +1203,7 @@
     <!-- Expert Special Top 3 -->
     <div class="hl-box expert">
       <div class="hl-title">
-        <span>전문가 추천 Best 3</span> <span class="hl-subtitle" style="font-size:12px; font-weight:normal; color:var(--color-text-secondary); margin-left:6px;">로스터리 추천 &amp; 이색 테루아</span>
+        <span>전문가 추천 Best 3</span><span class="hl-subtitle">로스터리 추천 &amp; 이색 테루아</span>
       </div>
       <div class="hl-list">
         <!-- Expert 1: El Rubi Parainema -->
@@ -1154,11 +1212,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">01 · 1위 | 화이트 티 텍스처</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 86.3점 (맛 38.5/값 27.8/희 20.0)</div>
+              <div class="hl-score-badge">86.3점<span class="hl-score-sub">(맛 38.5 / 값 27.8 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/el-rubi-parainema-anaerobic-washed-lot-a" target="_blank">El Rubi Parainema Anaerobic Washed Lot A ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 희귀 품종 파라이네마의 화이트 티·리치 텍스처 &amp; 100g 2.2만원 가성비 (60.0 AED / 약 22,800원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('el-rubi-parainema-anaerobic-washed-lot-a')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 희귀 품종 파라이네마의 화이트 티·리치 텍스처 &amp; 100g 2.2만원 가성비 (60.0 AED / 약 22,800원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('el-rubi-parainema-anaerobic-washed-lot-a')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
 
@@ -1168,11 +1226,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">02 · 2위 | 케냐 정통 더블워시드</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 85.6점 (맛 37.5/값 28.1/희 20.0)</div>
+              <div class="hl-score-badge">85.6점<span class="hl-score-sub">(맛 37.5 / 값 28.1 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/kamavindi-giakanja-ab-washed-7" target="_blank">Kamavindi Giakanja AB Washed ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 케냐 니에리 명산지의 정통 더블 워시드 &amp; 블랙커런트와 히비스커스 티 (55.0 AED / 약 20,900원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('kamavindi-giakanja-ab-washed-7')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 케냐 니에리 명산지의 정통 더블 워시드 &amp; 블랙커런트와 히비스커스 티 (55.0 AED / 약 20,900원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('kamavindi-giakanja-ab-washed-7')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
 
@@ -1182,11 +1240,11 @@
           <div class="hl-item-left">
             <div style="display:flex; justify-content:space-between; align-items:baseline;">
               <div class="hl-item-rank">03 · 3위 | 로스터리 시그니처</div>
-              <div style="font-size:11px; font-weight:800; color:var(--color-accent); font-family:monospace;">⭐ 85.5점 (맛 42.0/값 23.5/희 20.0)</div>
+              <div class="hl-score-badge">85.5점<span class="hl-score-sub">(맛 42.0 / 값 23.5 / 희 20.0)</span></div>
             </div>
             <div class="hl-item-name"><a href="https://theespressolab.com/products-details/agricola-geisha-oxidized-natural-27" target="_blank">Agricola Geisha Natural ↗</a></div>
-            <div class="hl-item-desc"><strong>추천 핵심:</strong> 에소랩 시그니처 아그리콜라 게이샤 &amp; 베르가못과 잘 익은 복숭아 과즙 (145.0 AED / 약 55,100원)</div>
-            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('agricola-geisha-oxidized-natural-27')">상세 설명 ↗</button>
+            <div class="hl-item-desc"><strong>추천 이유:</strong> 에소랩 시그니처 아그리콜라 게이샤 &amp; 베르가못과 잘 익은 복숭아 과즙 (145.0 AED / 약 55,100원)</div>
+            <button type="button" class="btn-rec-detail" onclick="openEsolabModalByHandle('agricola-geisha-oxidized-natural-27')">상세 테이스팅 노트 ↗</button>
           </div>
         </div>
       </div>
@@ -1284,7 +1342,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Oxidized Natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1500 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 자스민, 오렌지, 꿀" style="cursor:help;">Jasmine,<br>Oranges,<br>Honey</td>
+  <td class="notes-cell" title="자스민, 오렌지, 꿀" style="cursor:help;">Jasmine,<br>Oranges,<br>Honey</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">325.0 AED</div>
@@ -1327,7 +1385,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Washed Anaerobic</div></td>
   <td class="text-sm font-mono col-hide-summary">1,770 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 자스민, 용안(롱간), 유자" style="cursor:help;">Jasmine,<br>Longan,<br>Yuzu</td>
+  <td class="notes-cell" title="자스민, 용안(롱간), 유자" style="cursor:help;">Jasmine,<br>Longan,<br>Yuzu</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">175.0 AED</div>
@@ -1372,7 +1430,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
   <td class="text-sm font-mono col-hide-summary">2200 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 사과, 흑당/황설탕" style="cursor:help;">floral,<br>Apple,<br>Brown Sugar</td>
+  <td class="notes-cell" title="플로럴(꽃향), 사과, 흑당/황설탕" style="cursor:help;">floral,<br>Apple,<br>Brown Sugar</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -1417,7 +1475,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,200 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 코코넛, 라임, 아몬드, 초콜릿" style="cursor:help;">Coconut,<br>Lime,<br>Almonds,<br>Chocolates</td>
+  <td class="notes-cell" title="코코넛, 라임, 아몬드, 초콜릿" style="cursor:help;">Coconut,<br>Lime,<br>Almonds,<br>Chocolates</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -1462,7 +1520,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,200 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 코코넛, 라임, 아몬드, 초콜릿" style="cursor:help;">Coconut,<br>Lime,<br>Almonds,<br>Chocolates</td>
+  <td class="notes-cell" title="코코넛, 라임, 아몬드, 초콜릿" style="cursor:help;">Coconut,<br>Lime,<br>Almonds,<br>Chocolates</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -1507,7 +1565,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">honey</div></td>
   <td class="text-sm font-mono col-hide-summary">1648 – 1852 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 망고, 오렌지, 핵과류(복숭아/자두/살구), 플로럴(꽃향)" style="cursor:help;">Mango,<br>orange,<br>Stone Fruits,<br>floral</td>
+  <td class="notes-cell" title="망고, 오렌지, 핵과류(복숭아/자두/살구), 플로럴(꽃향)" style="cursor:help;">Mango,<br>orange,<br>Stone Fruits,<br>floral</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">145.01 AED</div>
@@ -1552,7 +1610,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1571 - 1852 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 라벤더, 핵과류(복숭아/자두/살구), 오렌지" style="cursor:help;">Lavender,<br>Stone Fruits,<br>orange</td>
+  <td class="notes-cell" title="라벤더, 핵과류(복숭아/자두/살구), 오렌지" style="cursor:help;">Lavender,<br>Stone Fruits,<br>orange</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">215.0 AED</div>
@@ -1597,7 +1655,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 복숭아, 파인애플, 오렌지" style="cursor:help;">Peach,<br>Pineapple,<br>Oranges</td>
+  <td class="notes-cell" title="복숭아, 파인애플, 오렌지" style="cursor:help;">Peach,<br>Pineapple,<br>Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">325.0 AED</div>
@@ -1640,7 +1698,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 파인애플, 오렌지" style="cursor:help;">floral,<br>Pineapple,<br>Oranges</td>
+  <td class="notes-cell" title="플로럴(꽃향), 파인애플, 오렌지" style="cursor:help;">floral,<br>Pineapple,<br>Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">305.0 AED</div>
@@ -1683,7 +1741,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Co-Fermented Washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 구운 코코넛, 밀크 초콜릿, 바닐라" style="cursor:help;">Toasted Coconut,<br>Milk Chocolate,<br>Vanilla</td>
+  <td class="notes-cell" title="구운 코코넛, 밀크 초콜릿, 바닐라" style="cursor:help;">Toasted Coconut,<br>Milk Chocolate,<br>Vanilla</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">105.0 AED</div>
@@ -1726,7 +1784,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Co-Fermented Washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 패션후르츠, 오렌지 소다, 열대과일" style="cursor:help;">Passion Fruit,<br>Orange Soda,<br>Tropical fruit</td>
+  <td class="notes-cell" title="패션후르츠, 오렌지 소다, 열대과일" style="cursor:help;">Passion Fruit,<br>Orange Soda,<br>Tropical fruit</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">105.0 AED</div>
@@ -1769,7 +1827,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic Natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1150 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 붉은 자두, 밀크 초콜릿, 감귤류 과일" style="cursor:help;">Red Plum,<br>Milk Chocolate,<br>Citrus Fruit</td>
+  <td class="notes-cell" title="붉은 자두, 밀크 초콜릿, 감귤류 과일" style="cursor:help;">Red Plum,<br>Milk Chocolate,<br>Citrus Fruit</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">130.0 AED</div>
@@ -1814,7 +1872,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1500 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 핵과류(복숭아/자두/살구), 오렌지" style="cursor:help;">floral,<br>Stone Fruits,<br>Oranges</td>
+  <td class="notes-cell" title="플로럴(꽃향), 핵과류(복숭아/자두/살구), 오렌지" style="cursor:help;">floral,<br>Stone Fruits,<br>Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">85.0 AED</div>
@@ -1857,7 +1915,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1420 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 꿀, 크랜베리, 사과" style="cursor:help;">Honey,<br>Cranberry,<br>Apple</td>
+  <td class="notes-cell" title="꿀, 크랜베리, 사과" style="cursor:help;">Honey,<br>Cranberry,<br>Apple</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">60.0 AED</div>
@@ -1900,7 +1958,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1420 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 꿀, 사과" style="cursor:help;">floral,<br>Honey,<br>Apple</td>
+  <td class="notes-cell" title="플로럴(꽃향), 꿀, 사과" style="cursor:help;">floral,<br>Honey,<br>Apple</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">60.0 AED</div>
@@ -1943,7 +2001,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural ASD</div></td>
   <td class="text-sm font-mono col-hide-summary">1780 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 당밀, 초콜릿" style="cursor:help;">floral,<br>Molasses,<br>Chocolate</td>
+  <td class="notes-cell" title="플로럴(꽃향), 당밀, 초콜릿" style="cursor:help;">floral,<br>Molasses,<br>Chocolate</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">179.99 AED</div>
@@ -1986,7 +2044,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural ASD</div></td>
   <td class="text-sm font-mono col-hide-summary">1780 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 붉은 사과, 사탕수수" style="cursor:help;">floral,<br>Red Apple,<br>Sugarcane</td>
+  <td class="notes-cell" title="플로럴(꽃향), 붉은 사과, 사탕수수" style="cursor:help;">floral,<br>Red Apple,<br>Sugarcane</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">240.0 AED</div>
@@ -2029,7 +2087,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1,600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 붉은 사과, 꿀, 플로럴(꽃향)" style="cursor:help;">Red Apple,<br>Honey,<br>floral</td>
+  <td class="notes-cell" title="붉은 사과, 꿀, 플로럴(꽃향)" style="cursor:help;">Red Apple,<br>Honey,<br>floral</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">110.0 AED</div>
@@ -2072,7 +2130,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Nitro Advanced Washed</div></td>
   <td class="text-sm font-mono col-hide-summary">Varies by lot masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 칸탈로프 멜론, 복숭아, 캔디" style="cursor:help;">Cantaloupe,<br>Peach,<br>Candy</td>
+  <td class="notes-cell" title="칸탈로프 멜론, 복숭아, 캔디" style="cursor:help;">Cantaloupe,<br>Peach,<br>Candy</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">65.0 AED</div>
@@ -2115,7 +2173,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">2,000 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 복숭아, 자스민, 꿀" style="cursor:help;">Peach,<br>Jasmine,<br>Honey</td>
+  <td class="notes-cell" title="복숭아, 자스민, 꿀" style="cursor:help;">Peach,<br>Jasmine,<br>Honey</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">740.0 AED</div>
@@ -2160,7 +2218,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">2,050 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 베리류, 블랙커런트, 꿀" style="cursor:help;">berries,<br>Blackcurrant,<br>Honey</td>
+  <td class="notes-cell" title="베리류, 블랙커런트, 꿀" style="cursor:help;">berries,<br>Blackcurrant,<br>Honey</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -2203,7 +2261,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">2,050 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 베리류, 블랙커런트, 꿀" style="cursor:help;">berries,<br>Blackcurrant,<br>Honey</td>
+  <td class="notes-cell" title="베리류, 블랙커런트, 꿀" style="cursor:help;">berries,<br>Blackcurrant,<br>Honey</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -2246,7 +2304,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
   <td class="text-sm font-mono col-hide-summary">2,170 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 체리, 복숭아, 베리 젤리/껌, 만다린 오렌지" style="cursor:help;">Cherry,<br>Peach,<br>Berry Gums,<br>Mandarin Oranges</td>
+  <td class="notes-cell" title="체리, 복숭아, 베리 젤리/껌, 만다린 오렌지" style="cursor:help;">Cherry,<br>Peach,<br>Berry Gums,<br>Mandarin Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">100.0 AED</div>
@@ -2289,7 +2347,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
   <td class="text-sm font-mono col-hide-summary">2,170 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 체리, 복숭아, 베리 젤리/껌, 만다린 오렌지" style="cursor:help;">Cherry,<br>Peach,<br>Berry Gums,<br>Mandarin Oranges</td>
+  <td class="notes-cell" title="체리, 복숭아, 베리 젤리/껌, 만다린 오렌지" style="cursor:help;">Cherry,<br>Peach,<br>Berry Gums,<br>Mandarin Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">100.0 AED</div>
@@ -2332,7 +2390,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1500 - 1700 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 베리류, 적포도, 카라멜" style="cursor:help;">berries,<br>Red Grape,<br>Caramel</td>
+  <td class="notes-cell" title="베리류, 적포도, 카라멜" style="cursor:help;">berries,<br>Red Grape,<br>Caramel</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">99.99 AED</div>
@@ -2375,7 +2433,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1750 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 크랜베리, 청사과, 카라멜" style="cursor:help;">Cranberry,<br>Green Apple,<br>Caramel</td>
+  <td class="notes-cell" title="크랜베리, 청사과, 카라멜" style="cursor:help;">Cranberry,<br>Green Apple,<br>Caramel</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">99.99 AED</div>
@@ -2420,7 +2478,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,800 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 카모마일, 리치, 핵과류(복숭아/자두/살구)" style="cursor:help;">Chamomile,<br>Lychee,<br>Stone Fruit</td>
+  <td class="notes-cell" title="카모마일, 리치, 핵과류(복숭아/자두/살구)" style="cursor:help;">Chamomile,<br>Lychee,<br>Stone Fruit</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">60.0 AED</div>
@@ -2463,7 +2521,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,780–2,100 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 포도, 포멜로, 브라운 스파이스" style="cursor:help;">Grape,<br>Pomelo,<br>Brown Spices</td>
+  <td class="notes-cell" title="포도, 포멜로, 브라운 스파이스" style="cursor:help;">Grape,<br>Pomelo,<br>Brown Spices</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">235.0 AED</div>
@@ -2506,7 +2564,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,780–2,100 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 포도, 포멜로, 브라운 스파이스" style="cursor:help;">Grape,<br>Pomelo,<br>Brown Spices</td>
+  <td class="notes-cell" title="포도, 포멜로, 브라운 스파이스" style="cursor:help;">Grape,<br>Pomelo,<br>Brown Spices</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">235.0 AED</div>
@@ -2549,7 +2607,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Anaerobic Natural</div></td>
   <td class="text-sm font-mono col-hide-summary">Geisha masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 열대과일, 건포도, 라벤더, 블러드 오렌지, 시럽 같은 질감, 달콤한 설탕감" style="cursor:help;">Tropical Fruits,<br>Raisin,<br>Lavender,<br>Blood Orange,<br>syrupy,<br>sugarry</td>
+  <td class="notes-cell" title="열대과일, 건포도, 라벤더, 블러드 오렌지, 시럽 같은 질감, 달콤한 설탕감" style="cursor:help;">Tropical Fruits,<br>Raisin,<br>Lavender,<br>Blood Orange,<br>syrupy,<br>sugarry</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">320.0 AED</div>
@@ -2594,7 +2652,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1900-1950 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 인동초(금은화), 감귤류 과일, 복숭아" style="cursor:help;">Honeysuckle,<br>Citrus Fruit,<br>Peach</td>
+  <td class="notes-cell" title="인동초(금은화), 감귤류 과일, 복숭아" style="cursor:help;">Honeysuckle,<br>Citrus Fruit,<br>Peach</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">345.0 AED</div>
@@ -2639,7 +2697,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Waterfall</div></td>
   <td class="text-sm font-mono col-hide-summary">1,600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 인동초(금은화), 살구, 베르가못" style="cursor:help;">Honeysuckle,<br>Apricot,<br>Bergamot</td>
+  <td class="notes-cell" title="인동초(금은화), 살구, 베르가못" style="cursor:help;">Honeysuckle,<br>Apricot,<br>Bergamot</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">155.0 AED</div>
@@ -2682,7 +2740,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 장미, 핵과류(복숭아/자두/살구), 클레멘타인(감귤)" style="cursor:help;">Rose,<br>Stone Fruit,<br>Clementine</td>
+  <td class="notes-cell" title="장미, 핵과류(복숭아/자두/살구), 클레멘타인(감귤)" style="cursor:help;">Rose,<br>Stone Fruit,<br>Clementine</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">115.0 AED</div>
@@ -2725,7 +2783,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,750 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 용안(롱간), 커피꽃, 꿀" style="cursor:help;">Longan,<br>Coffee Blossom,<br>Honey</td>
+  <td class="notes-cell" title="용안(롱간), 커피꽃, 꿀" style="cursor:help;">Longan,<br>Coffee Blossom,<br>Honey</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">725.0 AED</div>
@@ -2770,7 +2828,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1,750 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 자스민, 복숭아, 오렌지" style="cursor:help;">Jasmine,<br>Peach,<br>Oranges</td>
+  <td class="notes-cell" title="자스민, 복숭아, 오렌지" style="cursor:help;">Jasmine,<br>Peach,<br>Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">725.0 AED</div>
@@ -2815,7 +2873,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1500 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 카모마일, 히비스커스, 리치, 천도복숭아" style="cursor:help;">Chamomile,<br>Hibiscus,<br>Lychee,<br>Nectarine</td>
+  <td class="notes-cell" title="카모마일, 히비스커스, 리치, 천도복숭아" style="cursor:help;">Chamomile,<br>Hibiscus,<br>Lychee,<br>Nectarine</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">275.0 AED</div>
@@ -2858,7 +2916,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,800 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 장미, 리치, 복숭아" style="cursor:help;">Rose,<br>Lychee,<br>Peach</td>
+  <td class="notes-cell" title="장미, 리치, 복숭아" style="cursor:help;">Rose,<br>Lychee,<br>Peach</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">360.0 AED</div>
@@ -2901,7 +2959,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,850 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 리치, 커피꽃, 핵과류(복숭아/자두/살구)" style="cursor:help;">Lychee,<br>Coffee Blossom,<br>Stone Fruits</td>
+  <td class="notes-cell" title="리치, 커피꽃, 핵과류(복숭아/자두/살구)" style="cursor:help;">Lychee,<br>Coffee Blossom,<br>Stone Fruits</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">515.0 AED</div>
@@ -2944,7 +3002,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,850 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 리치, 커피꽃, 핵과류(복숭아/자두/살구)" style="cursor:help;">Lychee,<br>Coffee Blossom,<br>Stone Fruits</td>
+  <td class="notes-cell" title="리치, 커피꽃, 핵과류(복숭아/자두/살구)" style="cursor:help;">Lychee,<br>Coffee Blossom,<br>Stone Fruits</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">515.0 AED</div>
@@ -2987,7 +3045,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,850 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 파인애플, 인동초(금은화), 붉은 자두" style="cursor:help;">Pineapple,<br>Honeysuckle,<br>Red Plum</td>
+  <td class="notes-cell" title="파인애플, 인동초(금은화), 붉은 자두" style="cursor:help;">Pineapple,<br>Honeysuckle,<br>Red Plum</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">480.0 AED</div>
@@ -3030,7 +3088,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">84 H</div></td>
   <td class="text-sm font-mono col-hide-summary">1,600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 파인애플, 복숭아, 베리류" style="cursor:help;">Pineapple,<br>Peach,<br>berries</td>
+  <td class="notes-cell" title="파인애플, 복숭아, 베리류" style="cursor:help;">Pineapple,<br>Peach,<br>berries</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">110.0 AED</div>
@@ -3073,7 +3131,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 핵과류(복숭아/자두/살구), 흑당/황설탕, 베리류" style="cursor:help;">Stone Fruits,<br>Brown Sugar,<br>berries</td>
+  <td class="notes-cell" title="핵과류(복숭아/자두/살구), 흑당/황설탕, 베리류" style="cursor:help;">Stone Fruits,<br>Brown Sugar,<br>berries</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -3116,7 +3174,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1500 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 포도, 건포도, 흑당/황설탕" style="cursor:help;">Grapes,<br>Raisins,<br>Brown Sugar</td>
+  <td class="notes-cell" title="포도, 건포도, 흑당/황설탕" style="cursor:help;">Grapes,<br>Raisins,<br>Brown Sugar</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">60.0 AED</div>
@@ -3159,7 +3217,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,300 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 초콜릿, 구운 헤이즐넛, 고급 시가/타바코" style="cursor:help;">Chocolate,<br>Toasted Hazelnut,<br>Tobbaco</td>
+  <td class="notes-cell" title="초콜릿, 구운 헤이즐넛, 고급 시가/타바코" style="cursor:help;">Chocolate,<br>Toasted Hazelnut,<br>Tobbaco</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">95.0 AED</div>
@@ -3202,7 +3260,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Fermented</div></td>
   <td class="text-sm font-mono col-hide-summary">1,900 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 샴페인, 자두, 청포도/백포도" style="cursor:help;">Champagne,<br>Plum,<br>White Grape</td>
+  <td class="notes-cell" title="샴페인, 자두, 청포도/백포도" style="cursor:help;">Champagne,<br>Plum,<br>White Grape</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">1110.0 AED</div>
@@ -3247,7 +3305,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1400 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 복숭아, 라즈베리" style="cursor:help;">floral,<br>Peach,<br>Raspberry</td>
+  <td class="notes-cell" title="플로럴(꽃향), 복숭아, 라즈베리" style="cursor:help;">floral,<br>Peach,<br>Raspberry</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">220.0 AED</div>
@@ -3290,7 +3348,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">River Flow Natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 커피꽃, 복숭아, 만다린 오렌지" style="cursor:help;">Coffee Blossom,<br>Peach,<br>Mandarin Oranges</td>
+  <td class="notes-cell" title="커피꽃, 복숭아, 만다린 오렌지" style="cursor:help;">Coffee Blossom,<br>Peach,<br>Mandarin Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">125.0 AED</div>
@@ -3333,7 +3391,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Oxidation Natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1600 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 핵과류(복숭아/자두/살구), 꿀, 말린 오렌지" style="cursor:help;">Stone Fruit,<br>Honey,<br>Dried Oranges</td>
+  <td class="notes-cell" title="핵과류(복숭아/자두/살구), 꿀, 말린 오렌지" style="cursor:help;">Stone Fruit,<br>Honey,<br>Dried Oranges</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">70.0 AED</div>
@@ -3376,7 +3434,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">1,200 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 핵과류(복숭아/자두/살구), 밀크 초콜릿, 헤이즐넛" style="cursor:help;">Stone Fruits,<br>Milk Chocolate,<br>Hazelnuts</td>
+  <td class="notes-cell" title="핵과류(복숭아/자두/살구), 밀크 초콜릿, 헤이즐넛" style="cursor:help;">Stone Fruits,<br>Milk Chocolate,<br>Hazelnuts</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">100.0 AED</div>
@@ -3419,7 +3477,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Dark Room</div></td>
   <td class="text-sm font-mono col-hide-summary">1400 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 크랜베리, 핵과류(복숭아/자두/살구)" style="cursor:help;">floral,<br>Cranberry,<br>Stone Fruits</td>
+  <td class="notes-cell" title="플로럴(꽃향), 크랜베리, 핵과류(복숭아/자두/살구)" style="cursor:help;">floral,<br>Cranberry,<br>Stone Fruits</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">255.0 AED</div>
@@ -3462,7 +3520,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">washed</div></td>
   <td class="text-sm font-mono col-hide-summary">1,650 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 블랙커런트, 붉은 자두, 꿀, 베르가못" style="cursor:help;">Blackcurrant,<br>Red Plum,<br>Honey,<br>Bergamot</td>
+  <td class="notes-cell" title="블랙커런트, 붉은 자두, 꿀, 베르가못" style="cursor:help;">Blackcurrant,<br>Red Plum,<br>Honey,<br>Bergamot</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">75.5 AED</div>
@@ -3505,7 +3563,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
   <td class="text-sm font-mono col-hide-summary">2200-2500 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 라벤더, 열대과일, 라즈베리" style="cursor:help;">Lavender,<br>Tropical fruit,<br>Raspberry</td>
+  <td class="notes-cell" title="라벤더, 열대과일, 라즈베리" style="cursor:help;">Lavender,<br>Tropical fruit,<br>Raspberry</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">145.01 AED</div>
@@ -3548,7 +3606,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">Natural Anaerobic</div></td>
   <td class="text-sm font-mono col-hide-summary">2230-2350 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 망고, 오렌지, 플로럴(꽃향)" style="cursor:help;">Mango,<br>Oranges,<br>floral</td>
+  <td class="notes-cell" title="망고, 오렌지, 플로럴(꽃향)" style="cursor:help;">Mango,<br>Oranges,<br>floral</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">85.0 AED</div>
@@ -3591,7 +3649,7 @@
   <td><div style="font-weight:500; font-size:12px; word-break:keep-all; line-height:1.25;">natural</div></td>
   <td class="text-sm font-mono col-hide-summary">2,200 masl</td>
   <td><span class="badge badge-roast" title="에소랩 공식: 푸어오버 전용 정밀 라이트 로스트">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 플로럴(꽃향), 오렌지, 베리류, 천도복숭아" style="cursor:help;">floral,<br>orange,<br>berries,<br>Nectarine</td>
+  <td class="notes-cell" title="플로럴(꽃향), 오렌지, 베리류, 천도복숭아" style="cursor:help;">floral,<br>orange,<br>berries,<br>Nectarine</td>
   <td class="text-center font-mono font-bold col-hide-summary">200g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">80.0 AED</div>
@@ -3638,7 +3696,7 @@
   <td><span class="process-tag">Natural</span></td>
   <td class="text-xs col-hide-summary">Yellow Catucai</td>
   <td><span class="badge badge-roast" title="Omni / Light-Medium Roast">Light Mid</span></td>
-  <td class="notes-cell" title="한국어 번역: 밀크 초콜릿, 헤이즐넛, 노란 자두, 카라멜 단맛" style="cursor:help;">Milk Chocolate,<br>Hazelnut,<br>Yellow Plum,<br>Caramel Sweetness</td>
+  <td class="notes-cell" title="밀크 초콜릿, 헤이즐넛, 노란 자두, 카라멜 단맛" style="cursor:help;">Milk Chocolate,<br>Hazelnut,<br>Yellow Plum,<br>Caramel Sweetness</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">76.19 AED</div>
@@ -3680,7 +3738,7 @@
   <td><span class="process-tag">Anaerobic Natural</span></td>
   <td class="text-xs col-hide-summary">Catuai / Java</td>
   <td><span class="badge badge-roast" title="Filter (Light Roast)">Light</span></td>
-  <td class="notes-cell" title="한국어 번역: 패션후르츠, 망고, 다크 체리, 흑당/황설탕, 럼" style="cursor:help;">Passionfruit,<br>Mango,<br>Dark Cherry,<br>Brown Sugar,<br>Rum</td>
+  <td class="notes-cell" title="패션후르츠, 망고, 다크 체리, 흑당/황설탕, 럼" style="cursor:help;">Passionfruit,<br>Mango,<br>Dark Cherry,<br>Brown Sugar,<br>Rum</td>
   <td class="text-center font-mono font-bold col-hide-summary">100g</td>
   <td class="text-right font-mono price-cell col-hide-summary">
             <div class="text-accent font-bold">76.19 AED</div>
@@ -4471,7 +4529,7 @@
     const parts = clean.split(/[,|/•]/).map(s => s.trim()).filter(Boolean);
     if (!parts.length) return '';
     const translated = parts.map(p => {
-      const key = p.toLowerCase().replace(/^[✨•\s]+/, '').replace(/[.\s]+$/, '').trim();
+      const key = p.toLowerCase().replace(/^[✨•🌸\s]+/, '').replace(/[.\s]+$/, '').trim();
       if (COFFEE_NOTES_TRANSLATION_MAP[key]) return COFFEE_NOTES_TRANSLATION_MAP[key];
       for (const [en, kr] of Object.entries(COFFEE_NOTES_TRANSLATION_MAP)) {
         if (key === en || key.startsWith(en + ' ') || key.endsWith(' ' + en)) {
@@ -4491,11 +4549,11 @@
     ];
     document.querySelectorAll(selectors.join(', ')).forEach(el => {
       const currentTitle = el.getAttribute('title') || '';
-      if (!currentTitle.includes('한국어')) {
+      if (!currentTitle) {
         const text = el.textContent.replace(/^[✨•🌸\s]+/, '').trim();
         const trans = getKoreanNotesTranslation(text);
         if (trans) {
-          el.setAttribute('title', '한국어 번역: ' + trans);
+          el.setAttribute('title', trans);
           el.style.cursor = 'help';
         }
       }

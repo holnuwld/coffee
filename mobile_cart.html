@@ -1055,7 +1055,7 @@
           <strong>${c.country || ''}</strong> • ${c.farm || ''} (${c.variety || ''}, ${c.process || ''})
         </div>
 
-        <div class="m-po-notes" title="한국어 번역: ${getKoreanNotesTranslation(c.notes)}" style="cursor:help;">
+        <div class="m-po-notes" title="${getKoreanNotesTranslation(c.notes)}" style="cursor:help;">
           ✨ ${c.notes || 'N/A'}
         </div>
 
@@ -1201,9 +1201,9 @@
     `;
 
     document.getElementById('mNotesBody').textContent = c.notes || 'N/A';
-    document.getElementById('mNotesBody').setAttribute('title', '한국어 번역: ' + getKoreanNotesTranslation(c.notes));
+    document.getElementById('mNotesBody').setAttribute('title',  getKoreanNotesTranslation(c.notes));
     document.getElementById('mNotesBody').style.cursor = 'help';
-    document.getElementById('mNotesBody').setAttribute('title', '한국어 번역: ' + getKoreanNotesTranslation(c.notes));
+    document.getElementById('mNotesBody').setAttribute('title',  getKoreanNotesTranslation(c.notes));
     document.getElementById('mNotesBody').style.cursor = 'help';
 
     document.getElementById('mAnalysisBody').innerHTML = `
@@ -1435,7 +1435,7 @@
     const parts = clean.split(/[,|/•]/).map(s => s.trim()).filter(Boolean);
     if (!parts.length) return '';
     const translated = parts.map(p => {
-      const key = p.toLowerCase().replace(/^[✨•\s]+/, '').replace(/[.\s]+$/, '').trim();
+      const key = p.toLowerCase().replace(/^[✨•🌸\s]+/, '').replace(/[.\s]+$/, '').trim();
       if (COFFEE_NOTES_TRANSLATION_MAP[key]) return COFFEE_NOTES_TRANSLATION_MAP[key];
       for (const [en, kr] of Object.entries(COFFEE_NOTES_TRANSLATION_MAP)) {
         if (key === en || key.startsWith(en + ' ') || key.endsWith(' ' + en)) {
@@ -1455,11 +1455,11 @@
     ];
     document.querySelectorAll(selectors.join(', ')).forEach(el => {
       const currentTitle = el.getAttribute('title') || '';
-      if (!currentTitle.includes('한국어')) {
+      if (!currentTitle) {
         const text = el.textContent.replace(/^[✨•🌸\s]+/, '').trim();
         const trans = getKoreanNotesTranslation(text);
         if (trans) {
-          el.setAttribute('title', '한국어 번역: ' + trans);
+          el.setAttribute('title', trans);
           el.style.cursor = 'help';
         }
       }

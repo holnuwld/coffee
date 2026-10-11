@@ -1959,18 +1959,18 @@
             </div>
           </div>
           <div class="tfp-preset-row" id="notePresetRow">
-            <button class="tfp-preset-btn" data-note="peach" onclick="toggleNotePreset('peach', this)" title="한국어 번역: 복숭아">Peach</button>
-            <button class="tfp-preset-btn" data-note="jasmine" onclick="toggleNotePreset('jasmine', this)" title="한국어 번역: 자스민">Jasmine</button>
-            <button class="tfp-preset-btn" data-note="bergamot" onclick="toggleNotePreset('bergamot', this)" title="한국어 번역: 베르가못">Bergamot</button>
-            <button class="tfp-preset-btn" data-note="mandarin" onclick="toggleNotePreset('mandarin', this)" title="한국어 번역: 만다린(감귤)">Mandarin</button>
-            <button class="tfp-preset-btn" data-note="orange" onclick="toggleNotePreset('orange', this)" title="한국어 번역: 오렌지">Orange</button>
-            <button class="tfp-preset-btn" data-note="papaya" onclick="toggleNotePreset('papaya', this)" title="한국어 번역: 파파야">Papaya</button>
-            <button class="tfp-preset-btn" data-note="mango" onclick="toggleNotePreset('mango', this)" title="한국어 번역: 망고">Mango</button>
-            <button class="tfp-preset-btn" data-note="yuzu" onclick="toggleNotePreset('yuzu', this)" title="한국어 번역: 유자">Yuzu</button>
-            <button class="tfp-preset-btn" data-note="floral" onclick="toggleNotePreset('floral', this)" title="한국어 번역: 플로럴(꽃향)">Floral</button>
-            <button class="tfp-preset-btn" data-note="pear" onclick="toggleNotePreset('pear', this)" title="한국어 번역: 서양배">Pear</button>
-            <button class="tfp-preset-btn" data-note="apricot" onclick="toggleNotePreset('apricot', this)" title="한국어 번역: 살구">Apricot</button>
-            <button class="tfp-preset-btn" data-note="chocolate" onclick="toggleNotePreset('chocolate', this)" title="한국어 번역: 초콜릿">Chocolate</button>
+            <button class="tfp-preset-btn" data-note="peach" onclick="toggleNotePreset('peach', this)" title="복숭아">Peach</button>
+            <button class="tfp-preset-btn" data-note="jasmine" onclick="toggleNotePreset('jasmine', this)" title="자스민">Jasmine</button>
+            <button class="tfp-preset-btn" data-note="bergamot" onclick="toggleNotePreset('bergamot', this)" title="베르가못">Bergamot</button>
+            <button class="tfp-preset-btn" data-note="mandarin" onclick="toggleNotePreset('mandarin', this)" title="만다린(감귤)">Mandarin</button>
+            <button class="tfp-preset-btn" data-note="orange" onclick="toggleNotePreset('orange', this)" title="오렌지">Orange</button>
+            <button class="tfp-preset-btn" data-note="papaya" onclick="toggleNotePreset('papaya', this)" title="파파야">Papaya</button>
+            <button class="tfp-preset-btn" data-note="mango" onclick="toggleNotePreset('mango', this)" title="망고">Mango</button>
+            <button class="tfp-preset-btn" data-note="yuzu" onclick="toggleNotePreset('yuzu', this)" title="유자">Yuzu</button>
+            <button class="tfp-preset-btn" data-note="floral" onclick="toggleNotePreset('floral', this)" title="플로럴(꽃향)">Floral</button>
+            <button class="tfp-preset-btn" data-note="pear" onclick="toggleNotePreset('pear', this)" title="서양배">Pear</button>
+            <button class="tfp-preset-btn" data-note="apricot" onclick="toggleNotePreset('apricot', this)" title="살구">Apricot</button>
+            <button class="tfp-preset-btn" data-note="chocolate" onclick="toggleNotePreset('chocolate', this)" title="초콜릿">Chocolate</button>
           </div>
         </div>
 
@@ -2189,7 +2189,8 @@
   let currentYMetric = 'total'; // 'total', 'taste', 'rarity', 'price'
   let currentShapeMode = 'default'; // 'default', 'country', 'process', 'altitude'
   let currentOriginFilter = 'all'; // 'all', 'Ethiopia', 'Panama', 'Colombia', 'Other'
-  let currentProcessFilter = 'all'; // 'all', 'Washed', 'Natural', 'Anaerobic/Fermented', 'Honey'
+  let currentProcessFilter = 'all'; // backward compatibility
+  const selectedProcessFilters = new Set(); // Multi-select Set: 'Washed', 'Natural', 'Anaerobic/Fermented', 'Honey', 'Other'
   let activeGroups = new Set(['competition', 'reserve', 'selection', 'esolab']);
   let searchQuery = '';
   let selectedCoffeeId = null;
@@ -2353,7 +2354,9 @@
       }
 
       // 3. Process quick filter
-      if (currentProcessFilter !== 'all') {
+      if (selectedProcessFilters.size > 0) {
+        if (!selectedProcessFilters.has(c.process_cat)) return false;
+      } else if (currentProcessFilter !== 'all') {
         if (c.process_cat !== currentProcessFilter) return false;
       }
 
@@ -2832,7 +2835,11 @@
     if (sub) {
       let filterDesc = [];
       if (currentOriginFilter !== 'all') filterDesc.push(`원산지:${currentOriginFilter}`);
-      if (currentProcessFilter !== 'all') filterDesc.push(`가공:${currentProcessFilter}`);
+      if (selectedProcessFilters.size > 0) {
+        filterDesc.push(`가공:${Array.from(selectedProcessFilters).join(',')}`);
+      } else if (currentProcessFilter !== 'all') {
+        filterDesc.push(`가공:${currentProcessFilter}`);
+      }
       if (selectedPresetNotes.size > 0) {
         filterDesc.push(`선택노트:${Array.from(selectedPresetNotes).join(',')}(${noteMatchMode.toUpperCase()})`);
       }
@@ -2973,8 +2980,8 @@
             <strong style="word-break:keep-all;" class="${c.is_today_new ? 'today-new-coffee-title' : ''}">${c.title}</strong>${c.is_today_new ? '<span class="badge-new-date">' + (c.release_date || '1008') + '</span>' : ''}
           </td>
           <td>${c.country}</td>
-          <td><span style="font-size:11.5px; font-weight:600; ${currentProcessFilter !== 'all' ? 'color:var(--accent-blue); font-weight:800;' : ''}">${c.process}</span></td>
-          <td class="analytics-notes-cell" title="한국어 번역: ${getKoreanNotesTranslation(c.tasting_notes)}" style="font-size:11.5px; color:var(--text-secondary); cursor:help; max-width:260px;">✨ ${formatNotesHighlight(c.tasting_notes)}</td>
+          <td><span style="font-size:11.5px; font-weight:600; ${(selectedProcessFilters.has(c.process_cat) || (selectedProcessFilters.size === 0 && currentProcessFilter === c.process_cat)) ? 'color:var(--accent-blue); font-weight:800;' : ''}">${c.process}</span></td>
+          <td class="analytics-notes-cell" title="${getKoreanNotesTranslation(c.tasting_notes)}" style="font-size:11.5px; color:var(--text-secondary); cursor:help; max-width:260px;">✨ ${formatNotesHighlight(c.tasting_notes)}</td>
           <td style="font-family:monospace; ${hasPriceF ? 'color:var(--accent-gold); font-weight:800;' : 'font-weight:700;'}">${c.price_100g_aed} AED</td>
           <td style="font-family:monospace; color:var(--accent-blue); ${hasTasteF ? 'font-weight:800; text-decoration:underline;' : ''}">${c.score_taste}</td>
           <td style="font-family:monospace; color:var(--accent-green); ${hasPriceScoreF ? 'font-weight:800; text-decoration:underline;' : ''}">${c.score_price}</td>
@@ -3054,17 +3061,22 @@
       tags.push({ key: 'note', text: `🔍 컵노트검색: "${noteFilterQuery}"` });
     }
 
-    // Process Filter Tag
-    if (currentProcessFilter !== 'all') {
-      const procKoNames = {
-        'Washed': '워시드',
-        'Natural': '내추럴',
-        'Anaerobic/Fermented': '무산소/발효',
-        'Honey': '허니',
-        'Other': '기타'
-      };
+    // Process Filter Tags (Multi-select)
+    const procKoNames = {
+      'Washed': '워시드',
+      'Natural': '내추럴',
+      'Anaerobic/Fermented': '무산소/발효',
+      'Honey': '허니',
+      'Other': '기타'
+    };
+    if (selectedProcessFilters.size > 0) {
+      selectedProcessFilters.forEach(proc => {
+        const pKo = procKoNames[proc] || proc;
+        tags.push({ key: 'process_' + proc, text: `⚙️ 가공: ${pKo}` });
+      });
+    } else if (currentProcessFilter !== 'all') {
       const pKo = procKoNames[currentProcessFilter] || currentProcessFilter;
-      tags.push({ key: 'process', text: `⚙️ 가공: ${pKo}` });
+      tags.push({ key: 'process_' + currentProcessFilter, text: `⚙️ 가공: ${pKo}` });
     }
 
     if (tags.length === 0) {
@@ -3173,8 +3185,48 @@
     updateAll();
   }
 
+  function toggleTfpProcessFilter(proc) {
+    if (proc === 'all') {
+      selectedProcessFilters.clear();
+      currentProcessFilter = 'all';
+    } else {
+      if (selectedProcessFilters.has(proc)) {
+        selectedProcessFilters.delete(proc);
+      } else {
+        selectedProcessFilters.add(proc);
+      }
+      currentProcessFilter = selectedProcessFilters.size === 1 ? Array.from(selectedProcessFilters)[0] : (selectedProcessFilters.size === 0 ? 'all' : 'multi');
+    }
+    syncProcessButtonsUI();
+    updateAll();
+  }
+
   function setTfpProcessFilter(proc, btn) {
-    setProcessFilter(proc, btn);
+    toggleTfpProcessFilter(proc);
+  }
+
+  function syncProcessButtonsUI() {
+    const isAll = selectedProcessFilters.size === 0 && currentProcessFilter === 'all';
+    document.querySelectorAll('#tfpProcessBtnGroup .tfp-preset-btn').forEach(b => {
+      const p = b.getAttribute('data-proc');
+      if (p === 'all') {
+        b.classList.toggle('active', isAll);
+      } else {
+        b.classList.toggle('active', selectedProcessFilters.has(p));
+      }
+    });
+    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => {
+      const onclickAttr = b.getAttribute('onclick') || '';
+      if (onclickAttr.includes("'all'")) {
+        b.classList.toggle('active', isAll);
+      } else {
+        let matched = false;
+        selectedProcessFilters.forEach(p => {
+          if (onclickAttr.includes(`'${p}'`)) matched = true;
+        });
+        b.classList.toggle('active', matched);
+      }
+    });
   }
 
   // Preset Button Handler
@@ -3225,8 +3277,16 @@
       clearNoteInput();
       return;
     }
+    if (key.startsWith('process_')) {
+      const proc = key.replace('process_', '');
+      toggleTfpProcessFilter(proc);
+      return;
+    }
     if (key === 'process') {
-      setProcessFilter('all');
+      selectedProcessFilters.clear();
+      currentProcessFilter = 'all';
+      syncProcessButtonsUI();
+      updateAll();
       return;
     }
     rangeFilters[key] = { min: null, max: null };
@@ -3296,13 +3356,9 @@
     if (nClearBtn) nClearBtn.style.display = 'none';
 
     // Reset process filter to 'all'
+    selectedProcessFilters.clear();
     currentProcessFilter = 'all';
-    document.querySelectorAll('#tfpProcessBtnGroup .tfp-preset-btn').forEach(b => {
-      b.classList.toggle('active', b.getAttribute('data-proc') === 'all');
-    });
-    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => {
-      b.classList.toggle('active', (b.getAttribute('onclick') || '').includes("'all'"));
-    });
+    syncProcessButtonsUI();
 
     document.querySelectorAll('.tfp-preset-btn:not(#tfpProcessBtnGroup .tfp-preset-btn):not(#notePresetRow .tfp-preset-btn)').forEach(b => b.classList.remove('active'));
     updateAll();
@@ -3371,15 +3427,7 @@
   }
 
   function setProcessFilter(proc, btn) {
-    currentProcessFilter = proc;
-    document.querySelectorAll('#processFilterGroup .ctrl-btn').forEach(b => {
-      const onclickAttr = b.getAttribute('onclick') || '';
-      b.classList.toggle('active', onclickAttr.includes(`'${proc}'`));
-    });
-    document.querySelectorAll('#tfpProcessBtnGroup .tfp-preset-btn').forEach(b => {
-      b.classList.toggle('active', b.getAttribute('data-proc') === proc);
-    });
-    updateAll();
+    toggleTfpProcessFilter(proc);
   }
 
   function toggleGroupFilter(groupKey, chip) {
@@ -3454,8 +3502,8 @@
     document.getElementById('modalPrice100g').textContent = `${c.price_100g_aed} AED (~${c.price_100g_krw.toLocaleString()}원)`;
 
     const notesHtml = c.notes_list.length > 0 
-      ? c.notes_list.map(n => `<span class="note-tag" title="한국어 번역: ${getKoreanNotesTranslation(n)}" style="cursor:help;">${n}</span>`).join('')
-      : `<span style="color:var(--text-muted); font-size:12px; cursor:help;" title="한국어 번역: ${getKoreanNotesTranslation(c.tasting_notes)}">${c.tasting_notes}</span>`;
+      ? c.notes_list.map(n => `<span class="note-tag" title="${getKoreanNotesTranslation(n)}" style="cursor:help;">${n}</span>`).join('')
+      : `<span style="color:var(--text-muted); font-size:12px; cursor:help;" title="${getKoreanNotesTranslation(c.tasting_notes)}">${c.tasting_notes}</span>`;
     document.getElementById('modalNotesList').innerHTML = notesHtml;
 
     document.getElementById('modalKoreaStatus').textContent = c.korea_status;
@@ -3837,7 +3885,7 @@
     const parts = clean.split(/[,|/•]/).map(s => s.trim()).filter(Boolean);
     if (!parts.length) return '';
     const translated = parts.map(p => {
-      const key = p.toLowerCase().replace(/^[✨•\s]+/, '').replace(/[.\s]+$/, '').trim();
+      const key = p.toLowerCase().replace(/^[✨•🌸\s]+/, '').replace(/[.\s]+$/, '').trim();
       if (COFFEE_NOTES_TRANSLATION_MAP[key]) return COFFEE_NOTES_TRANSLATION_MAP[key];
       for (const [en, kr] of Object.entries(COFFEE_NOTES_TRANSLATION_MAP)) {
         if (key === en || key.startsWith(en + ' ') || key.endsWith(' ' + en)) {
@@ -3857,11 +3905,11 @@
     ];
     document.querySelectorAll(selectors.join(', ')).forEach(el => {
       const currentTitle = el.getAttribute('title') || '';
-      if (!currentTitle.includes('한국어')) {
+      if (!currentTitle) {
         const text = el.textContent.replace(/^[✨•🌸\s]+/, '').trim();
         const trans = getKoreanNotesTranslation(text);
         if (trans) {
-          el.setAttribute('title', '한국어 번역: ' + trans);
+          el.setAttribute('title', trans);
           el.style.cursor = 'help';
         }
       }
