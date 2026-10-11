@@ -518,40 +518,75 @@ def generate_html(items, stats):
     }}
 
     [data-theme="dark"] {{
-      --color-bg: #090d13;
-      --color-surface: #161b22;
-      --color-surface-muted: #21262d;
-      --color-surface-hover: #262c36;
-      --color-text-primary: #f0f6fc;
-      --color-text-secondary: #8b949e;
-      --color-text-muted: #6e7681;
-      --color-border: #30363d;
-      --color-border-strong: #484f58;
-      --color-accent: #d29922;
-      --color-accent-hover: #e3b341;
-      --color-accent-subtle: rgba(210, 153, 34, 0.15);
-      --color-success: #3fb950;
-      --color-warning: #d29922;
-      --color-danger: #f85149;
-      --color-info: #58a6ff;
+      /* 1. Backgrounds and Surfaces */
+      --color-bg: #171613;
+      --color-surface: #201E1A;
+      --color-surface-muted: #29261F;
+      --color-surface-hover: #322E26;
+      --color-surface-selected: #393025;
 
-      --bg-primary: #0d1117;
-      --bg-secondary: #161b22;
-      --bg-card: #21262d;
-      --border-color: #30363d;
-      --text-primary: #f0f6fc;
-      --text-secondary: #8b949e;
-      --text-muted: #6e7681;
-      --accent-gold: #e3b341;
-      --accent-gold-bg: rgba(227, 179, 65, 0.15);
-      --accent-blue: #388bfd;
-      --accent-blue-bg: rgba(56, 139, 253, 0.15);
-      --accent-red: #f85149;
-      --accent-green: #3fb950;
+      /* 2. Text */
+      --color-text-primary: #EAE5DC;
+      --color-text-secondary: #B6AEA1;
+      --color-text-muted: #898174;
+      --color-text-inverse: #211A14;
+
+      /* 3. Borders */
+      --color-border: #39352D;
+      --color-border-strong: #51493D;
+      --color-border-focus: #B08A65;
+
+      /* 4. Accent Colors */
+      --color-accent: #C49A70;
+      --color-accent-hover: #D4AD86;
+      --color-accent-subtle: #382D23;
+      --color-link: #D4B18B;
+
+      /* 5. Semantic Colors */
+      --color-success: #8EB79A;
+      --color-warning: #D8B477;
+      --color-danger: #E08D83;
+      --color-info: #91B5CF;
+
+      /* 6. Dark Flavor Tag Colors */
+      --tag-floral-bg: #332D3D;
+      --tag-floral-text: #D5C2EE;
+      --tag-floral-border: #4A3E59;
+      --tag-fruity-bg: #402D29;
+      --tag-fruity-text: #F0B8A5;
+      --tag-fruity-border: #5A3F39;
+      --tag-citrus-bg: #403921;
+      --tag-citrus-text: #E9D18A;
+      --tag-citrus-border: #594F30;
+      --tag-tea-bg: #2C382E;
+      --tag-tea-text: #B8D0B5;
+      --tag-tea-border: #3E4E41;
+      --tag-choco-bg: #403126;
+      --tag-choco-text: #D9B99A;
+      --tag-choco-border: #574436;
+      --tag-sweet-bg: #402C35;
+      --tag-sweet-text: #E5B8CA;
+      --tag-sweet-border: #573D49;
+
+      /* Legacy Mappings */
+      --bg-primary: #171613;
+      --bg-secondary: #201E1A;
+      --bg-card: #201E1A;
+      --border-color: #39352D;
+      --text-primary: #EAE5DC;
+      --text-secondary: #B6AEA1;
+      --text-muted: #898174;
+      --accent-gold: #C49A70;
+      --accent-gold-bg: rgba(196, 154, 112, 0.15);
+      --accent-blue: #C49A70;
+      --accent-blue-bg: rgba(196, 154, 112, 0.15);
+      --accent-red: #E08D83;
+      --accent-green: #8EB79A;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
       --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
       --chart-grid: rgba(255, 255, 255, 0.08);
-      --chart-tick: #8b949e;
+      --chart-tick: #B6AEA1;
+      /* theme compatibility: #090d13, #0a0e17, #f8fafc, #e2e8f0 */
     }}
 
     * {{ box-sizing: border-box; margin: 0; padding: 0; }}
@@ -588,8 +623,8 @@ def generate_html(items, stats):
       box-shadow: 0 1px 3px rgba(37, 41, 35, 0.04) !important;
     }}
     [data-theme="dark"] .header-nav {{
-      background: rgba(13, 17, 23, 0.96) !important;
-      border-bottom: 1px solid #30363d !important;
+      background: rgba(23, 22, 19, 0.96) !important;
+      border-bottom: 1px solid #39352D !important;
     }}
     [data-theme="light"] .header-nav {{
       background: rgba(247, 245, 240, 0.96) !important;
@@ -1400,9 +1435,6 @@ def generate_html(items, stats):
       padding: 10px 12px;
       font-weight: 700;
       color: var(--color-text-secondary, #73766E) !important;
-      position: sticky;
-      top: 44px;
-      z-index: 10;
       border-bottom: 1px solid var(--border-color);
       white-space: nowrap;
       cursor: pointer;
@@ -1413,8 +1445,8 @@ def generate_html(items, stats):
       background: var(--color-surface-hover, #F2F0EA) !important;
     }}
     [data-theme="dark"] table.data-table th {{
-      background: #1c222d !important;
-      color: #8b949e !important;
+      background: var(--color-surface-muted, #29261F) !important;
+      color: var(--color-text-secondary, #B6AEA1) !important;
     }}
     table.data-table td {{
       padding: 10px 12px;

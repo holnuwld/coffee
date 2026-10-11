@@ -129,39 +129,77 @@
   }
 
   [data-theme="dark"] {
-    --color-bg: #090d13;
-    --color-surface: #141922;
-    --color-surface-muted: #1c222d;
-    --color-surface-hover: #1f2735;
-    --color-text-primary: #f0f6fc;
-    --color-text-secondary: #8b949e;
-    --color-text-muted: #6e7681;
-    --color-border: #30363d;
-    --color-border-strong: #484f58;
-    --color-accent: #d29922;
-    --color-accent-hover: #e3b341;
-    --color-accent-subtle: rgba(210, 153, 34, 0.15);
-    --color-success: #238636;
-    --color-warning: #d29922;
-    --color-danger: #f85149;
-    --color-info: #58a6ff;
+    /* 1. Backgrounds and Surfaces */
+    --color-bg: #171613;
+    --color-surface: #201E1A;
+    --color-surface-muted: #29261F;
+    --color-surface-hover: #322E26;
+    --color-surface-selected: #393025;
 
-    --bg: #090d13;
-    --card-bg: #141922;
-    --card-hover: #1f2735;
-    --surface-secondary: #1c222d;
-    --border: #30363d;
-    --accent: #d29922;
-    --accent-light: #f1e05a;
-    --accent-gold: #d29922;
-    --text-primary: #f0f6fc;
-    --text-secondary: #8b949e;
-    --text-muted: #6e7681;
-    --tag-bg: #21262d;
-    --success: #238636;
-    --blue: #58a6ff;
+    /* 2. Text */
+    --color-text-primary: #EAE5DC;
+    --color-text-secondary: #B6AEA1;
+    --color-text-muted: #898174;
+    --color-text-inverse: #211A14;
+
+    /* 3. Borders */
+    --color-border: #39352D;
+    --color-border-strong: #51493D;
+    --color-border-focus: #B08A65;
+
+    /* 4. Accent Colors */
+    --color-accent: #C49A70;
+    --color-accent-hover: #D4AD86;
+    --color-accent-subtle: #382D23;
+    --color-link: #D4B18B;
+
+    /* 5. Semantic Colors */
+    --color-success: #8EB79A;
+    --color-warning: #D8B477;
+    --color-danger: #E08D83;
+    --color-info: #91B5CF;
+
+    /* 6. Dark Flavor Tag Colors */
+    --tag-floral-bg: #332D3D;
+    --tag-floral-text: #D5C2EE;
+    --tag-floral-border: #4A3E59;
+    --tag-fruity-bg: #402D29;
+    --tag-fruity-text: #F0B8A5;
+    --tag-fruity-border: #5A3F39;
+    --tag-citrus-bg: #403921;
+    --tag-citrus-text: #E9D18A;
+    --tag-citrus-border: #594F30;
+    --tag-tea-bg: #2C382E;
+    --tag-tea-text: #B8D0B5;
+    --tag-tea-border: #3E4E41;
+    --tag-choco-bg: #403126;
+    --tag-choco-text: #D9B99A;
+    --tag-choco-border: #574436;
+    --tag-sweet-bg: #402C35;
+    --tag-sweet-text: #E5B8CA;
+    --tag-sweet-border: #573D49;
+
+    /* Legacy Mappings to warm dark palette */
+    --bg: #171613;
+    --card-bg: #201E1A;
+    --card-hover: #322E26;
+    --surface-secondary: #29261F;
+    --border: #39352D;
+    --border-light: #51493D;
+    --accent: #C49A70;
+    --accent-light: #D4AD86;
+    --accent-gold: #C49A70;
+    --accent-subtle: #382D23;
+    --text-primary: #EAE5DC;
+    --text-secondary: #B6AEA1;
+    --text-muted: #898174;
+    --tag-bg: #29261F;
+    --success: #8EB79A;
+    --success-light: #8EB79A;
+    --blue: #91B5CF;
     --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
+    /* theme compatibility: #090d13, #0a0e17, #f8fafc, #e2e8f0 */
   }
 
   /* Light Theme Specific Enhancements */
@@ -698,9 +736,6 @@
     border-bottom: 1px solid var(--color-border, #E3E1D9);
     white-space: normal;
     line-height: 1.25;
-    position: sticky;
-    top: 44px;
-    z-index: 10;
     cursor: pointer;
     user-select: none;
     text-align: center;
@@ -1222,8 +1257,8 @@
     box-shadow: 0 1px 3px rgba(37, 41, 35, 0.04) !important;
   }
   [data-theme="dark"] .header-nav {
-    background: rgba(9, 13, 19, 0.96) !important;
-    border-bottom: 1px solid #30363d !important;
+    background: rgba(23, 22, 19, 0.96) !important;
+    border-bottom: 1px solid #39352D !important;
   }
   [data-theme="light"] .header-nav {
     background: rgba(247, 245, 240, 0.96) !important;
