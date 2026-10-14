@@ -3620,12 +3620,14 @@
   function openCartPage() {
     const items = getSelectedCoffees();
     if (items.length > 0) {
-      // Automatically save selected items before opening
       try {
         localStorage.setItem('coffee_cart', JSON.stringify(items));
       } catch (e) {}
+      const handles = items.map(c => encodeURIComponent(c.handle || c.title)).filter(Boolean).join(',');
+      window.location.href = 'cart.html?items=' + handles;
+    } else {
+      window.location.href = 'cart.html';
     }
-    window.location.href = 'cart.html';
   }
 
   function showToast(msg) {

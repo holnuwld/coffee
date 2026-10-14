@@ -33,10 +33,11 @@
 | [`theespressolab_verified.html`](theespressolab_verified.html) | 데스크톱 | 에소랩 56종 대시보드 | 아처스와 100% 동일한 에디토리얼 레이아웃, 요약보기/전체보기 토글, Best 3 추천 |
 | [`theespressolab_mobile.html`](theespressolab_mobile.html) | 모바일 | 에소랩 모바일 뷰 | 터치 카드 뷰, 실물 패키지 라이트박스 |
 | [`analytics.html`](analytics.html) | 데스크톱 | 통합 애널리틱스 대시보드 | 202종 다각도 통계 차트, 가공 프로세스 다중 선택(Multi-select), 컵노트 프리셋 필터, 로스터리 2줄 표기 & 공식몰 링크 |
-| [`cart.html`](cart.html) | 데스크톱 | 현지 구매 발주서 (PO Sheet) | 실시간 견적, A4 인쇄/PDF 저장, 메신저 텍스트 복사, 불변 동결 스냅샷 링크(`?snapshot=...`) |
-| [`mobile_cart.html`](mobile_cart.html) | 모바일 | 모바일 현지 구매 발주서 | 현지 매장 방문 시 빠른 주문 확인용 모바일 최적화 발주서 |
+| [`cart.html`](cart.html) | 데스크톱 | 현지 구매 발주서 (PO Sheet) | 실시간 견적, A4 인쇄/PDF 저장, 메신저 텍스트 복사, 202종 전수 공유 링크(`?items=...`), 주소창 자동 동기화(`history.replaceState`) |
+| [`mobile_cart.html`](mobile_cart.html) | 모바일 | 모바일 현지 구매 발주서 | 현지 매장 방문 시 빠른 주문 확인용 모바일 최적화 발주서, 202종 전수 공유 링크(`?items=...`), 주소창 자동 동기화 |
 
 ### 2) 데이터 및 설정 파일
+- `scratch/complete_master_coffees.json`: 202종 통합 마스터 데이터셋 (Archers 146종 + The Espresso Lab 56종 전수 핸들 일치)
 - `espresso_lab_pipeline/coffees_full_dataset.json`: 에스프레소랩 56종 정규 데이터셋
 - `standardized_comp2025.json`, `standardized_microReserve2025.json`, `standardized_micro2026.json`: 아처스 컬렉션별 정규 데이터셋
 - `top_20_curation.json`: 2대 로스터리 통합 100g TOP 20 및 엄선 10선 큐레이션 데이터
@@ -44,6 +45,7 @@
 - `scratch/live_espressolab_products.json`: 에소랩 공식 몰 실시간 크롤링 원본 (74개 품목)
 
 ### 3) 검증 스크립트 (Verification Suites)
+- `scratch/verify_cart_sharing.py`: 202종 장바구니 URL 공유 및 주소창 자동 동기화 복원 기계적 검증기 (30/30 항목 100% PASS)
 - `scratch/verify_latest_requests.py`: 최신 요구사항 기계적 검증기 (29/29 항목)
 - `scratch/verify_font_sync.py`: 폰트 및 타이포그래피 일치성 검증기 (19/19 항목)
 - `verify_quotes.py`: 원두 스펙 팩트 인용문 전수 검증기 (513건 100% PASS)
@@ -199,8 +201,9 @@
 2. **기계적 검증기(Verification Suite) 실행 의무**:
    - 코드를 수정하거나 새로운 기능을 추가한 후에는 반드시 아래 검증 스크립트를 실행하여 100% 통과(0 Failed)를 확인해야 합니다.
      ```bash
-     uv run python scratch/verify_latest_requests.py
-     uv run python scratch/verify_font_sync.py
+     python scratch/verify_cart_sharing.py
+     python scratch/verify_latest_requests.py
+     python scratch/verify_font_sync.py
      ```
 3. **디자인 일관성 준수**:
    - 에소랩 페이지의 레이아웃, 여백, 컴포넌트 구조는 아처스 대시보드와 항상 일치해야 합니다.
